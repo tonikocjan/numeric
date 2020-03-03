@@ -32,10 +32,10 @@ class VectorTests: XCTestCase {
   }
   
   func testEquatable() {
-    XCTAssertTrue(Vector<Double>() == Vector<Double>())
-    XCTAssertFalse(Vector<Double>() == Vector<Double>(size: 1))
-    XCTAssertTrue(Vector<Double>(arrayLiteral: [1, 2, 3]) == Vector<Double>(arrayLiteral: [1, 2, 3]))
-    XCTAssertFalse(Vector<Double>(arrayLiteral: [1, 2, 3]) == Vector<Double>(arrayLiteral: [1, 3, 3]))
+    XCTAssertEqual(Vector<Double>(), Vector<Double>())
+    XCTAssertNotEqual(Vector<Double>(), Vector<Double>(size: 1))
+    XCTAssertEqual(Vector<Double>(arrayLiteral: [1, 2, 3]), Vector<Double>(arrayLiteral: [1, 2, 3]))
+    XCTAssertNotEqual(Vector<Double>(arrayLiteral: [1, 2, 3]), Vector<Double>(arrayLiteral: [1, 3, 3]))
   }
   
   func testArithmetic() {

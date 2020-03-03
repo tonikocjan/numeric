@@ -18,3 +18,7 @@ print(matrix)
 
 print(matrix[0])
 print(matrix[0, 0])
+
+func test<M: MatrixProtocol>(_ m: M) {
+  m[10]
+}

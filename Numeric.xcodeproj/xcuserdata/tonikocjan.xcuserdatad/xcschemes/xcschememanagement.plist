@@ -11,6 +11,8 @@
 		</dict>
 		<key>NumericTests.xcscheme_^#shared#^_</key>
 		<dict>
+			<key>isShown</key>
+			<false/>
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
@@ -18,6 +20,11 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>37441DB4240E9EFF00F982FF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>37441DC7240E9F3300F982FF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
