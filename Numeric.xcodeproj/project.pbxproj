@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		37441DB9240E9EFF00F982FF /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37441DB8240E9EFF00F982FF /* main.swift */; };
+		37441DC1240E9F0E00F982FF /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37441DC0240E9F0E00F982FF /* Vector.swift */; };
+		37441DC3240E9F1500F982FF /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37441DC2240E9F1500F982FF /* Matrix.swift */; };
+		37441DD1240E9F4600F982FF /* VectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37441DD0240E9F4600F982FF /* VectorTests.swift */; };
+		37441DD2240EA05800F982FF /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37441DC0240E9F0E00F982FF /* Vector.swift */; };
+		37441DD3240EA05800F982FF /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37441DC2240E9F1500F982FF /* Matrix.swift */; };
+		37441DD6240EACE100F982FF /* MatrixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37441DD5240EACE100F982FF /* MatrixTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,10 +31,23 @@
 /* Begin PBXFileReference section */
 		37441DB5240E9EFF00F982FF /* Numeric */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Numeric; sourceTree = BUILT_PRODUCTS_DIR; };
 		37441DB8240E9EFF00F982FF /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		37441DC0240E9F0E00F982FF /* Vector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vector.swift; sourceTree = "<group>"; };
+		37441DC2240E9F1500F982FF /* Matrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
+		37441DC8240E9F3300F982FF /* NumericTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NumericTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		37441DCC240E9F3300F982FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		37441DD0240E9F4600F982FF /* VectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VectorTests.swift; sourceTree = "<group>"; };
+		37441DD5240EACE100F982FF /* MatrixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		37441DB2240E9EFF00F982FF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		37441DC5240E9F3300F982FF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -42,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				37441DB7240E9EFF00F982FF /* Numeric */,
+				37441DC9240E9F3300F982FF /* NumericTests */,
 				37441DB6240E9EFF00F982FF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -50,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				37441DB5240E9EFF00F982FF /* Numeric */,
+				37441DC8240E9F3300F982FF /* NumericTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -57,9 +78,29 @@
 		37441DB7240E9EFF00F982FF /* Numeric */ = {
 			isa = PBXGroup;
 			children = (
+				37441DBF240E9F0600F982FF /* Lib */,
 				37441DB8240E9EFF00F982FF /* main.swift */,
 			);
 			path = Numeric;
+			sourceTree = "<group>";
+		};
+		37441DBF240E9F0600F982FF /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				37441DC0240E9F0E00F982FF /* Vector.swift */,
+				37441DC2240E9F1500F982FF /* Matrix.swift */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		37441DC9240E9F3300F982FF /* NumericTests */ = {
+			isa = PBXGroup;
+			children = (
+				37441DCC240E9F3300F982FF /* Info.plist */,
+				37441DD0240E9F4600F982FF /* VectorTests.swift */,
+				37441DD5240EACE100F982FF /* MatrixTests.swift */,
+			);
+			path = NumericTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -82,6 +123,23 @@
 			productReference = 37441DB5240E9EFF00F982FF /* Numeric */;
 			productType = "com.apple.product-type.tool";
 		};
+		37441DC7240E9F3300F982FF /* NumericTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 37441DCD240E9F3300F982FF /* Build configuration list for PBXNativeTarget "NumericTests" */;
+			buildPhases = (
+				37441DC4240E9F3300F982FF /* Sources */,
+				37441DC5240E9F3300F982FF /* Frameworks */,
+				37441DC6240E9F3300F982FF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NumericTests;
+			productName = NumericTests;
+			productReference = 37441DC8240E9F3300F982FF /* NumericTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -94,6 +152,10 @@
 				TargetAttributes = {
 					37441DB4240E9EFF00F982FF = {
 						CreatedOnToolsVersion = 11.3.1;
+					};
+					37441DC7240E9F3300F982FF = {
+						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1130;
 					};
 				};
 			};
@@ -111,16 +173,40 @@
 			projectRoot = "";
 			targets = (
 				37441DB4240E9EFF00F982FF /* Numeric */,
+				37441DC7240E9F3300F982FF /* NumericTests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		37441DC6240E9F3300F982FF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		37441DB1240E9EFF00F982FF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37441DC1240E9F0E00F982FF /* Vector.swift in Sources */,
 				37441DB9240E9EFF00F982FF /* main.swift in Sources */,
+				37441DC3240E9F1500F982FF /* Matrix.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		37441DC4240E9F3300F982FF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37441DD6240EACE100F982FF /* MatrixTests.swift in Sources */,
+				37441DD2240EA05800F982FF /* Vector.swift in Sources */,
+				37441DD1240E9F4600F982FF /* VectorTests.swift in Sources */,
+				37441DD3240EA05800F982FF /* Matrix.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +344,43 @@
 			};
 			name = Release;
 		};
+		37441DCE240E9F3300F982FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = NumericTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = TSS.NumericTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		37441DCF240E9F3300F982FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = NumericTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = TSS.NumericTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -275,6 +398,15 @@
 			buildConfigurations = (
 				37441DBD240E9EFF00F982FF /* Debug */,
 				37441DBE240E9EFF00F982FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		37441DCD240E9F3300F982FF /* Build configuration list for PBXNativeTarget "NumericTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				37441DCE240E9F3300F982FF /* Debug */,
+				37441DCF240E9F3300F982FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
