@@ -20,8 +20,14 @@ protocol MatrixProtocol: ExpressibleByArrayLiteral, Equatable, BidirectionalColl
   init(arrayLiteral elements: [Vector<Value>])
   init(arrayLiteral elements: Vector<Value>...)
   
-  subscript(_ i: Int, _ j: Int) -> Value { get set }
-  subscript(_ i: Int) -> Vector<Value> { get set }
+  subscript(_ i: Int, _ j: Int) -> Value { get mutating set }
+  subscript(_ i: Int) -> Vector<Value> { get mutating set }
+  
+  static func identity(_ size: Int) -> Self
+  static func zeros(width: Int, height: Int) -> Self
+  static func ones(width: Int, height: Int) -> Self
+  
+  mutating func swap(row: Int, col: Int)
 }
 
 struct Matrix<T: Mathable>: MatrixProtocol {
@@ -34,14 +40,16 @@ struct Matrix<T: Mathable>: MatrixProtocol {
   init(width: Int, height: Int) {
     self.width = width
     self.height = height
-    self.buffer = UnsafeMutablePointer<Vector<T>>.allocate(capacity: height)
-    self.buffer.assign(repeating: Vector<T>(size: width), count: height)
+    self.buffer = UnsafeMutablePointer.allocate(capacity: height)
+    for i in 0..<height {
+      buffer.advanced(by: i).assign(repeating: Vector(size: width), count: 1)
+    }
   }
   
   init(arrayLiteral elements: Vector<T>...) {
     self.height = elements.count
     self.width = elements.first?.count ?? 0
-    self.buffer = UnsafeMutablePointer<Vector<T>>.allocate(capacity: height)
+    self.buffer = UnsafeMutablePointer.allocate(capacity: height)
     for (i, el) in elements.enumerated() {
       buffer.advanced(by: i).assign(repeating: el, count: 1)
     }
@@ -50,13 +58,14 @@ struct Matrix<T: Mathable>: MatrixProtocol {
   init(arrayLiteral elements: [Vector<T>]) {
     self.height = elements.count
     self.width = elements.first?.count ?? 0
-    self.buffer = UnsafeMutablePointer<Vector<T>>.allocate(capacity: height)
+    self.buffer = UnsafeMutablePointer.allocate(capacity: height)
     for (i, el) in elements.enumerated() {
       buffer.advanced(by: i).assign(repeating: el, count: 1)
     }
   }
 }
 
+// MARK: - API
 extension Matrix {
   subscript(_ i: Int, _ j: Int) -> T {
     get {
@@ -69,6 +78,38 @@ extension Matrix {
       assert(j < width)
       self[i][j] = newValue
     }
+  }
+  
+  var transposed: Self {
+    var transposed = Matrix(width: height, height: width)
+    for i in 0..<height {
+      for j in 0..<width {
+        transposed[j, i] = self[i, j]
+      }
+    }
+    return transposed
+  }
+  
+  mutating func swap(row: Int, col: Int) {
+    let tmp = buffer.advanced(by: row).pointee
+    buffer.advanced(by: row).assign(from: buffer.advanced(by: col), count: 1)
+    buffer.advanced(by: col).assign(repeating: tmp, count: 1)
+  }
+  
+  static func identity(_ size: Int) -> Self {
+    Matrix(arrayLiteral: (0..<size).map {
+      var vec = Vector.repeating(size, value: Value.zero)
+      vec[$0] = 1
+      return vec
+    })
+  }
+  
+  static func zeros(width: Int, height: Int) -> Self {
+    Matrix(arrayLiteral: (0..<height).map { _ in .zeros(width) })
+  }
+  
+  static func ones(width: Int, height: Int) -> Self {
+    Matrix(arrayLiteral: (0..<height).map { _ in .ones(width) })
   }
 }
 
@@ -115,6 +156,38 @@ extension Matrix: CustomStringConvertible where T: LosslessStringConvertible {
 
 /// Math
 
+func +<M: MatrixProtocol>(_ m: M, _ val: M.Value) -> M {
+  M(arrayLiteral: m.map { $0 + val })
+}
+
+func -<M: MatrixProtocol>(_ m: M, _ val: M.Value) -> M {
+  M(arrayLiteral: m.map { $0 - val })
+}
+
+func *<M: MatrixProtocol>(_ m: M, _ val: M.Value) -> M {
+  M(arrayLiteral: m.map { $0 * val })
+}
+
+func /<M: MatrixProtocol>(_ m: M, _ val: M.Value) -> M {
+  M(arrayLiteral: m.map { $0 / val })
+}
+
+func +<M: MatrixProtocol>(_ val: M.Value, _ m: M) -> M {
+  M(arrayLiteral: m.map { $0 + val })
+}
+
+func -<M: MatrixProtocol>(_ val: M.Value, _ m: M) -> M {
+  M(arrayLiteral: m.map { $0 - val })
+}
+
+func *<M: MatrixProtocol>(_ val: M.Value, _ m: M) -> M {
+  M(arrayLiteral: m.map { $0 * val })
+}
+
+func /<M: MatrixProtocol>(_ val: M.Value, _ m: M) -> M {
+  M(arrayLiteral: m.map { $0 / val })
+}
+
 func +<M: MatrixProtocol>(_ m1: M, _ m2: M) -> M {
   assert(m1.height == m2.height)
   assert(m1.width == m2.width)
@@ -127,19 +200,30 @@ func -<M: MatrixProtocol>(_ m1: M, _ m2: M) -> M {
   return M(arrayLiteral: zip(m1, m2).map { $0 - $1 })
 }
 
-func *<M: MatrixProtocol>(_ m1: M, _ m2: M) -> M {
-  assert(m1.height == m2.height)
-  assert(m1.width == m2.width)
-  return M(arrayLiteral: zip(m1, m2).map { $0 * $1 })
-}
-
-func /<M: MatrixProtocol>(_ m1: M, _ m2: M) -> M {
-  assert(m1.height == m2.height)
-  assert(m1.width == m2.width)
-  return M(arrayLiteral: zip(m1, m2).map { $0 / $1 })
-}
-
 func *<M: MatrixProtocol>(_ m: M, _ v: Vector<M.Value>) -> Vector<M.Value> {
   assert(m.height == v.count)
   return Vector(arrayLiteral: m.map { ($0 * v).sum })
+}
+
+func *<M: MatrixProtocol>(_ m1: M, _ m2: M) -> M {
+  assert(m1.width == m2.height)
+  assert(m1.height == m2.width)
+  var res = M(width: m2.width, height: m1.height)
+  for i in 0..<res.height {
+    let row = m1[i]
+    for j in 0..<m2.width {
+      var sum = M.Value.zero
+      for k in 0..<m2.height {
+        sum += m2[k, j] * row[k]
+      }
+      res[i, j] = sum
+    }
+  }
+  return res
+}
+
+infix operator !/: MultiplicationPrecedence
+func !/<M: MatrixProtocol>(_ m: M, _ v: Vector<M.Value>) -> Vector<M.Value> {
+  // solve linear system of equations
+  _solve(m, v)
 }

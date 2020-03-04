@@ -16,17 +16,17 @@ struct Vector<T: Mathable>: ExpressibleByArrayLiteral {
   
   init() {
     self.size = 0
-    self.buffer = UnsafeMutablePointer<T>.allocate(capacity: self.size)
+    self.buffer = UnsafeMutablePointer.allocate(capacity: self.size)
   }
   
   init(size: Int) {
     self.size = size
-    self.buffer = UnsafeMutablePointer<T>.allocate(capacity: self.size)
+    self.buffer = UnsafeMutablePointer.allocate(capacity: self.size)
   }
   
   init(arrayLiteral elements: T...) {
     self.size = elements.count
-    self.buffer = UnsafeMutablePointer<T>.allocate(capacity: self.size)
+    self.buffer = UnsafeMutablePointer.allocate(capacity: self.size)
     for (i, el) in elements.enumerated() {
       buffer.advanced(by: i).assign(repeating: el, count: 1)
     }
@@ -34,7 +34,7 @@ struct Vector<T: Mathable>: ExpressibleByArrayLiteral {
   
   init(arrayLiteral elements: [T]) {
     self.size = elements.count
-    self.buffer = UnsafeMutablePointer<T>.allocate(capacity: self.size)
+    self.buffer = UnsafeMutablePointer.allocate(capacity: self.size)
     for (i, el) in elements.enumerated() {
       buffer.advanced(by: i).assign(repeating: el, count: 1)
     }
@@ -45,6 +45,25 @@ extension Vector {
   var sum: T { reduce(T.zero, +) }
   var avg: T { sum / T(size) }
   var len: T { sqrt(map { $0 * $0 }.reduce(T.zero, +)) }
+}
+
+extension Vector {
+  static func zeros(_ count: Int) -> Self {
+    Vector(arrayLiteral: Array(repeating: T.zero, count: count))
+  }
+  
+  static func ones(_ count: Int) -> Self {
+    Vector(arrayLiteral: Array(repeating: 1, count: count))
+  }
+  
+  static func repeating(_ count: Int, value: T) -> Self {
+    Vector(arrayLiteral: Array(repeating: value, count: count))
+  }
+
+  func dot(_ v: Vector<T>) -> T {
+    assert(count == v.count)
+    return zip(self, v).map { $0 * $1 }.reduce(0, +)
+  }
 }
 
 // MARK: - Equatable
@@ -89,6 +108,38 @@ extension Vector: CustomStringConvertible where T: LosslessStringConvertible {
 }
 
 /// Math
+
+func +<T: Mathable>(_ v: Vector<T>, _ num: T) -> Vector<T> {
+  Vector(arrayLiteral: v.map { $0 + num })
+}
+
+func -<T: Mathable>(_ v: Vector<T>, _ num: T) -> Vector<T> {
+  Vector(arrayLiteral: v.map { $0 - num })
+}
+
+func *<T: Mathable>(_ v: Vector<T>, _ num: T) -> Vector<T> {
+  Vector(arrayLiteral: v.map { $0 * num })
+}
+
+func /<T: Mathable>(_ v: Vector<T>, _ num: T) -> Vector<T> {
+  Vector(arrayLiteral: v.map { $0 / num })
+}
+
+func +<T: Mathable>(_ num: T, _ v: Vector<T>) -> Vector<T> {
+  Vector(arrayLiteral: v.map { $0 + num })
+}
+
+func -<T: Mathable>(_ num: T, _ v: Vector<T>) -> Vector<T> {
+  Vector(arrayLiteral: v.map { $0 - num })
+}
+
+func *<T: Mathable>(_ num: T, _ v: Vector<T>) -> Vector<T> {
+  Vector(arrayLiteral: v.map { $0 * num })
+}
+
+func /<T: Mathable>(_ num: T, _ v: Vector<T>) -> Vector<T> {
+  Vector(arrayLiteral: v.map { $0 / num })
+}
 
 func +<T: Mathable>(_ v1: Vector<T>, _ v2: Vector<T>) -> Vector<T> {
   assert(v1.count == v2.count)

@@ -45,6 +45,15 @@ class VectorTests: XCTestCase {
     XCTAssertEqual([1, 1, 1], v1 - v2)
     XCTAssertEqual([2, 12, 30], v1 * v2)
     XCTAssertEqual([2, 4.0 / 3, 6.0 / 5], v1 / v2)
+    XCTAssertEqual(44, v1.dot(v2))
+    XCTAssertEqual([3, 5, 7], v1 + 1)
+    XCTAssertEqual([1, 3, 5], v1 - 1)
+    XCTAssertEqual([4, 8, 12], v1 * 2)
+    XCTAssertEqual([1, 2, 3], v1 / 2)
+    XCTAssertEqual([3, 5, 7], 1 + v1)
+    XCTAssertEqual([1, 3, 5], 1 - v1)
+    XCTAssertEqual([4, 8, 12], 2 * v1)
+    XCTAssertEqual([1, 2, 3], 2 / v1)
   }
   
   func testComputedProperties() {

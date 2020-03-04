@@ -11,7 +11,7 @@ import XCTest
 
 class MatrixTests: XCTestCase {
   func testSubscript() {
-    let matrix: Matrix = [
+    var matrix: Matrix = [
       [1, 2, 3],
       [4, 5, 6],
       [7, 8, 9]
@@ -28,6 +28,12 @@ class MatrixTests: XCTestCase {
     XCTAssertEqual(7, matrix[2, 0])
     XCTAssertEqual(8, matrix[2, 1])
     XCTAssertEqual(9, matrix[2, 2])
+    
+    matrix[0, 0] = 10
+    XCTAssertEqual(10, matrix[0, 0])
+    XCTAssertEqual([10, 2, 3], matrix[0])
+    XCTAssertEqual([4, 5, 6], matrix[1])
+    XCTAssertEqual([7, 8, 9], matrix[2])
   }
   
   func testEquatable() {
@@ -48,12 +54,31 @@ class MatrixTests: XCTestCase {
     XCTAssertEqual([[0, 0, 0],
                     [0, 0, 0],
                     [0, 0, 0]], matrix - matrix)
-    XCTAssertEqual([[1, 4, 9],
-                    [16, 25, 36],
-                    [49, 64, 81]], matrix * matrix)
-    XCTAssertEqual([[1, 1, 1],
-                    [1, 1, 1],
-                    [1, 1, 1]], matrix / matrix)
+    XCTAssertEqual([[3, 4, 5],
+                    [6, 7, 8],
+                    [9, 10, 11]], matrix + 2.0)
+    XCTAssertEqual([[-1, 0, 1],
+                    [2, 3, 4],
+                    [5, 6, 7]], matrix - 2.0)
+    XCTAssertEqual([[2, 4, 6],
+                    [8, 10, 12],
+                    [14, 16, 18]], matrix * 2.0)
+    XCTAssertEqual([[1.0/2, 1, 3.0/2],
+                    [2, 5.0/2, 3],
+                    [7.0/2, 4, 9.0/2]], matrix / 2.0)
+    XCTAssertEqual([[3, 4, 5],
+                    [6, 7, 8],
+                    [9, 10, 11]], 2.0 + matrix)
+    XCTAssertEqual([[-1, 0, 1],
+                    [2, 3, 4],
+                    [5, 6, 7]], 2.0 - matrix)
+    XCTAssertEqual([[2, 4, 6],
+                    [8, 10, 12],
+                    [14, 16, 18]], 2.0 * matrix)
+    XCTAssertEqual([[1.0/2, 1, 3.0/2],
+                    [2, 5.0/2, 3],
+                    [7.0/2, 4, 9.0/2]], 2.0 / matrix)
+    
   }
   
   func testMulitplyWithVector() {
@@ -64,5 +89,44 @@ class MatrixTests: XCTestCase {
     ]
     let vector: Vector = [-2, 5, 1]
     XCTAssertEqual([11, 23, 35], matrix * vector)
+  }
+  
+  func testMatrixMultiplication() {
+    let m1: Matrix = [
+      [1, 2, 3],
+      [4, 5, 6]
+    ]
+    let m2: Matrix = [
+      [7, 8],
+      [9, 10],
+      [11, 12]
+    ]
+    XCTAssertEqual([[58, 64], [139, 154]], m1 * m2)
+  }
+  
+  func testIdentity() {
+    XCTAssertEqual([[1, 0], [0, 1]], Matrix<Double>.identity(2))
+    XCTAssertEqual([[1, 0, 0], [0, 1, 0], [0, 0, 1]], Matrix<Double>.identity(3))
+  }
+  
+  func testSwap() {
+    var matrix: Matrix = [
+      [1, 2, 3],
+      [4, 5, 6],
+      [7, 8, 9]
+    ]
+    matrix.swap(row: 0, col: 1)
+    XCTAssertEqual([[4, 5, 6], [1, 2, 3], [7, 8, 9]], matrix)
+  }
+  
+  func testTransposed() {
+    let matrix: Matrix = [
+      [1, 4, 7],
+      [2, 5, 8],
+      [3, 6, 9]
+    ]
+    XCTAssertEqual([[1, 2, 3],
+                    [4, 5, 6],
+                    [7, 8, 9]], matrix.transposed)
   }
 }

@@ -9,9 +9,9 @@
 import Foundation
 
 var matrix: Matrix = [
-  [1, 2, 3],
-  [4, 5, 6],
-  [7, 8, 9]
+  [3, 4, 1],
+  [5, 5, 1],
+  [-2, 2, 4]
 ]
 
 print(matrix)
@@ -19,6 +19,4 @@ print(matrix)
 print(matrix[0])
 print(matrix[0, 0])
 
-func test<M: MatrixProtocol>(_ m: M) {
-  m[10]
-}
+print(matrix !/ [6, 6, 10])
