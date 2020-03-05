@@ -33,40 +33,66 @@ protocol MatrixProtocol: ExpressibleByArrayLiteral, Equatable, BidirectionalColl
 struct Matrix<T: Mathable>: MatrixProtocol {
   typealias Value = T
   
-  let width: Int
-  let height: Int
-  private let buffer: UnsafeMutablePointer<Vector<T>>
+  private class Storage {
+    let width: Int
+    let height: Int
+    let buffer: UnsafeMutablePointer<Vector<T>>
+    
+    init(width: Int, height: Int) {
+      self.width = width
+      self.height = height
+      self.buffer = UnsafeMutablePointer.allocate(capacity: height)
+    }
+    
+    var copy: Storage {
+      print("Creating a copy of Matrix<Vector<\(type(of: T.self))>>")
+      let storage = Storage(width: width, height: height)
+      for i in 0..<height {
+        storage.buffer.advanced(by: i).assign(repeating: self.buffer.advanced(by: i).pointee, count: 1)
+      }
+      return storage
+    }
+  }
+  private var storage: Storage
   
   init(width: Int, height: Int) {
-    self.width = width
-    self.height = height
-    self.buffer = UnsafeMutablePointer.allocate(capacity: height)
+    self.storage = Storage(width: width, height: height)
     for i in 0..<height {
-      buffer.advanced(by: i).assign(repeating: Vector(size: width), count: 1)
+      storage.buffer.advanced(by: i).assign(repeating: Vector(size: width), count: 1)
     }
   }
   
   init(arrayLiteral elements: Vector<T>...) {
-    self.height = elements.count
-    self.width = elements.first?.count ?? 0
-    self.buffer = UnsafeMutablePointer.allocate(capacity: height)
+    self.storage = Storage(width: elements.first?.count ?? 0, height: elements.count)
     for (i, el) in elements.enumerated() {
-      buffer.advanced(by: i).assign(repeating: el, count: 1)
+      storage.buffer.advanced(by: i).assign(repeating: el, count: 1)
     }
   }
   
   init(arrayLiteral elements: [Vector<T>]) {
-    self.height = elements.count
-    self.width = elements.first?.count ?? 0
-    self.buffer = UnsafeMutablePointer.allocate(capacity: height)
+    self.storage = Storage(width: elements.first?.count ?? 0, height: elements.count)
     for (i, el) in elements.enumerated() {
-      buffer.advanced(by: i).assign(repeating: el, count: 1)
+      storage.buffer.advanced(by: i).assign(repeating: el, count: 1)
+    }
+  }
+}
+
+private extension Matrix {
+  private var storageForWriting: Storage {
+    mutating get {
+      if !isKnownUniquelyReferenced(&storage) {
+        self.storage = storage.copy
+      }
+      return storage
     }
   }
 }
 
 // MARK: - API
 extension Matrix {
+  var width: Int { storage.width }
+  var height: Int { storage.height }
+  
   subscript(_ i: Int, _ j: Int) -> T {
     get {
       assert(j >= 0)
@@ -91,9 +117,9 @@ extension Matrix {
   }
   
   mutating func swap(row: Int, col: Int) {
-    let tmp = buffer.advanced(by: row).pointee
-    buffer.advanced(by: row).assign(from: buffer.advanced(by: col), count: 1)
-    buffer.advanced(by: col).assign(repeating: tmp, count: 1)
+    let tmp = storage.buffer.advanced(by: row).pointee
+    storage.buffer.advanced(by: row).assign(from: storage.buffer.advanced(by: col), count: 1)
+    storage.buffer.advanced(by: col).assign(repeating: tmp, count: 1)
   }
   
   static func identity(_ size: Int) -> Self {
@@ -132,12 +158,12 @@ extension Matrix: BidirectionalCollection {
     get {
       assert(i >= 0)
       assert(i < height)
-      return buffer.advanced(by: i).pointee
+      return storage.buffer.advanced(by: i).pointee
     }
     mutating set {
       assert(i >= 0)
       assert(i < height)
-      buffer.advanced(by: i).assign(repeating: newValue, count: 1)
+      storageForWriting.buffer.advanced(by: i).assign(repeating: newValue, count: 1)
     }
   }
 }
