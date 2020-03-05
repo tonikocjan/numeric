@@ -9,41 +9,64 @@
 import Foundation
 
 struct Vector<T: Mathable>: ExpressibleByArrayLiteral {
-  private let size: Int
-  // implementation detail
-  // should we replace with [T] instead?
-  private let buffer: UnsafeMutablePointer<T>
+  private class Storage {
+    let size: Int
+    let buffer: UnsafeMutablePointer<T>
+    
+    init(size: Int) {
+      self.size = size
+      self.buffer = UnsafeMutablePointer.allocate(capacity: size)
+    }
+    
+    var copy: Storage {
+      print("Creating a copy of Vector<\(type(of: T.self))>")
+      let storage = Storage(size: size)
+      for i in 0..<size {
+        storage.buffer.advanced(by: i).assign(from: self.buffer.advanced(by: i), count: 1)
+      }
+      return storage
+    }
+  }
+  private var storage: Storage
   
   init() {
-    self.size = 0
-    self.buffer = UnsafeMutablePointer.allocate(capacity: self.size)
+    self.storage = Storage(size: 0)
   }
   
   init(size: Int) {
-    self.size = size
-    self.buffer = UnsafeMutablePointer.allocate(capacity: self.size)
+    self.storage = Storage(size: size)
   }
   
   init(arrayLiteral elements: T...) {
-    self.size = elements.count
-    self.buffer = UnsafeMutablePointer.allocate(capacity: self.size)
+    self.storage = Storage(size: elements.count)
     for (i, el) in elements.enumerated() {
-      buffer.advanced(by: i).assign(repeating: el, count: 1)
+      self.storage.buffer.advanced(by: i).assign(repeating: el, count: 1)
     }
   }
   
   init(arrayLiteral elements: [T]) {
-    self.size = elements.count
-    self.buffer = UnsafeMutablePointer.allocate(capacity: self.size)
+    self.storage = Storage(size: elements.count)
     for (i, el) in elements.enumerated() {
-      buffer.advanced(by: i).assign(repeating: el, count: 1)
+      self.storage.buffer.advanced(by: i).assign(repeating: el, count: 1)
+    }
+  }
+}
+
+private extension Vector {
+  // copy-on-write
+  private var storageForWriting: Storage {
+    mutating get {
+      if !isKnownUniquelyReferenced(&storage) {
+        self.storage = storage.copy
+      }
+      return self.storage
     }
   }
 }
 
 extension Vector {
   var sum: T { reduce(T.zero, +) }
-  var avg: T { sum / T(size) }
+  var avg: T { sum / T(storage.size) }
   var len: T { sqrt(map { $0 * $0 }.reduce(T.zero, +)) }
 }
 
@@ -79,18 +102,18 @@ extension Vector: BidirectionalCollection {
   func index(after i: Int) -> Int { i + 1 }
   func index(before i: Int) -> Int { i - 1 }
   var startIndex: Int { 0 }
-  var endIndex: Int { size }
+  var endIndex: Int { storage.size }
   
   subscript(_ i: Int) -> T {
     get {
       assert(i >= 0)
-      assert(i < size)
-      return buffer.advanced(by: i).pointee
+      assert(i < storage.size)
+      return storage.buffer.advanced(by: i).pointee
     }
-    set {
+    mutating set {
       assert(i >= 0)
-      assert(i < size)
-      buffer.advanced(by: i).assign(repeating: newValue, count: 1)
+      assert(i < storage.size)
+      storageForWriting.buffer.advanced(by: i).assign(repeating: newValue, count: 1)
     }
   }
 }
