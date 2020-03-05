@@ -145,7 +145,7 @@ extension Matrix: BidirectionalCollection {
 // MARK: - CustomDebugStringConvertible
 extension Matrix: CustomDebugStringConvertible where T: LosslessStringConvertible {
   var debugDescription: String {
-    "[" + map { $0.description }.joined(separator: ", ") + "]"
+    "[" + map { $0.description }.joined(separator: "\n") + "]"
   }
 }
 
@@ -225,5 +225,5 @@ func *<M: MatrixProtocol>(_ m1: M, _ m2: M) -> M {
 infix operator !/: MultiplicationPrecedence
 func !/<M: MatrixProtocol>(_ m: M, _ v: Vector<M.Value>) -> Vector<M.Value> {
   // solve linear system of equations
-  _solve(m, v)
+  LUDecomposition(m, v)
 }

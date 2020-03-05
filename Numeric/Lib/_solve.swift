@@ -22,26 +22,36 @@ func argmax<T: Mathable>(_ v: Vector<T>, from: Int = 0) -> Int {
   return idx
 }
 
-func _solve<M: MatrixProtocol>(_ a: M, _ v: Vector<M.Value>) -> Vector<M.Value> {
+func gaussElimination<M: MatrixProtocol>(_ a: M) -> M {
   assert(a.width == a.height)
   
-  var a = a
-  var v = v
   let n = a.width
+  var U = a
 
-  for i in 0..<(n - 1) {
-    for j in (i + 1)..<n {
-      let l = a[j, i] / a[i, j]
-      for k in j..<n {
-        a[i + 1, k] = a[i + 1, k] - l * a[i, k]
+  for k in 0..<(n - 1) {
+    for i in (k + 1)..<n {
+      let l = U[i, k] / U[k, k]
+      for j in (k+1)..<n {
+        U[i, j] = U[i, j] - l * U[k, j]
       }
-      v[i + 1] = v[i + 1] - l * v[i]
     }
-    
-    print("Iter", i)
-    print(a)
-    print(v)
-    print()
+  }
+  return U
+}
+
+func LUDecomposition<M: MatrixProtocol>(_ a: M, _ v: Vector<M.Value>) -> Vector<M.Value> {
+  assert(a.width == a.height)
+  
+  let n = a.width
+  var A = a
+  
+  for k in 0..<(n - 1) {
+    for i in (k + 1)..<n {
+      A[i, k] = A[i, k] / A[k, k]
+      for j in (k + 1)..<n {
+        A[i, j] = A[i, j] - A[i, k] * A[k, j]
+      }
+    }
   }
   
   return v

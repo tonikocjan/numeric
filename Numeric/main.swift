@@ -9,14 +9,10 @@
 import Foundation
 
 var matrix: Matrix = [
-  [3, 4, 1],
-  [5, 5, 1],
-  [-2, 2, 4]
+  [3, 2, 5, 1],
+  [6, 6, 15, 3],
+  [-3, 4, 13, 1],
+  [-6, 6, 15, 5]
 ]
 
-print(matrix)
-
-print(matrix[0])
-print(matrix[0, 0])
-
-print(matrix !/ [6, 6, 10])
+print(matrix !/ [6, 6, 10, 1])

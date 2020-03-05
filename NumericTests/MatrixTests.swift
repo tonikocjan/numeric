@@ -102,6 +102,14 @@ class MatrixTests: XCTestCase {
       [11, 12]
     ]
     XCTAssertEqual([[58, 64], [139, 154]], m1 * m2)
+    
+    let m3: Matrix = [
+      [1, 2, 3],
+      [4, 5, 6],
+      [7, 8, 9]
+    ]
+    XCTAssertEqual(m3, m3 * Matrix.identity(3))
+    XCTAssertEqual(m3, Matrix.identity(3) * m3)
   }
   
   func testIdentity() {
@@ -128,5 +136,17 @@ class MatrixTests: XCTestCase {
     XCTAssertEqual([[1, 2, 3],
                     [4, 5, 6],
                     [7, 8, 9]], matrix.transposed)
+  }
+  
+  func testCopy() {
+    let matrix: Matrix = [
+      [1, 4, 7],
+      [2, 5, 8],
+      [3, 6, 9]
+    ]
+    var copy = matrix
+    copy[0, 0] = 0
+    XCTAssertEqual(0, copy[0, 0])
+    XCTAssertEqual(1, matrix[0, 0])
   }
 }
