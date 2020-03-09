@@ -121,8 +121,8 @@ extension Matrix {
   
   mutating func swap(row: Int, col: Int) {
     let tmp = storage.buffer.advanced(by: row).pointee
-    storage.buffer.advanced(by: row).assign(from: storage.buffer.advanced(by: col), count: 1)
-    storage.buffer.advanced(by: col).assign(repeating: tmp, count: 1)
+    storage.buffer.advanced(by: row).initialize(to: storage.buffer.advanced(by: col).pointee)
+    storage.buffer.advanced(by: col).initialize(to: tmp)
   }
   
   static func identity(_ size: Int) -> Self {
@@ -145,7 +145,7 @@ extension Matrix {
 // MARK: - Equatable
 extension Matrix: Equatable {
   static func == (lhs: Self, rhs: Self) -> Bool {
-    guard lhs.width == rhs.width && lhs.height == rhs.height else { return false }
+    guard lhs.shape == rhs.shape else { return false }
     return zip(lhs, rhs).first { $0 != $1 } == nil
   }
 }
