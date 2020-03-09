@@ -117,6 +117,15 @@ class MatrixTests: XCTestCase {
     XCTAssertEqual([[1, 0, 0], [0, 1, 0], [0, 0, 1]], Matrix<Double>.identity(3))
   }
   
+  func testColumnMap() {
+    let matrix: Matrix = [
+      [1, 2, 3],
+      [4, 5, 6],
+      [7, 8, 9]
+    ]
+    XCTAssertEqual(matrix.transposed, Matrix(arrayLiteral: matrix.columnMap { $0 }))
+  }
+  
   func testSwap() {
     var matrix: Matrix = [
       [1, 2, 3],

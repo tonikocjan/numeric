@@ -29,6 +29,8 @@ protocol MatrixProtocol: ExpressibleByArrayLiteral, Equatable, BidirectionalColl
   static func ones(width: Int, height: Int) -> Self
   
   mutating func swap(row: Int, col: Int)
+  
+  func columnMap<T>(_ transform: (Vector<Value>) throws -> T) rethrows -> [T]
 }
 
 struct Matrix<T: Mathable>: MatrixProtocol {
@@ -127,7 +129,7 @@ extension Matrix {
   
   static func identity(_ size: Int) -> Self {
     Matrix(arrayLiteral: (0..<size).map {
-      var vec = Vector.repeating(size, value: Value.zero)
+      var vec = Vector<T>.zeros(size)
       vec[$0] = 1
       return vec
     })
@@ -139,6 +141,10 @@ extension Matrix {
   
   static func ones(width: Int, height: Int) -> Self {
     Matrix(arrayLiteral: (0..<height).map { _ in .ones(width) })
+  }
+  
+  func columnMap<T>(_ transform: (Vector<Value>) throws -> T) rethrows -> [T] {
+    try transposed.map(transform)
   }
 }
 
@@ -235,6 +241,17 @@ func *<M: MatrixProtocol>(_ m: M, _ v: Vector<M.Value>) -> Vector<M.Value> {
 }
 
 func *<M: MatrixProtocol>(_ m1: M, _ m2: M) -> M {
+  // multiplication implemented functionaly
+  assert(m1.width == m2.height)
+  assert(m1.height == m2.width)
+  return M(arrayLiteral: m1.map { v1 in
+    Vector(arrayLiteral: m2.columnMap { v1.dot($0) })
+  })
+}
+
+infix operator *!: MultiplicationPrecedence
+func *!<M: MatrixProtocol>(_ m1: M, _ m2: M) -> M {
+  // multiplication implemented proceduraly
   assert(m1.width == m2.height)
   assert(m1.height == m2.width)
   var res = M(width: m2.width, height: m1.height)
