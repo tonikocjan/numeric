@@ -12,7 +12,7 @@ import XCTest
 class LUSolverTests: XCTestCase {
   func testSolveSystemOfEquations() {
     let matrix: Matrix = [
-      [3, 2, 1, 5],
+      [3, 2, 5, 1],
       [6, 6, 15, 3],
       [-3, 4, 13, 1],
       [-6, 6, 15, 5]
