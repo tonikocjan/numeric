@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		372F2DDD2416C5AA00BECA26 /* LUSolverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372F2DDC2416C5AA00BECA26 /* LUSolverTests.swift */; };
 		37441DB9240E9EFF00F982FF /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37441DB8240E9EFF00F982FF /* main.swift */; };
 		37441DC1240E9F0E00F982FF /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37441DC0240E9F0E00F982FF /* Vector.swift */; };
 		37441DC3240E9F1500F982FF /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37441DC2240E9F1500F982FF /* Matrix.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		372F2DDC2416C5AA00BECA26 /* LUSolverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LUSolverTests.swift; sourceTree = "<group>"; };
 		37441DB5240E9EFF00F982FF /* SwifyPy */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SwifyPy; sourceTree = BUILT_PRODUCTS_DIR; };
 		37441DB8240E9EFF00F982FF /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		37441DC0240E9F0E00F982FF /* Vector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vector.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				37441DCC240E9F3300F982FF /* Info.plist */,
 				37441DD0240E9F4600F982FF /* VectorTests.swift */,
 				37441DD5240EACE100F982FF /* MatrixTests.swift */,
+				372F2DDC2416C5AA00BECA26 /* LUSolverTests.swift */,
 			);
 			path = SwifyPyTests;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 				37441DD9240ECEE800F982FF /* Vector.swift in Sources */,
 				37441DD1240E9F4600F982FF /* VectorTests.swift in Sources */,
 				37441DDB240ECEE800F982FF /* _solve.swift in Sources */,
+				372F2DDD2416C5AA00BECA26 /* LUSolverTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

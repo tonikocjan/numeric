@@ -15,7 +15,7 @@ struct Vector<T: Mathable>: ExpressibleByArrayLiteral {
     
     init(size: Int) {
       self.size = size
-      self.buffer = UnsafeMutablePointer.allocate(capacity: size)
+      self.buffer = .allocate(capacity: size)
     }
     
     var copy: Storage {

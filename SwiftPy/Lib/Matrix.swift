@@ -48,7 +48,7 @@ struct Matrix<T: Mathable>: MatrixProtocol {
     init(width: Int, height: Int) {
       self.width = width
       self.height = height
-      self.buffer = UnsafeMutablePointer<Vector<T>>.allocate(capacity: height)
+      self.buffer = .allocate(capacity: height)
     }
     
     var copy: Storage {
