@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "37441DB4240E9EFF00F982FF"
-               BuildableName = "Numeric"
-               BlueprintName = "Numeric"
-               ReferencedContainer = "container:Numeric.xcodeproj">
+               BuildableName = "SwifyPy"
+               BlueprintName = "SwifyPy"
+               ReferencedContainer = "container:SwifyPy.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "37441DC7240E9F3300F982FF"
-               BuildableName = "NumericTests.xctest"
-               BlueprintName = "NumericTests"
-               ReferencedContainer = "container:Numeric.xcodeproj">
+               BuildableName = "SwifyPyTests.xctest"
+               BlueprintName = "SwifyPyTests"
+               ReferencedContainer = "container:SwifyPy.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "37441DC7240E9F3300F982FF"
-               BuildableName = "NumericTests.xctest"
-               BlueprintName = "NumericTests"
-               ReferencedContainer = "container:Numeric.xcodeproj">
+               BuildableName = "SwifyPyTests.xctest"
+               BlueprintName = "SwifyPyTests"
+               ReferencedContainer = "container:SwifyPy.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -69,9 +69,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "37441DB4240E9EFF00F982FF"
-            BuildableName = "Numeric"
-            BlueprintName = "Numeric"
-            ReferencedContainer = "container:Numeric.xcodeproj">
+            BuildableName = "SwifyPy"
+            BlueprintName = "SwifyPy"
+            ReferencedContainer = "container:SwifyPy.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -86,9 +86,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "37441DB4240E9EFF00F982FF"
-            BuildableName = "Numeric"
-            BlueprintName = "Numeric"
-            ReferencedContainer = "container:Numeric.xcodeproj">
+            BuildableName = "SwifyPy"
+            BlueprintName = "SwifyPy"
+            ReferencedContainer = "container:SwifyPy.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

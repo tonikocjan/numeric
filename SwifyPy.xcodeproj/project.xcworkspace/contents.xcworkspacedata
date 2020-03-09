@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Numeric.xcodeproj">
+      location = "self:/Users/tonikocjan/swift/Numeric/SwifyPy.xcodeproj">
    </FileRef>
 </Workspace>

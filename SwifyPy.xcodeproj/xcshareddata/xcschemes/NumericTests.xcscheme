@@ -17,9 +17,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "37441DC7240E9F3300F982FF"
-               BuildableName = "NumericTests.xctest"
-               BlueprintName = "NumericTests"
-               ReferencedContainer = "container:Numeric.xcodeproj">
+               BuildableName = "SwifyPyTests.xctest"
+               BlueprintName = "SwifyPyTests"
+               ReferencedContainer = "container:SwifyPy.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>

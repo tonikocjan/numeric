@@ -31,11 +31,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		37441DB5240E9EFF00F982FF /* Numeric */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Numeric; sourceTree = BUILT_PRODUCTS_DIR; };
+		37441DB5240E9EFF00F982FF /* SwifyPy */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SwifyPy; sourceTree = BUILT_PRODUCTS_DIR; };
 		37441DB8240E9EFF00F982FF /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		37441DC0240E9F0E00F982FF /* Vector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vector.swift; sourceTree = "<group>"; };
 		37441DC2240E9F1500F982FF /* Matrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
-		37441DC8240E9F3300F982FF /* NumericTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NumericTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		37441DC8240E9F3300F982FF /* SwifyPyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwifyPyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		37441DCC240E9F3300F982FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37441DD0240E9F4600F982FF /* VectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VectorTests.swift; sourceTree = "<group>"; };
 		37441DD5240EACE100F982FF /* MatrixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixTests.swift; sourceTree = "<group>"; };
@@ -63,8 +63,8 @@
 		37441DAC240E9EFF00F982FF = {
 			isa = PBXGroup;
 			children = (
-				37441DB7240E9EFF00F982FF /* Numeric */,
-				37441DC9240E9F3300F982FF /* NumericTests */,
+				37441DB7240E9EFF00F982FF /* SwiftPy */,
+				37441DC9240E9F3300F982FF /* SwifyPyTests */,
 				37441DB6240E9EFF00F982FF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -72,19 +72,19 @@
 		37441DB6240E9EFF00F982FF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				37441DB5240E9EFF00F982FF /* Numeric */,
-				37441DC8240E9F3300F982FF /* NumericTests.xctest */,
+				37441DB5240E9EFF00F982FF /* SwifyPy */,
+				37441DC8240E9F3300F982FF /* SwifyPyTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		37441DB7240E9EFF00F982FF /* Numeric */ = {
+		37441DB7240E9EFF00F982FF /* SwiftPy */ = {
 			isa = PBXGroup;
 			children = (
 				37441DBF240E9F0600F982FF /* Lib */,
 				37441DB8240E9EFF00F982FF /* main.swift */,
 			);
-			path = Numeric;
+			path = SwiftPy;
 			sourceTree = "<group>";
 		};
 		37441DBF240E9F0600F982FF /* Lib */ = {
@@ -97,22 +97,22 @@
 			path = Lib;
 			sourceTree = "<group>";
 		};
-		37441DC9240E9F3300F982FF /* NumericTests */ = {
+		37441DC9240E9F3300F982FF /* SwifyPyTests */ = {
 			isa = PBXGroup;
 			children = (
 				37441DCC240E9F3300F982FF /* Info.plist */,
 				37441DD0240E9F4600F982FF /* VectorTests.swift */,
 				37441DD5240EACE100F982FF /* MatrixTests.swift */,
 			);
-			path = NumericTests;
+			path = SwifyPyTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		37441DB4240E9EFF00F982FF /* Numeric */ = {
+		37441DB4240E9EFF00F982FF /* SwifyPy */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 37441DBC240E9EFF00F982FF /* Build configuration list for PBXNativeTarget "Numeric" */;
+			buildConfigurationList = 37441DBC240E9EFF00F982FF /* Build configuration list for PBXNativeTarget "SwifyPy" */;
 			buildPhases = (
 				37441DB1240E9EFF00F982FF /* Sources */,
 				37441DB2240E9EFF00F982FF /* Frameworks */,
@@ -122,14 +122,14 @@
 			);
 			dependencies = (
 			);
-			name = Numeric;
+			name = SwifyPy;
 			productName = Numeric;
-			productReference = 37441DB5240E9EFF00F982FF /* Numeric */;
+			productReference = 37441DB5240E9EFF00F982FF /* SwifyPy */;
 			productType = "com.apple.product-type.tool";
 		};
-		37441DC7240E9F3300F982FF /* NumericTests */ = {
+		37441DC7240E9F3300F982FF /* SwifyPyTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 37441DCD240E9F3300F982FF /* Build configuration list for PBXNativeTarget "NumericTests" */;
+			buildConfigurationList = 37441DCD240E9F3300F982FF /* Build configuration list for PBXNativeTarget "SwifyPyTests" */;
 			buildPhases = (
 				37441DC4240E9F3300F982FF /* Sources */,
 				37441DC5240E9F3300F982FF /* Frameworks */,
@@ -139,9 +139,9 @@
 			);
 			dependencies = (
 			);
-			name = NumericTests;
+			name = SwifyPyTests;
 			productName = NumericTests;
-			productReference = 37441DC8240E9F3300F982FF /* NumericTests.xctest */;
+			productReference = 37441DC8240E9F3300F982FF /* SwifyPyTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -163,7 +163,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 37441DB0240E9EFF00F982FF /* Build configuration list for PBXProject "Numeric" */;
+			buildConfigurationList = 37441DB0240E9EFF00F982FF /* Build configuration list for PBXProject "SwifyPy" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -176,8 +176,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				37441DB4240E9EFF00F982FF /* Numeric */,
-				37441DC7240E9F3300F982FF /* NumericTests */,
+				37441DB4240E9EFF00F982FF /* SwifyPy */,
+				37441DC7240E9F3300F982FF /* SwifyPyTests */,
 			);
 		};
 /* End PBXProject section */
@@ -390,7 +390,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		37441DB0240E9EFF00F982FF /* Build configuration list for PBXProject "Numeric" */ = {
+		37441DB0240E9EFF00F982FF /* Build configuration list for PBXProject "SwifyPy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				37441DBA240E9EFF00F982FF /* Debug */,
@@ -399,7 +399,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		37441DBC240E9EFF00F982FF /* Build configuration list for PBXNativeTarget "Numeric" */ = {
+		37441DBC240E9EFF00F982FF /* Build configuration list for PBXNativeTarget "SwifyPy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				37441DBD240E9EFF00F982FF /* Debug */,
@@ -408,7 +408,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		37441DCD240E9F3300F982FF /* Build configuration list for PBXNativeTarget "NumericTests" */ = {
+		37441DCD240E9F3300F982FF /* Build configuration list for PBXNativeTarget "SwifyPyTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				37441DCE240E9F3300F982FF /* Debug */,
