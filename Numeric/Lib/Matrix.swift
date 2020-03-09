@@ -10,8 +10,9 @@ import Foundation
 
 typealias Mathable = FloatingPoint
 
-protocol MatrixProtocol: ExpressibleByArrayLiteral, Equatable, BidirectionalCollection where Element == Vector<Value> {
+protocol MatrixProtocol: ExpressibleByArrayLiteral, Equatable, BidirectionalCollection where Element == Vec {
   associatedtype Value: Mathable
+  typealias Vec = Vector<Value>
   
   var width: Int { get }
   var height: Int { get }
@@ -235,7 +236,7 @@ func -<M: MatrixProtocol>(_ m1: M, _ m2: M) -> M {
   return M(arrayLiteral: zip(m1, m2).map { $0 - $1 })
 }
 
-func *<M: MatrixProtocol>(_ m: M, _ v: Vector<M.Value>) -> Vector<M.Value> {
+func *<M: MatrixProtocol>(_ m: M, _ v: M.Vec) -> M.Vec {
   assert(m.height == v.count)
   return Vector(arrayLiteral: m.map { ($0 * v).sum })
 }
@@ -269,7 +270,7 @@ func *!<M: MatrixProtocol>(_ m1: M, _ m2: M) -> M {
 }
 
 infix operator !/: MultiplicationPrecedence
-func !/<M: MatrixProtocol>(_ m: M, _ v: Vector<M.Value>) -> Vector<M.Value> {
+func !/<M: MatrixProtocol>(_ m: M, _ v: M.Vec) -> M.Vec {
   // solve linear system of equations
   LUDecomposition(m, v)
 }

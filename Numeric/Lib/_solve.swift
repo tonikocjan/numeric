@@ -39,8 +39,9 @@ func gaussElimination<M: MatrixProtocol>(_ a: M) -> M {
   return U
 }
 
-func LUDecomposition<M: MatrixProtocol>(_ a: M, _ v: Vector<M.Value>) -> Vector<M.Value> {
+func LUDecomposition<M: MatrixProtocol>(_ a: M, _ v: M.Vec) -> M.Vec {
   assert(a.width == a.height)
+  assert(a.width == v.count)
   
   let n = a.width
   var A = a
@@ -54,5 +55,22 @@ func LUDecomposition<M: MatrixProtocol>(_ a: M, _ v: Vector<M.Value>) -> Vector<
     }
   }
   
-  return v
+  var y = M.Vec.ones(n)
+  for i in 1..<n {
+    var row = M.Value.zero
+    for j in 0..<i {
+      row += -A[i, j] * y[j]
+    }
+    y[i] = row + v[i]
+  }
+  
+  var x = M.Vec.zeros(n)
+  for i in stride(from: n - 1, to: -1, by: -1) {
+    for j in stride(from: n - 1, to: i, by: -1) {
+      x[i] += -A[i, j] * x[j]
+    }
+    x[i] = (y[i] + x[i]) / A[i, i]
+  }
+  
+  return x
 }
