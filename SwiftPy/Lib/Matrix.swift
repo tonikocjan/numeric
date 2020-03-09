@@ -12,6 +12,7 @@ typealias Mathable = FloatingPoint
 
 protocol MatrixProtocol: ExpressibleByArrayLiteral, Equatable, BidirectionalCollection where Element == Vec {
   associatedtype Value: Mathable
+  // is there a way to shadow `Vector`?
   typealias Vec = Vector<Value>
   
   var width: Int { get }
@@ -31,6 +32,8 @@ protocol MatrixProtocol: ExpressibleByArrayLiteral, Equatable, BidirectionalColl
   
   mutating func swap(row: Int, col: Int)
   
+  // add other higher-order functions
+  func map(_ transform: (Vector<Value>) throws -> Vec) rethrows -> Self
   func columnMap<T>(_ transform: (Vector<Value>) throws -> T) rethrows -> [T]
 }
 
@@ -129,19 +132,25 @@ extension Matrix {
   }
   
   static func identity(_ size: Int) -> Self {
-    Matrix(arrayLiteral: (0..<size).map {
+    (0..<size).map {
       var vec = Vector<T>.zeros(size)
       vec[$0] = 1
       return vec
-    })
+    }
   }
   
   static func zeros(width: Int, height: Int) -> Self {
-    Matrix(arrayLiteral: (0..<height).map { _ in .zeros(width) })
+    (0..<height).map { _ in .zeros(width) }
   }
   
   static func ones(width: Int, height: Int) -> Self {
-    Matrix(arrayLiteral: (0..<height).map { _ in .ones(width) })
+    (0..<height).map { _ in .ones(width) }
+  }
+  
+  // collection
+  
+  func map(_ transform: (Vector<Value>) throws -> Vec) rethrows -> Matrix {
+    Matrix(arrayLiteral: try map(transform))
   }
   
   func columnMap<T>(_ transform: (Vector<Value>) throws -> T) rethrows -> [T] {
@@ -193,47 +202,47 @@ extension Matrix: CustomStringConvertible where T: LosslessStringConvertible {
 /// Math
 
 func +<M: MatrixProtocol>(_ m: M, _ val: M.Value) -> M {
-  M(arrayLiteral: m.map { $0 + val })
+  m.map { $0 + val }
 }
 
 func -<M: MatrixProtocol>(_ m: M, _ val: M.Value) -> M {
-  M(arrayLiteral: m.map { $0 - val })
+  m.map { $0 - val }
 }
 
 func *<M: MatrixProtocol>(_ m: M, _ val: M.Value) -> M {
-  M(arrayLiteral: m.map { $0 * val })
+  m.map { $0 * val }
 }
 
 func /<M: MatrixProtocol>(_ m: M, _ val: M.Value) -> M {
-  M(arrayLiteral: m.map { $0 / val })
+  m.map { $0 / val }
 }
 
 func +<M: MatrixProtocol>(_ val: M.Value, _ m: M) -> M {
-  M(arrayLiteral: m.map { $0 + val })
+  m.map { $0 + val }
 }
 
 func -<M: MatrixProtocol>(_ val: M.Value, _ m: M) -> M {
-  M(arrayLiteral: m.map { $0 - val })
+  m.map { $0 - val }
 }
 
 func *<M: MatrixProtocol>(_ val: M.Value, _ m: M) -> M {
-  M(arrayLiteral: m.map { $0 * val })
+  m.map { $0 * val }
 }
 
 func /<M: MatrixProtocol>(_ val: M.Value, _ m: M) -> M {
-  M(arrayLiteral: m.map { $0 / val })
+  m.map { $0 / val }
 }
 
 func +<M: MatrixProtocol>(_ m1: M, _ m2: M) -> M {
   assert(m1.height == m2.height)
   assert(m1.width == m2.width)
-  return M(arrayLiteral: zip(m1, m2).map { $0 + $1 })
+  return zip(m1, m2).map { $0 + $1 }
 }
 
 func -<M: MatrixProtocol>(_ m1: M, _ m2: M) -> M {
   assert(m1.height == m2.height)
   assert(m1.width == m2.width)
-  return M(arrayLiteral: zip(m1, m2).map { $0 - $1 })
+  return zip(m1, m2).map { $0 - $1 }
 }
 
 func *<M: MatrixProtocol>(_ m: M, _ v: M.Vec) -> M.Vec {
@@ -245,9 +254,9 @@ func *<M: MatrixProtocol>(_ m1: M, _ m2: M) -> M {
   // multiplication implemented functionaly
   assert(m1.width == m2.height)
   assert(m1.height == m2.width)
-  return M(arrayLiteral: m1.map { v1 in
+  return m1.map { v1 in
     Vector(arrayLiteral: m2.columnMap { v1.dot($0) })
-  })
+  }
 }
 
 infix operator *!: MultiplicationPrecedence
@@ -273,4 +282,19 @@ infix operator !/: MultiplicationPrecedence
 func !/<M: MatrixProtocol>(_ m: M, _ v: M.Vec) -> M.Vec {
   // solve linear system of equations
   LUDecomposition(m, v)
+}
+
+extension Zip2Sequence where Sequence1: MatrixProtocol, Sequence2: MatrixProtocol, Sequence1.Value == Sequence2.Value {
+  typealias Vec = Sequence1.Vec
+  typealias Matrix = Sequence1
+  
+  func map(_ transform: ((Vec, Vec)) throws -> Vec) rethrows -> Matrix {
+    Matrix(arrayLiteral: try map(transform))
+  }
+}
+
+extension Collection {
+  func map<T: Mathable>(_ transform: (Element) throws -> Vector<T>) rethrows -> Matrix<T> {
+    Matrix(arrayLiteral: try map(transform))
+  }
 }

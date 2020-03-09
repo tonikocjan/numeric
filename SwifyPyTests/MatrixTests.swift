@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import Numeric
+@testable import SwifyPy
 
 class MatrixTests: XCTestCase {
   func testSubscript() {

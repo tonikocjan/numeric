@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import Numeric
+@testable import SwifyPy
 
 class VectorTests: XCTestCase {
   func testVectorSubscript() {
