@@ -14,10 +14,17 @@ var matrix: Matrix = [
   [-3, 4, 13, 1],
   [-6, 6, 15, 5]
 ]
-//
-//print(matrix !/ [6, 6, 10, 1])
 
-var vec = Vector(arrayLiteral: [1, 2, 3])
-for i in 0..<3 {
-  vec[i] = 1
+for i in 0..<100 {
+  
+  //
+  //print(matrix !/ [6, 6, 10, 1])
+  
+  matrix[0, 1] = 20
+//  print(matrix)
+  
 }
+
+var m2 = matrix
+m2[0,0] = 100
+

@@ -15,6 +15,7 @@ protocol MatrixProtocol: ExpressibleByArrayLiteral, Equatable, BidirectionalColl
   
   var width: Int { get }
   var height: Int { get }
+  var shape: (width: Int, height: Int) { get }
   
   init(width: Int, height: Int)
   init(arrayLiteral elements: [Vector<Value>])
@@ -41,14 +42,14 @@ struct Matrix<T: Mathable>: MatrixProtocol {
     init(width: Int, height: Int) {
       self.width = width
       self.height = height
-      self.buffer = UnsafeMutablePointer.allocate(capacity: height)
+      self.buffer = UnsafeMutablePointer<Vector<T>>.allocate(capacity: height)
     }
     
     var copy: Storage {
       print("Creating a copy of Matrix<Vector<\(type(of: T.self))>>")
       let storage = Storage(width: width, height: height)
       for i in 0..<height {
-        storage.buffer.advanced(by: i).assign(repeating: self.buffer.advanced(by: i).pointee, count: 1)
+        storage.buffer.advanced(by: i).initialize(to: self.buffer.advanced(by: i).pointee)
       }
       return storage
     }
@@ -58,26 +59,27 @@ struct Matrix<T: Mathable>: MatrixProtocol {
   init(width: Int, height: Int) {
     self.storage = Storage(width: width, height: height)
     for i in 0..<height {
-      storage.buffer.advanced(by: i).assign(repeating: Vector(size: width), count: 1)
+      storage.buffer.advanced(by: i).initialize(to: .init(size: width))
     }
   }
   
   init(arrayLiteral elements: Vector<T>...) {
     self.storage = Storage(width: elements.first?.count ?? 0, height: elements.count)
     for (i, el) in elements.enumerated() {
-      storage.buffer.advanced(by: i).assign(repeating: el, count: 1)
+      storage.buffer.advanced(by: i).initialize(to: el)
     }
   }
   
   init(arrayLiteral elements: [Vector<T>]) {
     self.storage = Storage(width: elements.first?.count ?? 0, height: elements.count)
     for (i, el) in elements.enumerated() {
-      storage.buffer.advanced(by: i).assign(repeating: el, count: 1)
+      storage.buffer.advanced(by: i).initialize(to: el)
     }
   }
 }
 
 private extension Matrix {
+  // copy-on-write
   private var storageForWriting: Storage {
     mutating get {
       if !isKnownUniquelyReferenced(&storage) {
@@ -92,6 +94,7 @@ private extension Matrix {
 extension Matrix {
   var width: Int { storage.width }
   var height: Int { storage.height }
+  var shape: (width: Int, height: Int) { (width, height) }
   
   subscript(_ i: Int, _ j: Int) -> T {
     get {

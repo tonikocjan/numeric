@@ -22,7 +22,7 @@ struct Vector<T: Mathable>: ExpressibleByArrayLiteral {
       print("Creating a copy of Vector<\(type(of: T.self))>")
       let storage = Storage(size: size)
       for i in 0..<size {
-        storage.buffer.advanced(by: i).assign(from: self.buffer.advanced(by: i), count: 1)
+        storage.buffer.advanced(by: i).initialize(to: self.buffer.advanced(by: i).pointee)
       }
       return storage
     }
@@ -40,14 +40,14 @@ struct Vector<T: Mathable>: ExpressibleByArrayLiteral {
   init(arrayLiteral elements: T...) {
     self.storage = Storage(size: elements.count)
     for (i, el) in elements.enumerated() {
-      self.storage.buffer.advanced(by: i).assign(repeating: el, count: 1)
+      self.storage.buffer.advanced(by: i).initialize(to: el)
     }
   }
   
   init(arrayLiteral elements: [T]) {
     self.storage = Storage(size: elements.count)
     for (i, el) in elements.enumerated() {
-      self.storage.buffer.advanced(by: i).assign(repeating: el, count: 1)
+      self.storage.buffer.advanced(by: i).initialize(to: el)
     }
   }
 }

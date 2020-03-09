@@ -138,7 +138,7 @@ class MatrixTests: XCTestCase {
                     [7, 8, 9]], matrix.transposed)
   }
   
-  func testCopy() {
+  func testCopyOnWrite() {
     let matrix: Matrix = [
       [1, 4, 7],
       [2, 5, 8],

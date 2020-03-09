@@ -67,7 +67,7 @@ class VectorTests: XCTestCase {
     XCTAssertEqual([1, 2, 3, 4, 5], sqrt(Vector(arrayLiteral: [1, 4, 9, 16, 25])))
   }
   
-  func testCopy() {
+  func testCopyOnWrite() {
     let v: Vector = [1, 2, 3]
     var copy = v
     copy[0] = 0
