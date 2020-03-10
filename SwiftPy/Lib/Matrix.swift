@@ -37,6 +37,13 @@ protocol MatrixProtocol: ExpressibleByArrayLiteral, Equatable, BidirectionalColl
   func columnMap<T>(_ transform: (Vector<Value>) throws -> T) rethrows -> [T]
 }
 
+extension MatrixProtocol {
+  func index(after i: Int) -> Int { i + 1 }
+  func index(before i: Int) -> Int { i - 1 }
+  var startIndex: Int { 0 }
+  var endIndex: Int { height }
+}
+
 struct Matrix<T: Mathable>: MatrixProtocol {
   typealias Value = T
   
@@ -150,7 +157,7 @@ extension Matrix {
   // collection
   
   func map(_ transform: (Vector<Value>) throws -> Vec) rethrows -> Matrix {
-    try map(transform)
+    Matrix(arrayLiteral: try map(transform))
   }
   
   func columnMap<T>(_ transform: (Vector<Value>) throws -> T) rethrows -> [T] {
@@ -168,11 +175,6 @@ extension Matrix: Equatable {
 
 // MARK: - Collection
 extension Matrix: BidirectionalCollection {
-  func index(after i: Int) -> Int { i + 1 }
-  func index(before i: Int) -> Int { i - 1 }
-  var startIndex: Int { 0 }
-  var endIndex: Int { height }
-  
   subscript(_ i: Int) -> Vector<T> {
     get {
       assert(i >= 0)
