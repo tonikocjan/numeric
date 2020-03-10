@@ -17,8 +17,10 @@ import Foundation
 ///
 struct BandMatrix<T: Mathable>: MatrixProtocol {
   typealias Value = T
-  private var storage: Matrix<T>
-  let k: Int
+  
+  // upper matrix contains diagonal elements!
+  private var upper: UpperBandMatrix<T>
+  private var lower: LowerBandMatrix<T>
   
   /// Initialize a new **Band** matrix with specified size.
   ///
@@ -29,9 +31,13 @@ struct BandMatrix<T: Mathable>: MatrixProtocol {
   ///
   /// - Parameter height: height of the matrix
   ///
+  init(k: Int, height: Int) {
+    upper = .init(k: k + 1, height: height)
+    lower = .init(k: k, height: height - 1)
+  }
+  
   init(width: Int, height: Int) {
-    self.k = width
-    storage = Matrix(width: 1 + width * 2, height: height)
+    fatalError()
   }
   
   /// Initialize a new **Band** matrix from the given `elements`
@@ -54,34 +60,26 @@ struct BandMatrix<T: Mathable>: MatrixProtocol {
   }
   
   init(arrayLiteral elements: [Vector<Value>]) {
+    func calculateK(_ count: Int) -> Int {
+      count == 1 ? 0 : Int(floor(Double(count) / 2))
+    }
+    
     assert(elements.count > 0, "Cannot construct an empty BandMatrix!") // TODO: - Can we construct an empty matrix?
     assert(elements.first!.count == elements.last!.count, "First and last row must contain the same number of elements.")
     if elements.count > 1 {
       assert(elements.first!.count == 1 || elements.first!.count == elements[1].count - 1, "First row must be one less then middle rows!")
-      assert(elements.last!.count == 1 || elements.last!.count == elements[1].count - 1, "First row must be one less then middle rows!")
+      assert(elements.last!.count == 1 || elements.last!.count == elements[1].count - 1, "Last row must be one less then middle rows!")
     }
-    let k = ((elements.dropFirst().first?.count ?? elements.first!.count) - 1) / 2
-    for i in elements.dropFirst().dropLast() {
-      assert(k == (i.count - 1) / 2)
+    let k = calculateK(elements.dropFirst().first?.count ?? elements[0].count)
+    for el in elements.dropFirst().dropLast() {
+      assert(k == calculateK(el.count))
     }
-    self.k = k
-    self.storage = Matrix(width: self.k * 2 + 1, height: elements.count)
-    for i in 0..<storage.height {
-      let isLast = i + 1 == height
-      for j in 0..<storage.width {
-        if i == 0 && j + 1 == width {
-          storage[i, j] = 0
-          continue
-        }
-        if isLast && j + 1 == width {
-          storage[i, j] = 0
-          continue
-        }
-        if j + 1 > elements[i].count {
-          storage[i, j] = 0
-          continue
-        }
-        storage[i, j] = elements[i][j]
+    
+    self.init(k: k, height: elements.count)
+    for i in 0..<height {
+      let offset = Swift.max(0, (height - k - (height - i)))
+      for (j, el) in elements[i].enumerated() {
+        self[i, j + offset] = el
       }
     }
   }
@@ -90,31 +88,23 @@ struct BandMatrix<T: Mathable>: MatrixProtocol {
 
 // MARK: - API
 extension BandMatrix {
-  var width: Int { storage.height }
-  var height: Int { storage.height }
+  var width: Int { upper.height }
+  var height: Int { upper.height }
+  var k: Int { upper.k + lower.k }
   
   subscript(_ i: Int, _ j: Int) -> T {
     get {
-      assert(j >= 0)
-      assert(j < width)
-      let y = j - Swift.max(0, (height - k - (height - i)))
-      if y < 0 { return .zero }
-      if y >= storage.width { return .zero }
-      return storage[i, y]
+      if i > j {
+        return lower[i - 1, j]
+      }
+      return upper[i, j]
     }
     mutating set {
-      assert(j >= 0)
-      assert(j < width)
-      let y = j - Swift.max(0, (height - k - (height - i)))
-      if y < 0 {
-        assert(newValue == 0)
+      if i > j {
+        lower[i - 1, j] = newValue
         return
       }
-      if y >= storage.width {
-        assert(newValue == 0)
-        return
-      }
-      storage[i, y] = newValue
+      upper[i, j] = newValue
     }
   }
   
@@ -127,7 +117,7 @@ extension BandMatrix {
   }
   
   static func identity(_ size: Int) -> Self {
-    var matrix = BandMatrix(width: 0, height: size)
+    var matrix = BandMatrix(k: 0, height: size)
     for i in 0..<size {
       matrix[i, i] = 1
     }
@@ -146,7 +136,7 @@ extension BandMatrix {
 // MARK: - Equatable
 extension BandMatrix: Equatable {
   static func == (lhs: Self, rhs: Self) -> Bool {
-    lhs.storage == rhs.storage
+    lhs.upper == rhs.upper && lhs.lower == rhs.lower
   }
 }
 

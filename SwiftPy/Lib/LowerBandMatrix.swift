@@ -17,13 +17,17 @@ struct LowerBandMatrix<T: Mathable>: MatrixProtocol {
   
   /// Initialize a new **Upper Band** matrix with specified size.
   ///
-  /// - Parameter width: number of sub-diagonals in the upper triangle with non-zero elements
-  ///                    when width = 0 this is a diagonal matrix
+  /// - Parameter k: number of sub-diagonals in the upper triangle with non-zero elements
+  ///                when k = 0 this is a diagonal matrix
   ///
   /// - Parameter height: height of the matrix
   ///
+  init(k: Int, height: Int) {
+    storage = .init(capacity: k, size: height) { Vector(size: height - $0) }
+  }
+  
   init(width: Int, height: Int) {
-    storage = .init(capacity: width + 1, size: height) { Vector(size: height - $0) }
+    fatalError()
   }
   
   /// Initialize a new **Upper Band** matrix from the given `elements`

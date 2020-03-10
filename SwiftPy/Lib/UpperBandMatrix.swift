@@ -14,6 +14,10 @@ struct UpperBandMatrix<T: Mathable>: MatrixProtocol {
   typealias U = Int
   
   var storage: COW
+
+  init(width: Int, height: Int) {
+    fatalError()
+  }
   
   /// Initialize a new **Upper Band** matrix with specified size.
   ///
@@ -22,8 +26,8 @@ struct UpperBandMatrix<T: Mathable>: MatrixProtocol {
   ///
   /// - Parameter height: height of the matrix
   ///
-  init(width: Int, height: Int) {
-    storage = .init(capacity: width + 1, size: height) { Vector(size: height - $0) }
+  init(k: Int, height: Int) {
+    storage = .init(capacity: k, size: height) { Vector(size: height - $0) }
   }
   
   /// Initialize a new **Upper Band** matrix from the given `elements`
