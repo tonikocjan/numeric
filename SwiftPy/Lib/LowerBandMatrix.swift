@@ -1,5 +1,5 @@
 //
-//  UpperBandMatrix.swift
+//  LowerBandMatrix.swift
 //  SwifyPy
 //
 //  Created by Toni Kocjan on 10/03/2020.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct UpperBandMatrix<T: Mathable>: MatrixProtocol {
+struct LowerBandMatrix<T: Mathable>: MatrixProtocol {
   typealias Value = T
   private let storage: UnsafeMutablePointer<Vector<T>>
   let height: Int
@@ -53,23 +53,24 @@ struct UpperBandMatrix<T: Mathable>: MatrixProtocol {
   }
 }
 
-extension UpperBandMatrix {
+extension LowerBandMatrix {
   var width: Int { height }
   
   subscript(_ i: Int, _ j: Int) -> T {
     get {
       assert(j >= 0)
       assert(j < width)
-      if i > j { return .zero }
-      if j - i > k { return .zero }
-      return storage[j - i][i]
+      if j > i { return .zero }
+      let diag = i - j
+      if diag > k { return .zero }
+      return storage[diag][j]
     }
     mutating set {
       assert(j >= 0)
       assert(j < width)
-      if i > j { assert(newValue == 0) }
-      if j - i > k { assert(newValue == 0) }
-      storage[j - i][i] = newValue
+      if j > i { return assert(newValue == 0) }
+      if i - j > k { return assert(newValue == 0) }
+      storage[i - j][j] = newValue
     }
   }
   
@@ -82,7 +83,7 @@ extension UpperBandMatrix {
   }
   
   static func identity(_ size: Int) -> Self {
-    UpperBandMatrix(arrayLiteral: [.ones(size)])
+    LowerBandMatrix(arrayLiteral: [.ones(size)])
   }
   
   static func zeros(width: Int, height: Int) -> Self {
@@ -95,7 +96,7 @@ extension UpperBandMatrix {
 }
 
 // MARK: - Collection
-extension UpperBandMatrix: BidirectionalCollection {
+extension LowerBandMatrix: BidirectionalCollection {
   subscript(_ i: Int) -> Vector<T> {
     get {
       assert(i >= 0)
@@ -112,27 +113,27 @@ extension UpperBandMatrix: BidirectionalCollection {
 
 
 // MARK: - CustomDebugStringConvertible
-extension UpperBandMatrix: CustomDebugStringConvertible where T: LosslessStringConvertible {
+extension LowerBandMatrix: CustomDebugStringConvertible where T: LosslessStringConvertible {
   var debugDescription: String {
     "[" + map { $0.description }.joined(separator: "\n") + "]"
   }
 }
 
 // MARK: - CustomStringConvertible
-extension UpperBandMatrix: CustomStringConvertible where T: LosslessStringConvertible {
+extension LowerBandMatrix: CustomStringConvertible where T: LosslessStringConvertible {
   var description: String { debugDescription }
 }
 
-var RBM_ITERATIONS_COUNT = 0 // for testing purposes
+var LBM_ITERATIONS_COUNT = 0 // for testing purposes
 
-func *<T: Mathable>(_ lhs: UpperBandMatrix<T>, _ rhs: Vector<T>) -> Vector<T> {
+func *<T: Mathable>(_ lhs: LowerBandMatrix<T>, _ rhs: Vector<T>) -> Vector<T> {
   assert(lhs.height == rhs.count)
+  LBM_ITERATIONS_COUNT = 0
   var result: Vector<T> = .zeros(lhs.height)
-  RBM_ITERATIONS_COUNT = 0
   for i in 0..<lhs.height {
-    for j in i..<Swift.min(i + lhs.k + 1, lhs.height) {
+    for j in Swift.max(0, i - (lhs.height - lhs.k) + 2)...i {
       result[i] += lhs[i, j] * rhs[j]
-      RBM_ITERATIONS_COUNT += 1
+      LBM_ITERATIONS_COUNT += 1
     }
   }
   return result

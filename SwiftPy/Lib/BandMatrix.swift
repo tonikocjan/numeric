@@ -173,3 +173,21 @@ extension BandMatrix: CustomDebugStringConvertible where T: LosslessStringConver
 extension BandMatrix: CustomStringConvertible where T: LosslessStringConvertible {
   var description: String { debugDescription }
 }
+
+var BM_ITERATIONS_COUNT = 0 // for testing purposes
+
+func *<T: Mathable>(_ lhs: BandMatrix<T>, _ rhs: Vector<T>) -> Vector<T> {
+  assert(lhs.height == rhs.count)
+  var result: Vector<T> = .zeros(lhs.height)
+  BM_ITERATIONS_COUNT = 0
+  for i in 0..<lhs.height {
+    let lower = Swift.max(0, i - (lhs.height - lhs.k) + 2)
+    let upper = Swift.min(i + lhs.k + 1, lhs.height)
+    for j in lower..<upper {
+      result[i] += lhs[i, j] * rhs[j]
+      BM_ITERATIONS_COUNT += 1
+    }
+  }
+  return result
+}
+
