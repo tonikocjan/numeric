@@ -77,10 +77,7 @@ struct Matrix<T: Mathable>: MatrixProtocol {
   }
   
   init(arrayLiteral elements: Vector<T>...) {
-    self.storage = Storage(width: elements.first?.count ?? 0, height: elements.count)
-    for (i, el) in elements.enumerated() {
-      storage.buffer.advanced(by: i).initialize(to: el)
-    }
+    self.init(arrayLiteral: elements)
   }
   
   init(arrayLiteral elements: [Vector<T>]) {
@@ -249,7 +246,7 @@ func -<M: MatrixProtocol>(_ m1: M, _ m2: M) -> M {
 
 func *<M: MatrixProtocol>(_ m: M, _ v: M.Vec) -> M.Vec {
   assert(m.height == v.count)
-  return Vector(arrayLiteral: m.map { ($0 * v).sum })
+  return m.map { ($0 * v).sum }
 }
 
 func *<M: MatrixProtocol>(_ m1: M, _ m2: M) -> M {
@@ -281,7 +278,7 @@ func *!<M: MatrixProtocol>(_ m1: M, _ m2: M) -> M {
 }
 
 infix operator !/: MultiplicationPrecedence
-func !/<M: MatrixProtocol>(_ m: M, _ v: M.Vec) -> M.Vec {
+func !/<M: MatrixProtocol>(_ v: M.Vec, _ m: M) -> M.Vec {
   // solve linear system of equations
   LUDecomposition(m, v)
 }

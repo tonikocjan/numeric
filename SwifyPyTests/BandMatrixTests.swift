@@ -95,4 +95,24 @@ class BandMatrixTests: XCTestCase {
     XCTAssertEqual(matrix[3, 2], 90)
     XCTAssertEqual(matrix[3, 3], 100)
   }
+  
+  func testIdentity() {
+    let matrix = BandMatrix<Double>.identity(4)
+    XCTAssertEqual(matrix[0, 0], 1)
+    XCTAssertEqual(matrix[0, 1], 0)
+    XCTAssertEqual(matrix[0, 2], 0)
+    XCTAssertEqual(matrix[0, 3], 0)
+    XCTAssertEqual(matrix[1, 0], 0)
+    XCTAssertEqual(matrix[1, 1], 1)
+    XCTAssertEqual(matrix[1, 2], 0)
+    XCTAssertEqual(matrix[1, 3], 0)
+    XCTAssertEqual(matrix[2, 0], 0)
+    XCTAssertEqual(matrix[2, 1], 0)
+    XCTAssertEqual(matrix[2, 2], 1)
+    XCTAssertEqual(matrix[2, 3], 0)
+    XCTAssertEqual(matrix[3, 0], 0)
+    XCTAssertEqual(matrix[3, 1], 0)
+    XCTAssertEqual(matrix[3, 2], 0)
+    XCTAssertEqual(matrix[3, 3], 1)
+  }
 }

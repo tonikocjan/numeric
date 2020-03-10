@@ -50,6 +50,10 @@ struct BandMatrix<T: Mathable>: MatrixProtocol {
   ///  [0, 6, 7]]
   ///
   init(arrayLiteral elements: Vector<Value>...) {
+    self.init(arrayLiteral: elements)
+  }
+  
+  init(arrayLiteral elements: [Vector<Value>]) {
     assert(elements.count > 0) // TODO: - Can we construct an empty matrix?
     assert(elements.first!.count == elements.last!.count)
     let k = ((elements.dropFirst().first?.count ?? elements.first!.count) - 1) / 2
@@ -77,18 +81,8 @@ struct BandMatrix<T: Mathable>: MatrixProtocol {
       }
     }
   }
-  
-  init(arrayLiteral elements: [Vector<Value>]) {
-    fatalError()
-  }
 }
 
-/**
- [1, 2, 0, 0]
- [3, 4, 5, 0]
- [0, 6, 7, 8]
- [0, 0, 9, 10]
- */
 
 // MARK: - API
 extension BandMatrix {
@@ -130,21 +124,25 @@ extension BandMatrix {
   }
   
   static func identity(_ size: Int) -> Self {
-    fatalError()
+    var matrix = BandMatrix(width: 0, height: size)
+    for i in 0..<size {
+      matrix[i, i] = 1
+    }
+    return matrix
   }
   
   static func zeros(width: Int, height: Int) -> Self {
-    fatalError()
+    fatalError("Not a valid operation")
   }
   
   static func ones(width: Int, height: Int) -> Self {
-    fatalError()
+    fatalError("Not a valid operation")
   }
   
   // collection
   
-  func map(_ transform: (Vector<Value>) throws -> Vec) rethrows -> BandMatrix {
-    fatalError()
+  func map(_ transform: (Vector<Value>) throws -> Vec) rethrows -> Self {
+    BandMatrix(arrayLiteral: try map(transform))
   }
   
   func columnMap<T>(_ transform: (Vector<Value>) throws -> T) rethrows -> [T] {
