@@ -32,7 +32,7 @@ protocol MatrixProtocol: ExpressibleByArrayLiteral, Equatable, BidirectionalColl
   
   mutating func swap(row: Int, col: Int)
   
-  // add other higher-order functions
+  // TODO: - add other higher-order functions
   func map(_ transform: (Vector<Value>) throws -> Vec) rethrows -> Self
   func columnMap<T>(_ transform: (Vector<Value>) throws -> T) rethrows -> [T]
 }
@@ -150,7 +150,7 @@ extension Matrix {
   // collection
   
   func map(_ transform: (Vector<Value>) throws -> Vec) rethrows -> Matrix {
-    Matrix(arrayLiteral: try map(transform))
+    try map(transform)
   }
   
   func columnMap<T>(_ transform: (Vector<Value>) throws -> T) rethrows -> [T] {
@@ -285,8 +285,8 @@ func !/<M: MatrixProtocol>(_ m: M, _ v: M.Vec) -> M.Vec {
 }
 
 extension Zip2Sequence where Sequence1: MatrixProtocol, Sequence2: MatrixProtocol, Sequence1.Value == Sequence2.Value {
-  typealias Vec = Sequence1.Vec
   typealias Matrix = Sequence1
+  typealias Vec = Matrix.Vec
   
   func map(_ transform: ((Vec, Vec)) throws -> Vec) rethrows -> Matrix {
     Matrix(arrayLiteral: try map(transform))

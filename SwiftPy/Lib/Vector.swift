@@ -130,76 +130,88 @@ extension Vector: CustomStringConvertible where T: LosslessStringConvertible {
   var description: String { debugDescription }
 }
 
+extension Zip2Sequence {
+  func map<T: Mathable>(_ transform: ((Sequence1.Element, Sequence2.Element)) throws -> T) rethrows -> Vector<T> {
+    Vector(arrayLiteral: try map(transform))
+  }
+}
+
+extension Collection {
+  func map<T: Mathable>(_ transform: (Element) throws -> T) rethrows -> Vector<T> {
+    Vector(arrayLiteral: try map(transform))
+  }
+}
+
 /// Math
 
 func +<T: Mathable>(_ v: Vector<T>, _ num: T) -> Vector<T> {
-  Vector(arrayLiteral: v.map { $0 + num })
+  v.map { $0 + num }
 }
 
 func -<T: Mathable>(_ v: Vector<T>, _ num: T) -> Vector<T> {
-  Vector(arrayLiteral: v.map { $0 - num })
+  v.map { $0 - num }
 }
 
 func *<T: Mathable>(_ v: Vector<T>, _ num: T) -> Vector<T> {
-  Vector(arrayLiteral: v.map { $0 * num })
+  v.map { $0 * num }
 }
 
 func /<T: Mathable>(_ v: Vector<T>, _ num: T) -> Vector<T> {
-  Vector(arrayLiteral: v.map { $0 / num })
+  v.map { $0 / num }
 }
 
 func +<T: Mathable>(_ num: T, _ v: Vector<T>) -> Vector<T> {
-  Vector(arrayLiteral: v.map { $0 + num })
+  v.map { $0 + num }
 }
 
 func -<T: Mathable>(_ num: T, _ v: Vector<T>) -> Vector<T> {
-  Vector(arrayLiteral: v.map { $0 - num })
+  v.map { $0 - num }
 }
 
 func *<T: Mathable>(_ num: T, _ v: Vector<T>) -> Vector<T> {
-  Vector(arrayLiteral: v.map { $0 * num })
+  v.map { $0 * num }
 }
 
 func /<T: Mathable>(_ num: T, _ v: Vector<T>) -> Vector<T> {
-  Vector(arrayLiteral: v.map { $0 / num })
+  v.map { $0 / num }
 }
 
 func +<T: Mathable>(_ v1: Vector<T>, _ v2: Vector<T>) -> Vector<T> {
   assert(v1.count == v2.count)
-  return Vector(arrayLiteral: zip(v1, v2).map { $0 + $1 })
+  return zip(v1, v2).map { $0 + $1 }
 }
 
 func -<T: Mathable>(_ v1: Vector<T>, _ v2: Vector<T>) -> Vector<T> {
   assert(v1.count == v2.count)
-  return Vector(arrayLiteral: zip(v1, v2).map { $0 - $1 })
+  return zip(v1, v2).map { $0 - $1 }
 }
 
 func *<T: Mathable>(_ v1: Vector<T>, _ v2: Vector<T>) -> Vector<T> {
   assert(v1.count == v2.count)
-  return Vector(arrayLiteral: zip(v1, v2).map { $0 * $1 })
+  return zip(v1, v2).map { $0 * $1 }
 }
 
 func /<T: Mathable>(_ v1: Vector<T>, _ v2: Vector<T>) -> Vector<T> {
   assert(v1.count == v2.count)
-  return Vector(arrayLiteral: zip(v1, v2).map { $0 / $1 })
+  return zip(v1, v2).map { $0 / $1 }
 }
 
 func cos<T: BinaryFloatingPoint>(_ v: Vector<T>) -> Vector<T> {
-  Vector(arrayLiteral: v.map { T(cos(Double($0))) })
+  v.map { T(cos(Double($0))) }
 }
 
 func sin<T: BinaryFloatingPoint>(_ v: Vector<T>) -> Vector<T> {
-  Vector(arrayLiteral: v.map { T(sin(Double($0))) })
+  v.map { T(sin(Double($0))) }
 }
 
 func sqrt<T: BinaryFloatingPoint>(_ v: Vector<T>) -> Vector<T> {
-  Vector(arrayLiteral: v.map { T(sqrt(Double($0))) })
+  v.map { T(sqrt(Double($0))) }
 }
 
 func log2<T: BinaryFloatingPoint>(_ v: Vector<T>) -> Vector<T> {
-  Vector(arrayLiteral: v.map { T(log2(Double($0))) })
+  v.map { T(log2(Double($0))) }
 }
 
 func log<T: BinaryFloatingPoint>(_ v: Vector<T>) -> Vector<T> {
-  Vector(arrayLiteral: v.map { T(log(Double($0))) })
+  v.map { T(log(Double($0))) }
 }
