@@ -64,7 +64,7 @@ extension Vector {
 extension Vector: Equatable {
   static func == (lhs: Self, rhs: Self) -> Bool {
     guard lhs.count == rhs.count else { return false }
-    return zip(lhs, rhs).first { $0 != $1 } == nil
+    return zip(lhs, rhs).allSatisfy(==)
   }
 }
 
@@ -84,7 +84,7 @@ extension Vector: BidirectionalCollection {
     mutating set {
       assert(i >= 0)
       assert(i < count)
-      storageForWriting.buffer.advanced(by: i).assign(repeating: newValue, count: 1)
+      storageForWriting[i] = newValue
     }
   }
 }

@@ -31,13 +31,13 @@ class COWStorage<Pointee, T> {
   let size: T? // ??
   let buffer: UnsafeMutablePointer<Pointee>
   
-  init(capacity: Int, size: T? = nil, provider: (() -> Pointee)?) {
+  init(capacity: Int, size: T? = nil, provider: ((Int) -> Pointee)?) {
     self.capacity = capacity
     self.size = size
     self.buffer = .allocate(capacity: capacity)
     guard let provider = provider else { return }
     for i in 0..<capacity {
-      self.buffer.advanced(by: i).initialize(to: provider())
+      self.buffer.advanced(by: i).initialize(to: provider(i))
     }
   }
   
@@ -78,8 +78,15 @@ extension COWStorage {
   }
 }
 
+extension COWStorage: Equatable where Pointee: Equatable, T: Equatable {
+  static func ==(_ lhs: COWStorage, _ rhs: COWStorage) -> Bool {
+    guard lhs.capacity == rhs.capacity, lhs.size == rhs.size else { return false }
+    return zip(lhs, rhs).allSatisfy(==)
+  }
+}
+
 extension COWStorage where T == Void {
-  convenience init(capacity: Int, provider: (() -> Pointee)?) {
+  convenience init(capacity: Int, provider: ((Int) -> Pointee)?) {
     self.init(capacity: capacity, size: nil, provider: provider)
   }
 }

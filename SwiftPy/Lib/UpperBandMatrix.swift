@@ -10,9 +10,10 @@ import Foundation
 
 struct UpperBandMatrix<T: Mathable>: MatrixProtocol {
   typealias Value = T
-  private let storage: UnsafeMutablePointer<Vector<T>>
-  let height: Int
-  let k: Int
+  typealias Pointee = Vector<T>
+  typealias U = Int
+  
+  var storage: COW
   
   /// Initialize a new **Upper Band** matrix with specified size.
   ///
@@ -22,12 +23,7 @@ struct UpperBandMatrix<T: Mathable>: MatrixProtocol {
   /// - Parameter height: height of the matrix
   ///
   init(width: Int, height: Int) {
-    self.k = width
-    self.height = height
-    storage = .allocate(capacity: k + 1)
-    for i in 0..<(k + 1) {
-      storage.advanced(by: i).initialize(to: Vector(size: height - i))
-    }
+    storage = .init(capacity: width + 1, size: height) { Vector(size: height - $0) }
   }
   
   /// Initialize a new **Upper Band** matrix from the given `elements`
@@ -44,17 +40,25 @@ struct UpperBandMatrix<T: Mathable>: MatrixProtocol {
     for (i, el) in elements.dropFirst().enumerated() {
       assert(elements[i].count == el.count + 1)
     }
-    self.k = elements.count - 1
-    self.storage = .allocate(capacity: k + 1)
-    self.height = elements[0].count
-    for (i, el) in elements.enumerated() {
-      storage.advanced(by: i).initialize(to: el)
-    }
+    
+    storage = .init(capacity: elements.count, size: elements[0].count) { elements[$0] }
+  }
+}
+
+// MARK: - SupportsCopyOnWrite
+extension UpperBandMatrix: SupportsCopyOnWrite {}
+
+// MARK: - Equatable
+extension UpperBandMatrix: Equatable {
+  static func == (lhs: Self, rhs: Self) -> Bool {
+    lhs.storage == rhs.storage
   }
 }
 
 extension UpperBandMatrix {
-  var width: Int { height }
+  var width: Int { storage.size! }
+  var height: Int { width }
+  var k: Int { storage.capacity - 1 }
   
   subscript(_ i: Int, _ j: Int) -> T {
     get {
@@ -69,7 +73,7 @@ extension UpperBandMatrix {
       assert(j < width)
       if i > j { assert(newValue == 0) }
       if j - i > k { assert(newValue == 0) }
-      storage[j - i][i] = newValue
+      storageForWriting[j - i][i] = newValue
     }
   }
   
