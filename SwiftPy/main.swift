@@ -8,8 +8,23 @@
 
 import Foundation
 
-let mat: BandMatrix = [
-  [1], [2, 3], [4]
+let vec: Vector = [1, -6, -17, -52]
+
+let band: BandMatrix = [
+  [3, 2, 5],
+  [6, 6, 15, 3],
+  [-3, 4, 13, 1],
+  [-6, 6, 15]
+]
+print(vec !/ band)
+
+let mat: Matrix = [
+  [3, 2, 5, 0],
+  [6, 6, 15, 3],
+  [-3, 4, 13, 1],
+  [0, -6, 6, 15]
 ]
 
-print(mat + 5)
+print(vec !/ mat)
+
+print(band == mat)

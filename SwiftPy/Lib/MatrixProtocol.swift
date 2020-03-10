@@ -26,8 +26,6 @@ protocol MatrixProtocol: ExpressibleByArrayLiteral, Equatable, BidirectionalColl
   subscript(_ i: Int) -> Vector<Value> { get mutating set }
   
   static func identity(_ size: Int) -> Self
-  static func zeros(width: Int, height: Int) -> Self
-  static func ones(width: Int, height: Int) -> Self
   
   mutating func swap(row: Int, col: Int)
 }
@@ -54,6 +52,19 @@ extension MatrixProtocol where Self: Transposable {
   func columnMap<T>(_ transform: (Vector<Value>) throws -> T) rethrows -> [T] {
     try transposed.map(transform)
   }
+  
+  static func zeros(width: Int, height: Int) -> Self {
+    Self(arrayLiteral: (0..<height).map { _ in .zeros(width) })
+  }
+  
+  static func ones(width: Int, height: Int) -> Self {
+    Self(arrayLiteral: (0..<height).map { _ in .ones(width) })
+  }
+}
+
+func == <M1: MatrixProtocol, M2: MatrixProtocol>(_ lhs: M1, _ rhs: M2) -> Bool where M1.Value == M2.Value {
+  guard lhs.shape == rhs.shape else { return false }
+  return zip(lhs, rhs).allSatisfy(==)
 }
 
 /// Math
@@ -155,3 +166,4 @@ extension Collection {
     Matrix(arrayLiteral: try map(transform))
   }
 }
+

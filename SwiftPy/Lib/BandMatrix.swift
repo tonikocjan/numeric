@@ -54,8 +54,12 @@ struct BandMatrix<T: Mathable>: MatrixProtocol {
   }
   
   init(arrayLiteral elements: [Vector<Value>]) {
-    assert(elements.count > 0) // TODO: - Can we construct an empty matrix?
-    assert(elements.first!.count == elements.last!.count)
+    assert(elements.count > 0, "Cannot construct an empty BandMatrix!") // TODO: - Can we construct an empty matrix?
+    assert(elements.first!.count == elements.last!.count, "First and last row must contain the same number of elements.")
+    if elements.count > 1 {
+      assert(elements.first!.count == 1 || elements.first!.count == elements[1].count - 1, "First row must be one less then middle rows!")
+      assert(elements.last!.count == 1 || elements.last!.count == elements[1].count - 1, "First row must be one less then middle rows!")
+    }
     let k = ((elements.dropFirst().first?.count ?? elements.first!.count) - 1) / 2
     for i in elements.dropFirst().dropLast() {
       assert(k == (i.count - 1) / 2)
@@ -191,3 +195,10 @@ func *<T: Mathable>(_ lhs: BandMatrix<T>, _ rhs: Vector<T>) -> Vector<T> {
   return result
 }
 
+//func !/<T: Mathable>(_ lhs: Vector<T>, _ rhs: BandMatrix<T>) -> (UpperBandMatrix<T>, LowerBandMatrix<T>) {
+//  LUDecomposition(lhs, rhs)
+//}
+//
+//fileprivate func LUDecomposition<T: Mathable>(_ lhs: Vector<T>, _ rhs: BandMatrix<T>) -> (UpperBandMatrix<T>, LowerBandMatrix<T>) {
+//  fatalError()
+//}

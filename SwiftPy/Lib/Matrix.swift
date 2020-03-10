@@ -80,21 +80,13 @@ extension Matrix {
       return vec
     }
   }
-  
-  static func zeros(width: Int, height: Int) -> Self {
-    (0..<height).map { _ in .zeros(width) }
-  }
-  
-  static func ones(width: Int, height: Int) -> Self {
-    (0..<height).map { _ in .ones(width) }
-  }
 }
 
 // MARK: - Equatable
 extension Matrix: Equatable {
   static func == (lhs: Self, rhs: Self) -> Bool {
     guard lhs.shape == rhs.shape else { return false }
-    return zip(lhs, rhs).first { $0 != $1 } == nil
+    return zip(lhs, rhs).allSatisfy(==)
   }
 }
 

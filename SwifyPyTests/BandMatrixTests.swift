@@ -57,7 +57,12 @@ class BandMatrixTests: XCTestCase {
   }
   
   func testTridiagonal4x4Subscript() {
-    var matrix: BandMatrix = [[1, 2], [3, 4, 5], [6, 7, 8], [9, 10]]
+    var matrix: BandMatrix = [
+      [1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [9, 10]
+    ]
     XCTAssertEqual(matrix[0, 0], 1)
     XCTAssertEqual(matrix[0, 1], 2)
     XCTAssertEqual(matrix[0, 2], 0)
@@ -96,6 +101,22 @@ class BandMatrixTests: XCTestCase {
     XCTAssertEqual(matrix[3, 3], 100)
   }
   
+  func testPentaDiagonal4x4() {
+    let band: BandMatrix = [
+      [3, 2, 5],
+      [6, 6, 15, 3],
+      [-3, 4, 13, 1],
+      [-6, 6, 15]
+    ]
+    let mat: Matrix = [
+      [3, 2, 5, 0],
+      [6, 6, 15, 3],
+      [-3, 4, 13, 1],
+      [0, -6, 6, 15]
+    ]
+    XCTAssertTrue(band == mat)
+  }
+  
   func testIdentity() {
     let matrix = BandMatrix<Double>.identity(4)
     XCTAssertEqual(matrix[0, 0], 1)
@@ -125,9 +146,9 @@ class BandMatrixTests: XCTestCase {
   
   func testCopyOnWrite() {
     let matrix: BandMatrix = [
-      [1, 4, 7],
+      [1, 4],
       [2, 5, 8],
-      [3, 6, 9]
+      [3, 6]
     ]
     var copy = matrix
     copy[0, 0] = 0
