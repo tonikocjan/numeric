@@ -18,8 +18,6 @@ protocol MatrixProtocol: ExpressibleByArrayLiteral, Equatable, BidirectionalColl
   var width: Int { get }
   var height: Int { get }
   
-  var transposed: Self { get }
-  
   init(width: Int, height: Int)
   init(arrayLiteral elements: [Vector<Value>])
   init(arrayLiteral elements: Vector<Value>...)
@@ -34,6 +32,10 @@ protocol MatrixProtocol: ExpressibleByArrayLiteral, Equatable, BidirectionalColl
   mutating func swap(row: Int, col: Int)
 }
 
+protocol Transposable {
+  var transposed: Self { get }
+}
+
 extension MatrixProtocol {
   func index(after i: Int) -> Int { i + 1 }
   func index(before i: Int) -> Int { i - 1 }
@@ -46,13 +48,15 @@ extension MatrixProtocol {
   func map(_ transform: (Vector<Value>) throws -> Vec) rethrows -> Self {
     Self(arrayLiteral: try map(transform))
   }
-  
+}
+
+extension MatrixProtocol where Self: Transposable {
   func columnMap<T>(_ transform: (Vector<Value>) throws -> T) rethrows -> [T] {
     try transposed.map(transform)
   }
 }
 
-struct Matrix<T: Mathable>: MatrixProtocol {
+struct Matrix<T: Mathable>: MatrixProtocol, Transposable {
   typealias Value = T
   
   private class Storage {
@@ -137,7 +141,7 @@ extension Matrix {
   }
   
   mutating func swap(row: Int, col: Int) {
-    let tmp = storage.buffer.advanced(by: row).pointee
+    let tmp = storage.buffer[row]
     storage.buffer.advanced(by: row).initialize(to: storage.buffer.advanced(by: col).pointee)
     storage.buffer.advanced(by: col).initialize(to: tmp)
   }
@@ -173,7 +177,7 @@ extension Matrix: BidirectionalCollection {
     get {
       assert(i >= 0)
       assert(i < height)
-      return storage.buffer.advanced(by: i).pointee
+      return storage.buffer[i]
     }
     mutating set {
       assert(i >= 0)
@@ -246,7 +250,7 @@ func *<M: MatrixProtocol>(_ m: M, _ v: M.Vec) -> M.Vec {
   return m.map { ($0 * v).sum }
 }
 
-func *<M: MatrixProtocol>(_ m1: M, _ m2: M) -> M {
+func *<M: MatrixProtocol>(_ m1: M, _ m2: M) -> M where M: Transposable {
   // multiplication implemented functionaly
   assert(m1.width == m2.height)
   assert(m1.height == m2.width)

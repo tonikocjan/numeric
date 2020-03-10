@@ -108,7 +108,7 @@ extension Vector: BidirectionalCollection {
     get {
       assert(i >= 0)
       assert(i < storage.size)
-      return storage.buffer.advanced(by: i).pointee
+      return storage.buffer[i]
     }
     mutating set {
       assert(i >= 0)

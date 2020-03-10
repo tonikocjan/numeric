@@ -22,7 +22,7 @@ struct BandMatrix<T: Mathable>: MatrixProtocol {
   
   /// Initialize a new **Band** matrix with specified size.
   ///
-  /// - Parameter width: number of sub-diagonals with non-zero diagonals.
+  /// - Parameter width: number of sub-diagonals with non-zero elements.
   ///                      - if width = 0 this is **diagonal** matrix
   ///                      - if width = 1 this is **tridiagonal** matrix
   ///                      - ...
@@ -88,7 +88,6 @@ struct BandMatrix<T: Mathable>: MatrixProtocol {
 extension BandMatrix {
   var width: Int { storage.height }
   var height: Int { storage.height }
-  var shape: (width: Int, height: Int) { (width, height) }
   
   subscript(_ i: Int, _ j: Int) -> T {
     get {
