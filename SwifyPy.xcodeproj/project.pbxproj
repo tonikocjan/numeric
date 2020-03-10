@@ -19,6 +19,8 @@
 		372F2DEE2417B2E400BECA26 /* LowerBandMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372F2DE82417B20500BECA26 /* LowerBandMatrix.swift */; };
 		372F2DF02417C4BC00BECA26 /* MatrixProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372F2DEF2417C4BC00BECA26 /* MatrixProtocol.swift */; };
 		372F2DF12417C4BC00BECA26 /* MatrixProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372F2DEF2417C4BC00BECA26 /* MatrixProtocol.swift */; };
+		372F2DF32417DBF900BECA26 /* cow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372F2DF22417DBF900BECA26 /* cow.swift */; };
+		372F2DF42417DBF900BECA26 /* cow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372F2DF22417DBF900BECA26 /* cow.swift */; };
 		37441DB9240E9EFF00F982FF /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37441DB8240E9EFF00F982FF /* main.swift */; };
 		37441DC1240E9F0E00F982FF /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37441DC0240E9F0E00F982FF /* Vector.swift */; };
 		37441DC3240E9F1500F982FF /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37441DC2240E9F1500F982FF /* Matrix.swift */; };
@@ -51,6 +53,7 @@
 		372F2DE82417B20500BECA26 /* LowerBandMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LowerBandMatrix.swift; sourceTree = "<group>"; };
 		372F2DEC2417B2C900BECA26 /* LowerBandMatrixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LowerBandMatrixTests.swift; sourceTree = "<group>"; };
 		372F2DEF2417C4BC00BECA26 /* MatrixProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixProtocol.swift; sourceTree = "<group>"; };
+		372F2DF22417DBF900BECA26 /* cow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cow.swift; sourceTree = "<group>"; };
 		37441DB5240E9EFF00F982FF /* SwifyPy */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SwifyPy; sourceTree = BUILT_PRODUCTS_DIR; };
 		37441DB8240E9EFF00F982FF /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		37441DC0240E9F0E00F982FF /* Vector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vector.swift; sourceTree = "<group>"; };
@@ -110,6 +113,7 @@
 		37441DBF240E9F0600F982FF /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				372F2DF22417DBF900BECA26 /* cow.swift */,
 				372F2DEF2417C4BC00BECA26 /* MatrixProtocol.swift */,
 				37441DC2240E9F1500F982FF /* Matrix.swift */,
 				37441DC0240E9F0E00F982FF /* Vector.swift */,
@@ -225,6 +229,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				372F2DF32417DBF900BECA26 /* cow.swift in Sources */,
 				372F2DE92417B20500BECA26 /* LowerBandMatrix.swift in Sources */,
 				372F2DDF2416D7D200BECA26 /* BandMatrix.swift in Sources */,
 				37441DC1240E9F0E00F982FF /* Vector.swift in Sources */,
@@ -251,6 +256,7 @@
 				372F2DF12417C4BC00BECA26 /* MatrixProtocol.swift in Sources */,
 				37441DDB240ECEE800F982FF /* LUDecomposition.swift in Sources */,
 				372F2DE62417A79000BECA26 /* UpperBandMatrixTests.swift in Sources */,
+				372F2DF42417DBF900BECA26 /* cow.swift in Sources */,
 				372F2DDD2416C5AA00BECA26 /* LUSolverTests.swift in Sources */,
 				372F2DEE2417B2E400BECA26 /* LowerBandMatrix.swift in Sources */,
 			);

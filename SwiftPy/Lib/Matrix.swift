@@ -10,31 +10,15 @@ import Foundation
 
 struct Matrix<T: Mathable>: MatrixProtocol, Transposable {
   typealias Value = T
+  typealias Pointee = Vector<T>
+  typealias U = (width: Int, height: Int)
   
-  private class Storage {
-    let width: Int
-    let height: Int
-    let buffer: UnsafeMutablePointer<Vector<T>>
-    
-    init(width: Int, height: Int) {
-      self.width = width
-      self.height = height
-      self.buffer = .allocate(capacity: height)
-    }
-    
-    var copy: Storage {
-      print("Creating a copy of Matrix<Vector<\(type(of: T.self))>>")
-      let storage = Storage(width: width, height: height)
-      for i in 0..<height {
-        storage.buffer.advanced(by: i).initialize(to: self.buffer.advanced(by: i).pointee)
-      }
-      return storage
-    }
-  }
-  private var storage: Storage
+  var storage: COWStorage<Vector<T>, (width: Int, height: Int)>
   
   init(width: Int, height: Int) {
-    self.storage = Storage(width: width, height: height)
+    self.storage = .init(capacity: height,
+                         size: (width: width, height: height),
+                         provider: Vec.init)
     for i in 0..<height {
       storage.buffer.advanced(by: i).initialize(to: .init(size: width))
     }
@@ -45,29 +29,20 @@ struct Matrix<T: Mathable>: MatrixProtocol, Transposable {
   }
   
   init(arrayLiteral elements: [Vector<T>]) {
-    self.storage = Storage(width: elements.first?.count ?? 0, height: elements.count)
-    for (i, el) in elements.enumerated() {
-      storage.buffer.advanced(by: i).initialize(to: el)
-    }
+    self.storage = .init(elements: elements,
+                         size: (width: elements.first?.count ?? 0,
+                                height: elements.count))
   }
 }
 
-private extension Matrix {
-  // copy-on-write
-  private var storageForWriting: Storage {
-    mutating get {
-      if !isKnownUniquelyReferenced(&storage) {
-        self.storage = storage.copy
-      }
-      return storage
-    }
-  }
+// MARK: - SupportsCopyOnWrite
+extension Matrix: SupportsCopyOnWrite {
 }
 
 // MARK: - API
 extension Matrix {
-  var width: Int { storage.width }
-  var height: Int { storage.height }
+  var width: Int { storage.size!.width }
+  var height: Int { storage.size!.height }
   
   subscript(_ i: Int, _ j: Int) -> T {
     get {
@@ -134,7 +109,7 @@ extension Matrix: BidirectionalCollection {
     mutating set {
       assert(i >= 0)
       assert(i < height)
-      storageForWriting.buffer.advanced(by: i).assign(repeating: newValue, count: 1)
+      storageForWriting.buffer.advanced(by: i).initialize(to: newValue)
     }
   }
 }

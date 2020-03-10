@@ -112,4 +112,16 @@ class UpperBandMatrixTests: XCTestCase {
     XCTAssertEqual([8, 19, 17,  14], matrix * vector)
     XCTAssertEqual(7, RBM_ITERATIONS_COUNT)
   }
+  
+  func testCopyOnWrite() {
+    let matrix: UpperBandMatrix = [
+      [1, 4, 7],
+      [2, 5],
+      [3]
+    ]
+    var copy = matrix
+    copy[0, 0] = 0
+    XCTAssertEqual(0, copy[0, 0])
+    XCTAssertEqual(1, matrix[0, 0])
+  }
 }

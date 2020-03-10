@@ -122,4 +122,16 @@ class BandMatrixTests: XCTestCase {
     XCTAssertEqual([8, 19, 53, 29], matrix * vector)
     XCTAssertEqual(10, BM_ITERATIONS_COUNT)
   }
+  
+  func testCopyOnWrite() {
+    let matrix: BandMatrix = [
+      [1, 4, 7],
+      [2, 5, 8],
+      [3, 6, 9]
+    ]
+    var copy = matrix
+    copy[0, 0] = 0
+    XCTAssertEqual(0, copy[0, 0])
+    XCTAssertEqual(1, matrix[0, 0])
+  }
 }

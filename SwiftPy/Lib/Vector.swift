@@ -9,64 +9,35 @@
 import Foundation
 
 struct Vector<T: Mathable>: ExpressibleByArrayLiteral {
-  private class Storage {
-    let size: Int
-    let buffer: UnsafeMutablePointer<T>
-    
-    init(size: Int) {
-      self.size = size
-      self.buffer = .allocate(capacity: size)
-    }
-    
-    var copy: Storage {
-      print("Creating a copy of Vector<\(type(of: T.self))>")
-      let storage = Storage(size: size)
-      for i in 0..<size {
-        storage.buffer.advanced(by: i).initialize(to: self.buffer.advanced(by: i).pointee)
-      }
-      return storage
-    }
-  }
-  private var storage: Storage
+  typealias Pointee = T
+  typealias U = ()
+  
+  var storage: COW
   
   init() {
-    self.storage = Storage(size: 0)
+    self.storage = .init(capacity: 0, provider: nil)
   }
   
   init(size: Int) {
-    self.storage = Storage(size: size)
+    self.storage = .init(capacity: size, provider: nil)
   }
   
   init(arrayLiteral elements: T...) {
-    self.storage = Storage(size: elements.count)
-    for (i, el) in elements.enumerated() {
-      self.storage.buffer.advanced(by: i).initialize(to: el)
-    }
+    self.storage = .init(elements: elements)
   }
   
   init(arrayLiteral elements: [T]) {
-    self.storage = Storage(size: elements.count)
-    for (i, el) in elements.enumerated() {
-      self.storage.buffer.advanced(by: i).initialize(to: el)
-    }
+    self.storage = .init(elements: elements)
   }
 }
 
-private extension Vector {
-  // copy-on-write
-  private var storageForWriting: Storage {
-    mutating get {
-      if !isKnownUniquelyReferenced(&storage) {
-        self.storage = storage.copy
-      }
-      return self.storage
-    }
-  }
+// MARK: - SupportsCopyOnWrite
+extension Vector: SupportsCopyOnWrite {
 }
 
 extension Vector {
   var sum: T { reduce(T.zero, +) }
-  var avg: T { sum / T(storage.size) }
+  var avg: T { sum / T(count) }
   var len: T { sqrt(map { $0 * $0 }.reduce(T.zero, +)) }
 }
 
@@ -102,17 +73,17 @@ extension Vector: BidirectionalCollection {
   func index(after i: Int) -> Int { i + 1 }
   func index(before i: Int) -> Int { i - 1 }
   var startIndex: Int { 0 }
-  var endIndex: Int { storage.size }
+  var endIndex: Int { storage.capacity }
   
   subscript(_ i: Int) -> T {
     get {
       assert(i >= 0)
-      assert(i < storage.size)
+      assert(i < count)
       return storage.buffer[i]
     }
     mutating set {
       assert(i >= 0)
-      assert(i < storage.size)
+      assert(i < count)
       storageForWriting.buffer.advanced(by: i).assign(repeating: newValue, count: 1)
     }
   }

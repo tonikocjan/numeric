@@ -113,4 +113,16 @@ class LowerBandMatrixTests: XCTestCase {
     XCTAssertEqual([-2, 11, 25,  20], matrix * vector)
     XCTAssertEqual(7, LBM_ITERATIONS_COUNT)
   }
+  
+  func testCopyOnWrite() {
+    let matrix: LowerBandMatrix = [
+      [1, 4, 7],
+      [2, 5],
+      [3]
+    ]
+    var copy = matrix
+    copy[0, 0] = 0
+    XCTAssertEqual(0, copy[0, 0])
+    XCTAssertEqual(1, matrix[0, 0])
+  }
 }
