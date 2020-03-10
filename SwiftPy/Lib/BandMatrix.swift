@@ -138,16 +138,6 @@ extension BandMatrix {
   static func ones(width: Int, height: Int) -> Self {
     fatalError("Not a valid operation")
   }
-  
-  // collection
-  
-  func map(_ transform: (Vector<Value>) throws -> Vec) rethrows -> Self {
-    BandMatrix(arrayLiteral: try map(transform))
-  }
-  
-  func columnMap<T>(_ transform: (Vector<Value>) throws -> T) rethrows -> [T] {
-    fatalError()
-  }
 }
 
 // MARK: - Equatable

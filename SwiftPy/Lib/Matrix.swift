@@ -17,7 +17,8 @@ protocol MatrixProtocol: ExpressibleByArrayLiteral, Equatable, BidirectionalColl
   
   var width: Int { get }
   var height: Int { get }
-  var shape: (width: Int, height: Int) { get }
+  
+  var transposed: Self { get }
   
   init(width: Int, height: Int)
   init(arrayLiteral elements: [Vector<Value>])
@@ -31,10 +32,6 @@ protocol MatrixProtocol: ExpressibleByArrayLiteral, Equatable, BidirectionalColl
   static func ones(width: Int, height: Int) -> Self
   
   mutating func swap(row: Int, col: Int)
-  
-  // TODO: - add other higher-order functions
-  func map(_ transform: (Vector<Value>) throws -> Vec) rethrows -> Self
-  func columnMap<T>(_ transform: (Vector<Value>) throws -> T) rethrows -> [T]
 }
 
 extension MatrixProtocol {
@@ -42,6 +39,17 @@ extension MatrixProtocol {
   func index(before i: Int) -> Int { i - 1 }
   var startIndex: Int { 0 }
   var endIndex: Int { height }
+  var shape: (width: Int, height: Int) { (width, height) }
+  var firstIndex: (Int, Int)? { isEmpty ? nil : (0, 0) }
+  var lastIndex: (Int, Int)? { isEmpty ? nil : (height - 1, width - 1) }
+  
+  func map(_ transform: (Vector<Value>) throws -> Vec) rethrows -> Self {
+    Self(arrayLiteral: try map(transform))
+  }
+  
+  func columnMap<T>(_ transform: (Vector<Value>) throws -> T) rethrows -> [T] {
+    try transposed.map(transform)
+  }
 }
 
 struct Matrix<T: Mathable>: MatrixProtocol {
@@ -104,7 +112,6 @@ private extension Matrix {
 extension Matrix {
   var width: Int { storage.width }
   var height: Int { storage.height }
-  var shape: (width: Int, height: Int) { (width, height) }
   
   subscript(_ i: Int, _ j: Int) -> T {
     get {
@@ -149,16 +156,6 @@ extension Matrix {
   
   static func ones(width: Int, height: Int) -> Self {
     (0..<height).map { _ in .ones(width) }
-  }
-  
-  // collection
-  
-  func map(_ transform: (Vector<Value>) throws -> Vec) rethrows -> Matrix {
-    Matrix(arrayLiteral: try map(transform))
-  }
-  
-  func columnMap<T>(_ transform: (Vector<Value>) throws -> T) rethrows -> [T] {
-    try transposed.map(transform)
   }
 }
 
