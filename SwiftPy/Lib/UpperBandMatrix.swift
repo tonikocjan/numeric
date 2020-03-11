@@ -21,13 +21,13 @@ struct UpperBandMatrix<T: Mathable>: MatrixProtocol {
   
   /// Initialize a new **Upper Band** matrix with specified size.
   ///
-  /// - Parameter width: number of sub-diagonals in the upper triangle with non-zero elements
-  ///                    when width = 0 this is a diagonal matrix
+  /// - Parameter bandwitdh: number of sub-diagonals in the upper triangle with non-zero elements
+  ///                        when bandwitdh = 0 this is a diagonal matrix
   ///
   /// - Parameter height: height of the matrix
   ///
-  init(k: Int, height: Int) {
-    storage = .init(capacity: k, size: height) { Vector(size: height - $0) }
+  init(bandwitdh: Int, height: Int) {
+    storage = .init(capacity: bandwitdh, size: height) { Vector(size: height - $0) }
   }
   
   /// Initialize a new **Upper Band** matrix from the given `elements`
@@ -62,21 +62,21 @@ extension UpperBandMatrix: Equatable {
 extension UpperBandMatrix {
   var width: Int { storage.size! }
   var height: Int { width }
-  var k: Int { storage.capacity - 1 }
+  var bandwitdh: Int { storage.capacity - 1 }
   
   subscript(_ i: Int, _ j: Int) -> T {
     get {
       assert(j >= 0)
       assert(j < width)
       if i > j { return .zero }
-      if j - i > k { return .zero }
+      if j - i > bandwitdh { return .zero }
       return storage[j - i][i]
     }
     mutating set {
       assert(j >= 0)
       assert(j < width)
       if i > j { assert(newValue == 0) }
-      if j - i > k { assert(newValue == 0) }
+      if j - i > bandwitdh { assert(newValue == 0) }
       storageForWriting[j - i][i] = newValue
     }
   }
@@ -138,7 +138,7 @@ func *<T: Mathable>(_ lhs: UpperBandMatrix<T>, _ rhs: Vector<T>) -> Vector<T> {
   var result: Vector<T> = .zeros(lhs.height)
   RBM_ITERATIONS_COUNT = 0
   for i in 0..<lhs.height {
-    for j in i..<Swift.min(i + lhs.k + 1, lhs.height) {
+    for j in i..<Swift.min(i + lhs.bandwitdh + 1, lhs.height) {
       result[i] += lhs[i, j] * rhs[j]
       RBM_ITERATIONS_COUNT += 1
     }

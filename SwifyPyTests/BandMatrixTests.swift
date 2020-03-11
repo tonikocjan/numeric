@@ -117,6 +117,24 @@ class BandMatrixTests: XCTestCase {
     XCTAssertTrue(band == mat)
   }
   
+  func testPentaDiagonal5x5() {
+    let band: BandMatrix = [
+      [3, 2, 5],
+      [6, 6, 15, 3],
+      [-3, 4, 13, 1, 10],
+      [-6, 6, 15, -5],
+      [1, 1, 1]
+    ]
+    let mat: Matrix = [
+      [3, 2, 5, 0, 0],
+      [6, 6, 15, 3, 0],
+      [-3, 4, 13, 1, 10],
+      [0, -6, 6, 15, -5],
+      [0, 0, 1, 1, 1]
+    ]
+    XCTAssertTrue(band == mat)
+  }
+  
   func testIdentity() {
     let matrix = BandMatrix<Double>.identity(4)
     XCTAssertEqual(matrix[0, 0], 1)
@@ -138,7 +156,12 @@ class BandMatrixTests: XCTestCase {
   }
   
   func testMulitplyWithVector() {
-    let matrix: BandMatrix = [[1, 2], [3, 4, 5], [6, 7, 8], [9, 10]]
+    let matrix: BandMatrix = [
+      [1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [9, 10]
+    ]
     let vector: Vector = [-2, 5, 1, 2]
     XCTAssertEqual([8, 19, 53, 29], matrix * vector)
     XCTAssertEqual(10, BM_ITERATIONS_COUNT)

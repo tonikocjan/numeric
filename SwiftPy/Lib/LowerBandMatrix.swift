@@ -22,8 +22,8 @@ struct LowerBandMatrix<T: Mathable>: MatrixProtocol {
   ///
   /// - Parameter height: height of the matrix
   ///
-  init(k: Int, height: Int) {
-    storage = .init(capacity: k, size: height) { Vector(size: height - $0) }
+  init(bandwitdh: Int, height: Int) {
+    storage = .init(capacity: bandwitdh, size: height) { Vector(size: height - $0) }
   }
   
   init(width: Int, height: Int) {
@@ -52,7 +52,7 @@ struct LowerBandMatrix<T: Mathable>: MatrixProtocol {
 extension LowerBandMatrix {
   var width: Int { storage.size! }
   var height: Int { width }
-  var k: Int { storage.capacity - 1}
+  var bandwidth: Int { storage.capacity - 1}
   
   subscript(_ i: Int, _ j: Int) -> T {
     get {
@@ -60,14 +60,14 @@ extension LowerBandMatrix {
       assert(j < width)
       if j > i { return .zero }
       let diag = i - j
-      if diag > k { return .zero }
+      if diag > bandwidth { return .zero }
       return storage[diag][j]
     }
     mutating set {
       assert(j >= 0)
       assert(j < width)
       if j > i { return assert(newValue == 0) }
-      if i - j > k { return assert(newValue == 0) }
+      if i - j > bandwidth { return assert(newValue == 0) }
       storageForWriting[i - j][j] = newValue
     }
   }
@@ -139,7 +139,7 @@ func *<T: Mathable>(_ lhs: LowerBandMatrix<T>, _ rhs: Vector<T>) -> Vector<T> {
   LBM_ITERATIONS_COUNT = 0
   var result: Vector<T> = .zeros(lhs.height)
   for i in 0..<lhs.height {
-    for j in Swift.max(0, i - (lhs.height - lhs.k) + 2)...i {
+    for j in Swift.max(0, i - (lhs.height - lhs.bandwidth) + 2)...i {
       result[i] += lhs[i, j] * rhs[j]
       LBM_ITERATIONS_COUNT += 1
     }

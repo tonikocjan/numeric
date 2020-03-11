@@ -31,9 +31,9 @@ struct BandMatrix<T: Mathable>: MatrixProtocol {
   ///
   /// - Parameter height: height of the matrix
   ///
-  init(k: Int, height: Int) {
-    upper = .init(k: k + 1, height: height)
-    lower = .init(k: k, height: height - 1)
+  init(bandwitdh: Int, height: Int) {
+    upper = .init(bandwitdh: bandwitdh + 1, height: height)
+    lower = .init(bandwitdh: bandwitdh, height: height - 1)
   }
   
   init(width: Int, height: Int) {
@@ -60,24 +60,15 @@ struct BandMatrix<T: Mathable>: MatrixProtocol {
   }
   
   init(arrayLiteral elements: [Vector<Value>]) {
-    func calculateK(_ count: Int) -> Int {
+    func calculateBandwith(_ count: Int) -> Int {
       count == 1 ? 0 : Int(floor(Double(count) / 2))
     }
     
-    assert(elements.count > 0, "Cannot construct an empty BandMatrix!") // TODO: - Can we construct an empty matrix?
-    assert(elements.first!.count == elements.last!.count, "First and last row must contain the same number of elements.")
-    if elements.count > 1 {
-      assert(elements.first!.count == 1 || elements.first!.count == elements[1].count - 1, "First row must be one less then middle rows!")
-      assert(elements.last!.count == 1 || elements.last!.count == elements[1].count - 1, "Last row must be one less then middle rows!")
-    }
-    let k = calculateK(elements.dropFirst().first?.count ?? elements[0].count)
-    for el in elements.dropFirst().dropLast() {
-      assert(k == calculateK(el.count))
-    }
+    let bandwitdh = calculateBandwith(elements.dropFirst().first?.count ?? elements[0].count)
     
-    self.init(k: k, height: elements.count)
+    self.init(bandwitdh: bandwitdh, height: elements.count)
     for i in 0..<height {
-      let offset = Swift.max(0, (height - k - (height - i)))
+      let offset = Swift.max(0, (height - bandwitdh - (height - i)))
       for (j, el) in elements[i].enumerated() {
         self[i, j + offset] = el
       }
@@ -90,7 +81,7 @@ struct BandMatrix<T: Mathable>: MatrixProtocol {
 extension BandMatrix {
   var width: Int { upper.height }
   var height: Int { upper.height }
-  var k: Int { upper.k + lower.k }
+  var bandwidth: Int { upper.bandwitdh + lower.bandwidth }
   
   subscript(_ i: Int, _ j: Int) -> T {
     get {
@@ -117,7 +108,7 @@ extension BandMatrix {
   }
   
   static func identity(_ size: Int) -> Self {
-    var matrix = BandMatrix(k: 0, height: size)
+    var matrix = BandMatrix(bandwitdh: 0, height: size)
     for i in 0..<size {
       matrix[i, i] = 1
     }
@@ -175,8 +166,8 @@ func *<T: Mathable>(_ lhs: BandMatrix<T>, _ rhs: Vector<T>) -> Vector<T> {
   var result: Vector<T> = .zeros(lhs.height)
   BM_ITERATIONS_COUNT = 0
   for i in 0..<lhs.height {
-    let lower = Swift.max(0, i - (lhs.height - lhs.k) + 2)
-    let upper = Swift.min(i + lhs.k + 1, lhs.height)
+    let lower = Swift.max(0, i - (lhs.height - lhs.bandwidth) + 2)
+    let upper = Swift.min(i + lhs.bandwidth + 1, lhs.height)
     for j in lower..<upper {
       result[i] += lhs[i, j] * rhs[j]
       BM_ITERATIONS_COUNT += 1
