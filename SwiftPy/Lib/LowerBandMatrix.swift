@@ -22,8 +22,8 @@ struct LowerBandMatrix<T: Mathable>: MatrixProtocol {
   ///
   /// - Parameter height: height of the matrix
   ///
-  init(bandwitdh: Int, height: Int) {
-    storage = .init(capacity: bandwitdh, size: height) { Vector(size: height - $0) }
+  init(bandwidth: Int, height: Int) {
+    storage = .init(capacity: bandwidth, size: height) { Vector(size: height - $0) }
   }
   
   /// Initialize a new **Upper Band** matrix from the given `elements`

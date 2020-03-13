@@ -31,9 +31,9 @@ struct BandMatrix<T: Mathable>: MatrixProtocol {
   ///
   /// - Parameter height: height of the matrix
   ///
-  init(bandwitdh: Int, height: Int) {
-    upper = .init(bandwitdh: bandwitdh + 1, height: height)
-    lower = .init(bandwitdh: bandwitdh, height: height - 1)
+  init(bandwidth: Int, height: Int) {
+    upper = .init(bandwidth: bandwidth + 1, height: height)
+    lower = .init(bandwidth: bandwidth, height: height - 1)
   }
   
   /// Initialize a new **Band** matrix from the given `elements`
@@ -62,9 +62,11 @@ struct BandMatrix<T: Mathable>: MatrixProtocol {
     
     let bandwitdh = calculateBandwith(elements.dropFirst().first?.count ?? elements[0].count)
     
-    self.init(bandwitdh: bandwitdh, height: elements.count)
+    let bandwidth = calculateBandwith(elements.map { $0.count }.max(by: <)!)
+    
+    self.init(bandwidth: bandwidth, height: elements.count)
     for i in 0..<height {
-      let offset = Swift.max(0, (height - bandwitdh - (height - i)))
+      let offset = Swift.max(0, (height - bandwidth - (height - i)))
       for (j, el) in elements[i].enumerated() {
         self[i, j + offset] = el
       }
@@ -79,7 +81,7 @@ extension BandMatrix {
   var height: Int { upper.height }
   
   // number of non-zero diagonals
-  var bandwidth: Int { upper.bandwitdh + lower.bandwidth }
+  var bandwidth: Int { upper.bandwidth + lower.bandwidth }
   
   subscript(_ i: Int, _ j: Int) -> T {
     get {
@@ -106,7 +108,7 @@ extension BandMatrix {
   }
   
   static func identity(_ size: Int) -> Self {
-    var matrix = BandMatrix(bandwitdh: 0, height: size)
+    var matrix = BandMatrix(bandwidth: 0, height: size)
     for i in 0..<size {
       matrix[i, i] = 1
     }
