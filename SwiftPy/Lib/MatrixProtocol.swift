@@ -27,7 +27,21 @@ protocol MatrixProtocol: ExpressibleByArrayLiteral, Equatable, BidirectionalColl
   static func identity(_ size: Int) -> Self
 }
 
-protocol Transposable {
+extension MatrixProtocol {
+  func index(after i: Int) -> Int { i + 1 }
+  func index(before i: Int) -> Int { i - 1 }
+  var startIndex: Int { 0 }
+  var endIndex: Int { height }
+  var shape: (width: Int, height: Int) { (width, height) }
+  var firstIndex: (Int, Int)? { isEmpty ? nil : (0, 0) }
+  var lastIndex: (Int, Int)? { isEmpty ? nil : (height - 1, width - 1) }
+  
+  func map(_ transform: (Vector<Value>) throws -> Vec) rethrows -> Self {
+    .init(arrayLiteral: try map(transform))
+  }
+}
+
+protocol Transposable where Self: MatrixProtocol {
   var transposed: Self { get }
 }
 
@@ -45,31 +59,25 @@ extension Initializable {
   }
 }
 
-extension MatrixProtocol {
-  func index(after i: Int) -> Int { i + 1 }
-  func index(before i: Int) -> Int { i - 1 }
-  var startIndex: Int { 0 }
-  var endIndex: Int { height }
-  var shape: (width: Int, height: Int) { (width, height) }
-  var firstIndex: (Int, Int)? { isEmpty ? nil : (0, 0) }
-  var lastIndex: (Int, Int)? { isEmpty ? nil : (height - 1, width - 1) }
-  
-  func map(_ transform: (Vector<Value>) throws -> Vec) rethrows -> Self {
-    Self(arrayLiteral: try map(transform))
-  }
-}
-
 extension MatrixProtocol where Self: Transposable {
-  func columnMap<T>(_ transform: (Vector<Value>) throws -> T) rethrows -> [T] {
+  func columnMap<T>(_ transform: (Vec) throws -> T) rethrows -> [T] {
     try transposed.map(transform)
   }
   
-  static func zeros(width: Int, height: Int) -> Self {
-    Self(arrayLiteral: (0..<height).map { _ in .zeros(width) })
+  func columnMap(_ transform: (Vec) throws -> Vec) rethrows -> Self {
+    .init(arrayLiteral: try columnMap(transform))
   }
   
-  static func ones(width: Int, height: Int) -> Self {
-    Self(arrayLiteral: (0..<height).map { _ in .ones(width) })
+  func columnFilter(_ predicate: (Vec) throws -> Bool) rethrows -> [Vec] {
+    try columnMap { $0 }.filter(predicate)
+  }
+  
+  func columnFilter(_ predicate: (Vec) throws -> Bool) rethrows -> Self {
+    .init(arrayLiteral: try columnMap { $0 }.filter(predicate))
+  }
+  
+  func columnReduce<Result>(_ initialResult: Result, nextPartialResult: (Result, Vec) throws -> Result) rethrows -> Result {
+    try transposed.reduce(initialResult, nextPartialResult)
   }
 }
 
@@ -129,7 +137,7 @@ func *<M: MatrixProtocol>(_ m: M, _ v: M.Vec) -> M.Vec {
   return m.map { ($0 * v).sum }
 }
 
-func *<M: MatrixProtocol>(_ m1: M, _ m2: M) -> Matrix<M.Value> where M: Transposable {
+func *<M>(_ m1: M, _ m2: M) -> Matrix<M.Value> where M: Transposable {
   // multiplication implemented functionaly
   assert(m1.width == m2.height)
   assert(m1.height == m2.width)
