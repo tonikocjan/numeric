@@ -26,10 +26,6 @@ struct LowerBandMatrix<T: Mathable>: MatrixProtocol {
     storage = .init(capacity: bandwitdh, size: height) { Vector(size: height - $0) }
   }
   
-  init(width: Int, height: Int) {
-    fatalError()
-  }
-  
   /// Initialize a new **Upper Band** matrix from the given `elements`
   ///
   /// - Parameter elements: the `count` of elements specifies the height of this matrix
@@ -52,7 +48,9 @@ struct LowerBandMatrix<T: Mathable>: MatrixProtocol {
 extension LowerBandMatrix {
   var width: Int { storage.size! }
   var height: Int { width }
-  var bandwidth: Int { storage.capacity - 1}
+  
+  // number of non-zero diagonals
+  var bandwidth: Int { storage.capacity }
   
   subscript(_ i: Int, _ j: Int) -> T {
     get {
@@ -60,36 +58,20 @@ extension LowerBandMatrix {
       assert(j < width)
       if j > i { return .zero }
       let diag = i - j
-      if diag > bandwidth { return .zero }
+      if diag >= bandwidth { return .zero }
       return storage[diag][j]
     }
     mutating set {
       assert(j >= 0)
       assert(j < width)
       if j > i { return assert(newValue == 0) }
-      if i - j > bandwidth { return assert(newValue == 0) }
+      if i - j >= bandwidth { return assert(newValue == 0) }
       storageForWriting[i - j][j] = newValue
     }
   }
   
-  var transposed: Self {
-    fatalError()
-  }
-  
-  mutating func swap(row: Int, col: Int) {
-    fatalError()
-  }
-  
   static func identity(_ size: Int) -> Self {
     LowerBandMatrix(arrayLiteral: [.ones(size)])
-  }
-  
-  static func zeros(width: Int, height: Int) -> Self {
-    fatalError("Not a valid operation")
-  }
-  
-  static func ones(width: Int, height: Int) -> Self {
-    fatalError("Not a valid operation")
   }
 }
 
@@ -139,7 +121,7 @@ func *<T: Mathable>(_ lhs: LowerBandMatrix<T>, _ rhs: Vector<T>) -> Vector<T> {
   LBM_ITERATIONS_COUNT = 0
   var result: Vector<T> = .zeros(lhs.height)
   for i in 0..<lhs.height {
-    for j in Swift.max(0, i - (lhs.height - lhs.bandwidth) + 2)...i {
+    for j in Swift.max(0, i - (lhs.height - lhs.bandwidth) + 1)...i {
       result[i] += lhs[i, j] * rhs[j]
       LBM_ITERATIONS_COUNT += 1
     }

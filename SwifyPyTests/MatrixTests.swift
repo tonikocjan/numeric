@@ -147,6 +147,20 @@ class MatrixTests: XCTestCase {
                     [7, 8, 9]], matrix.transposed)
   }
   
+  func testZeros() {
+    let matrix: Matrix<Double> = .zeros(width: 3, height: 3)
+    XCTAssertEqual([0, 0, 0], matrix[0])
+    XCTAssertEqual([0, 0, 0], matrix[1])
+    XCTAssertEqual([0, 0, 0], matrix[2])
+  }
+  
+  func testOnes() {
+    let matrix: Matrix<Double> = .ones(width: 3, height: 3)
+    XCTAssertEqual([1, 1, 1], matrix[0])
+    XCTAssertEqual([1, 1, 1], matrix[1])
+    XCTAssertEqual([1, 1, 1], matrix[2])
+  }
+  
   func testCopyOnWrite() {
     let matrix: Matrix = [
       [1, 4, 7],

@@ -18,7 +18,6 @@ protocol MatrixProtocol: ExpressibleByArrayLiteral, Equatable, BidirectionalColl
   var width: Int { get }
   var height: Int { get }
   
-  init(width: Int, height: Int)
   init(arrayLiteral elements: [Vector<Value>])
   init(arrayLiteral elements: Vector<Value>...)
   
@@ -26,12 +25,24 @@ protocol MatrixProtocol: ExpressibleByArrayLiteral, Equatable, BidirectionalColl
   subscript(_ i: Int) -> Vector<Value> { get mutating set }
   
   static func identity(_ size: Int) -> Self
-  
-  mutating func swap(row: Int, col: Int)
 }
 
 protocol Transposable {
   var transposed: Self { get }
+}
+
+protocol Initializable where Self: MatrixProtocol {
+  init(_ value: Value, width: Int, height: Int)
+}
+
+extension Initializable {
+  static func zeros(width: Int, height: Int) -> Self {
+    .init(0, width: width, height: height)
+  }
+  
+  static func ones(width: Int, height: Int) -> Self {
+    .init(1, width: width, height: height)
+  }
 }
 
 extension MatrixProtocol {
@@ -118,7 +129,7 @@ func *<M: MatrixProtocol>(_ m: M, _ v: M.Vec) -> M.Vec {
   return m.map { ($0 * v).sum }
 }
 
-func *<M: MatrixProtocol>(_ m1: M, _ m2: M) -> M where M: Transposable {
+func *<M: MatrixProtocol>(_ m1: M, _ m2: M) -> Matrix<M.Value> where M: Transposable {
   // multiplication implemented functionaly
   assert(m1.width == m2.height)
   assert(m1.height == m2.width)
@@ -128,11 +139,11 @@ func *<M: MatrixProtocol>(_ m1: M, _ m2: M) -> M where M: Transposable {
 }
 
 infix operator *!: MultiplicationPrecedence
-func *!<M: MatrixProtocol>(_ m1: M, _ m2: M) -> M {
+func *!<M: MatrixProtocol>(_ m1: M, _ m2: M) -> Matrix<M.Value> {
   // multiplication implemented proceduraly
   assert(m1.width == m2.height)
   assert(m1.height == m2.width)
-  var res = M(width: m2.width, height: m1.height)
+  var res = Matrix<M.Value>(width: m2.width, height: m1.height)
   for i in 0..<res.height {
     let row = m1[i]
     for j in 0..<m2.width {

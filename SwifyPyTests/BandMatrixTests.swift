@@ -133,6 +133,7 @@ class BandMatrixTests: XCTestCase {
       [0, 0, 1, 1, 1]
     ]
     XCTAssertTrue(band == mat)
+    XCTAssertEqual(5, band.bandwidth)
   }
   
   func testIdentity() {

@@ -14,10 +14,6 @@ struct UpperBandMatrix<T: Mathable>: MatrixProtocol {
   typealias U = Int
   
   var storage: COW
-
-  init(width: Int, height: Int) {
-    fatalError()
-  }
   
   /// Initialize a new **Upper Band** matrix with specified size.
   ///
@@ -62,43 +58,29 @@ extension UpperBandMatrix: Equatable {
 extension UpperBandMatrix {
   var width: Int { storage.size! }
   var height: Int { width }
-  var bandwitdh: Int { storage.capacity - 1 }
+  
+  // number of non-zero diagonals
+  var bandwitdh: Int { storage.capacity }
   
   subscript(_ i: Int, _ j: Int) -> T {
     get {
       assert(j >= 0)
       assert(j < width)
       if i > j { return .zero }
-      if j - i > bandwitdh { return .zero }
+      if j - i >= bandwitdh { return .zero }
       return storage[j - i][i]
     }
     mutating set {
       assert(j >= 0)
       assert(j < width)
       if i > j { assert(newValue == 0) }
-      if j - i > bandwitdh { assert(newValue == 0) }
+      if j - i >= bandwitdh { assert(newValue == 0) }
       storageForWriting[j - i][i] = newValue
     }
   }
   
-  var transposed: Self {
-    fatalError()
-  }
-  
-  mutating func swap(row: Int, col: Int) {
-    fatalError()
-  }
-  
   static func identity(_ size: Int) -> Self {
     UpperBandMatrix(arrayLiteral: [.ones(size)])
-  }
-  
-  static func zeros(width: Int, height: Int) -> Self {
-    fatalError("Not a valid operation")
-  }
-  
-  static func ones(width: Int, height: Int) -> Self {
-    fatalError("Not a valid operation")
   }
 }
 
@@ -138,7 +120,7 @@ func *<T: Mathable>(_ lhs: UpperBandMatrix<T>, _ rhs: Vector<T>) -> Vector<T> {
   var result: Vector<T> = .zeros(lhs.height)
   RBM_ITERATIONS_COUNT = 0
   for i in 0..<lhs.height {
-    for j in i..<Swift.min(i + lhs.bandwitdh + 1, lhs.height) {
+    for j in i..<Swift.min(i + lhs.bandwitdh, lhs.height) {
       result[i] += lhs[i, j] * rhs[j]
       RBM_ITERATIONS_COUNT += 1
     }

@@ -43,7 +43,7 @@ extension Vector {
 
 extension Vector {
   static func zeros(_ count: Int) -> Self {
-    Vector(arrayLiteral: Array(repeating: T.zero, count: count))
+    Vector(arrayLiteral: Array(repeating: 0, count: count))
   }
   
   static func ones(_ count: Int) -> Self {

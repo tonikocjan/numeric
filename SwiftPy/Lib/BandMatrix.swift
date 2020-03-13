@@ -36,10 +36,6 @@ struct BandMatrix<T: Mathable>: MatrixProtocol {
     lower = .init(bandwitdh: bandwitdh, height: height - 1)
   }
   
-  init(width: Int, height: Int) {
-    fatalError()
-  }
-  
   /// Initialize a new **Band** matrix from the given `elements`
   ///
   /// - Parameter elements: the `count` of elements specifies the height of this matrix
@@ -81,6 +77,8 @@ struct BandMatrix<T: Mathable>: MatrixProtocol {
 extension BandMatrix {
   var width: Int { upper.height }
   var height: Int { upper.height }
+  
+  // number of non-zero diagonals
   var bandwidth: Int { upper.bandwitdh + lower.bandwidth }
   
   subscript(_ i: Int, _ j: Int) -> T {
@@ -166,8 +164,9 @@ func *<T: Mathable>(_ lhs: BandMatrix<T>, _ rhs: Vector<T>) -> Vector<T> {
   var result: Vector<T> = .zeros(lhs.height)
   BM_ITERATIONS_COUNT = 0
   for i in 0..<lhs.height {
-    let lower = Swift.max(0, i - (lhs.height - lhs.bandwidth) + 2)
-    let upper = Swift.min(i + lhs.bandwidth + 1, lhs.height)
+    let k = (lhs.bandwidth - 1) / 2
+    let lower = Swift.max(0, i - (lhs.height - k) + 2)
+    let upper = Swift.min(i + k + 1, lhs.height)
     for j in lower..<upper {
       result[i] += lhs[i, j] * rhs[j]
       BM_ITERATIONS_COUNT += 1

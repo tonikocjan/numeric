@@ -39,6 +39,13 @@ struct Matrix<T: Mathable>: MatrixProtocol, Transposable {
 extension Matrix: SupportsCopyOnWrite {
 }
 
+// MARK: - Initializable
+extension Matrix: Initializable {
+  init(_ value: Value, width: Int, height: Int) {
+    self.init(arrayLiteral: .init(repeating: .repeating(width, value: value), count: height))
+  }
+}
+
 // MARK: - API
 extension Matrix {
   var width: Int { storage.size!.width }
