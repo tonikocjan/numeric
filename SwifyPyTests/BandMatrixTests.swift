@@ -27,6 +27,12 @@ class BandMatrixTests: XCTestCase {
     XCTAssertEqual(diagonal[0, 0], 10)
     XCTAssertEqual(diagonal[1, 1], 20)
     XCTAssertEqual(diagonal[2, 2], 30)
+//    diagonal[0] = [100]
+//    diagonal[1] = [200]
+//    diagonal[2] = [300]
+//    XCTAssertEqual(diagonal[0, 0], 100)
+//    XCTAssertEqual(diagonal[1, 1], 200)
+//    XCTAssertEqual(diagonal[2, 2], 300)
   }
   
   func testTridiagonal3x3Subscript() {
@@ -187,5 +193,22 @@ class BandMatrixTests: XCTestCase {
     copy[0, 0] = 0
     XCTAssertEqual(0, copy[0, 0])
     XCTAssertEqual(1, matrix[0, 0])
+  }
+}
+
+// LUDecomposition tests
+extension BandMatrixTests {
+  func testTridiagonal4x4Decomposition() {
+    let band: BandMatrix = [
+      [3, 2],
+      [-4, 7, 8],
+      [4, 13, 1],
+      [5, 15]
+    ]
+    let (L, U) = band.LUDecomposition()
+    XCTAssertEqual([[1, 1, 1, 1],
+                    [-4.0 / 3, 4 / 9.666666666666666, 5 / 9.689655172413794]], L)
+    XCTAssertEqual([[3, 9.666666666666666, 9.689655172413794, 14.483985765124554],
+                    [2, 8, 1]], U)
   }
 }

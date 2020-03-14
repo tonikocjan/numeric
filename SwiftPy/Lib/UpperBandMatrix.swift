@@ -67,9 +67,9 @@ extension UpperBandMatrix {
     for i in 0..<height {
       var sum: Value = 0
       for j in (i + 1)..<Swift.min(i + bandwidth, width) {
-        sum += self[i, j]
+        sum += abs(self[i, j])
       }
-      if sum > self[i, i] { return false }
+      if sum > abs(self[i, i]) { return false }
     }
     return true
   }

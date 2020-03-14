@@ -168,7 +168,7 @@ func *!<M: MatrixProtocol>(_ m1: M, _ m2: M) -> Matrix<M.Value> {
 infix operator !/: MultiplicationPrecedence
 func !/<M: MatrixProtocol>(_ v: M.Vec, _ m: M) -> M.Vec {
   // solve linear system of equations
-  LUDecomposition(m, v)
+  solveLinearSystem(LUDecomposition(m), v)
 }
 
 extension Zip2Sequence where Sequence1: MatrixProtocol, Sequence2: MatrixProtocol, Sequence1.Value == Sequence2.Value {

@@ -65,10 +65,23 @@ struct BandMatrix<T: Mathable>: BandMatrixProtocol {
       count == 1 ? 0 : Int(floor(Double(count) / 2))
     }
     
-    let bandwitdh = calculateBandwith(elements.dropFirst().first?.count ?? elements[0].count)
+//    func requiredNumberOfElements(in row: Int, k: Int, n: Int) -> Int {
+//      let halfSize = Int(floor(Double(n) / 2)) - (n % 2 == 0 ? 1 : 0)
+//      let x = halfSize - row
+//      return Swift.max(1, (k * 2 + 1) - x * (x < 0 ? -1 : 1))
+//    }
     
     let bandwidth = calculateBandwith(elements.map { $0.count }.max(by: <)!)
     
+//    for (i, vec) in elements.enumerated() {
+//      let required = requiredNumberOfElements(in: i, k: bandwidth, n: elements.count)
+//      print(required)
+//      if vec.count != required {
+//        requiredNumberOfElements(in: i, k: bandwidth, n: elements.count)
+//      }
+//      assert(vec.count == requiredNumberOfElements(in: i, k: k, n: elements.count))
+//    }
+
     self.init(bandwidth: bandwidth, height: elements.count)
     for i in 0..<height {
       let offset = Swift.max(0, (height - bandwidth - (height - i)))
@@ -93,9 +106,9 @@ extension BandMatrix {
       var sum: Value = 0
       for j in Swift.max(0, i - lower.bandwidth)..<Swift.min(width, i + upper.bandwidth) {
         if i == j { continue }
-        sum += self[i, j]
+        sum += abs(self[i, j])
       }
-      if sum > self[i, i] { return false}
+      if sum > abs(self[i, i]) { return false}
     }
     return true
   }
@@ -143,7 +156,7 @@ extension BandMatrix: BidirectionalCollection {
     mutating set {
       assert(i >= 0)
       assert(i < height)
-      // TODO: -
+      (0..<height).forEach { self[i, $0] = newValue[$0] }
     }
   }
 }
@@ -166,8 +179,8 @@ func *<T: Mathable>(_ lhs: BandMatrix<T>, _ rhs: Vector<T>) -> Vector<T> {
   assert(lhs.height == rhs.count)
   var result: Vector<T> = .zeros(lhs.height)
   BM_ITERATIONS_COUNT = 0
+  let k = (lhs.bandwidth - 1) / 2
   for i in 0..<lhs.height {
-    let k = (lhs.bandwidth - 1) / 2
     let lower = Swift.max(0, i - (lhs.height - k) + 2)
     let upper = Swift.min(i + k + 1, lhs.height)
     for j in lower..<upper {
@@ -181,7 +194,24 @@ func *<T: Mathable>(_ lhs: BandMatrix<T>, _ rhs: Vector<T>) -> Vector<T> {
 //func !/<T: Mathable>(_ lhs: Vector<T>, _ rhs: BandMatrix<T>) -> (UpperBandMatrix<T>, LowerBandMatrix<T>) {
 //  LUDecomposition(lhs, rhs)
 //}
-//
-//fileprivate func LUDecomposition<T: Mathable>(_ lhs: Vector<T>, _ rhs: BandMatrix<T>) -> (UpperBandMatrix<T>, LowerBandMatrix<T>) {
-//  fatalError()
-//}
+
+extension BandMatrix {
+  func LUDecomposition() -> (L: LowerBandMatrix<T>, U: UpperBandMatrix<T>) {
+    let n = width
+    
+    var l = Vector<Value>(size: n - 1)
+    var u = Vector<Value>(size: n)
+    let u2 = (0..<(n-1)).map { self[$0, $0 + 1] }
+    
+    u[0] = self[0, 0]
+    for k in 1..<n {
+      l[k - 1] = self[k, k - 1] / u[k - 1]
+      u[k] = self[k, k] - (self[k, k - 1] / u[k - 1]) * self[k - 1, k]
+    }
+    
+    let lower = LowerBandMatrix(arrayLiteral: .ones(n), l)
+    let upper = UpperBandMatrix(arrayLiteral: u, u2)
+    
+    return (lower, upper)
+  }
+}

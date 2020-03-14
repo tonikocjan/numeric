@@ -73,7 +73,7 @@ extension COWStorage: Collection {
 
 extension COWStorage {
   var copy: COWStorage {
-    print("Creating a copy of \(type(of: self))")
+//    print("Creating a copy of \(type(of: self))")
     return COWStorage(other: self)
   }
 }

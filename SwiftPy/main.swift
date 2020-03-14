@@ -10,21 +10,21 @@ import Foundation
 
 let vec: Vector = [1, -6, -17, -52]
 
+let m: Matrix = [
+  [3, 2, 0, 0],
+  [-4, 7, 8, 0],
+  [0, 4, 13, 1],
+  [0, 0, 5, 15]
+]
+print(LUDecomposition(m))
+
+print()
+
 let band: BandMatrix = [
-  [3, 2, 5],
-  [6, 6, 15, 3],
-  [-3, 4, 13, 1],
-  [-6, 6, 15]
+  [3, 2],
+  [-4, 7, 8],
+  [4, 13, 1],
+  [5, 15]
 ]
-print(vec !/ band)
-
-let mat: Matrix = [
-  [3, 2, 5, 0],
-  [6, 6, 15, 3],
-  [-3, 4, 13, 1],
-  [0, -6, 6, 15]
-]
-
-print(vec !/ mat)
-
-print(band == mat)
+let (L, U) = band.LUDecomposition()
+print(L, "\n", U)
