@@ -74,7 +74,6 @@ struct BandMatrix<T: Mathable>: MatrixProtocol {
   }
 }
 
-
 // MARK: - API
 extension BandMatrix {
   var width: Int { upper.height }
@@ -99,28 +98,12 @@ extension BandMatrix {
     }
   }
   
-  var transposed: Self {
-    fatalError()
-  }
-  
-  mutating func swap(row: Int, col: Int) {
-    fatalError()
-  }
-  
   static func identity(_ size: Int) -> Self {
     var matrix = BandMatrix(bandwidth: 0, height: size)
     for i in 0..<size {
       matrix[i, i] = 1
     }
     return matrix
-  }
-  
-  static func zeros(width: Int, height: Int) -> Self {
-    fatalError("Not a valid operation")
-  }
-  
-  static func ones(width: Int, height: Int) -> Self {
-    fatalError("Not a valid operation")
   }
 }
 

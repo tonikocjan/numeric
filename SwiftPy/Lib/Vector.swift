@@ -43,15 +43,15 @@ extension Vector {
 
 extension Vector {
   static func zeros(_ count: Int) -> Self {
-    Vector(arrayLiteral: Array(repeating: 0, count: count))
+    .init(arrayLiteral: Array(repeating: 0, count: count))
   }
   
   static func ones(_ count: Int) -> Self {
-    Vector(arrayLiteral: Array(repeating: 1, count: count))
+    .init(arrayLiteral: Array(repeating: 1, count: count))
   }
   
   static func repeating(_ count: Int, value: T) -> Self {
-    Vector(arrayLiteral: Array(repeating: value, count: count))
+    .init(arrayLiteral: Array(repeating: value, count: count))
   }
 
   func dot(_ v: Vector<T>) -> T {
