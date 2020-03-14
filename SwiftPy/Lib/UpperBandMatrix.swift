@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct UpperBandMatrix<T: Mathable>: MatrixProtocol {
+struct UpperBandMatrix<T: Mathable>: BandMatrixProtocol {
   typealias Value = T
   typealias Pointee = Vector<T>
   typealias U = Int
@@ -61,6 +61,18 @@ extension UpperBandMatrix {
   
   // number of non-zero diagonals
   var bandwidth: Int { storage.capacity }
+  
+  var isDiagonalyDominant: Bool {
+    guard bandwidth > 1 else { return true }
+    for i in 0..<height {
+      var sum: Value = 0
+      for j in (i + 1)..<Swift.min(i + bandwidth, width) {
+        sum += self[i, j]
+      }
+      if sum > self[i, i] { return false }
+    }
+    return true
+  }
   
   subscript(_ i: Int, _ j: Int) -> T {
     get {

@@ -114,6 +114,13 @@ class LowerBandMatrixTests: XCTestCase {
     XCTAssertEqual(7, LBM_ITERATIONS_COUNT)
   }
   
+  func testIsDiagonalyDominant() {
+    XCTAssertTrue(LowerBandMatrix(arrayLiteral: [[1, 1, 1, 1]]).isDiagonalyDominant)
+    XCTAssertTrue(LowerBandMatrix(arrayLiteral: [[2, 2, 2, 2], [1, 1, 1]]).isDiagonalyDominant)
+    XCTAssertTrue(LowerBandMatrix(arrayLiteral: [[3, 3, 3, 3], [2, 2, 2], [1, 1]]).isDiagonalyDominant)
+    XCTAssertFalse(LowerBandMatrix(arrayLiteral: [[1, 1, 1, 1], [2, 2, 2]]).isDiagonalyDominant)
+    XCTAssertFalse(LowerBandMatrix(arrayLiteral: [[2, 2, 2, 2], [2, 2, 2], [1, 1]]).isDiagonalyDominant)
+  }
   func testCopyOnWrite() {
     let matrix: LowerBandMatrix = [
       [1, 4, 7],

@@ -126,6 +126,34 @@ class MatrixTests: XCTestCase {
     XCTAssertEqual(matrix.transposed, Matrix(arrayLiteral: matrix.columnMap { $0 }))
   }
   
+  func testColumnFilter() {
+    let matrix: Matrix = [
+      [1, 2, 3],
+      [1, 2, 3],
+      [1, 2, 3]
+    ]
+    let filtered: Matrix<Double> = matrix.columnFilter { $0.contains(where: { $0.truncatingRemainder(dividingBy: 2) == 0 }) }
+    XCTAssertEqual([[2, 2, 2]], filtered)
+  }
+  
+  func testReduce() {
+    let matrix: Matrix = [
+      [1, 4, 7],
+      [2, 5, 8],
+      [3, 6, 9]
+    ]
+    XCTAssertEqual([12, 15, 18], matrix.reduce([], { $0 + [$1.sum]}))
+  }
+  
+  func testColumnReduce() {
+    let matrix: Matrix = [
+      [1, 4, 7],
+      [2, 5, 8],
+      [3, 6, 9]
+    ]
+    XCTAssertEqual([6, 15, 24], matrix.columnReduce([], nextPartialResult: { $0 + [$1.sum]}))
+  }
+  
   func testSwap() {
     var matrix: Matrix = [
       [1, 2, 3],

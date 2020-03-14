@@ -8,6 +8,11 @@
 
 import Foundation
 
+protocol BandMatrixProtocol: MatrixProtocol {
+  var bandwidth: Int { get }
+  var isDiagonalyDominant: Bool { get }
+}
+
 /// **Band** matrix
 ///
 /// - Author: Toni K. Turk
@@ -15,7 +20,7 @@ import Foundation
 /// In mathematics, particularly matrix theory, a band matrix is a sparse matrix whose non-zero entries are
 /// confined to a diagonal band, comprising the main diagonal and zero or more diagonals on either side.
 ///
-struct BandMatrix<T: Mathable>: MatrixProtocol {
+struct BandMatrix<T: Mathable>: BandMatrixProtocol {
   typealias Value = T
   
   // upper matrix contains diagonal elements!
@@ -81,6 +86,19 @@ extension BandMatrix {
   
   // number of non-zero diagonals
   var bandwidth: Int { upper.bandwidth + lower.bandwidth }
+  
+  var isDiagonalyDominant: Bool {
+    guard bandwidth > 1 else { return true }
+    for i in 0..<height {
+      var sum: Value = 0
+      for j in Swift.max(0, i - lower.bandwidth)..<Swift.min(width, i + upper.bandwidth) {
+        if i == j { continue }
+        sum += self[i, j]
+      }
+      if sum > self[i, i] { return false}
+    }
+    return true
+  }
   
   subscript(_ i: Int, _ j: Int) -> T {
     get {

@@ -161,11 +161,20 @@ class BandMatrixTests: XCTestCase {
       [1, 2],
       [3, 4, 5],
       [6, 7, 8],
-      [9, 10]
+         [9, 10]
     ]
     let vector: Vector = [-2, 5, 1, 2]
     XCTAssertEqual([8, 19, 53, 29], matrix * vector)
     XCTAssertEqual(10, BM_ITERATIONS_COUNT)
+  }
+  
+  func testIsDiagonalyDominant() {
+    XCTAssertTrue(BandMatrix(arrayLiteral: [1], [1], [1], [1]).isDiagonalyDominant)
+    XCTAssertTrue(BandMatrix(arrayLiteral: [2, 1], [1, 2, 1], [1, 2, 1], [1, 1]).isDiagonalyDominant)
+    XCTAssertFalse(BandMatrix(arrayLiteral: [2, 3], [1, 2, 1], [1, 2, 1], [2, 1]).isDiagonalyDominant)
+    XCTAssertFalse(BandMatrix(arrayLiteral: [2, 1], [1, 2, 2], [1, 2, 1], [2, 1]).isDiagonalyDominant)
+    XCTAssertFalse(BandMatrix(arrayLiteral: [2, 1], [1, 2, 1], [1, 2, 1], [2, 1]).isDiagonalyDominant)
+    XCTAssertFalse(BandMatrix(arrayLiteral: [2, 1], [1, 2, 1], [1, 2, 2], [2, 1]).isDiagonalyDominant)
   }
   
   func testCopyOnWrite() {
