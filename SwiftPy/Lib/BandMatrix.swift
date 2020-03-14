@@ -198,20 +198,30 @@ func *<T: Mathable>(_ lhs: BandMatrix<T>, _ rhs: Vector<T>) -> Vector<T> {
 extension BandMatrix {
   func LUDecomposition() -> (L: LowerBandMatrix<T>, U: UpperBandMatrix<T>) {
     let n = width
+    let lb = lower.bandwidth
+    let ub = upper.bandwidth
     
-    var l = Vector<Value>(size: n - 1)
-    var u = Vector<Value>(size: n)
-    let u2 = (0..<(n-1)).map { self[$0, $0 + 1] }
+    var l: [Vector<Value>] = (0..<lb).map { Vector<Value>(size: n - $0 - 1) }
+    var u: [Vector<Value>] = (0..<(ub - 1)).map { Vector<Value>(size: n - $0) }
     
-    u[0] = self[0, 0]
-    for k in 1..<n {
-      l[k - 1] = self[k, k - 1] / u[k - 1]
-      u[k] = self[k, k] - (self[k, k - 1] / u[k - 1]) * self[k - 1, k]
+    let u2 = (0..<(n - ub + 1)).map { self[$0, $0 + ub - 1] }
+    
+    for i in 0..<(ub - 1) {
+      u[i][0] = self[0, i]
     }
     
-    let lower = LowerBandMatrix(arrayLiteral: .ones(n), l)
-    let upper = UpperBandMatrix(arrayLiteral: u, u2)
+    for k in 1..<n {
+      for i in (k + 1)..<(k + 1 + lb) {
+        let idx = i - k - 1
+        l[idx][k - 1] = self[k, k - 1] / u[idx][k - 1]
+        for j in (k + 1)..<(k + ub) {
+          u[idx][k] = self[i - 1, j - 1] - l[idx][k - 1] * u2[k - 1]
+        }
+      }
+    }
     
+    let lower = LowerBandMatrix(arrayLiteral: [.ones(n)] + l)
+    let upper = UpperBandMatrix(arrayLiteral: u + [u2])
     return (lower, upper)
   }
 }
