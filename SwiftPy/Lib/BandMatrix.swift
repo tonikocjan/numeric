@@ -201,6 +201,7 @@ extension BandMatrix {
     let lb = lower.bandwidth
     let ub = upper.bandwidth
     
+    var upper = self.upper
     var lower = LowerBandMatrix<Value>(bandwidth: lb + 1, height: n)
     for i in 0..<n {
       for j in Swift.max(0, i - lb)...i {
@@ -208,8 +209,6 @@ extension BandMatrix {
         lower[i, j] = self.lower[i - 1, j]
       }
     }
-    
-    var upper = self.upper
     
     func valueAt(_ i: Int, _ j: Int) -> Value {
       if i > j {
@@ -226,12 +225,15 @@ extension BandMatrix {
       upper[i, j] = value
     }
     
+    LU_ITERATIONS_COUNT = 0
+    
     for k in 0..<n - 1 {
-      for i in (k + 1)..<n {
+      for i in (k + 1)..<Swift.min(n, k + 1 + lb) {
         setValueAt(valueAt(i, k) / valueAt(k, k), i, k)
-        for j in (k + 1)..<n {
+        for j in (k + 1)..<Swift.min(n, k + 1 + ub) {
           let val = valueAt(i, j) - valueAt(i, k) * valueAt(k, j)
           setValueAt(val, i, j)
+          LU_ITERATIONS_COUNT += 1
         }
       }
     }

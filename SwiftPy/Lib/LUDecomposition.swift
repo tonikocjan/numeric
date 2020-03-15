@@ -66,17 +66,21 @@ func solveLinearSystem<M: MatrixProtocol>(_ A: M, _ v: M.Vec) -> M.Vec {
   return x
 }
 
+var LU_ITERATIONS_COUNT = 0
+
 func LUDecomposition<M: MatrixProtocol>(_ a: M) -> M {
   assert(a.width == a.height)
   
   let n = a.width
   var A = a
   
+  LU_ITERATIONS_COUNT = 0
   for k in 0..<(n - 1) {
     for i in (k + 1)..<n {
       A[i, k] = A[i, k] / A[k, k]
       for j in (k + 1)..<n {
         A[i, j] = A[i, j] - A[i, k] * A[k, j]
+        LU_ITERATIONS_COUNT += 1
       }
     }
   }

@@ -85,8 +85,14 @@ extension UpperBandMatrix {
     mutating set {
       assert(j >= 0)
       assert(j < width)
-      if i > j { assert(newValue == 0) }
-      if j - i >= bandwidth { assert(newValue == 0) }
+      if i > j {
+        assert(newValue == 0)
+        return
+      }
+      if j - i >= bandwidth {
+        assert(newValue == 0)
+        return
+      }
       storageForWriting[j - i][i] = newValue
     }
   }

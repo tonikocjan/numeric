@@ -198,6 +198,17 @@ class BandMatrixTests: XCTestCase {
 
 // LUDecomposition tests
 extension BandMatrixTests {
+  func testDiagonal3x3Decomposition() {
+    let band: BandMatrix = [
+      [3],
+      [-4],
+      [13],
+    ]
+    let (L, U) = band.LUDecomposition()
+    XCTAssertEqual([[1, 1, 1]], L)
+    XCTAssertEqual([[3, -4, 13]], U)
+  }
+  
   func testTridiagonal4x4Decomposition() {
     let band: BandMatrix = [
       [3, 2],
@@ -207,8 +218,48 @@ extension BandMatrixTests {
     ]
     let (L, U) = band.LUDecomposition()
     XCTAssertEqual([[1, 1, 1, 1],
-                    [-4.0 / 3, 4 / 9.666666666666666, 5 / 9.689655172413794]], L)
-    XCTAssertEqual([[3, 9.666666666666666, 9.689655172413794, 14.483985765124554],
-                    [2, 8, 1]], U)
+                    [-4.0 / 3, 4 / 9.6667, 5 / 9.6897]], L, accuracy: 10e-4)
+    XCTAssertEqual([[3, 9.6667, 9.6897, 14.484],
+                    [2, 8, 1]], U, accuracy: 10e-4)
+  }
+  
+  func testPentaDiagonal6x6Decomposition() {
+    let band: BandMatrix = [
+      [4, 2, 1],
+      [4, 12, 7, 1],
+      [-5, 1, 10, 1, 1],
+      [-1, 1, 8, 2, 3],
+      [1, 4, 6, -1],
+      [4, 5, 10]
+    ]
+    let (L, U) = band.LUDecomposition()
+    XCTAssertEqual([[1, 1, 1, 1, 1, 1],
+                    [1, 0.35, 0.1749, 0.492, 0.8184],
+                    [-1.25, -0.1, 0.1093, 0.5009]], L, accuracy: 10e-4)
+    XCTAssertEqual([[4, 10, 9.15, 7.9863, 4.9928, 10.5236],
+                    [2, 6, 0.65, 1.8251, -2.4759],
+                    [1, 1, 1, 3]], U, accuracy: 10e-4)
+  }
+}
+
+func XCTAssertEqual<T: Mathable>(_ lhs: LowerBandMatrix<T>, _ rhs: LowerBandMatrix<T>, accuracy: T) {
+  for i in 0..<lhs.width {
+    for j in 0..<lhs.width {
+      if abs(lhs[i, j] - rhs[i, j]) > accuracy {
+        XCTFail("\(lhs[i, j]) is not equal to \(rhs[i, j])")
+        return
+      }
+    }
+  }
+}
+
+func XCTAssertEqual<T: Mathable>(_ lhs: UpperBandMatrix<T>, _ rhs: UpperBandMatrix<T>, accuracy: T) {
+  for i in 0..<lhs.width {
+    for j in 0..<lhs.width {
+      if abs(lhs[i, j] - rhs[i, j]) > accuracy {
+        XCTFail("\(lhs[i, j]) is not equal to \(rhs[i, j])")
+        return
+      }
+    }
   }
 }
