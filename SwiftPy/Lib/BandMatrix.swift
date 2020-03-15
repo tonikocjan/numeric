@@ -179,6 +179,14 @@ func *<T: Mathable>(_ lhs: BandMatrix<T>, _ rhs: Vector<T>) -> Vector<T> {
   lhs.multiplty(with: rhs)
 }
 
+func !/<T: Mathable>(_ lhs: Vector<T>, _ rhs: BandMatrix<T>) -> Vector<T> {
+  rhs.leftDivision(with: lhs)
+}
+
+func LUDecomposition<T: Mathable>(_ matrix: BandMatrix<T>) -> (L: LowerBandMatrix<T>, U: UpperBandMatrix<T>) {
+  matrix.LUDecomposition()
+}
+
 fileprivate extension BandMatrix {
   func multiplty(with rhs: Vec) -> Vec {
     assert(height == rhs.count)
@@ -194,9 +202,7 @@ fileprivate extension BandMatrix {
     }
     return result
   }
-}
-
-extension BandMatrix {
+  
   func LUDecomposition() -> (L: LowerBandMatrix<T>, U: UpperBandMatrix<T>) {
     let n = width
     let lb = lower.bandwidth
@@ -241,38 +247,39 @@ extension BandMatrix {
     
     return (L: lower, U: upper)
   }
-}
+  
+  func leftDivision(with rhs: Vec) -> Vec {
+    assert(rhs.count == self.width)
+    
+    let (L, U) = self.LUDecomposition()
+    
+    func valueAt(_ i: Int, _ j: Int) -> T {
+      if i > j {
+        return L[i, j]
+      }
+      return U[i, j]
+    }
+    
+    let n = self.width
 
-func !/<T: Mathable>(_ lhs: Vector<T>, _ rhs: BandMatrix<T>) -> Vector<T> {
-  assert(lhs.count == rhs.width)
-  
-  let (L, U) = rhs.LUDecomposition()
-  
-  func valueAt(_ i: Int, _ j: Int) -> T {
-    if i > j {
-      return L[i, j]
+    var y = Vector<T>.ones(n)
+    for i in 1..<n {
+      var row = T.zero
+      for j in Swift.max(0, i - lower.bandwidth)..<i {
+        row += -valueAt(i, j) * y[j]
+      }
+      y[i] = row + rhs[i]
     }
-    return U[i, j]
-  }
-  
-  let n = rhs.width
-
-  var y = Vector<T>.ones(n)
-  for i in 1..<n {
-    var row = T.zero
-    for j in 0..<i {
-      row += -valueAt(i, j) * y[j]
+    
+    var x = Vector<T>.zeros(n)
+    for i in stride(from: n - 1, to: -1, by: -1) {
+      let from = Swift.min(n - 1, i + upper.bandwidth - 1)
+      for j in stride(from: from, to: i, by: -1) {
+        x[i] += -valueAt(i, j) * x[j]
+      }
+      x[i] = (y[i] + x[i]) / valueAt(i, i)
     }
-    y[i] = row + lhs[i]
+    
+    return x
   }
-  
-  var x = Vector<T>.zeros(n)
-  for i in stride(from: n - 1, to: -1, by: -1) {
-    for j in stride(from: n - 1, to: i, by: -1) {
-      x[i] += -valueAt(i, j) * x[j]
-    }
-    x[i] = (y[i] + x[i]) / valueAt(i, i)
-  }
-  
-  return x
 }

@@ -204,7 +204,7 @@ extension BandMatrixTests {
       [-4],
       [13],
     ]
-    let (L, U) = band.LUDecomposition()
+    let (L, U) = LUDecomposition(band)
     XCTAssertEqual([[1, 1, 1]], L)
     XCTAssertEqual([[3, -4, 13]], U)
   }
@@ -216,7 +216,7 @@ extension BandMatrixTests {
       [4, 13, 1],
       [5, 15]
     ]
-    let (L, U) = band.LUDecomposition()
+    let (L, U) = LUDecomposition(band)
     XCTAssertEqual([[1, 1, 1, 1],
                     [-4.0 / 3, 4 / 9.6667, 5 / 9.6897]], L, accuracy: 10e-4)
     XCTAssertEqual([[3, 9.6667, 9.6897, 14.484],
@@ -232,7 +232,7 @@ extension BandMatrixTests {
       [1, 4, 6, -1],
       [4, 5, 10]
     ]
-    let (L, U) = band.LUDecomposition()
+    let (L, U) = LUDecomposition(band)
     XCTAssertEqual([[1, 1, 1, 1, 1, 1],
                     [1, 0.35, 0.1749, 0.492, 0.8184],
                     [-1.25, -0.1, 0.1093, 0.5009]], L, accuracy: 10e-4)
@@ -285,7 +285,7 @@ func XCTAssertEqual<T: Mathable>(_ lhs: UpperBandMatrix<T>, _ rhs: UpperBandMatr
 func XCTAssertEqual<T: Mathable>(_ lhs: Vector<T>, _ rhs: Vector<T>, accuracy: T) {
   for i in 0..<lhs.count {
     if abs(lhs[i] - rhs[i]) > accuracy {
-      XCTFail("\(lhs[i]) is not equal to \(rhs[i])")
+      XCTFail("\(lhs[i]) is not equal to \(rhs[i]) at index \(i)")
       return
     }
   }
