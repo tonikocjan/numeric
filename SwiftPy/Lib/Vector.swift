@@ -43,11 +43,11 @@ extension Vector {
 
 extension Vector {
   static func zeros(_ count: Int) -> Self {
-    .init(arrayLiteral: Array(repeating: 0, count: count))
+    repeating(count, value: 0)
   }
   
   static func ones(_ count: Int) -> Self {
-    .init(arrayLiteral: Array(repeating: 1, count: count))
+    repeating(count, value: 1)
   }
   
   static func repeating(_ count: Int, value: T) -> Self {
@@ -136,7 +136,7 @@ func +<T: Mathable>(_ num: T, _ v: Vector<T>) -> Vector<T> {
 }
 
 func -<T: Mathable>(_ num: T, _ v: Vector<T>) -> Vector<T> {
-  v.map { $0 - num }
+  v.map { num - $0 }
 }
 
 func *<T: Mathable>(_ num: T, _ v: Vector<T>) -> Vector<T> {
@@ -144,7 +144,7 @@ func *<T: Mathable>(_ num: T, _ v: Vector<T>) -> Vector<T> {
 }
 
 func /<T: Mathable>(_ num: T, _ v: Vector<T>) -> Vector<T> {
-  v.map { $0 / num }
+  v.map { num / $0 }
 }
 
 func +<T: Mathable>(_ v1: Vector<T>, _ v2: Vector<T>) -> Vector<T> {

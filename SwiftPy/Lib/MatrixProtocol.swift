@@ -45,11 +45,11 @@ protocol Transposable where Self: MatrixProtocol {
   var transposed: Self { get }
 }
 
-protocol Initializable where Self: MatrixProtocol {
+protocol DefaultValueInitializable where Self: MatrixProtocol {
   init(_ value: Value, width: Int, height: Int)
 }
 
-extension Initializable {
+extension DefaultValueInitializable {
   static func zeros(width: Int, height: Int) -> Self {
     .init(0, width: width, height: height)
   }

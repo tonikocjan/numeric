@@ -40,9 +40,10 @@ extension Matrix: SupportsCopyOnWrite {
 }
 
 // MARK: - Initializable
-extension Matrix: Initializable {
+extension Matrix: DefaultValueInitializable {
   init(_ value: Value, width: Int, height: Int) {
-    self.init(arrayLiteral: .init(repeating: .repeating(width, value: value), count: height))
+    self.init(arrayLiteral: .init(repeating: .repeating(width, value: value),
+                                  count: height))
   }
 }
 

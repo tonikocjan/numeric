@@ -40,7 +40,7 @@ func gaussElimination<M: MatrixProtocol>(_ a: M) -> M {
 }
 
 func solveLinearSystem<M: MatrixProtocol>(_ A: M, _ v: M.Vec) -> M.Vec {
-  // `a` must be a LU decomposed matrix
+  // `A` must be a LU decomposed matrix
   assert(A.width == A.height)
   assert(A.width == v.count)
   

@@ -10,19 +10,19 @@ import XCTest
 @testable import SwifyPy
 
 class VectorTests: XCTestCase {
-  func testVectorSubscript() {
+  func testSubscript() {
     let vector = Vector<Double>(arrayLiteral: [1, 2, 3])
     XCTAssertEqual(1, vector[0])
     XCTAssertEqual(2, vector[1])
     XCTAssertEqual(3, vector[2])
   }
   
-  func testVectorIsEmpty() {
+  func testIsEmpty() {
     XCTAssertTrue(Vector<Double>(size: 0).isEmpty)
     XCTAssertFalse(Vector<Double>(size: 2).isEmpty)
   }
   
-  func testVectorCollection() {
+  func testCollection() {
     let vector = Vector<Double>(arrayLiteral: [1, 2, 3])
     XCTAssertEqual(6, vector.reduce(0, +))
     XCTAssertEqual([2, 4, 6], vector.map { $0 * 2 })
@@ -51,9 +51,9 @@ class VectorTests: XCTestCase {
     XCTAssertEqual([4, 8, 12], v1 * 2)
     XCTAssertEqual([1, 2, 3], v1 / 2)
     XCTAssertEqual([3, 5, 7], 1 + v1)
-    XCTAssertEqual([1, 3, 5], 1 - v1)
+    XCTAssertEqual([-1, -3, -5], 1 - v1)
     XCTAssertEqual([4, 8, 12], 2 * v1)
-    XCTAssertEqual([1, 2, 3], 2 / v1)
+    XCTAssertEqual([1, 0.5, 1.0/3], 2 / v1)
   }
   
   func testComputedProperties() {
