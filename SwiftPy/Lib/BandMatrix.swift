@@ -201,27 +201,41 @@ extension BandMatrix {
     let lb = lower.bandwidth
     let ub = upper.bandwidth
     
-    var l: [Vector<Value>] = (0..<lb).map { Vector<Value>(size: n - $0 - 1) }
-    var u: [Vector<Value>] = (0..<(ub - 1)).map { Vector<Value>(size: n - $0) }
-    
-    let u2 = (0..<(n - ub + 1)).map { self[$0, $0 + ub - 1] }
-    
-    for i in 0..<(ub - 1) {
-      u[i][0] = self[0, i]
+    var lower = LowerBandMatrix<Value>(bandwidth: lb + 1, height: n)
+    for i in 0..<n {
+      for j in Swift.max(0, i - lb)...i {
+        if i == j { lower[i, j] = 1; continue }
+        lower[i, j] = self.lower[i - 1, j]
+      }
     }
     
-    for k in 1..<n {
-      for i in (k + 1)..<(k + 1 + lb) {
-        let idx = i - k - 1
-        l[idx][k - 1] = self[k, k - 1] / u[idx][k - 1]
-        for j in (k + 1)..<(k + ub) {
-          u[idx][k] = self[i - 1, j - 1] - l[idx][k - 1] * u2[k - 1]
+    var upper = self.upper
+    
+    func valueAt(_ i: Int, _ j: Int) -> Value {
+      if i > j {
+        return lower[i, j]
+      }
+      return upper[i, j]
+    }
+    
+    func setValueAt(_ value: Value, _ i: Int, _ j: Int) {
+      if i > j {
+        lower[i, j] = value
+        return
+      }
+      upper[i, j] = value
+    }
+    
+    for k in 0..<n - 1 {
+      for i in (k + 1)..<n {
+        setValueAt(valueAt(i, k) / valueAt(k, k), i, k)
+        for j in (k + 1)..<n {
+          let val = valueAt(i, j) - valueAt(i, k) * valueAt(k, j)
+          setValueAt(val, i, j)
         }
       }
     }
     
-    let lower = LowerBandMatrix(arrayLiteral: [.ones(n)] + l)
-    let upper = UpperBandMatrix(arrayLiteral: u + [u2])
-    return (lower, upper)
+    return (L: lower, U: upper)
   }
 }
