@@ -19,8 +19,6 @@ let m: Matrix = [
   [0, 0, 0, 4, 5, 10]
 ]
 //print(LUDecomposition(m))
-LUDecomposition(m)
-print(LU_ITERATIONS_COUNT)
 
 let band: BandMatrix = [
   [4, 2, 1],
@@ -31,7 +29,6 @@ let band: BandMatrix = [
   [4, 5, 10]
 ]
 var (L, U) = band.LUDecomposition()
-print(LU_ITERATIONS_COUNT)
 //print(L, "\n\n", U)
 //print()
 
@@ -41,16 +38,23 @@ let band2: BandMatrix = [
   [4, 13, 1],
   [5, 15]
 ]
-(L, U) = band2.LUDecomposition()
-print(LU_ITERATIONS_COUNT)
+let v: Vector = [1, 2, 3, 4]
+let x = v !/ band2
+print(x)
+print(band2 * x)
+
 //print()
 //print(L, "\n", U)
 
 let m2: Matrix = [
   [3, 2, 0, 0],
-  [-4, 7, 8, 9],
+  [-4, 7, 8, 0],
   [0, 4, 13, 1],
   [0, 0, 5, 15]
 ]
-LUDecomposition(m2)
-print(LU_ITERATIONS_COUNT)
+
+print(v !/ m2)
+print(band2 * (v !/ m2))
+print(m2 * (v !/ m2))
+//LUDecomposition(m2)
+//print(LU_ITERATIONS_COUNT)

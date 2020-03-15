@@ -196,7 +196,7 @@ class BandMatrixTests: XCTestCase {
   }
 }
 
-// LUDecomposition tests
+// MARK: - LUDecomposition tests
 extension BandMatrixTests {
   func testDiagonal3x3Decomposition() {
     let band: BandMatrix = [
@@ -242,6 +242,24 @@ extension BandMatrixTests {
   }
 }
 
+// MARK: - Linear Equations tests
+extension BandMatrixTests {
+  func testLinearEquations1() {
+    let A: BandMatrix = [
+      [3, 2],
+      [-4, 7, 8],
+      [4, 13, 1],
+      [5, 15]
+    ]
+    let y: Vector = [1, 2, 3, 4]
+    let x = y !/ A
+    XCTAssertEqual([0.1833, 0.2251, 0.1447, 0.2184], x, accuracy: 10e-4)
+    XCTAssertEqual(A * x, y, accuracy: 10e-4)
+  }
+}
+
+// MARK: - Helper functions
+
 func XCTAssertEqual<T: Mathable>(_ lhs: LowerBandMatrix<T>, _ rhs: LowerBandMatrix<T>, accuracy: T) {
   for i in 0..<lhs.width {
     for j in 0..<lhs.width {
@@ -260,6 +278,15 @@ func XCTAssertEqual<T: Mathable>(_ lhs: UpperBandMatrix<T>, _ rhs: UpperBandMatr
         XCTFail("\(lhs[i, j]) is not equal to \(rhs[i, j])")
         return
       }
+    }
+  }
+}
+
+func XCTAssertEqual<T: Mathable>(_ lhs: Vector<T>, _ rhs: Vector<T>, accuracy: T) {
+  for i in 0..<lhs.count {
+    if abs(lhs[i] - rhs[i]) > accuracy {
+      XCTFail("\(lhs[i]) is not equal to \(rhs[i])")
+      return
     }
   }
 }

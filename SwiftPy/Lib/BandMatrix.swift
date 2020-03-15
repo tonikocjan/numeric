@@ -176,24 +176,25 @@ extension BandMatrix: CustomStringConvertible where T: LosslessStringConvertible
 var BM_ITERATIONS_COUNT = 0 // for testing purposes
 
 func *<T: Mathable>(_ lhs: BandMatrix<T>, _ rhs: Vector<T>) -> Vector<T> {
-  assert(lhs.height == rhs.count)
-  var result: Vector<T> = .zeros(lhs.height)
-  BM_ITERATIONS_COUNT = 0
-  let k = (lhs.bandwidth - 1) / 2
-  for i in 0..<lhs.height {
-    let lower = Swift.max(0, i - (lhs.height - k) + 2)
-    let upper = Swift.min(i + k + 1, lhs.height)
-    for j in lower..<upper {
-      result[i] += lhs[i, j] * rhs[j]
-      BM_ITERATIONS_COUNT += 1
-    }
-  }
-  return result
+  lhs.multiplty(with: rhs)
 }
 
-//func !/<T: Mathable>(_ lhs: Vector<T>, _ rhs: BandMatrix<T>) -> (UpperBandMatrix<T>, LowerBandMatrix<T>) {
-//  LUDecomposition(lhs, rhs)
-//}
+fileprivate extension BandMatrix {
+  func multiplty(with rhs: Vec) -> Vec {
+    assert(height == rhs.count)
+    var result: Vector<T> = .zeros(height)
+    BM_ITERATIONS_COUNT = 0
+    for i in 0..<height {
+      let lower = Swift.max(0, i - self.lower.bandwidth)
+      let upper = Swift.min(i + self.upper.bandwidth, height)
+      for j in lower..<upper {
+        result[i] += self[i, j] * rhs[j]
+        BM_ITERATIONS_COUNT += 1
+      }
+    }
+    return result
+  }
+}
 
 extension BandMatrix {
   func LUDecomposition() -> (L: LowerBandMatrix<T>, U: UpperBandMatrix<T>) {
@@ -240,4 +241,38 @@ extension BandMatrix {
     
     return (L: lower, U: upper)
   }
+}
+
+func !/<T: Mathable>(_ lhs: Vector<T>, _ rhs: BandMatrix<T>) -> Vector<T> {
+  assert(lhs.count == rhs.width)
+  
+  let (L, U) = rhs.LUDecomposition()
+  
+  func valueAt(_ i: Int, _ j: Int) -> T {
+    if i > j {
+      return L[i, j]
+    }
+    return U[i, j]
+  }
+  
+  let n = rhs.width
+
+  var y = Vector<T>.ones(n)
+  for i in 1..<n {
+    var row = T.zero
+    for j in 0..<i {
+      row += -valueAt(i, j) * y[j]
+    }
+    y[i] = row + lhs[i]
+  }
+  
+  var x = Vector<T>.zeros(n)
+  for i in stride(from: n - 1, to: -1, by: -1) {
+    for j in stride(from: n - 1, to: i, by: -1) {
+      x[i] += -valueAt(i, j) * x[j]
+    }
+    x[i] = (y[i] + x[i]) / valueAt(i, i)
+  }
+  
+  return x
 }

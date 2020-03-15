@@ -19,5 +19,6 @@ class LUSolverTests: XCTestCase {
     ]
     let vec: Vector = [1, -6, -17, -52]
     XCTAssertEqual([3, -4, 1, -5], vec !/ matrix)
+    XCTAssertEqual(vec, matrix * (vec !/ matrix))
   }
 }
