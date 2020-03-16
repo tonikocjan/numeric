@@ -8,22 +8,22 @@
 
 import Foundation
 
-struct Vector<T: Mathable>: ExpressibleByArrayLiteral {
+public struct Vector<T: Mathable>: ExpressibleByArrayLiteral {
   var storage: COW
   
-  init() {
+  public init() {
     self.storage = .init(capacity: 0, provider: nil)
   }
   
-  init(size: Int) {
+  public init(size: Int) {
     self.storage = .init(capacity: size, provider: nil)
   }
   
-  init(arrayLiteral elements: T...) {
+  public init(arrayLiteral elements: T...) {
     self.storage = .init(elements: elements)
   }
   
-  init(arrayLiteral elements: [T]) {
+  public init(arrayLiteral elements: [T]) {
     self.storage = .init(elements: elements)
   }
 }
@@ -34,13 +34,13 @@ extension Vector: SupportsCopyOnWrite {
   typealias U = ()
 }
 
-extension Vector {
+public extension Vector {
   var sum: T { reduce(T.zero, +) }
   var avg: T { sum / T(count) }
   var len: T { sqrt(map { $0 * $0 }.reduce(T.zero, +)) }
 }
 
-extension Vector {
+public extension Vector {
   static func zeros(_ count: Int) -> Self {
     repeating(count, value: 0)
   }
@@ -61,7 +61,7 @@ extension Vector {
 
 // MARK: - Equatable
 extension Vector: Equatable {
-  static func == (lhs: Self, rhs: Self) -> Bool {
+  public static func == (lhs: Self, rhs: Self) -> Bool {
     guard lhs.count == rhs.count else { return false }
     return zip(lhs, rhs).allSatisfy(==)
   }
@@ -69,12 +69,12 @@ extension Vector: Equatable {
 
 // MARK: - BidirectionalCollection
 extension Vector: BidirectionalCollection {
-  func index(after i: Int) -> Int { i + 1 }
-  func index(before i: Int) -> Int { i - 1 }
-  var startIndex: Int { 0 }
-  var endIndex: Int { storage.capacity }
+  public func index(after i: Int) -> Int { i + 1 }
+  public func index(before i: Int) -> Int { i - 1 }
+  public var startIndex: Int { 0 }
+  public var endIndex: Int { storage.capacity }
   
-  subscript(_ i: Int) -> T {
+  public subscript(_ i: Int) -> T {
     get {
       assert(i >= 0)
       assert(i < count)
@@ -90,98 +90,98 @@ extension Vector: BidirectionalCollection {
 
 // MARK: - CustomDebugStringConvertible
 extension Vector: CustomDebugStringConvertible where T: LosslessStringConvertible {
-  var debugDescription: String {
+  public var debugDescription: String {
     "[" + map { String($0) }.joined(separator: ", ") + "]"
   }
 }
 
 // MARK: - CustomStringConvertible
 extension Vector: CustomStringConvertible where T: LosslessStringConvertible {
-  var description: String { debugDescription }
+  public var description: String { debugDescription }
 }
 
 extension Zip2Sequence {
-  func map<T: Mathable>(_ transform: ((Sequence1.Element, Sequence2.Element)) throws -> T) rethrows -> Vector<T> {
+  public func map<T: Mathable>(_ transform: ((Sequence1.Element, Sequence2.Element)) throws -> T) rethrows -> Vector<T> {
     Vector(arrayLiteral: try map(transform))
   }
 }
 
 extension Collection {
-  func map<T: Mathable>(_ transform: (Element) throws -> T) rethrows -> Vector<T> {
+  public func map<T: Mathable>(_ transform: (Element) throws -> T) rethrows -> Vector<T> {
     Vector(arrayLiteral: try map(transform))
   }
 }
 
 /// Math
 
-func +<T: Mathable>(_ v: Vector<T>, _ num: T) -> Vector<T> {
+public func +<T: Mathable>(_ v: Vector<T>, _ num: T) -> Vector<T> {
   v.map { $0 + num }
 }
 
-func -<T: Mathable>(_ v: Vector<T>, _ num: T) -> Vector<T> {
+public func -<T: Mathable>(_ v: Vector<T>, _ num: T) -> Vector<T> {
   v.map { $0 - num }
 }
 
-func *<T: Mathable>(_ v: Vector<T>, _ num: T) -> Vector<T> {
+public func *<T: Mathable>(_ v: Vector<T>, _ num: T) -> Vector<T> {
   v.map { $0 * num }
 }
 
-func /<T: Mathable>(_ v: Vector<T>, _ num: T) -> Vector<T> {
+public func /<T: Mathable>(_ v: Vector<T>, _ num: T) -> Vector<T> {
   v.map { $0 / num }
 }
 
-func +<T: Mathable>(_ num: T, _ v: Vector<T>) -> Vector<T> {
+public func +<T: Mathable>(_ num: T, _ v: Vector<T>) -> Vector<T> {
   v.map { $0 + num }
 }
 
-func -<T: Mathable>(_ num: T, _ v: Vector<T>) -> Vector<T> {
+public func -<T: Mathable>(_ num: T, _ v: Vector<T>) -> Vector<T> {
   v.map { num - $0 }
 }
 
-func *<T: Mathable>(_ num: T, _ v: Vector<T>) -> Vector<T> {
+public func *<T: Mathable>(_ num: T, _ v: Vector<T>) -> Vector<T> {
   v.map { $0 * num }
 }
 
-func /<T: Mathable>(_ num: T, _ v: Vector<T>) -> Vector<T> {
+public func /<T: Mathable>(_ num: T, _ v: Vector<T>) -> Vector<T> {
   v.map { num / $0 }
 }
 
-func +<T: Mathable>(_ v1: Vector<T>, _ v2: Vector<T>) -> Vector<T> {
+public func +<T: Mathable>(_ v1: Vector<T>, _ v2: Vector<T>) -> Vector<T> {
   assert(v1.count == v2.count)
   return zip(v1, v2).map { $0 + $1 }
 }
 
-func -<T: Mathable>(_ v1: Vector<T>, _ v2: Vector<T>) -> Vector<T> {
+public func -<T: Mathable>(_ v1: Vector<T>, _ v2: Vector<T>) -> Vector<T> {
   assert(v1.count == v2.count)
   return zip(v1, v2).map { $0 - $1 }
 }
 
-func *<T: Mathable>(_ v1: Vector<T>, _ v2: Vector<T>) -> Vector<T> {
+public func *<T: Mathable>(_ v1: Vector<T>, _ v2: Vector<T>) -> Vector<T> {
   assert(v1.count == v2.count)
   return zip(v1, v2).map { $0 * $1 }
 }
 
-func /<T: Mathable>(_ v1: Vector<T>, _ v2: Vector<T>) -> Vector<T> {
+public func /<T: Mathable>(_ v1: Vector<T>, _ v2: Vector<T>) -> Vector<T> {
   assert(v1.count == v2.count)
   return zip(v1, v2).map { $0 / $1 }
 }
 
-func cos<T: BinaryFloatingPoint>(_ v: Vector<T>) -> Vector<T> {
+public func cos<T: BinaryFloatingPoint>(_ v: Vector<T>) -> Vector<T> {
   v.map { T(cos(Double($0))) }
 }
 
-func sin<T: BinaryFloatingPoint>(_ v: Vector<T>) -> Vector<T> {
+public func sin<T: BinaryFloatingPoint>(_ v: Vector<T>) -> Vector<T> {
   v.map { T(sin(Double($0))) }
 }
 
-func sqrt<T: BinaryFloatingPoint>(_ v: Vector<T>) -> Vector<T> {
+public func sqrt<T: BinaryFloatingPoint>(_ v: Vector<T>) -> Vector<T> {
   v.map { T(sqrt(Double($0))) }
 }
 
-func log2<T: BinaryFloatingPoint>(_ v: Vector<T>) -> Vector<T> {
+public func log2<T: BinaryFloatingPoint>(_ v: Vector<T>) -> Vector<T> {
   v.map { T(log2(Double($0))) }
 }
 
-func log<T: BinaryFloatingPoint>(_ v: Vector<T>) -> Vector<T> {
+public func log<T: BinaryFloatingPoint>(_ v: Vector<T>) -> Vector<T> {
   v.map { T(log(Double($0))) }
 }

@@ -7,11 +7,11 @@
 
 import Foundation
 
-protocol Transposable {
+public protocol Transposable {
   var transposed: Self { get }
 }
 
-extension MatrixProtocol where Self: Transposable {
+public extension MatrixProtocol where Self: Transposable {
   func columnMap<T>(_ transform: (Vec) throws -> T) rethrows -> [T] {
     try transposed.map(transform)
   }

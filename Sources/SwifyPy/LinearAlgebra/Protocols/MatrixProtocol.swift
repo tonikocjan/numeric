@@ -8,9 +8,9 @@
 
 import Foundation
 
-typealias Mathable = FloatingPoint
+public typealias Mathable = FloatingPoint
 
-protocol MatrixProtocol: ExpressibleByArrayLiteral, Equatable, BidirectionalCollection where Element == Vec {
+public protocol MatrixProtocol: ExpressibleByArrayLiteral, Equatable, BidirectionalCollection where Element == Vec {
   associatedtype Value: Mathable
   // is there a way to shadow `Vector`?
   typealias Vec = Vector<Value>
@@ -27,7 +27,7 @@ protocol MatrixProtocol: ExpressibleByArrayLiteral, Equatable, BidirectionalColl
   static func identity(_ size: Int) -> Self
 }
 
-extension MatrixProtocol {
+public extension MatrixProtocol {
   func index(after i: Int) -> Int { i + 1 }
   func index(before i: Int) -> Int { i - 1 }
   var startIndex: Int { 0 }
@@ -41,63 +41,63 @@ extension MatrixProtocol {
   }
 }
 
-func == <M1: MatrixProtocol, M2: MatrixProtocol>(_ lhs: M1, _ rhs: M2) -> Bool where M1.Value == M2.Value {
+public func == <M1: MatrixProtocol, M2: MatrixProtocol>(_ lhs: M1, _ rhs: M2) -> Bool where M1.Value == M2.Value {
   guard lhs.shape == rhs.shape else { return false }
   return zip(lhs, rhs).allSatisfy(==)
 }
 
 /// Math
 
-func +<M: MatrixProtocol>(_ m: M, _ val: M.Value) -> M {
+public func +<M: MatrixProtocol>(_ m: M, _ val: M.Value) -> M {
   m.map { $0 + val }
 }
 
-func -<M: MatrixProtocol>(_ m: M, _ val: M.Value) -> M {
+public func -<M: MatrixProtocol>(_ m: M, _ val: M.Value) -> M {
   m.map { $0 - val }
 }
 
-func *<M: MatrixProtocol>(_ m: M, _ val: M.Value) -> M {
+public func *<M: MatrixProtocol>(_ m: M, _ val: M.Value) -> M {
   m.map { $0 * val }
 }
 
-func /<M: MatrixProtocol>(_ m: M, _ val: M.Value) -> M {
+public func /<M: MatrixProtocol>(_ m: M, _ val: M.Value) -> M {
   m.map { $0 / val }
 }
 
-func +<M: MatrixProtocol>(_ val: M.Value, _ m: M) -> M {
+public func +<M: MatrixProtocol>(_ val: M.Value, _ m: M) -> M {
   m.map { $0 + val }
 }
 
-func -<M: MatrixProtocol>(_ val: M.Value, _ m: M) -> M {
+public func -<M: MatrixProtocol>(_ val: M.Value, _ m: M) -> M {
   m.map { $0 - val }
 }
 
-func *<M: MatrixProtocol>(_ val: M.Value, _ m: M) -> M {
+public func *<M: MatrixProtocol>(_ val: M.Value, _ m: M) -> M {
   m.map { $0 * val }
 }
 
-func /<M: MatrixProtocol>(_ val: M.Value, _ m: M) -> M {
+public func /<M: MatrixProtocol>(_ val: M.Value, _ m: M) -> M {
   m.map { $0 / val }
 }
 
-func +<M: MatrixProtocol>(_ m1: M, _ m2: M) -> M {
+public func +<M: MatrixProtocol>(_ m1: M, _ m2: M) -> M {
   assert(m1.height == m2.height)
   assert(m1.width == m2.width)
   return zip(m1, m2).map { $0 + $1 }
 }
 
-func -<M: MatrixProtocol>(_ m1: M, _ m2: M) -> M {
+public func -<M: MatrixProtocol>(_ m1: M, _ m2: M) -> M {
   assert(m1.height == m2.height)
   assert(m1.width == m2.width)
   return zip(m1, m2).map { $0 - $1 }
 }
 
-func *<M: MatrixProtocol>(_ m: M, _ v: M.Vec) -> M.Vec {
+public func *<M: MatrixProtocol>(_ m: M, _ v: M.Vec) -> M.Vec {
   assert(m.height == v.count)
   return m.map { ($0 * v).sum }
 }
 
-func *<M: MatrixProtocol & Transposable>(_ m1: M, _ m2: M) -> Matrix<M.Value> {
+public func *<M: MatrixProtocol & Transposable>(_ m1: M, _ m2: M) -> Matrix<M.Value> {
   // multiplication implemented functionaly
   assert(m1.width == m2.height)
   assert(m1.height == m2.width)
@@ -106,8 +106,7 @@ func *<M: MatrixProtocol & Transposable>(_ m1: M, _ m2: M) -> Matrix<M.Value> {
   }
 }
 
-infix operator *!: MultiplicationPrecedence
-func *<M: MatrixProtocol>(_ m1: M, _ m2: M) -> Matrix<M.Value> {
+public func *<M: MatrixProtocol>(_ m1: M, _ m2: M) -> Matrix<M.Value> {
   // multiplication implemented proceduraly
   assert(m1.width == m2.height)
   assert(m1.height == m2.width)
@@ -126,23 +125,22 @@ func *<M: MatrixProtocol>(_ m1: M, _ m2: M) -> Matrix<M.Value> {
 }
 
 infix operator !/: MultiplicationPrecedence
-func !/<M: MatrixProtocol>(_ v: M.Vec, _ m: M) -> M.Vec {
+public func !/<M: MatrixProtocol>(_ v: M.Vec, _ m: M) -> M.Vec {
   // solve linear system of equations
   solveLinearSystem(LUDecomposition(m), v)
 }
 
 extension Zip2Sequence where Sequence1: MatrixProtocol, Sequence2: MatrixProtocol, Sequence1.Value == Sequence2.Value {
-  typealias Matrix = Sequence1
-  typealias Vec = Matrix.Vec
+  public typealias Matrix = Sequence1
+  public typealias Vec = Matrix.Vec
   
-  func map(_ transform: ((Vec, Vec)) throws -> Vec) rethrows -> Matrix {
+  public func map(_ transform: ((Vec, Vec)) throws -> Vec) rethrows -> Matrix {
     Matrix(arrayLiteral: try map(transform))
   }
 }
 
 extension Collection {
-  func map<T: Mathable>(_ transform: (Element) throws -> Vector<T>) rethrows -> Matrix<T> {
+  public func map<T: Mathable>(_ transform: (Element) throws -> Vector<T>) rethrows -> Matrix<T> {
     Matrix(arrayLiteral: try map(transform))
   }
 }
-

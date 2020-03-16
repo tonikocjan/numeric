@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol BandMatrixProtocol: MatrixProtocol {
+public protocol BandMatrixProtocol: MatrixProtocol {
   var bandwidth: Int { get }
   var isDiagonalyDominant: Bool { get }
 }
@@ -20,12 +20,12 @@ protocol BandMatrixProtocol: MatrixProtocol {
 /// In mathematics, particularly matrix theory, a band matrix is a sparse matrix whose non-zero entries are
 /// confined to a diagonal band, comprising the main diagonal and zero or more diagonals on either side.
 ///
-struct BandMatrix<T: Mathable>: BandMatrixProtocol {
-  typealias Value = T
+public struct BandMatrix<T: Mathable>: BandMatrixProtocol {
+  public typealias Value = T
   
   // upper matrix contains diagonal elements!
-  private var upper: UpperBandMatrix<T>
-  private var lower: LowerBandMatrix<T>
+  var upper: UpperBandMatrix<T>
+  var lower: LowerBandMatrix<T>
   
   /// Initialize a new **Band** matrix with specified size.
   ///
@@ -36,7 +36,7 @@ struct BandMatrix<T: Mathable>: BandMatrixProtocol {
   ///
   /// - Parameter height: height of the matrix
   ///
-  init(bandwidth: Int, height: Int) {
+  public init(bandwidth: Int, height: Int) {
     upper = .init(bandwidth: bandwidth + 1, height: height)
     lower = .init(bandwidth: bandwidth, height: height - 1)
   }
@@ -56,11 +56,11 @@ struct BandMatrix<T: Mathable>: BandMatrixProtocol {
   ///  [3, 4, 5],
   ///  [0, 6, 7]]
   ///
-  init(arrayLiteral elements: Vector<Value>...) {
+  public init(arrayLiteral elements: Vector<Value>...) {
     self.init(arrayLiteral: elements)
   }
   
-  init(arrayLiteral elements: [Vector<Value>]) {
+  public init(arrayLiteral elements: [Vector<Value>]) {
     func calculateBandwith(_ count: Int) -> Int {
       count == 1 ? 0 : Int(floor(Double(count) / 2))
     }
@@ -93,7 +93,7 @@ struct BandMatrix<T: Mathable>: BandMatrixProtocol {
 }
 
 // MARK: - API
-extension BandMatrix {
+public extension BandMatrix {
   var width: Int { upper.height }
   var height: Int { upper.height }
   
@@ -140,14 +140,14 @@ extension BandMatrix {
 
 // MARK: - Equatable
 extension BandMatrix: Equatable {
-  static func == (lhs: Self, rhs: Self) -> Bool {
+  public static func == (lhs: Self, rhs: Self) -> Bool {
     lhs.upper == rhs.upper && lhs.lower == rhs.lower
   }
 }
 
 // MARK: - Collection
 extension BandMatrix: BidirectionalCollection {
-  subscript(_ i: Int) -> Vector<T> {
+  public subscript(_ i: Int) -> Vector<T> {
     get {
       assert(i >= 0)
       assert(i < height)
@@ -163,31 +163,31 @@ extension BandMatrix: BidirectionalCollection {
 
 // MARK: - CustomDebugStringConvertible
 extension BandMatrix: CustomDebugStringConvertible where T: LosslessStringConvertible {
-  var debugDescription: String {
+  public var debugDescription: String {
     "[" + map { $0.description }.joined(separator: "\n") + "]"
   }
 }
 
 // MARK: - CustomStringConvertible
 extension BandMatrix: CustomStringConvertible where T: LosslessStringConvertible {
-  var description: String { debugDescription }
+  public var description: String { debugDescription }
 }
 
 var BM_ITERATIONS_COUNT = 0 // for testing purposes
 
-func *<T: Mathable>(_ lhs: BandMatrix<T>, _ rhs: Vector<T>) -> Vector<T> {
+public func *<T: Mathable>(_ lhs: BandMatrix<T>, _ rhs: Vector<T>) -> Vector<T> {
   lhs.multiplty(with: rhs)
 }
 
-func !/<T: Mathable>(_ lhs: Vector<T>, _ rhs: BandMatrix<T>) -> Vector<T> {
+public func !/<T: Mathable>(_ lhs: Vector<T>, _ rhs: BandMatrix<T>) -> Vector<T> {
   rhs.leftDivision(with: lhs)
 }
 
-func LUDecomposition<T: Mathable>(_ matrix: BandMatrix<T>) -> (L: LowerBandMatrix<T>, U: UpperBandMatrix<T>) {
+public func LUDecomposition<T: Mathable>(_ matrix: BandMatrix<T>) -> (L: LowerBandMatrix<T>, U: UpperBandMatrix<T>) {
   matrix.LUDecomposition()
 }
 
-fileprivate extension BandMatrix {
+extension BandMatrix {
   func multiplty(with rhs: Vec) -> Vec {
     assert(height == rhs.count)
     var result: Vector<T> = .zeros(height)

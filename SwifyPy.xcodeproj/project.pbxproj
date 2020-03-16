@@ -9,11 +9,11 @@
 /* Begin PBXAggregateTarget section */
 		"SwifyPy::SwifyPyPackageTests::ProductTarget" /* SwifyPyPackageTests */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = OBJ_56 /* Build configuration list for PBXAggregateTarget "SwifyPyPackageTests" */;
+			buildConfigurationList = OBJ_61 /* Build configuration list for PBXAggregateTarget "SwifyPyPackageTests" */;
 			buildPhases = (
 			);
 			dependencies = (
-				OBJ_59 /* PBXTargetDependency */,
+				OBJ_64 /* PBXTargetDependency */,
 			);
 			name = SwifyPyPackageTests;
 			productName = SwifyPyPackageTests;
@@ -21,37 +21,45 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		37A549D0241F8E5300A91A8E /* DefaultValueInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A549CF241F8E5300A91A8E /* DefaultValueInitializable.swift */; };
-		OBJ_39 /* BandMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* BandMatrix.swift */; };
-		OBJ_40 /* LUDecomposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* LUDecomposition.swift */; };
-		OBJ_41 /* LowerBandMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* LowerBandMatrix.swift */; };
-		OBJ_42 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* Matrix.swift */; };
-		OBJ_43 /* MatrixProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* MatrixProtocol.swift */; };
-		OBJ_44 /* Transposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* Transposable.swift */; };
-		OBJ_45 /* UpperBandMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* UpperBandMatrix.swift */; };
-		OBJ_46 /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* Vector.swift */; };
-		OBJ_47 /* cow.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* cow.swift */; };
-		OBJ_54 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
-		OBJ_65 /* BandMatrixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* BandMatrixTests.swift */; };
-		OBJ_66 /* LUSolverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* LUSolverTests.swift */; };
-		OBJ_67 /* LowerBandMatrixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_24 /* LowerBandMatrixTests.swift */; };
-		OBJ_68 /* MatrixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_25 /* MatrixTests.swift */; };
-		OBJ_69 /* SwifyPyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_26 /* SwifyPyTests.swift */; };
-		OBJ_70 /* UpperBandMatrixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_27 /* UpperBandMatrixTests.swift */; };
-		OBJ_71 /* VectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_28 /* VectorTests.swift */; };
-		OBJ_72 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_29 /* XCTestManifests.swift */; };
-		OBJ_74 /* SwifyPy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwifyPy::SwifyPy::Product" /* SwifyPy.framework */; };
+		OBJ_43 /* BandMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* BandMatrix.swift */; };
+		OBJ_44 /* LUDecomposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* LUDecomposition.swift */; };
+		OBJ_45 /* LowerBandMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* LowerBandMatrix.swift */; };
+		OBJ_46 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* Matrix.swift */; };
+		OBJ_47 /* DefaultValueInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* DefaultValueInitializable.swift */; };
+		OBJ_48 /* MatrixProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* MatrixProtocol.swift */; };
+		OBJ_49 /* Transposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* Transposable.swift */; };
+		OBJ_50 /* UpperBandMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* UpperBandMatrix.swift */; };
+		OBJ_51 /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* Vector.swift */; };
+		OBJ_52 /* cow.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* cow.swift */; };
+		OBJ_59 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
+		OBJ_71 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* main.swift */; };
+		OBJ_73 /* SwifyPy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwifyPy::SwifyPy::Product" /* SwifyPy.framework */; };
+		OBJ_79 /* BandMatrixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_25 /* BandMatrixTests.swift */; };
+		OBJ_80 /* LUSolverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_26 /* LUSolverTests.swift */; };
+		OBJ_81 /* LowerBandMatrixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_27 /* LowerBandMatrixTests.swift */; };
+		OBJ_82 /* MatrixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_28 /* MatrixTests.swift */; };
+		OBJ_84 /* UpperBandMatrixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_30 /* UpperBandMatrixTests.swift */; };
+		OBJ_85 /* VectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_31 /* VectorTests.swift */; };
+		OBJ_86 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_32 /* XCTestManifests.swift */; };
+		OBJ_88 /* SwifyPy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwifyPy::SwifyPy::Product" /* SwifyPy.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		37A549CD241F8CDE00A91A8E /* PBXContainerItemProxy */ = {
+		37A549D3241F8F7400A91A8E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "SwifyPy::SwifyPy";
 			remoteInfo = SwifyPy;
 		};
-		37A549CE241F8CDF00A91A8E /* PBXContainerItemProxy */ = {
+		37A549D4241F8F7500A91A8E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "SwifyPy::SwifyPy";
+			remoteInfo = SwifyPy;
+		};
+		37A549D5241F8F7600A91A8E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
@@ -61,87 +69,121 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		37A549CF241F8E5300A91A8E /* DefaultValueInitializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultValueInitializable.swift; sourceTree = "<group>"; };
 		OBJ_10 /* BandMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandMatrix.swift; sourceTree = "<group>"; };
 		OBJ_11 /* LUDecomposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LUDecomposition.swift; sourceTree = "<group>"; };
 		OBJ_12 /* LowerBandMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LowerBandMatrix.swift; sourceTree = "<group>"; };
 		OBJ_13 /* Matrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
-		OBJ_15 /* MatrixProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixProtocol.swift; sourceTree = "<group>"; };
-		OBJ_16 /* Transposable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transposable.swift; sourceTree = "<group>"; };
-		OBJ_17 /* UpperBandMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpperBandMatrix.swift; sourceTree = "<group>"; };
-		OBJ_18 /* Vector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vector.swift; sourceTree = "<group>"; };
-		OBJ_19 /* cow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cow.swift; sourceTree = "<group>"; };
-		OBJ_22 /* BandMatrixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandMatrixTests.swift; sourceTree = "<group>"; };
-		OBJ_23 /* LUSolverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LUSolverTests.swift; sourceTree = "<group>"; };
-		OBJ_24 /* LowerBandMatrixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LowerBandMatrixTests.swift; sourceTree = "<group>"; };
-		OBJ_25 /* MatrixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixTests.swift; sourceTree = "<group>"; };
-		OBJ_26 /* SwifyPyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwifyPyTests.swift; sourceTree = "<group>"; };
-		OBJ_27 /* UpperBandMatrixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpperBandMatrixTests.swift; sourceTree = "<group>"; };
-		OBJ_28 /* VectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VectorTests.swift; sourceTree = "<group>"; };
-		OBJ_29 /* XCTestManifests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
-		OBJ_33 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		OBJ_15 /* DefaultValueInitializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultValueInitializable.swift; sourceTree = "<group>"; };
+		OBJ_16 /* MatrixProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixProtocol.swift; sourceTree = "<group>"; };
+		OBJ_17 /* Transposable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transposable.swift; sourceTree = "<group>"; };
+		OBJ_18 /* UpperBandMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpperBandMatrix.swift; sourceTree = "<group>"; };
+		OBJ_19 /* Vector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vector.swift; sourceTree = "<group>"; };
+		OBJ_20 /* cow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cow.swift; sourceTree = "<group>"; };
+		OBJ_22 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		OBJ_25 /* BandMatrixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandMatrixTests.swift; sourceTree = "<group>"; };
+		OBJ_26 /* LUSolverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LUSolverTests.swift; sourceTree = "<group>"; };
+		OBJ_27 /* LowerBandMatrixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LowerBandMatrixTests.swift; sourceTree = "<group>"; };
+		OBJ_28 /* MatrixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixTests.swift; sourceTree = "<group>"; };
+		OBJ_30 /* UpperBandMatrixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpperBandMatrixTests.swift; sourceTree = "<group>"; };
+		OBJ_31 /* VectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VectorTests.swift; sourceTree = "<group>"; };
+		OBJ_32 /* XCTestManifests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
+		OBJ_37 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		"SwifyPy::SwifyPy::Product" /* SwifyPy.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwifyPy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"SwifyPy::SwifyPyRun::Product" /* SwifyPyRun */ = {isa = PBXFileReference; lastKnownFileType = text; path = SwifyPyRun; sourceTree = BUILT_PRODUCTS_DIR; };
 		"SwifyPy::SwifyPyTests::Product" /* SwifyPyTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = SwifyPyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		OBJ_48 /* Frameworks */ = {
+		OBJ_53 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_73 /* Frameworks */ = {
+		OBJ_72 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_74 /* SwifyPy.framework in Frameworks */,
+				OBJ_73 /* SwifyPy.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_87 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_88 /* SwifyPy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		37A549D6241F912200A91A8E /* Algorithms */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_11 /* LUDecomposition.swift */,
+			);
+			path = Algorithms;
+			sourceTree = "<group>";
+		};
+		37A549D7241F913700A91A8E /* CopyOnWrite */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_20 /* cow.swift */,
+			);
+			path = CopyOnWrite;
+			sourceTree = "<group>";
+		};
 		OBJ_14 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_15 /* MatrixProtocol.swift */,
-				OBJ_16 /* Transposable.swift */,
-				37A549CF241F8E5300A91A8E /* DefaultValueInitializable.swift */,
+				OBJ_15 /* DefaultValueInitializable.swift */,
+				OBJ_16 /* MatrixProtocol.swift */,
+				OBJ_17 /* Transposable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
 		};
-		OBJ_20 /* Tests */ = {
+		OBJ_21 /* SwifyPyRun */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_21 /* SwifyPyTests */,
+				OBJ_22 /* main.swift */,
+			);
+			name = SwifyPyRun;
+			path = Sources/SwifyPyRun;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_23 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_24 /* SwifyPyTests */,
 			);
 			name = Tests;
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_21 /* SwifyPyTests */ = {
+		OBJ_24 /* SwifyPyTests */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_22 /* BandMatrixTests.swift */,
-				OBJ_23 /* LUSolverTests.swift */,
-				OBJ_24 /* LowerBandMatrixTests.swift */,
-				OBJ_25 /* MatrixTests.swift */,
-				OBJ_26 /* SwifyPyTests.swift */,
-				OBJ_27 /* UpperBandMatrixTests.swift */,
-				OBJ_28 /* VectorTests.swift */,
-				OBJ_29 /* XCTestManifests.swift */,
+				OBJ_25 /* BandMatrixTests.swift */,
+				OBJ_26 /* LUSolverTests.swift */,
+				OBJ_27 /* LowerBandMatrixTests.swift */,
+				OBJ_28 /* MatrixTests.swift */,
+				OBJ_30 /* UpperBandMatrixTests.swift */,
+				OBJ_31 /* VectorTests.swift */,
+				OBJ_32 /* XCTestManifests.swift */,
 			);
 			name = SwifyPyTests;
 			path = Tests/SwifyPyTests;
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_30 /* Products */ = {
+		OBJ_33 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				"SwifyPy::SwifyPy::Product" /* SwifyPy.framework */,
+				"SwifyPy::SwifyPyRun::Product" /* SwifyPyRun */,
 				"SwifyPy::SwifyPyTests::Product" /* SwifyPyTests.xctest */,
 			);
 			name = Products;
@@ -152,9 +194,9 @@
 			children = (
 				OBJ_6 /* Package.swift */,
 				OBJ_7 /* Sources */,
-				OBJ_20 /* Tests */,
-				OBJ_30 /* Products */,
-				OBJ_33 /* README.md */,
+				OBJ_23 /* Tests */,
+				OBJ_33 /* Products */,
+				OBJ_37 /* README.md */,
 			);
 			name = "";
 			sourceTree = "<group>";
@@ -163,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_8 /* SwifyPy */,
+				OBJ_21 /* SwifyPyRun */,
 			);
 			name = Sources;
 			sourceTree = SOURCE_ROOT;
@@ -170,6 +213,7 @@
 		OBJ_8 /* SwifyPy */ = {
 			isa = PBXGroup;
 			children = (
+				37A549D7241F913700A91A8E /* CopyOnWrite */,
 				OBJ_9 /* LinearAlgebra */,
 			);
 			name = SwifyPy;
@@ -179,14 +223,13 @@
 		OBJ_9 /* LinearAlgebra */ = {
 			isa = PBXGroup;
 			children = (
+				37A549D6241F912200A91A8E /* Algorithms */,
 				OBJ_14 /* Protocols */,
-				OBJ_10 /* BandMatrix.swift */,
-				OBJ_11 /* LUDecomposition.swift */,
-				OBJ_12 /* LowerBandMatrix.swift */,
+				OBJ_19 /* Vector.swift */,
 				OBJ_13 /* Matrix.swift */,
-				OBJ_17 /* UpperBandMatrix.swift */,
-				OBJ_18 /* Vector.swift */,
-				OBJ_19 /* cow.swift */,
+				OBJ_10 /* BandMatrix.swift */,
+				OBJ_18 /* UpperBandMatrix.swift */,
+				OBJ_12 /* LowerBandMatrix.swift */,
 			);
 			path = LinearAlgebra;
 			sourceTree = "<group>";
@@ -196,9 +239,9 @@
 /* Begin PBXNativeTarget section */
 		"SwifyPy::SwiftPMPackageDescription" /* SwifyPyPackageDescription */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_50 /* Build configuration list for PBXNativeTarget "SwifyPyPackageDescription" */;
+			buildConfigurationList = OBJ_55 /* Build configuration list for PBXNativeTarget "SwifyPyPackageDescription" */;
 			buildPhases = (
-				OBJ_53 /* Sources */,
+				OBJ_58 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -210,10 +253,10 @@
 		};
 		"SwifyPy::SwifyPy" /* SwifyPy */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_35 /* Build configuration list for PBXNativeTarget "SwifyPy" */;
+			buildConfigurationList = OBJ_39 /* Build configuration list for PBXNativeTarget "SwifyPy" */;
 			buildPhases = (
-				OBJ_38 /* Sources */,
-				OBJ_48 /* Frameworks */,
+				OBJ_42 /* Sources */,
+				OBJ_53 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -224,17 +267,34 @@
 			productReference = "SwifyPy::SwifyPy::Product" /* SwifyPy.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		"SwifyPy::SwifyPyTests" /* SwifyPyTests */ = {
+		"SwifyPy::SwifyPyRun" /* SwifyPyRun */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_61 /* Build configuration list for PBXNativeTarget "SwifyPyTests" */;
+			buildConfigurationList = OBJ_67 /* Build configuration list for PBXNativeTarget "SwifyPyRun" */;
 			buildPhases = (
-				OBJ_64 /* Sources */,
-				OBJ_73 /* Frameworks */,
+				OBJ_70 /* Sources */,
+				OBJ_72 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				OBJ_75 /* PBXTargetDependency */,
+				OBJ_74 /* PBXTargetDependency */,
+			);
+			name = SwifyPyRun;
+			productName = SwifyPyRun;
+			productReference = "SwifyPy::SwifyPyRun::Product" /* SwifyPyRun */;
+			productType = "com.apple.product-type.tool";
+		};
+		"SwifyPy::SwifyPyTests" /* SwifyPyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_75 /* Build configuration list for PBXNativeTarget "SwifyPyTests" */;
+			buildPhases = (
+				OBJ_78 /* Sources */,
+				OBJ_87 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				OBJ_89 /* PBXTargetDependency */,
 			);
 			name = SwifyPyTests;
 			productName = SwifyPyTests;
@@ -258,71 +318,84 @@
 				en,
 			);
 			mainGroup = OBJ_5 /*  */;
-			productRefGroup = OBJ_30 /* Products */;
+			productRefGroup = OBJ_33 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				"SwifyPy::SwifyPy" /* SwifyPy */,
 				"SwifyPy::SwiftPMPackageDescription" /* SwifyPyPackageDescription */,
 				"SwifyPy::SwifyPyPackageTests::ProductTarget" /* SwifyPyPackageTests */,
+				"SwifyPy::SwifyPyRun" /* SwifyPyRun */,
 				"SwifyPy::SwifyPyTests" /* SwifyPyTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		OBJ_38 /* Sources */ = {
+		OBJ_42 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_39 /* BandMatrix.swift in Sources */,
-				OBJ_40 /* LUDecomposition.swift in Sources */,
-				OBJ_41 /* LowerBandMatrix.swift in Sources */,
-				OBJ_42 /* Matrix.swift in Sources */,
-				OBJ_43 /* MatrixProtocol.swift in Sources */,
-				OBJ_44 /* Transposable.swift in Sources */,
-				OBJ_45 /* UpperBandMatrix.swift in Sources */,
-				37A549D0241F8E5300A91A8E /* DefaultValueInitializable.swift in Sources */,
-				OBJ_46 /* Vector.swift in Sources */,
-				OBJ_47 /* cow.swift in Sources */,
+				OBJ_43 /* BandMatrix.swift in Sources */,
+				OBJ_44 /* LUDecomposition.swift in Sources */,
+				OBJ_45 /* LowerBandMatrix.swift in Sources */,
+				OBJ_46 /* Matrix.swift in Sources */,
+				OBJ_47 /* DefaultValueInitializable.swift in Sources */,
+				OBJ_48 /* MatrixProtocol.swift in Sources */,
+				OBJ_49 /* Transposable.swift in Sources */,
+				OBJ_50 /* UpperBandMatrix.swift in Sources */,
+				OBJ_51 /* Vector.swift in Sources */,
+				OBJ_52 /* cow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_53 /* Sources */ = {
+		OBJ_58 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_54 /* Package.swift in Sources */,
+				OBJ_59 /* Package.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_64 /* Sources */ = {
+		OBJ_70 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_65 /* BandMatrixTests.swift in Sources */,
-				OBJ_66 /* LUSolverTests.swift in Sources */,
-				OBJ_67 /* LowerBandMatrixTests.swift in Sources */,
-				OBJ_68 /* MatrixTests.swift in Sources */,
-				OBJ_69 /* SwifyPyTests.swift in Sources */,
-				OBJ_70 /* UpperBandMatrixTests.swift in Sources */,
-				OBJ_71 /* VectorTests.swift in Sources */,
-				OBJ_72 /* XCTestManifests.swift in Sources */,
+				OBJ_71 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_78 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_79 /* BandMatrixTests.swift in Sources */,
+				OBJ_80 /* LUSolverTests.swift in Sources */,
+				OBJ_81 /* LowerBandMatrixTests.swift in Sources */,
+				OBJ_82 /* MatrixTests.swift in Sources */,
+				OBJ_84 /* UpperBandMatrixTests.swift in Sources */,
+				OBJ_85 /* VectorTests.swift in Sources */,
+				OBJ_86 /* XCTestManifests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		OBJ_59 /* PBXTargetDependency */ = {
+		OBJ_64 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "SwifyPy::SwifyPyTests" /* SwifyPyTests */;
-			targetProxy = 37A549CE241F8CDF00A91A8E /* PBXContainerItemProxy */;
+			targetProxy = 37A549D5241F8F7600A91A8E /* PBXContainerItemProxy */;
 		};
-		OBJ_75 /* PBXTargetDependency */ = {
+		OBJ_74 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "SwifyPy::SwifyPy" /* SwifyPy */;
-			targetProxy = 37A549CD241F8CDE00A91A8E /* PBXContainerItemProxy */;
+			targetProxy = 37A549D3241F8F7400A91A8E /* PBXContainerItemProxy */;
+		};
+		OBJ_89 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "SwifyPy::SwifyPy" /* SwifyPy */;
+			targetProxy = 37A549D4241F8F7500A91A8E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -354,62 +427,6 @@
 			};
 			name = Debug;
 		};
-		OBJ_36 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-				);
-				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = SwifyPy.xcodeproj/SwifyPy_Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				OTHER_CFLAGS = "$(inherited)";
-				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = SwifyPy;
-				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_VERSION = 5.0;
-				TARGET_NAME = SwifyPy;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
-			};
-			name = Debug;
-		};
-		OBJ_37 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-				);
-				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = SwifyPy.xcodeproj/SwifyPy_Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				OTHER_CFLAGS = "$(inherited)";
-				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = SwifyPy;
-				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_VERSION = 5.0;
-				TARGET_NAME = SwifyPy;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
-			};
-			name = Release;
-		};
 		OBJ_4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -434,37 +451,143 @@
 			};
 			name = Release;
 		};
-		OBJ_51 /* Debug */ = {
+		OBJ_40 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -package-description-version 5.1";
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = SwifyPy.xcodeproj/SwifyPy_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = SwifyPy;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_VERSION = 5.0;
+				TARGET_NAME = SwifyPy;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
 		};
-		OBJ_52 /* Release */ = {
+		OBJ_41 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -package-description-version 5.1";
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = SwifyPy.xcodeproj/SwifyPy_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = SwifyPy;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_VERSION = 5.0;
+				TARGET_NAME = SwifyPy;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;
 		};
-		OBJ_57 /* Debug */ = {
+		OBJ_56 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -package-description-version 5.1";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
-		OBJ_58 /* Release */ = {
+		OBJ_57 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -package-description-version 5.1";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
 		OBJ_62 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		OBJ_63 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		OBJ_68 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = SwifyPy.xcodeproj/SwifyPyRun_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx @executable_path";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_FORCE_DYNAMIC_LINK_STDLIB = YES;
+				SWIFT_FORCE_STATIC_LINK_STDLIB = NO;
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = SwifyPyRun;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		OBJ_69 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = SwifyPy.xcodeproj/SwifyPyRun_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx @executable_path";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_FORCE_DYNAMIC_LINK_STDLIB = YES;
+				SWIFT_FORCE_STATIC_LINK_STDLIB = NO;
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = SwifyPyRun;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		OBJ_76 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
@@ -489,7 +612,7 @@
 			};
 			name = Debug;
 		};
-		OBJ_63 /* Release */ = {
+		OBJ_77 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
@@ -526,38 +649,47 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_35 /* Build configuration list for PBXNativeTarget "SwifyPy" */ = {
+		OBJ_39 /* Build configuration list for PBXNativeTarget "SwifyPy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_36 /* Debug */,
-				OBJ_37 /* Release */,
+				OBJ_40 /* Debug */,
+				OBJ_41 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_50 /* Build configuration list for PBXNativeTarget "SwifyPyPackageDescription" */ = {
+		OBJ_55 /* Build configuration list for PBXNativeTarget "SwifyPyPackageDescription" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_51 /* Debug */,
-				OBJ_52 /* Release */,
+				OBJ_56 /* Debug */,
+				OBJ_57 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_56 /* Build configuration list for PBXAggregateTarget "SwifyPyPackageTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				OBJ_57 /* Debug */,
-				OBJ_58 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		OBJ_61 /* Build configuration list for PBXNativeTarget "SwifyPyTests" */ = {
+		OBJ_61 /* Build configuration list for PBXAggregateTarget "SwifyPyPackageTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				OBJ_62 /* Debug */,
 				OBJ_63 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_67 /* Build configuration list for PBXNativeTarget "SwifyPyRun" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_68 /* Debug */,
+				OBJ_69 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_75 /* Build configuration list for PBXNativeTarget "SwifyPyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_76 /* Debug */,
+				OBJ_77 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

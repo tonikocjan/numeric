@@ -8,12 +8,12 @@
 
 import Foundation
 
-struct Matrix<T: Mathable>: MatrixProtocol, Transposable {
-  typealias Value = T
+public struct Matrix<T: Mathable>: MatrixProtocol, Transposable {
+  public typealias Value = T
   
   var storage: COWStorage<Vector<T>, (width: Int, height: Int)>
   
-  init(width: Int, height: Int) {
+  public init(width: Int, height: Int) {
     self.storage = .init(capacity: height,
                          size: (width: width, height: height),
                          provider: Vec.init)
@@ -22,11 +22,11 @@ struct Matrix<T: Mathable>: MatrixProtocol, Transposable {
     }
   }
   
-  init(arrayLiteral elements: Vector<T>...) {
+  public init(arrayLiteral elements: Vector<T>...) {
     self.init(arrayLiteral: elements)
   }
   
-  init(arrayLiteral elements: [Vector<T>]) {
+  public init(arrayLiteral elements: [Vector<T>]) {
     self.storage = .init(elements: elements,
                          size: (width: elements.first?.count ?? 0,
                                 height: elements.count))
@@ -41,14 +41,14 @@ extension Matrix: SupportsCopyOnWrite {
 
 // MARK: - Initializable
 extension Matrix: DefaultValueInitializable {
-  init(_ value: Value, width: Int, height: Int) {
+  public init(_ value: Value, width: Int, height: Int) {
     self.init(arrayLiteral: .init(repeating: .repeating(width, value: value),
                                   count: height))
   }
 }
 
 // MARK: - API
-extension Matrix {
+public extension Matrix {
   var width: Int { storage.size!.width }
   var height: Int { storage.size!.height }
   
@@ -92,7 +92,7 @@ extension Matrix {
 
 // MARK: - Equatable
 extension Matrix: Equatable {
-  static func == (lhs: Self, rhs: Self) -> Bool {
+  public static func == (lhs: Self, rhs: Self) -> Bool {
     guard lhs.shape == rhs.shape else { return false }
     return zip(lhs, rhs).allSatisfy(==)
   }
@@ -100,7 +100,7 @@ extension Matrix: Equatable {
 
 // MARK: - Collection
 extension Matrix: BidirectionalCollection {
-  subscript(_ i: Int) -> Vector<T> {
+  public subscript(_ i: Int) -> Vector<T> {
     get {
       assert(i >= 0)
       assert(i < height)
@@ -116,12 +116,12 @@ extension Matrix: BidirectionalCollection {
 
 // MARK: - CustomDebugStringConvertible
 extension Matrix: CustomDebugStringConvertible where Value: LosslessStringConvertible {
-  var debugDescription: String {
+  public var debugDescription: String {
     "[" + map { $0.description }.joined(separator: "\n") + "]"
   }
 }
 
 // MARK: - CustomStringConvertible
 extension Matrix: CustomStringConvertible where T: LosslessStringConvertible {
-  var description: String { debugDescription }
+  public var description: String { debugDescription }
 }

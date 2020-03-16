@@ -16,6 +16,9 @@ let package = Package(
         .target(
             name: "SwifyPy",
             dependencies: []),
+        .target(
+          name: "SwifyPyRun",
+          dependencies: ["SwifyPy"]),
         .testTarget(
             name: "SwifyPyTests",
             dependencies: ["SwifyPy"]),

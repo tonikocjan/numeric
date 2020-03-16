@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct LowerBandMatrix<T: Mathable>: BandMatrixProtocol {
-  typealias U = Int
+public struct LowerBandMatrix<T: Mathable>: BandMatrixProtocol {
+  public typealias Value = T
   
   var storage: COW
   
@@ -20,7 +20,7 @@ struct LowerBandMatrix<T: Mathable>: BandMatrixProtocol {
   ///
   /// - Parameter height: height of the matrix
   ///
-  init(bandwidth: Int, height: Int) {
+  public init(bandwidth: Int, height: Int) {
     storage = .init(capacity: bandwidth, size: height) { Vector(size: height - $0) }
   }
   
@@ -28,12 +28,12 @@ struct LowerBandMatrix<T: Mathable>: BandMatrixProtocol {
   ///
   /// - Parameter elements: the `count` of elements specifies the height of this matrix
   ///
-  init(arrayLiteral elements: Vector<Value>...) {
+  public init(arrayLiteral elements: Vector<Value>...) {
     self.init(arrayLiteral: elements)
   }
   
   // first element's `count` is the height of the matrix
-  init(arrayLiteral elements: [Vector<Value>]) {
+  public init(arrayLiteral elements: [Vector<Value>]) {
     assert(elements.count > 0) // TODO: - Can we construct an empty matrix?
     for (i, el) in elements.dropFirst().enumerated() {
       assert(elements[i].count == el.count + 1)
@@ -43,7 +43,7 @@ struct LowerBandMatrix<T: Mathable>: BandMatrixProtocol {
   }
 }
 
-extension LowerBandMatrix {
+public extension LowerBandMatrix {
   var width: Int { storage.size! }
   var height: Int { width }
   
@@ -87,20 +87,20 @@ extension LowerBandMatrix {
 
 // MARK: - SupportsCopyOnWrite
 extension LowerBandMatrix: SupportsCopyOnWrite {
-  typealias Value = T
   typealias Pointee = Vector<T>
+  typealias U = Int
 }
 
 // MARK: - Equatable
 extension LowerBandMatrix: Equatable {
-  static func == (lhs: Self, rhs: Self) -> Bool {
+  public static func == (lhs: Self, rhs: Self) -> Bool {
     lhs.storage == rhs.storage
   }
 }
 
 // MARK: - Collection
 extension LowerBandMatrix: BidirectionalCollection {
-  subscript(_ i: Int) -> Vector<T> {
+  public subscript(_ i: Int) -> Vector<T> {
     get {
       assert(i >= 0)
       assert(i < height)
@@ -117,19 +117,19 @@ extension LowerBandMatrix: BidirectionalCollection {
 
 // MARK: - CustomDebugStringConvertible
 extension LowerBandMatrix: CustomDebugStringConvertible where T: LosslessStringConvertible {
-  var debugDescription: String {
+  public var debugDescription: String {
     "[" + map { $0.description }.joined(separator: "\n") + "]"
   }
 }
 
 // MARK: - CustomStringConvertible
 extension LowerBandMatrix: CustomStringConvertible where T: LosslessStringConvertible {
-  var description: String { debugDescription }
+  public var description: String { debugDescription }
 }
 
 var LBM_ITERATIONS_COUNT = 0 // for testing purposes
 
-func *<T: Mathable>(_ lhs: LowerBandMatrix<T>, _ rhs: Vector<T>) -> Vector<T> {
+public func *<T: Mathable>(_ lhs: LowerBandMatrix<T>, _ rhs: Vector<T>) -> Vector<T> {
   assert(lhs.height == rhs.count)
   LBM_ITERATIONS_COUNT = 0
   var result: Vector<T> = .zeros(lhs.height)

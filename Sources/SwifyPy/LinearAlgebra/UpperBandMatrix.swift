@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct UpperBandMatrix<T: Mathable>: BandMatrixProtocol {
-  typealias Value = T
+public struct UpperBandMatrix<T: Mathable>: BandMatrixProtocol {
+  public typealias Value = T
   
   var storage: COW
   
@@ -20,7 +20,7 @@ struct UpperBandMatrix<T: Mathable>: BandMatrixProtocol {
   ///
   /// - Parameter height: height of the matrix
   ///
-  init(bandwidth: Int, height: Int) {
+  public init(bandwidth: Int, height: Int) {
     storage = .init(capacity: bandwidth, size: height) { Vector(size: height - $0) }
   }
   
@@ -28,12 +28,12 @@ struct UpperBandMatrix<T: Mathable>: BandMatrixProtocol {
   ///
   /// - Parameter elements: the `count` of elements specifies the height of this matrix
   ///
-  init(arrayLiteral elements: Vector<Value>...) {
+  public init(arrayLiteral elements: Vector<Value>...) {
     self.init(arrayLiteral: elements)
   }
   
   // first element's `count` is the height of the matrix
-  init(arrayLiteral elements: [Vector<Value>]) {
+  public init(arrayLiteral elements: [Vector<Value>]) {
     assert(elements.count > 0) // TODO: - Can we construct an empty matrix?
     for (i, el) in elements.dropFirst().enumerated() {
       assert(elements[i].count == el.count + 1)
@@ -51,12 +51,12 @@ extension UpperBandMatrix: SupportsCopyOnWrite {
 
 // MARK: - Equatable
 extension UpperBandMatrix: Equatable {
-  static func == (lhs: Self, rhs: Self) -> Bool {
+  public static func == (lhs: Self, rhs: Self) -> Bool {
     lhs.storage == rhs.storage
   }
 }
 
-extension UpperBandMatrix {
+public extension UpperBandMatrix {
   var width: Int { storage.size! }
   var height: Int { width }
   
@@ -105,7 +105,7 @@ extension UpperBandMatrix {
 
 // MARK: - Collection
 extension UpperBandMatrix: BidirectionalCollection {
-  subscript(_ i: Int) -> Vector<T> {
+  public subscript(_ i: Int) -> Vector<T> {
     get {
       assert(i >= 0)
       assert(i < height)
@@ -122,19 +122,19 @@ extension UpperBandMatrix: BidirectionalCollection {
 
 // MARK: - CustomDebugStringConvertible
 extension UpperBandMatrix: CustomDebugStringConvertible where T: LosslessStringConvertible {
-  var debugDescription: String {
+  public var debugDescription: String {
     "[" + map { $0.description }.joined(separator: "\n") + "]"
   }
 }
 
 // MARK: - CustomStringConvertible
 extension UpperBandMatrix: CustomStringConvertible where T: LosslessStringConvertible {
-  var description: String { debugDescription }
+  public var description: String { debugDescription }
 }
 
 var RBM_ITERATIONS_COUNT = 0 // for testing purposes
 
-func *<T: Mathable>(_ lhs: UpperBandMatrix<T>, _ rhs: Vector<T>) -> Vector<T> {
+public func *<T: Mathable>(_ lhs: UpperBandMatrix<T>, _ rhs: Vector<T>) -> Vector<T> {
   assert(lhs.height == rhs.count)
   var result: Vector<T> = .zeros(lhs.height)
   RBM_ITERATIONS_COUNT = 0
