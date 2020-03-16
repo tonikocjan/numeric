@@ -188,7 +188,7 @@ public func LUDecomposition<T: Mathable>(_ matrix: BandMatrix<T>) -> (L: LowerBa
 }
 
 extension BandMatrix {
-  func multiplty(with rhs: Vec) -> Vec {
+  func multiplty(with rhs: Vector<Value>) -> Vector<Value> {
     assert(height == rhs.count)
     var result: Vector<T> = .zeros(height)
     BM_ITERATIONS_COUNT = 0
@@ -248,7 +248,7 @@ extension BandMatrix {
     return (L: lower, U: upper)
   }
   
-  func leftDivision(with rhs: Vec) -> Vec {
+  func leftDivision(with rhs: Vector<Value>) -> Vector<Value> {
     assert(rhs.count == self.width)
     
     let (L, U) = self.LUDecomposition()
@@ -262,7 +262,7 @@ extension BandMatrix {
     
     let n = self.width
 
-    var y = Vector<T>.ones(n)
+    var y = Vector.ones(n)
     for i in 1..<n {
       var row = T.zero
       for j in Swift.max(0, i - lower.bandwidth)..<i {
@@ -271,7 +271,7 @@ extension BandMatrix {
       y[i] = row + rhs[i]
     }
     
-    var x = Vector<T>.zeros(n)
+    var x = Vector.zeros(n)
     for i in stride(from: n - 1, to: -1, by: -1) {
       let from = Swift.min(n - 1, i + upper.bandwidth - 1)
       for j in stride(from: from, to: i, by: -1) {

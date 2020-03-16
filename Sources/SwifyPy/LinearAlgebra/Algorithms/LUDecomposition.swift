@@ -39,14 +39,14 @@ func gaussElimination<M: MatrixProtocol>(_ a: M) -> M {
   return U
 }
 
-func solveLinearSystem<M: MatrixProtocol>(_ A: M, _ v: M.Vec) -> M.Vec {
+func solveLinearSystem<M: MatrixProtocol>(_ A: M, _ v: M.Vector) -> M.Vector {
   // `A` must be a LU decomposed matrix
   assert(A.width == A.height)
   assert(A.width == v.count)
   
   let n = A.width
 
-  var y = M.Vec.ones(n)
+  var y = M.Vector.ones(n)
   for i in 1..<n {
     var row = M.Value.zero
     for j in 0..<i {
@@ -55,7 +55,7 @@ func solveLinearSystem<M: MatrixProtocol>(_ A: M, _ v: M.Vec) -> M.Vec {
     y[i] = row + v[i]
   }
   
-  var x = M.Vec.zeros(n)
+  var x = M.Vector.zeros(n)
   for i in stride(from: n - 1, to: -1, by: -1) {
     for j in stride(from: n - 1, to: i, by: -1) {
       x[i] += -A[i, j] * x[j]

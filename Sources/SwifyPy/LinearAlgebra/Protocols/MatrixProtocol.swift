@@ -10,19 +10,18 @@ import Foundation
 
 public typealias Mathable = FloatingPoint
 
-public protocol MatrixProtocol: ExpressibleByArrayLiteral, Equatable, BidirectionalCollection where Element == Vec {
+public protocol MatrixProtocol: ExpressibleByArrayLiteral, Equatable, BidirectionalCollection where Element == Vector {
   associatedtype Value: Mathable
-  // is there a way to shadow `Vector`?
-  typealias Vec = Vector<Value>
+  typealias Vector = SwifyPy.Vector<Value>
   
   var width: Int { get }
   var height: Int { get }
   
-  init(arrayLiteral elements: [Vector<Value>])
-  init(arrayLiteral elements: Vector<Value>...)
+  init(arrayLiteral elements: [Vector])
+  init(arrayLiteral elements: Vector...)
   
   subscript(_ i: Int, _ j: Int) -> Value { get mutating set }
-  subscript(_ i: Int) -> Vector<Value> { get mutating set }
+  subscript(_ i: Int) -> Vector { get mutating set }
   
   static func identity(_ size: Int) -> Self
 }
@@ -36,7 +35,7 @@ public extension MatrixProtocol {
   var firstIndex: (Int, Int)? { isEmpty ? nil : (0, 0) }
   var lastIndex: (Int, Int)? { isEmpty ? nil : (height - 1, width - 1) }
   
-  func map(_ transform: (Vector<Value>) throws -> Vec) rethrows -> Self {
+  func map(_ transform: (Vector) throws -> Vector) rethrows -> Self {
     .init(arrayLiteral: try map(transform))
   }
 }
@@ -92,7 +91,7 @@ public func -<M: MatrixProtocol>(_ m1: M, _ m2: M) -> M {
   return zip(m1, m2).map { $0 - $1 }
 }
 
-public func *<M: MatrixProtocol>(_ m: M, _ v: M.Vec) -> M.Vec {
+public func *<M: MatrixProtocol>(_ m: M, _ v: M.Vector) -> M.Vector {
   assert(m.height == v.count)
   return m.map { ($0 * v).sum }
 }
@@ -125,14 +124,14 @@ public func *<M: MatrixProtocol>(_ m1: M, _ m2: M) -> Matrix<M.Value> {
 }
 
 infix operator !/: MultiplicationPrecedence
-public func !/<M: MatrixProtocol>(_ v: M.Vec, _ m: M) -> M.Vec {
+public func !/<M: MatrixProtocol>(_ v: M.Vector, _ m: M) -> M.Vector {
   // solve linear system of equations
   solveLinearSystem(LUDecomposition(m), v)
 }
 
 extension Zip2Sequence where Sequence1: MatrixProtocol, Sequence2: MatrixProtocol, Sequence1.Value == Sequence2.Value {
   public typealias Matrix = Sequence1
-  public typealias Vec = Matrix.Vec
+  public typealias Vec = Matrix.Vector
   
   public func map(_ transform: ((Vec, Vec)) throws -> Vec) rethrows -> Matrix {
     Matrix(arrayLiteral: try map(transform))

@@ -16,7 +16,7 @@ public struct Matrix<T: Mathable>: MatrixProtocol, Transposable {
   public init(width: Int, height: Int) {
     self.storage = .init(capacity: height,
                          size: (width: width, height: height),
-                         provider: Vec.init)
+                         provider: Vector.init)
     for i in 0..<height {
       storage.buffer.advanced(by: i).initialize(to: .init(size: width))
     }
@@ -83,7 +83,7 @@ public extension Matrix {
   
   static func identity(_ size: Int) -> Self {
     (0..<size).map {
-      var vec = Vector<T>.zeros(size)
+      var vec = Vector.zeros(size)
       vec[$0] = 1
       return vec
     }
