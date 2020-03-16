@@ -1,0 +1,471 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		372F2DDD2416C5AA00BECA26 /* LUSolverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372F2DDC2416C5AA00BECA26 /* LUSolverTests.swift */; };
+		372F2DDF2416D7D200BECA26 /* BandMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372F2DDE2416D7D200BECA26 /* BandMatrix.swift */; };
+		372F2DE124177F3F00BECA26 /* BandMatrixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372F2DE024177F3F00BECA26 /* BandMatrixTests.swift */; };
+		372F2DE224177FD000BECA26 /* BandMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372F2DDE2416D7D200BECA26 /* BandMatrix.swift */; };
+		372F2DE42417A2E000BECA26 /* UpperBandMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372F2DE32417A2E000BECA26 /* UpperBandMatrix.swift */; };
+		372F2DE62417A79000BECA26 /* UpperBandMatrixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372F2DE52417A79000BECA26 /* UpperBandMatrixTests.swift */; };
+		372F2DE72417A79500BECA26 /* UpperBandMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372F2DE32417A2E000BECA26 /* UpperBandMatrix.swift */; };
+		372F2DE92417B20500BECA26 /* LowerBandMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372F2DE82417B20500BECA26 /* LowerBandMatrix.swift */; };
+		372F2DED2417B2C900BECA26 /* LowerBandMatrixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372F2DEC2417B2C900BECA26 /* LowerBandMatrixTests.swift */; };
+		372F2DEE2417B2E400BECA26 /* LowerBandMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372F2DE82417B20500BECA26 /* LowerBandMatrix.swift */; };
+		372F2DF02417C4BC00BECA26 /* MatrixProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372F2DEF2417C4BC00BECA26 /* MatrixProtocol.swift */; };
+		372F2DF12417C4BC00BECA26 /* MatrixProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372F2DEF2417C4BC00BECA26 /* MatrixProtocol.swift */; };
+		372F2DF32417DBF900BECA26 /* cow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372F2DF22417DBF900BECA26 /* cow.swift */; };
+		372F2DF42417DBF900BECA26 /* cow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372F2DF22417DBF900BECA26 /* cow.swift */; };
+		37441DB9240E9EFF00F982FF /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37441DB8240E9EFF00F982FF /* main.swift */; };
+		37441DC1240E9F0E00F982FF /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37441DC0240E9F0E00F982FF /* Vector.swift */; };
+		37441DC3240E9F1500F982FF /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37441DC2240E9F1500F982FF /* Matrix.swift */; };
+		37441DD1240E9F4600F982FF /* VectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37441DD0240E9F4600F982FF /* VectorTests.swift */; };
+		37441DD6240EACE100F982FF /* MatrixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37441DD5240EACE100F982FF /* MatrixTests.swift */; };
+		37441DD8240ECA3A00F982FF /* LUDecomposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37441DD7240ECA3A00F982FF /* LUDecomposition.swift */; };
+		37441DD9240ECEE800F982FF /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37441DC0240E9F0E00F982FF /* Vector.swift */; };
+		37441DDA240ECEE800F982FF /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37441DC2240E9F1500F982FF /* Matrix.swift */; };
+		37441DDB240ECEE800F982FF /* LUDecomposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37441DD7240ECA3A00F982FF /* LUDecomposition.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		37441DB3240E9EFF00F982FF /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		372F2DDC2416C5AA00BECA26 /* LUSolverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LUSolverTests.swift; sourceTree = "<group>"; };
+		372F2DDE2416D7D200BECA26 /* BandMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandMatrix.swift; sourceTree = "<group>"; };
+		372F2DE024177F3F00BECA26 /* BandMatrixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandMatrixTests.swift; sourceTree = "<group>"; };
+		372F2DE32417A2E000BECA26 /* UpperBandMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpperBandMatrix.swift; sourceTree = "<group>"; };
+		372F2DE52417A79000BECA26 /* UpperBandMatrixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpperBandMatrixTests.swift; sourceTree = "<group>"; };
+		372F2DE82417B20500BECA26 /* LowerBandMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LowerBandMatrix.swift; sourceTree = "<group>"; };
+		372F2DEC2417B2C900BECA26 /* LowerBandMatrixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LowerBandMatrixTests.swift; sourceTree = "<group>"; };
+		372F2DEF2417C4BC00BECA26 /* MatrixProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixProtocol.swift; sourceTree = "<group>"; };
+		372F2DF22417DBF900BECA26 /* cow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cow.swift; sourceTree = "<group>"; };
+		37441DB5240E9EFF00F982FF /* SwifyPy */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SwifyPy; sourceTree = BUILT_PRODUCTS_DIR; };
+		37441DB8240E9EFF00F982FF /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		37441DC0240E9F0E00F982FF /* Vector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vector.swift; sourceTree = "<group>"; };
+		37441DC2240E9F1500F982FF /* Matrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
+		37441DC8240E9F3300F982FF /* SwifyPyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwifyPyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		37441DCC240E9F3300F982FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		37441DD0240E9F4600F982FF /* VectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VectorTests.swift; sourceTree = "<group>"; };
+		37441DD5240EACE100F982FF /* MatrixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixTests.swift; sourceTree = "<group>"; };
+		37441DD7240ECA3A00F982FF /* LUDecomposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LUDecomposition.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		37441DB2240E9EFF00F982FF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		37441DC5240E9F3300F982FF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		37441DAC240E9EFF00F982FF = {
+			isa = PBXGroup;
+			children = (
+				37441DB7240E9EFF00F982FF /* SwiftPy */,
+				37441DC9240E9F3300F982FF /* SwifyPyTests */,
+				37441DB6240E9EFF00F982FF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		37441DB6240E9EFF00F982FF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				37441DB5240E9EFF00F982FF /* SwifyPy */,
+				37441DC8240E9F3300F982FF /* SwifyPyTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		37441DB7240E9EFF00F982FF /* SwiftPy */ = {
+			isa = PBXGroup;
+			children = (
+				37441DBF240E9F0600F982FF /* Lib */,
+				37441DB8240E9EFF00F982FF /* main.swift */,
+			);
+			path = SwiftPy;
+			sourceTree = "<group>";
+		};
+		37441DBF240E9F0600F982FF /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				372F2DF22417DBF900BECA26 /* cow.swift */,
+				372F2DEF2417C4BC00BECA26 /* MatrixProtocol.swift */,
+				37441DC2240E9F1500F982FF /* Matrix.swift */,
+				37441DC0240E9F0E00F982FF /* Vector.swift */,
+				37441DD7240ECA3A00F982FF /* LUDecomposition.swift */,
+				372F2DDE2416D7D200BECA26 /* BandMatrix.swift */,
+				372F2DE32417A2E000BECA26 /* UpperBandMatrix.swift */,
+				372F2DE82417B20500BECA26 /* LowerBandMatrix.swift */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		37441DC9240E9F3300F982FF /* SwifyPyTests */ = {
+			isa = PBXGroup;
+			children = (
+				37441DCC240E9F3300F982FF /* Info.plist */,
+				37441DD0240E9F4600F982FF /* VectorTests.swift */,
+				37441DD5240EACE100F982FF /* MatrixTests.swift */,
+				372F2DDC2416C5AA00BECA26 /* LUSolverTests.swift */,
+				372F2DE024177F3F00BECA26 /* BandMatrixTests.swift */,
+				372F2DE52417A79000BECA26 /* UpperBandMatrixTests.swift */,
+				372F2DEC2417B2C900BECA26 /* LowerBandMatrixTests.swift */,
+			);
+			path = SwifyPyTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		37441DB4240E9EFF00F982FF /* SwifyPy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 37441DBC240E9EFF00F982FF /* Build configuration list for PBXNativeTarget "SwifyPy" */;
+			buildPhases = (
+				37441DB1240E9EFF00F982FF /* Sources */,
+				37441DB2240E9EFF00F982FF /* Frameworks */,
+				37441DB3240E9EFF00F982FF /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwifyPy;
+			productName = Numeric;
+			productReference = 37441DB5240E9EFF00F982FF /* SwifyPy */;
+			productType = "com.apple.product-type.tool";
+		};
+		37441DC7240E9F3300F982FF /* SwifyPyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 37441DCD240E9F3300F982FF /* Build configuration list for PBXNativeTarget "SwifyPyTests" */;
+			buildPhases = (
+				37441DC4240E9F3300F982FF /* Sources */,
+				37441DC5240E9F3300F982FF /* Frameworks */,
+				37441DC6240E9F3300F982FF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwifyPyTests;
+			productName = NumericTests;
+			productReference = 37441DC8240E9F3300F982FF /* SwifyPyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		37441DAD240E9EFF00F982FF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = TSS;
+				TargetAttributes = {
+					37441DB4240E9EFF00F982FF = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					37441DC7240E9F3300F982FF = {
+						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1130;
+					};
+				};
+			};
+			buildConfigurationList = 37441DB0240E9EFF00F982FF /* Build configuration list for PBXProject "SwifyPy" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 37441DAC240E9EFF00F982FF;
+			productRefGroup = 37441DB6240E9EFF00F982FF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				37441DB4240E9EFF00F982FF /* SwifyPy */,
+				37441DC7240E9F3300F982FF /* SwifyPyTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		37441DC6240E9F3300F982FF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		37441DB1240E9EFF00F982FF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				372F2DF32417DBF900BECA26 /* cow.swift in Sources */,
+				372F2DE92417B20500BECA26 /* LowerBandMatrix.swift in Sources */,
+				372F2DDF2416D7D200BECA26 /* BandMatrix.swift in Sources */,
+				37441DC1240E9F0E00F982FF /* Vector.swift in Sources */,
+				37441DB9240E9EFF00F982FF /* main.swift in Sources */,
+				37441DC3240E9F1500F982FF /* Matrix.swift in Sources */,
+				372F2DE42417A2E000BECA26 /* UpperBandMatrix.swift in Sources */,
+				372F2DF02417C4BC00BECA26 /* MatrixProtocol.swift in Sources */,
+				37441DD8240ECA3A00F982FF /* LUDecomposition.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		37441DC4240E9F3300F982FF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37441DDA240ECEE800F982FF /* Matrix.swift in Sources */,
+				37441DD6240EACE100F982FF /* MatrixTests.swift in Sources */,
+				372F2DE72417A79500BECA26 /* UpperBandMatrix.swift in Sources */,
+				37441DD9240ECEE800F982FF /* Vector.swift in Sources */,
+				372F2DED2417B2C900BECA26 /* LowerBandMatrixTests.swift in Sources */,
+				37441DD1240E9F4600F982FF /* VectorTests.swift in Sources */,
+				372F2DE124177F3F00BECA26 /* BandMatrixTests.swift in Sources */,
+				372F2DE224177FD000BECA26 /* BandMatrix.swift in Sources */,
+				372F2DF12417C4BC00BECA26 /* MatrixProtocol.swift in Sources */,
+				37441DDB240ECEE800F982FF /* LUDecomposition.swift in Sources */,
+				372F2DE62417A79000BECA26 /* UpperBandMatrixTests.swift in Sources */,
+				372F2DF42417DBF900BECA26 /* cow.swift in Sources */,
+				372F2DDD2416C5AA00BECA26 /* LUSolverTests.swift in Sources */,
+				372F2DEE2417B2E400BECA26 /* LowerBandMatrix.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		37441DBA240E9EFF00F982FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		37441DBB240E9EFF00F982FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		37441DBD240E9EFF00F982FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		37441DBE240E9EFF00F982FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		37441DCE240E9F3300F982FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SwifyPyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = TSS.NumericTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		37441DCF240E9F3300F982FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SwifyPyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = TSS.NumericTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		37441DB0240E9EFF00F982FF /* Build configuration list for PBXProject "SwifyPy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				37441DBA240E9EFF00F982FF /* Debug */,
+				37441DBB240E9EFF00F982FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		37441DBC240E9EFF00F982FF /* Build configuration list for PBXNativeTarget "SwifyPy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				37441DBD240E9EFF00F982FF /* Debug */,
+				37441DBE240E9EFF00F982FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		37441DCD240E9F3300F982FF /* Build configuration list for PBXNativeTarget "SwifyPyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				37441DCE240E9F3300F982FF /* Debug */,
+				37441DCF240E9F3300F982FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 37441DAD240E9EFF00F982FF /* Project object */;
+}
