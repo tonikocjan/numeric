@@ -117,6 +117,15 @@ class MatrixTests: XCTestCase {
     XCTAssertEqual([[1, 0, 0], [0, 1, 0], [0, 0, 1]], Matrix<Double>.identity(3))
   }
   
+  func testReduce() {
+    let matrix: Matrix = [
+      [1, 4, 7],
+      [2, 5, 8],
+      [3, 6, 9]
+    ]
+    XCTAssertEqual([12, 15, 18], matrix.reduce([], { $0 + [$1.sum]}))
+  }
+  
   func testColumnMap() {
     let matrix: Matrix = [
       [1, 2, 3],
@@ -134,15 +143,6 @@ class MatrixTests: XCTestCase {
     ]
     let filtered: Matrix<Double> = matrix.columnFilter { $0.contains(where: { $0.truncatingRemainder(dividingBy: 2) == 0 }) }
     XCTAssertEqual([[2, 2, 2]], filtered)
-  }
-  
-  func testReduce() {
-    let matrix: Matrix = [
-      [1, 4, 7],
-      [2, 5, 8],
-      [3, 6, 9]
-    ]
-    XCTAssertEqual([12, 15, 18], matrix.reduce([], { $0 + [$1.sum]}))
   }
   
   func testColumnReduce() {

@@ -259,7 +259,6 @@ extension BandMatrixTests {
 }
 
 // MARK: - Helper functions
-
 func XCTAssertEqual<T: Mathable>(_ lhs: LowerBandMatrix<T>, _ rhs: LowerBandMatrix<T>, accuracy: T) {
   for i in 0..<lhs.width {
     for j in 0..<lhs.width {

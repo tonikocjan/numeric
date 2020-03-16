@@ -3,469 +3,566 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		"SwifyPy::SwifyPyPackageTests::ProductTarget" /* SwifyPyPackageTests */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = OBJ_56 /* Build configuration list for PBXAggregateTarget "SwifyPyPackageTests" */;
+			buildPhases = (
+			);
+			dependencies = (
+				OBJ_59 /* PBXTargetDependency */,
+			);
+			name = SwifyPyPackageTests;
+			productName = SwifyPyPackageTests;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
-		372F2DDD2416C5AA00BECA26 /* LUSolverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372F2DDC2416C5AA00BECA26 /* LUSolverTests.swift */; };
-		372F2DDF2416D7D200BECA26 /* BandMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372F2DDE2416D7D200BECA26 /* BandMatrix.swift */; };
-		372F2DE124177F3F00BECA26 /* BandMatrixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372F2DE024177F3F00BECA26 /* BandMatrixTests.swift */; };
-		372F2DE224177FD000BECA26 /* BandMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372F2DDE2416D7D200BECA26 /* BandMatrix.swift */; };
-		372F2DE42417A2E000BECA26 /* UpperBandMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372F2DE32417A2E000BECA26 /* UpperBandMatrix.swift */; };
-		372F2DE62417A79000BECA26 /* UpperBandMatrixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372F2DE52417A79000BECA26 /* UpperBandMatrixTests.swift */; };
-		372F2DE72417A79500BECA26 /* UpperBandMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372F2DE32417A2E000BECA26 /* UpperBandMatrix.swift */; };
-		372F2DE92417B20500BECA26 /* LowerBandMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372F2DE82417B20500BECA26 /* LowerBandMatrix.swift */; };
-		372F2DED2417B2C900BECA26 /* LowerBandMatrixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372F2DEC2417B2C900BECA26 /* LowerBandMatrixTests.swift */; };
-		372F2DEE2417B2E400BECA26 /* LowerBandMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372F2DE82417B20500BECA26 /* LowerBandMatrix.swift */; };
-		372F2DF02417C4BC00BECA26 /* MatrixProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372F2DEF2417C4BC00BECA26 /* MatrixProtocol.swift */; };
-		372F2DF12417C4BC00BECA26 /* MatrixProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372F2DEF2417C4BC00BECA26 /* MatrixProtocol.swift */; };
-		372F2DF32417DBF900BECA26 /* cow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372F2DF22417DBF900BECA26 /* cow.swift */; };
-		372F2DF42417DBF900BECA26 /* cow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372F2DF22417DBF900BECA26 /* cow.swift */; };
-		37441DB9240E9EFF00F982FF /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37441DB8240E9EFF00F982FF /* main.swift */; };
-		37441DC1240E9F0E00F982FF /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37441DC0240E9F0E00F982FF /* Vector.swift */; };
-		37441DC3240E9F1500F982FF /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37441DC2240E9F1500F982FF /* Matrix.swift */; };
-		37441DD1240E9F4600F982FF /* VectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37441DD0240E9F4600F982FF /* VectorTests.swift */; };
-		37441DD6240EACE100F982FF /* MatrixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37441DD5240EACE100F982FF /* MatrixTests.swift */; };
-		37441DD8240ECA3A00F982FF /* LUDecomposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37441DD7240ECA3A00F982FF /* LUDecomposition.swift */; };
-		37441DD9240ECEE800F982FF /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37441DC0240E9F0E00F982FF /* Vector.swift */; };
-		37441DDA240ECEE800F982FF /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37441DC2240E9F1500F982FF /* Matrix.swift */; };
-		37441DDB240ECEE800F982FF /* LUDecomposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37441DD7240ECA3A00F982FF /* LUDecomposition.swift */; };
+		37A549D0241F8E5300A91A8E /* DefaultValueInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A549CF241F8E5300A91A8E /* DefaultValueInitializable.swift */; };
+		OBJ_39 /* BandMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* BandMatrix.swift */; };
+		OBJ_40 /* LUDecomposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* LUDecomposition.swift */; };
+		OBJ_41 /* LowerBandMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* LowerBandMatrix.swift */; };
+		OBJ_42 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* Matrix.swift */; };
+		OBJ_43 /* MatrixProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* MatrixProtocol.swift */; };
+		OBJ_44 /* Transposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* Transposable.swift */; };
+		OBJ_45 /* UpperBandMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* UpperBandMatrix.swift */; };
+		OBJ_46 /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* Vector.swift */; };
+		OBJ_47 /* cow.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* cow.swift */; };
+		OBJ_54 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
+		OBJ_65 /* BandMatrixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* BandMatrixTests.swift */; };
+		OBJ_66 /* LUSolverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* LUSolverTests.swift */; };
+		OBJ_67 /* LowerBandMatrixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_24 /* LowerBandMatrixTests.swift */; };
+		OBJ_68 /* MatrixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_25 /* MatrixTests.swift */; };
+		OBJ_69 /* SwifyPyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_26 /* SwifyPyTests.swift */; };
+		OBJ_70 /* UpperBandMatrixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_27 /* UpperBandMatrixTests.swift */; };
+		OBJ_71 /* VectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_28 /* VectorTests.swift */; };
+		OBJ_72 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_29 /* XCTestManifests.swift */; };
+		OBJ_74 /* SwifyPy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwifyPy::SwifyPy::Product" /* SwifyPy.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		37441DB3240E9EFF00F982FF /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
+/* Begin PBXContainerItemProxy section */
+		37A549CD241F8CDE00A91A8E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "SwifyPy::SwifyPy";
+			remoteInfo = SwifyPy;
 		};
-/* End PBXCopyFilesBuildPhase section */
+		37A549CE241F8CDF00A91A8E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "SwifyPy::SwifyPyTests";
+			remoteInfo = SwifyPyTests;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		372F2DDC2416C5AA00BECA26 /* LUSolverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LUSolverTests.swift; sourceTree = "<group>"; };
-		372F2DDE2416D7D200BECA26 /* BandMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandMatrix.swift; sourceTree = "<group>"; };
-		372F2DE024177F3F00BECA26 /* BandMatrixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandMatrixTests.swift; sourceTree = "<group>"; };
-		372F2DE32417A2E000BECA26 /* UpperBandMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpperBandMatrix.swift; sourceTree = "<group>"; };
-		372F2DE52417A79000BECA26 /* UpperBandMatrixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpperBandMatrixTests.swift; sourceTree = "<group>"; };
-		372F2DE82417B20500BECA26 /* LowerBandMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LowerBandMatrix.swift; sourceTree = "<group>"; };
-		372F2DEC2417B2C900BECA26 /* LowerBandMatrixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LowerBandMatrixTests.swift; sourceTree = "<group>"; };
-		372F2DEF2417C4BC00BECA26 /* MatrixProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixProtocol.swift; sourceTree = "<group>"; };
-		372F2DF22417DBF900BECA26 /* cow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cow.swift; sourceTree = "<group>"; };
-		37441DB5240E9EFF00F982FF /* SwifyPy */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SwifyPy; sourceTree = BUILT_PRODUCTS_DIR; };
-		37441DB8240E9EFF00F982FF /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		37441DC0240E9F0E00F982FF /* Vector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vector.swift; sourceTree = "<group>"; };
-		37441DC2240E9F1500F982FF /* Matrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
-		37441DC8240E9F3300F982FF /* SwifyPyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwifyPyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		37441DCC240E9F3300F982FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		37441DD0240E9F4600F982FF /* VectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VectorTests.swift; sourceTree = "<group>"; };
-		37441DD5240EACE100F982FF /* MatrixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixTests.swift; sourceTree = "<group>"; };
-		37441DD7240ECA3A00F982FF /* LUDecomposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LUDecomposition.swift; sourceTree = "<group>"; };
+		37A549CF241F8E5300A91A8E /* DefaultValueInitializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultValueInitializable.swift; sourceTree = "<group>"; };
+		OBJ_10 /* BandMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandMatrix.swift; sourceTree = "<group>"; };
+		OBJ_11 /* LUDecomposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LUDecomposition.swift; sourceTree = "<group>"; };
+		OBJ_12 /* LowerBandMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LowerBandMatrix.swift; sourceTree = "<group>"; };
+		OBJ_13 /* Matrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
+		OBJ_15 /* MatrixProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixProtocol.swift; sourceTree = "<group>"; };
+		OBJ_16 /* Transposable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transposable.swift; sourceTree = "<group>"; };
+		OBJ_17 /* UpperBandMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpperBandMatrix.swift; sourceTree = "<group>"; };
+		OBJ_18 /* Vector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vector.swift; sourceTree = "<group>"; };
+		OBJ_19 /* cow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cow.swift; sourceTree = "<group>"; };
+		OBJ_22 /* BandMatrixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandMatrixTests.swift; sourceTree = "<group>"; };
+		OBJ_23 /* LUSolverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LUSolverTests.swift; sourceTree = "<group>"; };
+		OBJ_24 /* LowerBandMatrixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LowerBandMatrixTests.swift; sourceTree = "<group>"; };
+		OBJ_25 /* MatrixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixTests.swift; sourceTree = "<group>"; };
+		OBJ_26 /* SwifyPyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwifyPyTests.swift; sourceTree = "<group>"; };
+		OBJ_27 /* UpperBandMatrixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpperBandMatrixTests.swift; sourceTree = "<group>"; };
+		OBJ_28 /* VectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VectorTests.swift; sourceTree = "<group>"; };
+		OBJ_29 /* XCTestManifests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
+		OBJ_33 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		"SwifyPy::SwifyPy::Product" /* SwifyPy.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwifyPy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"SwifyPy::SwifyPyTests::Product" /* SwifyPyTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = SwifyPyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		37441DB2240E9EFF00F982FF /* Frameworks */ = {
+		OBJ_48 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 0;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		37441DC5240E9F3300F982FF /* Frameworks */ = {
+		OBJ_73 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 0;
 			files = (
+				OBJ_74 /* SwifyPy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		37441DAC240E9EFF00F982FF = {
+		OBJ_14 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				37441DB7240E9EFF00F982FF /* SwiftPy */,
-				37441DC9240E9F3300F982FF /* SwifyPyTests */,
-				37441DB6240E9EFF00F982FF /* Products */,
+				OBJ_15 /* MatrixProtocol.swift */,
+				OBJ_16 /* Transposable.swift */,
+				37A549CF241F8E5300A91A8E /* DefaultValueInitializable.swift */,
 			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
-		37441DB6240E9EFF00F982FF /* Products */ = {
+		OBJ_20 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				37441DB5240E9EFF00F982FF /* SwifyPy */,
-				37441DC8240E9F3300F982FF /* SwifyPyTests.xctest */,
+				OBJ_21 /* SwifyPyTests */,
+			);
+			name = Tests;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_21 /* SwifyPyTests */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_22 /* BandMatrixTests.swift */,
+				OBJ_23 /* LUSolverTests.swift */,
+				OBJ_24 /* LowerBandMatrixTests.swift */,
+				OBJ_25 /* MatrixTests.swift */,
+				OBJ_26 /* SwifyPyTests.swift */,
+				OBJ_27 /* UpperBandMatrixTests.swift */,
+				OBJ_28 /* VectorTests.swift */,
+				OBJ_29 /* XCTestManifests.swift */,
+			);
+			name = SwifyPyTests;
+			path = Tests/SwifyPyTests;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_30 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				"SwifyPy::SwifyPy::Product" /* SwifyPy.framework */,
+				"SwifyPy::SwifyPyTests::Product" /* SwifyPyTests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
+			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		37441DB7240E9EFF00F982FF /* SwiftPy */ = {
+		OBJ_5 /*  */ = {
 			isa = PBXGroup;
 			children = (
-				37441DBF240E9F0600F982FF /* Lib */,
-				37441DB8240E9EFF00F982FF /* main.swift */,
+				OBJ_6 /* Package.swift */,
+				OBJ_7 /* Sources */,
+				OBJ_20 /* Tests */,
+				OBJ_30 /* Products */,
+				OBJ_33 /* README.md */,
 			);
-			path = SwiftPy;
+			name = "";
 			sourceTree = "<group>";
 		};
-		37441DBF240E9F0600F982FF /* Lib */ = {
+		OBJ_7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				372F2DF22417DBF900BECA26 /* cow.swift */,
-				372F2DEF2417C4BC00BECA26 /* MatrixProtocol.swift */,
-				37441DC2240E9F1500F982FF /* Matrix.swift */,
-				37441DC0240E9F0E00F982FF /* Vector.swift */,
-				37441DD7240ECA3A00F982FF /* LUDecomposition.swift */,
-				372F2DDE2416D7D200BECA26 /* BandMatrix.swift */,
-				372F2DE32417A2E000BECA26 /* UpperBandMatrix.swift */,
-				372F2DE82417B20500BECA26 /* LowerBandMatrix.swift */,
+				OBJ_8 /* SwifyPy */,
 			);
-			path = Lib;
-			sourceTree = "<group>";
+			name = Sources;
+			sourceTree = SOURCE_ROOT;
 		};
-		37441DC9240E9F3300F982FF /* SwifyPyTests */ = {
+		OBJ_8 /* SwifyPy */ = {
 			isa = PBXGroup;
 			children = (
-				37441DCC240E9F3300F982FF /* Info.plist */,
-				37441DD0240E9F4600F982FF /* VectorTests.swift */,
-				37441DD5240EACE100F982FF /* MatrixTests.swift */,
-				372F2DDC2416C5AA00BECA26 /* LUSolverTests.swift */,
-				372F2DE024177F3F00BECA26 /* BandMatrixTests.swift */,
-				372F2DE52417A79000BECA26 /* UpperBandMatrixTests.swift */,
-				372F2DEC2417B2C900BECA26 /* LowerBandMatrixTests.swift */,
+				OBJ_9 /* LinearAlgebra */,
 			);
-			path = SwifyPyTests;
+			name = SwifyPy;
+			path = Sources/SwifyPy;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_9 /* LinearAlgebra */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_14 /* Protocols */,
+				OBJ_10 /* BandMatrix.swift */,
+				OBJ_11 /* LUDecomposition.swift */,
+				OBJ_12 /* LowerBandMatrix.swift */,
+				OBJ_13 /* Matrix.swift */,
+				OBJ_17 /* UpperBandMatrix.swift */,
+				OBJ_18 /* Vector.swift */,
+				OBJ_19 /* cow.swift */,
+			);
+			path = LinearAlgebra;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		37441DB4240E9EFF00F982FF /* SwifyPy */ = {
+		"SwifyPy::SwiftPMPackageDescription" /* SwifyPyPackageDescription */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 37441DBC240E9EFF00F982FF /* Build configuration list for PBXNativeTarget "SwifyPy" */;
+			buildConfigurationList = OBJ_50 /* Build configuration list for PBXNativeTarget "SwifyPyPackageDescription" */;
 			buildPhases = (
-				37441DB1240E9EFF00F982FF /* Sources */,
-				37441DB2240E9EFF00F982FF /* Frameworks */,
-				37441DB3240E9EFF00F982FF /* CopyFiles */,
+				OBJ_53 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwifyPyPackageDescription;
+			productName = SwifyPyPackageDescription;
+			productType = "com.apple.product-type.framework";
+		};
+		"SwifyPy::SwifyPy" /* SwifyPy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_35 /* Build configuration list for PBXNativeTarget "SwifyPy" */;
+			buildPhases = (
+				OBJ_38 /* Sources */,
+				OBJ_48 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = SwifyPy;
-			productName = Numeric;
-			productReference = 37441DB5240E9EFF00F982FF /* SwifyPy */;
-			productType = "com.apple.product-type.tool";
+			productName = SwifyPy;
+			productReference = "SwifyPy::SwifyPy::Product" /* SwifyPy.framework */;
+			productType = "com.apple.product-type.framework";
 		};
-		37441DC7240E9F3300F982FF /* SwifyPyTests */ = {
+		"SwifyPy::SwifyPyTests" /* SwifyPyTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 37441DCD240E9F3300F982FF /* Build configuration list for PBXNativeTarget "SwifyPyTests" */;
+			buildConfigurationList = OBJ_61 /* Build configuration list for PBXNativeTarget "SwifyPyTests" */;
 			buildPhases = (
-				37441DC4240E9F3300F982FF /* Sources */,
-				37441DC5240E9F3300F982FF /* Frameworks */,
-				37441DC6240E9F3300F982FF /* Resources */,
+				OBJ_64 /* Sources */,
+				OBJ_73 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				OBJ_75 /* PBXTargetDependency */,
 			);
 			name = SwifyPyTests;
-			productName = NumericTests;
-			productReference = 37441DC8240E9F3300F982FF /* SwifyPyTests.xctest */;
+			productName = SwifyPyTests;
+			productReference = "SwifyPy::SwifyPyTests::Product" /* SwifyPyTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		37441DAD240E9EFF00F982FF /* Project object */ = {
+		OBJ_1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1130;
-				ORGANIZATIONNAME = TSS;
-				TargetAttributes = {
-					37441DB4240E9EFF00F982FF = {
-						CreatedOnToolsVersion = 11.3.1;
-					};
-					37441DC7240E9F3300F982FF = {
-						CreatedOnToolsVersion = 11.3.1;
-						LastSwiftMigration = 1130;
-					};
-				};
+				LastSwiftMigration = 9999;
+				LastUpgradeCheck = 9999;
 			};
-			buildConfigurationList = 37441DB0240E9EFF00F982FF /* Build configuration list for PBXProject "SwifyPy" */;
-			compatibilityVersion = "Xcode 9.3";
+			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "SwifyPy" */;
+			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
 			);
-			mainGroup = 37441DAC240E9EFF00F982FF;
-			productRefGroup = 37441DB6240E9EFF00F982FF /* Products */;
+			mainGroup = OBJ_5 /*  */;
+			productRefGroup = OBJ_30 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				37441DB4240E9EFF00F982FF /* SwifyPy */,
-				37441DC7240E9F3300F982FF /* SwifyPyTests */,
+				"SwifyPy::SwifyPy" /* SwifyPy */,
+				"SwifyPy::SwiftPMPackageDescription" /* SwifyPyPackageDescription */,
+				"SwifyPy::SwifyPyPackageTests::ProductTarget" /* SwifyPyPackageTests */,
+				"SwifyPy::SwifyPyTests" /* SwifyPyTests */,
 			);
 		};
 /* End PBXProject section */
 
-/* Begin PBXResourcesBuildPhase section */
-		37441DC6240E9F3300F982FF /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		37441DB1240E9EFF00F982FF /* Sources */ = {
+		OBJ_38 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 0;
 			files = (
-				372F2DF32417DBF900BECA26 /* cow.swift in Sources */,
-				372F2DE92417B20500BECA26 /* LowerBandMatrix.swift in Sources */,
-				372F2DDF2416D7D200BECA26 /* BandMatrix.swift in Sources */,
-				37441DC1240E9F0E00F982FF /* Vector.swift in Sources */,
-				37441DB9240E9EFF00F982FF /* main.swift in Sources */,
-				37441DC3240E9F1500F982FF /* Matrix.swift in Sources */,
-				372F2DE42417A2E000BECA26 /* UpperBandMatrix.swift in Sources */,
-				372F2DF02417C4BC00BECA26 /* MatrixProtocol.swift in Sources */,
-				37441DD8240ECA3A00F982FF /* LUDecomposition.swift in Sources */,
+				OBJ_39 /* BandMatrix.swift in Sources */,
+				OBJ_40 /* LUDecomposition.swift in Sources */,
+				OBJ_41 /* LowerBandMatrix.swift in Sources */,
+				OBJ_42 /* Matrix.swift in Sources */,
+				OBJ_43 /* MatrixProtocol.swift in Sources */,
+				OBJ_44 /* Transposable.swift in Sources */,
+				OBJ_45 /* UpperBandMatrix.swift in Sources */,
+				37A549D0241F8E5300A91A8E /* DefaultValueInitializable.swift in Sources */,
+				OBJ_46 /* Vector.swift in Sources */,
+				OBJ_47 /* cow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		37441DC4240E9F3300F982FF /* Sources */ = {
+		OBJ_53 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 0;
 			files = (
-				37441DDA240ECEE800F982FF /* Matrix.swift in Sources */,
-				37441DD6240EACE100F982FF /* MatrixTests.swift in Sources */,
-				372F2DE72417A79500BECA26 /* UpperBandMatrix.swift in Sources */,
-				37441DD9240ECEE800F982FF /* Vector.swift in Sources */,
-				372F2DED2417B2C900BECA26 /* LowerBandMatrixTests.swift in Sources */,
-				37441DD1240E9F4600F982FF /* VectorTests.swift in Sources */,
-				372F2DE124177F3F00BECA26 /* BandMatrixTests.swift in Sources */,
-				372F2DE224177FD000BECA26 /* BandMatrix.swift in Sources */,
-				372F2DF12417C4BC00BECA26 /* MatrixProtocol.swift in Sources */,
-				37441DDB240ECEE800F982FF /* LUDecomposition.swift in Sources */,
-				372F2DE62417A79000BECA26 /* UpperBandMatrixTests.swift in Sources */,
-				372F2DF42417DBF900BECA26 /* cow.swift in Sources */,
-				372F2DDD2416C5AA00BECA26 /* LUSolverTests.swift in Sources */,
-				372F2DEE2417B2E400BECA26 /* LowerBandMatrix.swift in Sources */,
+				OBJ_54 /* Package.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_64 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_65 /* BandMatrixTests.swift in Sources */,
+				OBJ_66 /* LUSolverTests.swift in Sources */,
+				OBJ_67 /* LowerBandMatrixTests.swift in Sources */,
+				OBJ_68 /* MatrixTests.swift in Sources */,
+				OBJ_69 /* SwifyPyTests.swift in Sources */,
+				OBJ_70 /* UpperBandMatrixTests.swift in Sources */,
+				OBJ_71 /* VectorTests.swift in Sources */,
+				OBJ_72 /* XCTestManifests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		OBJ_59 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "SwifyPy::SwifyPyTests" /* SwifyPyTests */;
+			targetProxy = 37A549CE241F8CDF00A91A8E /* PBXContainerItemProxy */;
+		};
+		OBJ_75 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "SwifyPy::SwifyPy" /* SwifyPy */;
+			targetProxy = 37A549CD241F8CDE00A91A8E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
-		37441DBA240E9EFF00F982FF /* Debug */ = {
+		OBJ_3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"SWIFT_PACKAGE=1",
 					"DEBUG=1",
-					"$(inherited)",
 				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "$(inherited) -DXcode";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) SWIFT_PACKAGE DEBUG";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				USE_HEADERMAP = NO;
 			};
 			name = Debug;
 		};
-		37441DBB240E9EFF00F982FF /* Release */ = {
+		OBJ_36 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = SwifyPy.xcodeproj/SwifyPy_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = SwifyPy;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = SwifyPy;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		OBJ_37 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = SwifyPy.xcodeproj/SwifyPy_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = SwifyPy;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = SwifyPy;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		OBJ_4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"SWIFT_PACKAGE=1",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_SWIFT_FLAGS = "$(inherited) -DXcode";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) SWIFT_PACKAGE";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				USE_HEADERMAP = NO;
 			};
 			name = Release;
 		};
-		37441DBD240E9EFF00F982FF /* Debug */ = {
+		OBJ_51 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEFINES_MODULE = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -package-description-version 5.1";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
-		37441DBE240E9EFF00F982FF /* Release */ = {
+		OBJ_52 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEFINES_MODULE = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -package-description-version 5.1";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
-		37441DCE240E9F3300F982FF /* Debug */ = {
+		OBJ_57 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = SwifyPyTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = TSS.NumericTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
-		37441DCF240E9F3300F982FF /* Release */ = {
+		OBJ_58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		OBJ_62 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = SwifyPyTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = TSS.NumericTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = SwifyPy.xcodeproj/SwifyPyTests_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_VERSION = 5.0;
+				TARGET_NAME = SwifyPyTests;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		OBJ_63 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = SwifyPy.xcodeproj/SwifyPyTests_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = SwifyPyTests;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		37441DB0240E9EFF00F982FF /* Build configuration list for PBXProject "SwifyPy" */ = {
+		OBJ_2 /* Build configuration list for PBXProject "SwifyPy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				37441DBA240E9EFF00F982FF /* Debug */,
-				37441DBB240E9EFF00F982FF /* Release */,
+				OBJ_3 /* Debug */,
+				OBJ_4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		37441DBC240E9EFF00F982FF /* Build configuration list for PBXNativeTarget "SwifyPy" */ = {
+		OBJ_35 /* Build configuration list for PBXNativeTarget "SwifyPy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				37441DBD240E9EFF00F982FF /* Debug */,
-				37441DBE240E9EFF00F982FF /* Release */,
+				OBJ_36 /* Debug */,
+				OBJ_37 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		37441DCD240E9F3300F982FF /* Build configuration list for PBXNativeTarget "SwifyPyTests" */ = {
+		OBJ_50 /* Build configuration list for PBXNativeTarget "SwifyPyPackageDescription" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				37441DCE240E9F3300F982FF /* Debug */,
-				37441DCF240E9F3300F982FF /* Release */,
+				OBJ_51 /* Debug */,
+				OBJ_52 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_56 /* Build configuration list for PBXAggregateTarget "SwifyPyPackageTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_57 /* Debug */,
+				OBJ_58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_61 /* Build configuration list for PBXNativeTarget "SwifyPyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_62 /* Debug */,
+				OBJ_63 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 37441DAD240E9EFF00F982FF /* Project object */;
+	rootObject = OBJ_1 /* Project object */;
 }

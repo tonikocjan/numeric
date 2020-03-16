@@ -41,46 +41,6 @@ extension MatrixProtocol {
   }
 }
 
-protocol Transposable where Self: MatrixProtocol {
-  var transposed: Self { get }
-}
-
-protocol DefaultValueInitializable where Self: MatrixProtocol {
-  init(_ value: Value, width: Int, height: Int)
-}
-
-extension DefaultValueInitializable {
-  static func zeros(width: Int, height: Int) -> Self {
-    .init(0, width: width, height: height)
-  }
-  
-  static func ones(width: Int, height: Int) -> Self {
-    .init(1, width: width, height: height)
-  }
-}
-
-extension MatrixProtocol where Self: Transposable {
-  func columnMap<T>(_ transform: (Vec) throws -> T) rethrows -> [T] {
-    try transposed.map(transform)
-  }
-  
-  func columnMap(_ transform: (Vec) throws -> Vec) rethrows -> Self {
-    .init(arrayLiteral: try columnMap(transform))
-  }
-  
-  func columnFilter(_ predicate: (Vec) throws -> Bool) rethrows -> [Vec] {
-    try columnMap { $0 }.filter(predicate)
-  }
-  
-  func columnFilter(_ predicate: (Vec) throws -> Bool) rethrows -> Self {
-    .init(arrayLiteral: try columnMap { $0 }.filter(predicate))
-  }
-  
-  func columnReduce<Result>(_ initialResult: Result, nextPartialResult: (Result, Vec) throws -> Result) rethrows -> Result {
-    try transposed.reduce(initialResult, nextPartialResult)
-  }
-}
-
 func == <M1: MatrixProtocol, M2: MatrixProtocol>(_ lhs: M1, _ rhs: M2) -> Bool where M1.Value == M2.Value {
   guard lhs.shape == rhs.shape else { return false }
   return zip(lhs, rhs).allSatisfy(==)
@@ -137,7 +97,7 @@ func *<M: MatrixProtocol>(_ m: M, _ v: M.Vec) -> M.Vec {
   return m.map { ($0 * v).sum }
 }
 
-func *<M>(_ m1: M, _ m2: M) -> Matrix<M.Value> where M: Transposable {
+func *<M: MatrixProtocol & Transposable>(_ m1: M, _ m2: M) -> Matrix<M.Value> {
   // multiplication implemented functionaly
   assert(m1.width == m2.height)
   assert(m1.height == m2.width)
@@ -147,7 +107,7 @@ func *<M>(_ m1: M, _ m2: M) -> Matrix<M.Value> where M: Transposable {
 }
 
 infix operator *!: MultiplicationPrecedence
-func *!<M: MatrixProtocol>(_ m1: M, _ m2: M) -> Matrix<M.Value> {
+func *<M: MatrixProtocol>(_ m1: M, _ m2: M) -> Matrix<M.Value> {
   // multiplication implemented proceduraly
   assert(m1.width == m2.height)
   assert(m1.height == m2.width)
