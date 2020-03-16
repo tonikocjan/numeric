@@ -9,8 +9,6 @@
 import Foundation
 
 struct LowerBandMatrix<T: Mathable>: BandMatrixProtocol {
-  typealias Value = T
-  typealias Pointee = Vector<T>
   typealias U = Int
   
   var storage: COW
@@ -88,7 +86,10 @@ extension LowerBandMatrix {
 }
 
 // MARK: - SupportsCopyOnWrite
-extension LowerBandMatrix: SupportsCopyOnWrite {}
+extension LowerBandMatrix: SupportsCopyOnWrite {
+  typealias Value = T
+  typealias Pointee = Vector<T>
+}
 
 // MARK: - Equatable
 extension LowerBandMatrix: Equatable {

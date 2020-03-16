@@ -10,8 +10,6 @@ import Foundation
 
 struct UpperBandMatrix<T: Mathable>: BandMatrixProtocol {
   typealias Value = T
-  typealias Pointee = Vector<T>
-  typealias U = Int
   
   var storage: COW
   
@@ -46,7 +44,10 @@ struct UpperBandMatrix<T: Mathable>: BandMatrixProtocol {
 }
 
 // MARK: - SupportsCopyOnWrite
-extension UpperBandMatrix: SupportsCopyOnWrite {}
+extension UpperBandMatrix: SupportsCopyOnWrite {
+  typealias Pointee = Vector<T>
+  typealias U = Int
+}
 
 // MARK: - Equatable
 extension UpperBandMatrix: Equatable {

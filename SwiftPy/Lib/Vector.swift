@@ -9,9 +9,6 @@
 import Foundation
 
 struct Vector<T: Mathable>: ExpressibleByArrayLiteral {
-  typealias Pointee = T
-  typealias U = ()
-  
   var storage: COW
   
   init() {
@@ -33,6 +30,8 @@ struct Vector<T: Mathable>: ExpressibleByArrayLiteral {
 
 // MARK: - SupportsCopyOnWrite
 extension Vector: SupportsCopyOnWrite {
+  typealias Pointee = T
+  typealias U = ()
 }
 
 extension Vector {

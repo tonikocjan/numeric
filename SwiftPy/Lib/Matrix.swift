@@ -10,8 +10,6 @@ import Foundation
 
 struct Matrix<T: Mathable>: MatrixProtocol, Transposable {
   typealias Value = T
-  typealias Pointee = Vector<T>
-  typealias U = (width: Int, height: Int)
   
   var storage: COWStorage<Vector<T>, (width: Int, height: Int)>
   
@@ -37,6 +35,8 @@ struct Matrix<T: Mathable>: MatrixProtocol, Transposable {
 
 // MARK: - SupportsCopyOnWrite
 extension Matrix: SupportsCopyOnWrite {
+  typealias Pointee = Vector<T>
+  typealias U = (width: Int, height: Int)
 }
 
 // MARK: - Initializable
@@ -54,13 +54,13 @@ extension Matrix {
   
   subscript(_ i: Int, _ j: Int) -> T {
     get {
-      assert(j >= 0)
-      assert(j < width)
+      assert(i >= 0)
+      assert(i < height)
       return self[i][j]
     }
     mutating set {
-      assert(j >= 0)
-      assert(j < width)
+      assert(i >= 0)
+      assert(i < height)
       self[i][j] = newValue
     }
   }
