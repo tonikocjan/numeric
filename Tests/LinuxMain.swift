@@ -1,6 +1,8 @@
 import XCTest
-@testable import SwifyPyTests
+
+import SwifyPyTests
 
 var tests = [XCTestCaseEntry]()
-tests += SwifyPyTests.allTests()
+tests += SwifyPyTests.__allTests()
+
 XCTMain(tests)
