@@ -1,6 +1,6 @@
 //
 //  MatrixTests.swift
-//  NumericTests
+//  SwifyPyTests
 //
 //  Created by Toni Kocjan on 03/03/2020.
 //  Copyright © 2020 TSS. All rights reserved.
@@ -152,16 +152,6 @@ class MatrixTests: XCTestCase {
       [3, 6, 9]
     ]
     XCTAssertEqual([6, 15, 24], matrix.columnReduce([], nextPartialResult: { $0 + [$1.sum]}))
-  }
-  
-  func testSwap() {
-    var matrix: Matrix = [
-      [1, 2, 3],
-      [4, 5, 6],
-      [7, 8, 9]
-    ]
-    matrix.swap(row: 0, col: 1)
-    XCTAssertEqual([[4, 5, 6], [1, 2, 3], [7, 8, 9]], matrix)
   }
   
   func testTransposed() {

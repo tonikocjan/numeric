@@ -1,6 +1,6 @@
 //
 //  VectorTests.swift
-//  NumericTests
+//  SwifyPyTests
 //
 //  Created by Toni Kocjan on 03/03/2020.
 //  Copyright © 2020 TSS. All rights reserved.
@@ -11,7 +11,7 @@ import XCTest
 
 class VectorTests: XCTestCase {
   func testSubscript() {
-    let vector = Vector<Double>(arrayLiteral: [1, 2, 3])
+    let vector: Vector = [1, 2, 3]
     XCTAssertEqual(1, vector[0])
     XCTAssertEqual(2, vector[1])
     XCTAssertEqual(3, vector[2])
@@ -23,7 +23,7 @@ class VectorTests: XCTestCase {
   }
   
   func testCollection() {
-    let vector = Vector<Double>(arrayLiteral: [1, 2, 3])
+    let vector: Vector = [1, 2, 3]
     XCTAssertEqual(6, vector.reduce(0, +))
     XCTAssertEqual([2, 4, 6], vector.map { $0 * 2 })
     XCTAssertEqual([2], vector.filter { $0.truncatingRemainder(dividingBy: 2) == 0 })
@@ -39,8 +39,8 @@ class VectorTests: XCTestCase {
   }
   
   func testArithmetic() {
-    let v1 = Vector<Double>(arrayLiteral: [2, 4, 6])
-    let v2 = Vector<Double>(arrayLiteral: [1, 3, 5])
+    let v1: Vector = [2, 4, 6]
+    let v2: Vector = [1, 3, 5]
     XCTAssertEqual([3, 7, 11], v1 + v2)
     XCTAssertEqual([1, 1, 1], v1 - v2)
     XCTAssertEqual([2, 12, 30], v1 * v2)
@@ -57,10 +57,15 @@ class VectorTests: XCTestCase {
   }
   
   func testComputedProperties() {
-    let v1 = Vector<Double>(arrayLiteral: [2, 4, 6])
+    let v1: Vector = [2, 4, 6]
     XCTAssertEqual(4, v1.avg)
     XCTAssertEqual(12, v1.sum)
-    XCTAssertEqual(sqrt(56), v1.len)
+    XCTAssertEqual(sqrt(56), v1.magnitude)
+  }
+  
+  func testUnit() {
+    let v1: Vector = [4, 3]
+    XCTAssertEqual([4.0/5, 3.0/5], v1.unit)
   }
   
   func testSqrt() {

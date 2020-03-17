@@ -175,12 +175,24 @@ class BandMatrixTests: XCTestCase {
   }
   
   func testIsDiagonalyDominant() {
-    XCTAssertTrue(BandMatrix(arrayLiteral: [1], [1], [1], [1]).isDiagonalyDominant)
-    XCTAssertTrue(BandMatrix(arrayLiteral: [2, 1], [1, 2, 1], [1, 2, 1], [1, 1]).isDiagonalyDominant)
-    XCTAssertFalse(BandMatrix(arrayLiteral: [2, 3], [1, 2, 1], [1, 2, 1], [2, 1]).isDiagonalyDominant)
-    XCTAssertFalse(BandMatrix(arrayLiteral: [2, 1], [1, 2, 2], [1, 2, 1], [2, 1]).isDiagonalyDominant)
-    XCTAssertFalse(BandMatrix(arrayLiteral: [2, 1], [1, 2, 1], [1, 2, 1], [2, 1]).isDiagonalyDominant)
-    XCTAssertFalse(BandMatrix(arrayLiteral: [2, 1], [1, 2, 1], [1, 2, 2], [2, 1]).isDiagonalyDominant)
+    XCTAssertTrue(BandMatrix(arrayLiteral: [1], [1], [1], [1]).isDiagonallyDominant)
+    XCTAssertTrue(BandMatrix(arrayLiteral: [2, 1], [1, 2, 1], [1, 2, 1], [1, 1]).isDiagonallyDominant)
+    XCTAssertFalse(BandMatrix(arrayLiteral: [2, 3], [1, 2, 1], [1, 2, 1], [2, 1]).isDiagonallyDominant)
+    XCTAssertFalse(BandMatrix(arrayLiteral: [2, 1], [1, 2, 2], [1, 2, 1], [2, 1]).isDiagonallyDominant)
+    XCTAssertFalse(BandMatrix(arrayLiteral: [2, 1], [1, 2, 1], [1, 2, 1], [2, 1]).isDiagonallyDominant)
+    XCTAssertFalse(BandMatrix(arrayLiteral: [2, 1], [1, 2, 1], [1, 2, 2], [2, 1]).isDiagonallyDominant)
+  }
+  
+  func testBandAt() {
+    let matrix: BandMatrix = [
+      [1, 2],
+      [3, 4, 5],
+         [6, 7, 8],
+            [9, 10]
+    ]
+    XCTAssertEqual([1, 4, 7, 10], matrix.band(at: 0))
+    XCTAssertEqual([2, 5, 8], matrix.band(at: 1))
+    XCTAssertEqual([3, 6, 9], matrix.band(at: -1))
   }
   
   func testCopyOnWrite() {

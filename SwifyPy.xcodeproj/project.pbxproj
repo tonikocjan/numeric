@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		37FC22CB2420DD6200704E8A /* argmax.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FC22CA2420DD6200704E8A /* argmax.swift */; };
 		OBJ_43 /* BandMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* BandMatrix.swift */; };
 		OBJ_44 /* LUDecomposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* LUDecomposition.swift */; };
 		OBJ_45 /* LowerBandMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* LowerBandMatrix.swift */; };
@@ -69,6 +70,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		37FC22CA2420DD6200704E8A /* argmax.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = argmax.swift; sourceTree = "<group>"; };
 		OBJ_10 /* BandMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandMatrix.swift; sourceTree = "<group>"; };
 		OBJ_11 /* LUDecomposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LUDecomposition.swift; sourceTree = "<group>"; };
 		OBJ_12 /* LowerBandMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LowerBandMatrix.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_11 /* LUDecomposition.swift */,
+				37FC22CA2420DD6200704E8A /* argmax.swift */,
 			);
 			path = Algorithms;
 			sourceTree = "<group>";
@@ -140,9 +143,9 @@
 		OBJ_14 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_15 /* DefaultValueInitializable.swift */,
 				OBJ_16 /* MatrixProtocol.swift */,
 				OBJ_17 /* Transposable.swift */,
+				OBJ_15 /* DefaultValueInitializable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				OBJ_44 /* LUDecomposition.swift in Sources */,
 				OBJ_45 /* LowerBandMatrix.swift in Sources */,
 				OBJ_46 /* Matrix.swift in Sources */,
+				37FC22CB2420DD6200704E8A /* argmax.swift in Sources */,
 				OBJ_47 /* DefaultValueInitializable.swift in Sources */,
 				OBJ_48 /* MatrixProtocol.swift in Sources */,
 				OBJ_49 /* Transposable.swift in Sources */,

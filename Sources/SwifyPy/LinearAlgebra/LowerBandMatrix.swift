@@ -8,31 +8,68 @@
 
 import Foundation
 
+/**
+# Lower Band Matrix
+
+In mathematics, a lower band matrix is a sparse matrix whose non-zero entries are
+confined to a diagonal band, comprising the main diagonal and zero or more diagonals below.
+
+It is a **square** matrix.
+*/
 public struct LowerBandMatrix<T: Mathable>: BandMatrixProtocol {
   public typealias Value = T
   
   var storage: COW
   
-  /// Initialize a new **Upper Band** matrix with specified size.
-  ///
-  /// - Parameter k: number of sub-diagonals in the upper triangle with non-zero elements
-  ///                when k = 0 this is a diagonal matrix
-  ///
-  /// - Parameter height: height of the matrix
-  ///
-  public init(bandwidth: Int, height: Int) {
-    storage = .init(capacity: bandwidth, size: height) { Vector(size: height - $0) }
+  /**
+   Initialze a new **Lower band** matrix.
+   
+   - Parameters:
+       - bandwidth: Number of bands, i.e., diagonalds containing non-zero elements. Must be greater than 0.
+       - size: Size of the matrix.
+   */
+  public init(bandwidth: Int, size: Int) {
+    assert(bandwidth >= 0) // TODO 
+    storage = .init(capacity: bandwidth, size: size) { Vector(size: size - $0) }
   }
   
-  /// Initialize a new **Upper Band** matrix from the given `elements`
-  ///
-  /// - Parameter elements: the `count` of elements specifies the height of this matrix
-  ///
-  public init(arrayLiteral elements: Vector<Value>...) {
-    self.init(arrayLiteral: elements)
-  }
+  /**
+   Initialize a new **Lower Band** matrix from the given `elements`.
+   
+   It is expected that provided vectors represent each non-empty diagonal.
   
-  // first element's `count` is the height of the matrix
+   It is required that each vector in `elements` must be one element shorter than it's predecesor.
+   
+   The `bandwithd` of the new matrix is equal to `elements.count`.
+   The size of the matrix is the size of the first vector in `elements`.
+   
+   Example:
+       
+       let matrix: LowerBandMatrix = [[1, 2, 3]]
+       print(matrix)
+       [[1, 0, 0],
+        [0, 2, 0],
+        [0, 0, 3]]
+   
+   Example:
+   
+       let matrix: LowerBandMatrix = [[1, 3, 5], [2, 4]]
+       print(matrix)
+       [[1, 0, 0],
+        [2, 3, 0]
+        [0, 4, 5]]]
+   
+   Example:
+   
+       let matrix: LowerBandMatrix = [[1, 3, 5, 7], [2, 4, 6]]
+       print(matrix)
+       [[1, 0, 0, 0],
+        [2, 3, 0, 0],
+        [0, 4, 5, 0],
+        [0, 0, 6, 7]]
+   
+   - Parameter elements: A list of vectors containing values of all non-zero bands.
+   */
   public init(arrayLiteral elements: [Vector<Value>]) {
     assert(elements.count > 0) // TODO: - Can we construct an empty matrix?
     for (i, el) in elements.dropFirst().enumerated() {
@@ -41,16 +78,33 @@ public struct LowerBandMatrix<T: Mathable>: BandMatrixProtocol {
     
     storage = .init(capacity: elements.count, size: elements[0].count) { elements[$0] }
   }
+  
+  public init(arrayLiteral elements: Vector<Value>...) {
+    self.init(arrayLiteral: elements)
+  }
 }
 
+// MARK: - Public API
 public extension LowerBandMatrix {
+  /// Width of the matrix (same as `height`).
   var width: Int { storage.size! }
+  
+  /// Width of the matrix.
   var height: Int { width }
   
-  // number of non-zero diagonals
+  /// Number of non-zero diagonals.
   var bandwidth: Int { storage.capacity }
   
-  var isDiagonalyDominant: Bool {
+  /**
+   Check if this matrix is _diagonally dominant_.
+   
+   A (square matrix) is said to be diagonally dominant if, for every row of the matrix, the magnitude
+   of the diagonal entry in a row is larger than or equal to the sum of the magnitudes of all the other
+   (non-diagonal) entries in that row.
+   
+   - Returns: `true` if matrix is diagonally dominant, `false` otherwise.
+   */
+  var isDiagonallyDominant: Bool {
     guard bandwidth > 1 else { return true }
     for i in 0..<height {
       var sum: Value = 0
@@ -62,6 +116,26 @@ public extension LowerBandMatrix {
     return true
   }
   
+  /**
+   Accesses the element at the index (i, j).
+   This is equivalent as subscripting first at index `ì` an then `j`.
+   Both `i` and `j` must be valid indices otherwise the program will crash!
+   
+   Example:
+   
+        let matrix: LowerBandMatrix = [[1, 2, 3]])
+        print(matrix)
+        [[1, 0, 0],
+         [0, 2, 0],
+         [0, 0, 3]]
+        print(matrix[0, 0] // 1
+        print(matrix[0, 1] // 0
+        print(matrix[1, 0] // 0
+   
+   - Parameter:
+       - i: Vertical offset (y-coordinate).
+       - j: Horizontal offset (x-coordinate).
+   */
   subscript(_ i: Int, _ j: Int) -> T {
     get {
       assert(j >= 0)
@@ -80,15 +154,33 @@ public extension LowerBandMatrix {
     }
   }
   
+  /**
+   Compute `identity` matrix with the given size.
+   
+   An identity matrix of size n is the n × n square matrix with ones on the main diagonal and zeros elsewhere.
+   
+   - Parameter size: Size of the matrix.
+   
+   - Returns: Identity matrix of the given size.
+   */
   static func identity(_ size: Int) -> Self {
-    LowerBandMatrix(arrayLiteral: [.ones(size)])
+    .init(arrayLiteral: [.ones(size)])
   }
-}
 
-// MARK: - SupportsCopyOnWrite
-extension LowerBandMatrix: SupportsCopyOnWrite {
-  typealias Pointee = Vector<T>
-  typealias U = Int
+  /**
+   Compute a vector containing all elements from a non-zero diagonal, distanced `index`
+   from the main diagonal.
+   
+   - Parameter index: Index of the diagonal of interest.
+   
+   - Returns: A vector containing elements from the inquired diagonal. If `index == 0`, then
+   the result is the main diagonal. `index` must be greater than zero.
+   */
+  func band(at index: Int) -> Vector<T> {
+    assert(index >= 0)
+    assert(index < bandwidth)
+    return storage[index]
+  }
 }
 
 // MARK: - Equatable
@@ -129,15 +221,37 @@ extension LowerBandMatrix: CustomStringConvertible where T: LosslessStringConver
 
 var LBM_ITERATIONS_COUNT = 0 // for testing purposes
 
-public func *<T: Mathable>(_ lhs: LowerBandMatrix<T>, _ rhs: Vector<T>) -> Vector<T> {
-  assert(lhs.height == rhs.count)
+/**
+ An optimized overload of the matrix-vector multiplication taking advantage of the fact
+ that this is a sparse matrix.
+ 
+ For a detailed explanation of matrix-vector multiplication refer to
+ `public func *<M: MatrixProtocol>(_ A: M, _ x: M.Vector) -> M.Vector`
+ overload inside `MatrixProtocol.swift`.
+ 
+ - Parameters:
+     - A: A matrix.
+     - x: A vector.
+ 
+ - Returns: A vector whose elements are computed as a `dot` product of each row inside `A` with `x`.
+*/
+public func *<T: Mathable>(_ A: LowerBandMatrix<T>, _ x: Vector<T>) -> Vector<T> {
+  assert(A.height == x.count)
   LBM_ITERATIONS_COUNT = 0
-  var result: Vector<T> = .zeros(lhs.height)
-  for i in 0..<lhs.height {
-    for j in Swift.max(0, i - (lhs.height - lhs.bandwidth) + 1)...i {
-      result[i] += lhs[i, j] * rhs[j]
+  var result: Vector<T> = .zeros(A.height)
+  for i in 0..<A.height {
+    for j in Swift.max(0, i - (A.height - A.bandwidth) + 1)...i {
+      result[i] += A[i, j] * x[j]
       LBM_ITERATIONS_COUNT += 1
     }
   }
   return result
+}
+
+/// --------
+
+// MARK: - SupportsCopyOnWrite
+extension LowerBandMatrix: SupportsCopyOnWrite {
+  typealias Pointee = Vector<T>
+  typealias U = Int
 }

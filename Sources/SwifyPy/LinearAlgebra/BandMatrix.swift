@@ -1,5 +1,5 @@
 //
-//  TriangularMatrix.swift
+//  BandMatrix.swift
 //  SwifyPy
 //
 //  Created by Toni Kocjan on 09/03/2020.
@@ -10,79 +10,71 @@ import Foundation
 
 public protocol BandMatrixProtocol: MatrixProtocol {
   var bandwidth: Int { get }
-  var isDiagonalyDominant: Bool { get }
+  var isDiagonallyDominant: Bool { get }
+  func band(at index: Int) -> Vector
 }
 
-/// **Band** matrix
-///
-/// - Author: Toni K. Turk
-///
-/// In mathematics, particularly matrix theory, a band matrix is a sparse matrix whose non-zero entries are
-/// confined to a diagonal band, comprising the main diagonal and zero or more diagonals on either side.
-///
+/**
+ # Band Matrix
+ 
+ In mathematics, particularly matrix theory, a band matrix is a sparse matrix whose non-zero entries are
+ confined to a diagonal band, comprising the main diagonal and zero or more diagonals on either side.
+ 
+ It is a **square** matrix.
+ */
 public struct BandMatrix<T: Mathable>: BandMatrixProtocol {
   public typealias Value = T
   
-  // upper matrix contains diagonal elements!
+  /// upper matrix contains diagonal elements!
   var upper: UpperBandMatrix<T>
   var lower: LowerBandMatrix<T>
-  
-  /// Initialize a new **Band** matrix with specified size.
-  ///
-  /// - Parameter width: number of sub-diagonals with non-zero elements.
-  ///                      - if width = 0 this is **diagonal** matrix
-  ///                      - if width = 1 this is **tridiagonal** matrix
-  ///                      - ...
-  ///
-  /// - Parameter height: height of the matrix
-  ///
-  public init(bandwidth: Int, height: Int) {
-    upper = .init(bandwidth: bandwidth + 1, height: height)
-    lower = .init(bandwidth: bandwidth, height: height - 1)
+
+  /**
+   Initialize a new **Band** matrix.
+   
+   - Parameters:
+       - k: A factor representing number of diagonals with non-zero elements computed as `2 * k + 1`. For instance,
+   when k = 0 this is a **diagonal** (`2 * 0 + 1 = 1`);
+   when bandwitdh = 1 this is a **tridiagonal** matrix, and so on ...
+       - size: Size of the matrix.
+   */
+  public init(k: Int, size: Int) {
+    assert(k >= 0)
+    upper = .init(bandwidth: k + 1, size: size)
+    lower = .init(bandwidth: k, size: size - 1)
   }
+
+  /**
+   Initialize a new **Band** matrix from the given `elements`.
+   
+   The first and the lest vector in `elements` should have at least one item less
+   than vectors in the middle, except when this is a diagonal matrix - all vectors must have size one.
+   
+   Example:
   
-  /// Initialize a new **Band** matrix from the given `elements`
-  ///
-  /// - Parameter elements: the `count` of elements specifies the height of this matrix
-  ///
-  ///
-  /// - Example: 1> BandMatrix(elemenets: [[1], [2], [3]]) creates matrix:
-  /// [[1, 0, 0],
-  ///  [0, 2, 0],
-  ///  [0, 0, 3]]
-  ///
-  /// - Example: 1> BandMatrix(elemenets: [[1, 2], [3, 4, 5], [6, 7]]) creates matrix:
-  /// [[1, 2, 0],
-  ///  [3, 4, 5],
-  ///  [0, 6, 7]]
-  ///
-  public init(arrayLiteral elements: Vector<Value>...) {
-    self.init(arrayLiteral: elements)
-  }
-  
+       let matrix: BandMatrix = [[1], [2], [3]])
+       print(matrix)
+       [[1, 0, 0],
+        [0, 2, 0],
+        [0, 0, 3]]
+   
+   Example:
+   
+       let matrix: BandMatrix = [[1, 2], [3, 4, 5], [6, 7]]
+       [[1, 2, 0],
+        [3, 4, 5],
+        [0, 6, 7]]
+   
+   - Parameter elements: A list of vectors containing values from which this matrix will be initialized.
+   */
   public init(arrayLiteral elements: [Vector<Value>]) {
     func calculateBandwith(_ count: Int) -> Int {
       count == 1 ? 0 : Int(floor(Double(count) / 2))
     }
     
-//    func requiredNumberOfElements(in row: Int, k: Int, n: Int) -> Int {
-//      let halfSize = Int(floor(Double(n) / 2)) - (n % 2 == 0 ? 1 : 0)
-//      let x = halfSize - row
-//      return Swift.max(1, (k * 2 + 1) - x * (x < 0 ? -1 : 1))
-//    }
-    
     let bandwidth = calculateBandwith(elements.map { $0.count }.max(by: <)!)
-    
-//    for (i, vec) in elements.enumerated() {
-//      let required = requiredNumberOfElements(in: i, k: bandwidth, n: elements.count)
-//      print(required)
-//      if vec.count != required {
-//        requiredNumberOfElements(in: i, k: bandwidth, n: elements.count)
-//      }
-//      assert(vec.count == requiredNumberOfElements(in: i, k: k, n: elements.count))
-//    }
-
-    self.init(bandwidth: bandwidth, height: elements.count)
+   
+    self.init(k: bandwidth, size: elements.count)
     for i in 0..<height {
       let offset = Swift.max(0, (height - bandwidth - (height - i)))
       for (j, el) in elements[i].enumerated() {
@@ -90,17 +82,33 @@ public struct BandMatrix<T: Mathable>: BandMatrixProtocol {
       }
     }
   }
+  
+  public init(arrayLiteral elements: Vector<Value>...) {
+    self.init(arrayLiteral: elements)
+  }
 }
 
-// MARK: - API
+// MARK: - Public API
 public extension BandMatrix {
+  /// Width of the matrix (same as `height`).
   var width: Int { upper.height }
+  
+  /// Height of the matrix.
   var height: Int { upper.height }
   
-  // number of non-zero diagonals
+  /// Number of non-zero diagonals.
   var bandwidth: Int { upper.bandwidth + lower.bandwidth }
   
-  var isDiagonalyDominant: Bool {
+  /**
+   Check if this matrix is _diagonally dominant_.
+   
+   A (square matrix) is said to be diagonally dominant if, for every row of the matrix, the magnitude
+   of the diagonal entry in a row is larger than or equal to the sum of the magnitudes of all the other
+   (non-diagonal) entries in that row.
+   
+   - Returns: `true` if matrix is diagonally dominant, `false` otherwise.
+   */
+  var isDiagonallyDominant: Bool {
     guard bandwidth > 1 else { return true }
     for i in 0..<height {
       var sum: Value = 0
@@ -113,6 +121,26 @@ public extension BandMatrix {
     return true
   }
   
+  /**
+   Accesses the element at the index (i, j).
+   This is equivalent as subscripting first at index `ì` an then `j`.
+   Both `i` and `j` must be valid indices otherwise the program will crash!
+   
+   Example:
+   
+        let matrix: BandMatrix = [[1], [2], [3]])
+        print(matrix)
+          [[1, 0, 0],
+           [0, 2, 0],
+           [0, 0, 3]]
+        print(matrix[0, 0] // 1
+        print(matrix[0, 1] // 0
+        print(matrix[1, 0] // 0
+   
+   - Parameter:
+       - i: Vertical offset (y-coordinate).
+       - j: Horizontal offset (x-coordinate).
+   */
   subscript(_ i: Int, _ j: Int) -> T {
     get {
       if i > j {
@@ -129,17 +157,52 @@ public extension BandMatrix {
     }
   }
   
+  /**
+   Compute `identity` matrix with the given size.
+   
+   An identity matrix of size n is the n × n square matrix with ones on the main diagonal and zeros elsewhere.
+   
+   - Parameter size: Size of the matrix.
+   
+   - Returns: Identity matrix of the given size.
+   */
   static func identity(_ size: Int) -> Self {
-    var matrix = BandMatrix(bandwidth: 0, height: size)
-    for i in 0..<size {
-      matrix[i, i] = 1
-    }
-    return matrix
+    .init(arrayLiteral: .init(repeating: [1], count: size))
+  }
+  
+  /**
+   Compute a vector containing all elements from a non-zero diagonal, distanced `abs(index)`
+   from the main diagonal.
+   
+   - Parameter index: Index of the diagonal of interest.
+   
+   - Returns: A vector containing elements from the inquired diagonal. If `index == 0`, then
+   the result is the main diagonal. If `index < 0`, then the result is the diagonal `abs(index)`
+   below from the main diagonal. If `index > 0`, then the result is the diagonal `index` above
+   the main diagonal.
+   */
+  func band(at index: Int) -> Vector<T> {
+    assert(abs(index) < bandwidth)
+    let size = width - abs(index)
+    let i = index < 0 ? 1 : 0
+    let j = index > 0 ? 1 : 0
+    return (0..<size).map { self[i + $0, j + $0] }
   }
 }
 
 // MARK: - Equatable
 extension BandMatrix: Equatable {
+  /**
+  Compare two matrices for equality.
+  
+  Matrices are equal when their shapes are equal and all their elements match.
+  
+  - Parameters:
+      - lhs: First matrix.
+      - rhs: Second matrix.
+  
+  - Returns: `true` if matrices are equal, `false` otherwise.
+  */
   public static func == (lhs: Self, rhs: Self) -> Bool {
     lhs.upper == rhs.upper && lhs.lower == rhs.lower
   }
@@ -175,18 +238,72 @@ extension BandMatrix: CustomStringConvertible where T: LosslessStringConvertible
 
 var BM_ITERATIONS_COUNT = 0 // for testing purposes
 
+/**
+ An optimized overload of the matrix-vector multiplication taking advantage of the fact
+ that this is a sparse matrix.
+ 
+ For a detailed explanation of matrix-vector multiplication refer to
+ `public func *<M: MatrixProtocol>(_ A: M, _ x: M.Vector) -> M.Vector`
+ overload inside `MatrixProtocol.swift`.
+ 
+ - Parameters:
+     - A: A matrix.
+     - x: A vector.
+ 
+ - Returns: A vector whose elements are computed as a `dot` product of each row inside `A` with `x`.
+*/
 public func *<T: Mathable>(_ lhs: BandMatrix<T>, _ rhs: Vector<T>) -> Vector<T> {
   lhs.multiplty(with: rhs)
 }
 
-public func !/<T: Mathable>(_ lhs: Vector<T>, _ rhs: BandMatrix<T>) -> Vector<T> {
-  rhs.leftDivision(with: lhs)
+/**
+ # Linear system of equations.
+
+ Solve equation of form Ax = b where A is a matrix of coefficients of the system and b are the constant terms.
+ 
+ Example:
+ 
+     let A: BandMatrix = [
+       [3, 2],
+       [-4, 7, 8],
+       [4, 13, 1],
+       [5, 15]
+     ]
+     let b: Vector = [1, 2, 3, 4]
+     print(y !/ A) // [0.1833, 0.2251, 0.1447, 0.2184]
+ 
+ - Parameters:
+     - b: Vector containing constant terms.
+     - A: Matrix containing coefficients of the system.
+
+ - Returns: A vector `x` containing a solution (if it exists), such that Ax = b.
+*/
+public func !/<T: Mathable>(_ b: Vector<T>, _ A: BandMatrix<T>) -> Vector<T> {
+  A.leftDivision(with: b)
 }
 
+/**
+ #LU decomposition
+ 
+ In numerical analysis and linear algebra, lower–upper (LU) decomposition or factorization factors a matrix
+ as the product of a lower triangular matrix and an upper triangular matrix.
+ LU decomposition can be viewed as the matrix form of Gaussian elimination. Square systems of linear equations are
+ usually solved using LU decomposition by computers.
+ 
+ - Parameter matrix: A matrix.
+ 
+ - Returns: A tuple containing lower-triangular and upper-triangular matrix, such that A = LU.
+ */
 public func LUDecomposition<T: Mathable>(_ matrix: BandMatrix<T>) -> (L: LowerBandMatrix<T>, U: UpperBandMatrix<T>) {
   matrix.LUDecomposition()
 }
 
+/// --------
+
+/// Hidden implementation details.
+
+/// This are optimized versions of the algorithms, taking advantage of the fact
+/// that Band Matrix is a sparse matrix.
 extension BandMatrix {
   func multiplty(with rhs: Vector<Value>) -> Vector<Value> {
     assert(height == rhs.count)
@@ -209,13 +326,8 @@ extension BandMatrix {
     let ub = upper.bandwidth
     
     var upper = self.upper
-    var lower = LowerBandMatrix<Value>(bandwidth: lb + 1, height: n)
-    for i in 0..<n {
-      for j in Swift.max(0, i - lb)...i {
-        if i == j { lower[i, j] = 1; continue }
-        lower[i, j] = self.lower[i - 1, j]
-      }
-    }
+    let lowerVectors: [Vector] = (0..<lb).map(self.lower.band)
+    var lower = LowerBandMatrix<Value>(arrayLiteral: [.ones(n)] + lowerVectors)
     
     func valueAt(_ i: Int, _ j: Int) -> Value {
       if i > j {

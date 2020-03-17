@@ -114,11 +114,11 @@ class UpperBandMatrixTests: XCTestCase {
   }
   
   func testIsDiagonalyDominant() {
-    XCTAssertTrue(UpperBandMatrix(arrayLiteral: [[1, 1, 1, 1]]).isDiagonalyDominant)
-    XCTAssertTrue(UpperBandMatrix(arrayLiteral: [[2, 2, 2, 2], [1, 1, 1]]).isDiagonalyDominant)
-    XCTAssertTrue(UpperBandMatrix(arrayLiteral: [[3, 3, 3, 3], [2, 2, 2], [1, 1]]).isDiagonalyDominant)
-    XCTAssertFalse(UpperBandMatrix(arrayLiteral: [[1, 1, 1, 1], [2, 2, 2]]).isDiagonalyDominant)
-    XCTAssertFalse(UpperBandMatrix(arrayLiteral: [[2, 2, 2, 2], [2, 2, 2], [1, 1]]).isDiagonalyDominant)
+    XCTAssertTrue(UpperBandMatrix(arrayLiteral: [[1, 1, 1, 1]]).isDiagonallyDominant)
+    XCTAssertTrue(UpperBandMatrix(arrayLiteral: [[2, 2, 2, 2], [1, 1, 1]]).isDiagonallyDominant)
+    XCTAssertTrue(UpperBandMatrix(arrayLiteral: [[3, 3, 3, 3], [2, 2, 2], [1, 1]]).isDiagonallyDominant)
+    XCTAssertFalse(UpperBandMatrix(arrayLiteral: [[1, 1, 1, 1], [2, 2, 2]]).isDiagonallyDominant)
+    XCTAssertFalse(UpperBandMatrix(arrayLiteral: [[2, 2, 2, 2], [2, 2, 2], [1, 1]]).isDiagonallyDominant)
   }
   
   func testCopyOnWrite() {

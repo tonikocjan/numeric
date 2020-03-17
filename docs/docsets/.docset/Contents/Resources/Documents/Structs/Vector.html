@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Vector Structure Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Struct/Vector" class="dashAnchor"></a>
+    <a title="Vector Structure Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (89% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        Vector Structure Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/Collection.html">Collection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Zip2Sequence.html">Zip2Sequence</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:7SwifyPy2ndoiyAA6VectorVy5ValueQzGAG_xtAA14MatrixProtocolRzlF">!/(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:7SwifyPy2ndoiyAA6VectorVyxGAE_AA10BandMatrixVyxGtSFRzlF">!/(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:7SwifyPy1moiyAA6MatrixVy5ValueAA0C8ProtocolPQzGx_xtAaFRzAA12TransposableRzlF">*(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:7SwifyPy1moiyAA6MatrixVy5ValueQzGx_xtAA0C8ProtocolRzlF">*(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:7SwifyPy1moiyAA6VectorVy5ValueQzGx_AGtAA14MatrixProtocolRzlF">*(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:7SwifyPy1moiyAA6VectorVyxGAA10BandMatrixVyxG_AEtSFRzlF">*(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:7SwifyPy1moiyAA6VectorVyxGAA15LowerBandMatrixVyxG_AEtSFRzlF">*(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:7SwifyPy1moiyAA6VectorVyxGAA15UpperBandMatrixVyxG_AEtSFRzlF">*(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:7SwifyPy1moiyAA6VectorVyxGAE_AEtSFRzlF">*(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:7SwifyPy1moiyAA6VectorVyxGAE_xtSFRzlF">*(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:7SwifyPy1moiyAA6VectorVyxGx_AEtSFRzlF">*(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:7SwifyPy1moiyx5ValueQz_xtAA14MatrixProtocolRzlF">*(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:7SwifyPy1moiyxx_5ValueQztAA14MatrixProtocolRzlF">*(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:7SwifyPy1poiyAA6VectorVyxGAE_AEtSFRzlF">+(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:7SwifyPy1poiyAA6VectorVyxGAE_xtSFRzlF">+(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:7SwifyPy1poiyAA6VectorVyxGx_AEtSFRzlF">+(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:7SwifyPy1poiyx5ValueQz_xtAA14MatrixProtocolRzlF">+(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:7SwifyPy1poiyxx_5ValueQztAA14MatrixProtocolRzlF">+(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:7SwifyPy1poiyxx_xtAA14MatrixProtocolRzlF">+(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:7SwifyPy1soiyAA6VectorVyxGAE_AEtSFRzlF">-(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:7SwifyPy1soiyAA6VectorVyxGAE_xtSFRzlF">-(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:7SwifyPy1soiyAA6VectorVyxGx_AEtSFRzlF">-(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:7SwifyPy1soiyx5ValueQz_xtAA14MatrixProtocolRzlF">-(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:7SwifyPy1soiyxx_5ValueQztAA14MatrixProtocolRzlF">-(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:7SwifyPy1soiyxx_xtAA14MatrixProtocolRzlF">-(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:7SwifyPy1doiyAA6VectorVyxGAE_AEtSFRzlF">/(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:7SwifyPy1doiyAA6VectorVyxGAE_xtSFRzlF">/(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:7SwifyPy1doiyAA6VectorVyxGx_AEtSFRzlF">/(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:7SwifyPy1doiyx5ValueQz_xtAA14MatrixProtocolRzlF">/(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:7SwifyPy1doiyxx_5ValueQztAA14MatrixProtocolRzlF">/(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:7SwifyPy2eeoiySbx_q_tAA14MatrixProtocolRzAaCR_5ValueQy_ADRtzr0_lF">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:7SwifyPy15LUDecompositionyAA15LowerBandMatrixVyxG1L_AA05UppereF0VyxG1UtAA0eF0VyxGSFRzlF">LUDecomposition(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:7SwifyPy3cosyAA6VectorVyxGAESBRzlF">cos(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:7SwifyPy3logyAA6VectorVyxGAESBRzlF">log(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:7SwifyPy4log2yAA6VectorVyxGAESBRzlF">log2(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:7SwifyPy3sinyAA6VectorVyxGAESBRzlF">sin(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:7SwifyPy4sqrtyAA6VectorVyxGAESBRzlF">sqrt(_:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/BandMatrixProtocol.html">BandMatrixProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/MatrixProtocol.html">MatrixProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/Transposable.html">Transposable</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/BandMatrix.html">BandMatrix</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/LowerBandMatrix.html">LowerBandMatrix</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Matrix.html">Matrix</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/UpperBandMatrix.html">UpperBandMatrix</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Vector.html">Vector</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:7SwifyPy8Mathablea">Mathable</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>Vector</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Vector</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt">ExpressibleByArrayLiteral</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">FloatingPoint</span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">Vector</span><span class="p">:</span> <span class="kt">Equatable</span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">Vector</span><span class="p">:</span> <span class="kt">BidirectionalCollection</span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">Vector</span><span class="p">:</span> <span class="kt">CustomDebugStringConvertible</span> <span class="k">where</span> <span class="kt">T</span><span class="p">:</span> <span class="kt">LosslessStringConvertible</span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">Vector</span><span class="p">:</span> <span class="kt">CustomStringConvertible</span> <span class="k">where</span> <span class="kt">T</span><span class="p">:</span> <span class="kt">LosslessStringConvertible</span></code></pre>
+
+                </div>
+              </div>
+            <h1 id='vector' class='heading'>Vector</h1>
+
+<p>A vector is a list of numbers.</p>
+
+<p>There are (at least) two ways to interpret what this list of numbers mean:</p>
+
+<ol>
+<li><p>One way to think of the vector as being a point in a space.
+Then this list of numbers is a way of identifying that point in space,
+where each number represents the vector’s component that
+dimension.</p></li>
+<li><p>Another way to think of a vector is a magnitude and a direction, e.g. a
+quantity like velocity. In this way of a vector is a directed arrow pointing
+from the origin to the end point given by the list ofnumbers.</p></li>
+</ol>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7SwifyPy6VectorVACyxGycfc"></a>
+                    <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7SwifyPy6VectorVACyxGycfc">init()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initialize a new vector with zero elements.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A new vector with zero elements.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7SwifyPy6VectorV4sizeACyxGSi_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(size:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7SwifyPy6VectorV4sizeACyxGSi_tcfc">init(size:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initialize a new vector with provided number of elements. The components of the new vector don&rsquo;t have a default value,
+i.e, they are <em>random</em>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">size</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>size</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Size (number of elements) of new vector.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A new vector with the provided number of elements whose values are not initialized.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7SwifyPy6VectorV12arrayLiteralACyxGxd_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(arrayLiteral:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7SwifyPy6VectorV12arrayLiteralACyxGxd_tcfc">init(arrayLiteral:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initialize a new vector number of elements will match the number of elements in the provided list.
+The elements of the vector will be initialized to the values inside <code>elements</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">arrayLiteral</span> <span class="nv">elements</span><span class="p">:</span> <span class="kt">T</span><span class="o">...</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>elements</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A list containing values.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A new vector containing values from the <code>arrayLiteral</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7SwifyPy6VectorV12arrayLiteralACyxGSayxG_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(arrayLiteral:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7SwifyPy6VectorV12arrayLiteralACyxGSayxG_tcfc">init(arrayLiteral:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initialize a new vector number of elements will match the number of elements in the provided list.
+The elements of the vector will be initialized to the values inside <code>elements</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">arrayLiteral</span> <span class="nv">elements</span><span class="p">:</span> <span class="p">[</span><span class="kt">T</span><span class="p">])</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>elements</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A list containing values.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A new vector containing values from the <code>arrayLiteral</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Public%20API"></a>
+                <a name="//apple_ref/swift/Section/Public API" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Public%20API"></a>
+                  <h3 class="section-name"><p>Public API</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7SwifyPy6VectorV3sumxvp"></a>
+                    <a name="//apple_ref/swift/Property/sum" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7SwifyPy6VectorV3sumxvp">sum</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sums the values inside this vector.</p>
+
+<p>For instance:</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">v</span><span class="p">:</span> <span class="kt">Vector</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">v</span><span class="o">.</span><span class="n">sum</span> <span class="c1">// 6</span>
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">sum</span><span class="p">:</span> <span class="kt">T</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7SwifyPy6VectorV3avgxvp"></a>
+                    <a name="//apple_ref/swift/Property/avg" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7SwifyPy6VectorV3avgxvp">avg</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Average value of this vector.</p>
+
+<p>Average is equivalent to sum divided by number of elements.</p>
+
+<p>For instance:</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">v</span><span class="p">:</span> <span class="kt">Vector</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">v</span><span class="o">.</span><span class="n">avg</span> <span class="c1">// 2</span>
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">avg</span><span class="p">:</span> <span class="kt">T</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7SwifyPy6VectorV9magnitudexvp"></a>
+                    <a name="//apple_ref/swift/Property/magnitude" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7SwifyPy6VectorV9magnitudexvp">magnitude</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Length (or magnitude) of this vector.</p>
+
+<p>The <code>magnitude</code> of a vector is the distance from the endpoint of the vector to the origin.</p>
+
+<p>For instance:</p>
+<pre class="highlight swift"><code> <span class="k">let</span> <span class="nv">v</span><span class="p">:</span> <span class="kt">Vector</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+ <span class="n">v</span><span class="o">.</span><span class="n">len</span> <span class="c1">// sqrt(4 * 4 + 3 * 3) = 5</span>
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">magnitude</span><span class="p">:</span> <span class="kt">T</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7SwifyPy6VectorV4unitACyxGvp"></a>
+                    <a name="//apple_ref/swift/Property/unit" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7SwifyPy6VectorV4unitACyxGvp">unit</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Compute a <code>unit</code> vector from this vector.</p>
+
+<p>A unit vector is a vector of length 1, sometimes also called a direction vector.</p>
+
+<p>For instance:</p>
+<pre class="highlight swift"><code> <span class="k">let</span> <span class="nv">v</span><span class="p">:</span> <span class="kt">Vector</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+ <span class="n">v</span><span class="o">.</span><span class="n">unit</span> <span class="c1">// [4 / 5, 3 / 5]</span>
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">unit</span><span class="p">:</span> <span class="kt">Vector</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7SwifyPy6VectorV9repeating_5valueACyxGSi_xtFZ"></a>
+                    <a name="//apple_ref/swift/Method/repeating(_:value:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7SwifyPy6VectorV9repeating_5valueACyxGSi_xtFZ">repeating(_:value:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a new vector with the given number of elements initialized to a provided value.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">repeating</span><span class="p">(</span><span class="n">_</span> <span class="nv">count</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Vector</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>count</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Number of elements in new vector.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A new vector of desired size with elements initialized to a default value.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7SwifyPy6VectorV5zerosyACyxGSiFZ"></a>
+                    <a name="//apple_ref/swift/Method/zeros(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7SwifyPy6VectorV5zerosyACyxGSiFZ">zeros(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a new vector with the given number of elements initialized to zero.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">zeros</span><span class="p">(</span><span class="n">_</span> <span class="nv">count</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Vector</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>count</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Number of elements in new vector.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A new vector of desired size with elements initialized to zero.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7SwifyPy6VectorV4onesyACyxGSiFZ"></a>
+                    <a name="//apple_ref/swift/Method/ones(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7SwifyPy6VectorV4onesyACyxGSiFZ">ones(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a new vector with the given number of elements initialized to one.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">ones</span><span class="p">(</span><span class="n">_</span> <span class="nv">count</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Vector</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>count</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Number of elements in new vector.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A new vector of desired size with elements initialized to one.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7SwifyPy6VectorV3dotyxACyxGF"></a>
+                    <a name="//apple_ref/swift/Method/dot(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7SwifyPy6VectorV3dotyxACyxGF">dot(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Compute the <code>dot</code> product of this vector with some other vector.</p>
+
+<p>Algebraically, the dot product is the sum of the products of the corresponding entries of the two vectors.</p>
+
+<p>The number of elements of both vectors must match.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">dot</span><span class="p">(</span><span class="n">_</span> <span class="nv">v</span><span class="p">:</span> <span class="kt">Vector</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">T</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>v</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The other vector.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The dot product of both vectors.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Equatable"></a>
+                <a name="//apple_ref/swift/Section/Equatable" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Equatable"></a>
+                  <h3 class="section-name"><p>Equatable</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7SwifyPy6VectorV2eeoiySbACyxG_AEtFZ"></a>
+                    <a name="//apple_ref/swift/Method/==(_:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7SwifyPy6VectorV2eeoiySbACyxG_AEtFZ">==(_:_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Compares two vectors for equality.</p>
+
+<p>Two vectors are equal when they have the same number of elements and their elements match component-wise.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="o">==</span> <span class="p">(</span><span class="nv">lhs</span><span class="p">:</span> <span class="err">`</span><span class="k">Self</span><span class="err">`</span><span class="p">,</span> <span class="nv">rhs</span><span class="p">:</span> <span class="err">`</span><span class="k">Self</span><span class="err">`</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>lhs</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>First vector.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>rhs</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Second vector.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>true</code> if vectors are equal, <code>false</code> otherwise.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/BidirectionalCollection"></a>
+                <a name="//apple_ref/swift/Section/BidirectionalCollection" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/BidirectionalCollection"></a>
+                  <h3 class="section-name"><p>BidirectionalCollection</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:SK5index5after5IndexQzAD_tF"></a>
+                    <a name="//apple_ref/swift/Method/index(after:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:SK5index5after5IndexQzAD_tF">index(after:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">index</span><span class="p">(</span><span class="n">after</span> <span class="nv">i</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:SK5index6before5IndexQzAD_tF"></a>
+                    <a name="//apple_ref/swift/Method/index(before:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:SK5index6before5IndexQzAD_tF">index(before:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">index</span><span class="p">(</span><span class="n">before</span> <span class="nv">i</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:Sl10startIndex0B0Qzvp"></a>
+                    <a name="//apple_ref/swift/Property/startIndex" class="dashAnchor"></a>
+                    <a class="token" href="#/s:Sl10startIndex0B0Qzvp">startIndex</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">startIndex</span><span class="p">:</span> <span class="kt">Int</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:Sl8endIndex0B0Qzvp"></a>
+                    <a name="//apple_ref/swift/Property/endIndex" class="dashAnchor"></a>
+                    <a class="token" href="#/s:Sl8endIndex0B0Qzvp">endIndex</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">endIndex</span><span class="p">:</span> <span class="kt">Int</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7SwifyPy6VectorVyxSicip"></a>
+                    <a name="//apple_ref/swift/Method/subscript(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7SwifyPy6VectorVyxSicip">subscript(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Access the element at the specified position.</p>
+
+<p>You can subscript a vector with any valid index which is greater or equal to zero
+and less than <code>count</code>. If the index is outside this range, the program will crash!</p>
+
+<p>For instance:</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">vector</span><span class="p">:</span> <span class="kt">Vector</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">vector</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="c1">// 1</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">vector</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="c1">// 3</span>
+<span class="c1">// print(vector[3]) - error, `3` not valid index</span>
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">subscript</span><span class="p">(</span><span class="nv">i</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">T</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>position</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The position of the element to access.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Available%20where%20%60T%60:%20%60LosslessStringConvertible%60"></a>
+                <a name="//apple_ref/swift/Section/Available where `T`: `LosslessStringConvertible`" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Available%20where%20%60T%60:%20%60LosslessStringConvertible%60"></a>
+                  <h3 class="section-name"><p>Available where <code>T</code>: <code>LosslessStringConvertible</code></p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:s28CustomDebugStringConvertibleP16debugDescriptionSSvp"></a>
+                    <a name="//apple_ref/swift/Property/debugDescription" class="dashAnchor"></a>
+                    <a class="token" href="#/s:s28CustomDebugStringConvertibleP16debugDescriptionSSvp">debugDescription</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">debugDescription</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:s23CustomStringConvertibleP11descriptionSSvp"></a>
+                    <a name="//apple_ref/swift/Property/description" class="dashAnchor"></a>
+                    <a class="token" href="#/s:s23CustomStringConvertibleP11descriptionSSvp">description</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">description</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2020 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2020-03-17)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

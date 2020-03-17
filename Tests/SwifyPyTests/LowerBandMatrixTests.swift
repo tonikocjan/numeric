@@ -115,11 +115,11 @@ class LowerBandMatrixTests: XCTestCase {
   }
   
   func testIsDiagonalyDominant() {
-    XCTAssertTrue(LowerBandMatrix(arrayLiteral: [[1, 1, 1, 1]]).isDiagonalyDominant)
-    XCTAssertTrue(LowerBandMatrix(arrayLiteral: [[2, 2, 2, 2], [1, 1, 1]]).isDiagonalyDominant)
-    XCTAssertTrue(LowerBandMatrix(arrayLiteral: [[3, 3, 3, 3], [2, 2, 2], [1, 1]]).isDiagonalyDominant)
-    XCTAssertFalse(LowerBandMatrix(arrayLiteral: [[1, 1, 1, 1], [2, 2, 2]]).isDiagonalyDominant)
-    XCTAssertFalse(LowerBandMatrix(arrayLiteral: [[2, 2, 2, 2], [2, 2, 2], [1, 1]]).isDiagonalyDominant)
+    XCTAssertTrue(LowerBandMatrix(arrayLiteral: [[1, 1, 1, 1]]).isDiagonallyDominant)
+    XCTAssertTrue(LowerBandMatrix(arrayLiteral: [[2, 2, 2, 2], [1, 1, 1]]).isDiagonallyDominant)
+    XCTAssertTrue(LowerBandMatrix(arrayLiteral: [[3, 3, 3, 3], [2, 2, 2], [1, 1]]).isDiagonallyDominant)
+    XCTAssertFalse(LowerBandMatrix(arrayLiteral: [[1, 1, 1, 1], [2, 2, 2]]).isDiagonallyDominant)
+    XCTAssertFalse(LowerBandMatrix(arrayLiteral: [[2, 2, 2, 2], [2, 2, 2], [1, 1]]).isDiagonallyDominant)
   }
   func testCopyOnWrite() {
     let matrix: LowerBandMatrix = [
