@@ -86,6 +86,41 @@ public struct BandMatrix<T: Mathable>: BandMatrixProtocol {
   public init(arrayLiteral elements: Vector<Value>...) {
     self.init(arrayLiteral: elements)
   }
+  
+  /**
+   
+   */
+  public init(size: Int, diagonals: [Int: Vector<Value>]) {
+    let ub = diagonals.max { $0.key < $1.key }!.key + 1
+    let lb = -diagonals.min { $0.key < $1.key }!.key
+    
+    var upperDiagonals: [Vector<Value>] = []
+    for i in 0..<ub {
+      if let diag = diagonals[i] {
+        assert(diag.count == size - i)
+        upperDiagonals.append(diag)
+      } else {
+        upperDiagonals.append(.zeros(size - i))
+      }
+    }
+    
+    upper = .init(arrayLiteral: upperDiagonals)
+    
+    if lb > 0 {
+      var lowerDiagonals: [Vector<Value>] = []
+      for i in 1...lb {
+        if let diag = diagonals[-i] {
+          assert(diag.count == size - i)
+          lowerDiagonals.append(diag)
+        } else {
+          lowerDiagonals.append(.zeros(size - i))
+        }
+      }
+      lower = .init(arrayLiteral: lowerDiagonals)
+    } else {
+      lower = .init(bandwidth: 0, size: size - 1)
+    }
+  }
 }
 
 // MARK: - Public API

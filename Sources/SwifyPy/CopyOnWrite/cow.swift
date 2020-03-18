@@ -101,6 +101,10 @@ class COWStorage<Pointee, T> {
       self.buffer.advanced(by: i).initialize(to: other[i])
     }
   }
+  
+  deinit {
+    buffer.deallocate()
+  }
 }
 
 // MARK: - Collection

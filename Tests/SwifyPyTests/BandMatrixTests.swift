@@ -254,6 +254,53 @@ extension BandMatrixTests {
   }
 }
 
+// MARK: - Diagonal initialization tests
+extension BandMatrixTests {
+  func testDiagonalInit1() {
+    XCTAssertTrue(.identity(9) == BandMatrix<Double>(size: 9, diagonals: [0: .ones(9)]))
+  }
+  
+  func testDiagonalInit2() {
+    let m = BandMatrix<Double>(size: 9,
+                               diagonals: [0: .ones(9),
+                                           1: .ones(8),
+                                           -1: .ones(8)])
+    let expected: Matrix = [
+      [1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+      [1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+      [0.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+      [0.0, 0.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0],
+      [0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0],
+      [0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 0.0, 0.0],
+      [0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 0.0],
+      [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0],
+      [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0]
+    ]
+    XCTAssertTrue(expected == m)
+  }
+  
+  func testDiagonalInit3() {
+    let m = BandMatrix<Double>(size: 9,
+                               diagonals: [0: .ones(9),
+                                           1: .ones(8),
+                                           -1: .ones(8),
+                                           3: .ones(6),
+                                           -3: .ones(6)])
+    let expected: Matrix = [
+      [1.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+      [1.0, 1.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0],
+      [0.0, 1.0, 1.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0],
+      [1.0, 0.0, 1.0, 1.0, 1.0, 0.0, 1.0, 0.0, 0.0],
+      [0.0, 1.0, 0.0, 1.0, 1.0, 1.0, 0.0, 1.0, 0.0],
+      [0.0, 0.0, 1.0, 0.0, 1.0, 1.0, 1.0, 0.0, 1.0],
+      [0.0, 0.0, 0.0, 1.0, 0.0, 1.0, 1.0, 1.0, 0.0],
+      [0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 1.0, 1.0, 1.0],
+      [0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 1.0, 1.0]
+    ]
+    XCTAssertTrue(expected == m)
+  }
+}
+
 // MARK: - Linear Equations tests
 extension BandMatrixTests {
   func testLinearEquations1() {

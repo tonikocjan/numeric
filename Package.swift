@@ -4,23 +4,24 @@
 import PackageDescription
 
 let package = Package(
-    name: "SwifyPy",
-    products: [
-        .library(
-            name: "SwifyPy",
-            targets: ["SwifyPy"]),
-    ],
-    dependencies: [
-    ],
-    targets: [
-        .target(
-            name: "SwifyPy",
-            dependencies: []),
-        .target(
-          name: "SwifyPyRun",
-          dependencies: ["SwifyPy"]),
-        .testTarget(
-            name: "SwifyPyTests",
-            dependencies: ["SwifyPy"]),
-    ]
+  name: "SwifyPy",
+  products: [
+    .library(
+      name: "SwifyPy",
+      targets: ["SwifyPy"]),
+  ],
+  dependencies: [
+    .package(url: "https://github.com/pvieito/PythonKit.git", .branch("master")),
+  ],
+  targets: [
+    .target(
+      name: "SwifyPy",
+      dependencies: ["PythonKit"]),
+    .target(
+      name: "SwifyPyRun",
+      dependencies: ["SwifyPy", "PythonKit"]),
+    .testTarget(
+      name: "SwifyPyTests",
+      dependencies: ["SwifyPy"]),
+  ]
 )

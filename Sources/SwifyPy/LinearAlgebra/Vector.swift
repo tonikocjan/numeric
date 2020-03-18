@@ -286,6 +286,11 @@ public func /<T: Mathable>(_ num: T, _ v: Vector<T>) -> Vector<T> {
   v.map { num / $0 }
 }
 
+/// Divide a constant with every element of the vector.
+public prefix func -<T: Mathable>(_ v: Vector<T>) -> Vector<T> {
+  -1 * v
+}
+
 /// Element-wise vector addition.
 public func +<T: Mathable>(_ v1: Vector<T>, _ v2: Vector<T>) -> Vector<T> {
   assert(v1.count == v2.count)
