@@ -29,13 +29,6 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/tonikocjan/swift/Numeric/Sources/SwifyPy/LinearAlgebra/LowerBandMatrix.swift",
-      "line": 170,
-      "symbol": "LowerBandMatrix.band(at:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/tonikocjan/swift/Numeric/Sources/SwifyPy/LinearAlgebra/Protocols/MatrixProtocol.swift",
       "line": 11,
       "symbol": "Mathable",
@@ -130,13 +123,6 @@
       "file": "/Users/tonikocjan/swift/Numeric/Sources/SwifyPy/LinearAlgebra/Protocols/Transposable.swift",
       "line": 57,
       "symbol": "MatrixProtocol.columnReduce(_:nextPartialResult:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/tonikocjan/swift/Numeric/Sources/SwifyPy/LinearAlgebra/UpperBandMatrix.swift",
-      "line": 182,
-      "symbol": "UpperBandMatrix.band(at:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },

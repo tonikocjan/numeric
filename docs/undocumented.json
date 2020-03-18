@@ -1,143 +1,122 @@
 {
   "warnings": [
     {
-      "file": "/Users/tonikocjan/swift/Numeric/Sources/SwifyPy/LinearAlgebra/BandMatrix.swift",
-      "line": 11,
-      "symbol": "BandMatrixProtocol",
-      "symbol_kind": "source.lang.swift.decl.protocol",
+      "file": "/Users/tonikocjan/swift/Numeric/.build/checkouts/PythonKit/PythonKit/NumpyConversion.swift",
+      "line": 27,
+      "symbol": "ConvertibleFromNumpyArray.init(numpy:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/tonikocjan/swift/Numeric/Sources/SwifyPy/LinearAlgebra/BandMatrix.swift",
-      "line": 12,
-      "symbol": "BandMatrixProtocol.bandwidth",
+      "file": "/Users/tonikocjan/swift/Numeric/.build/checkouts/PythonKit/PythonKit/Python.swift",
+      "line": 425,
+      "symbol": "CheckingPythonObject.subscript(dynamicMember:)",
+      "symbol_kind": "source.lang.swift.decl.function.subscript",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tonikocjan/swift/Numeric/.build/checkouts/PythonKit/PythonKit/Python.swift",
+      "line": 530,
+      "symbol": "PythonObject.subscript(dynamicMember:)",
+      "symbol_kind": "source.lang.swift.decl.function.subscript",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tonikocjan/swift/Numeric/.build/checkouts/PythonKit/PythonKit/Python.swift",
+      "line": 669,
+      "symbol": "PythonInterface.attemptImport(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tonikocjan/swift/Numeric/.build/checkouts/PythonKit/PythonKit/Python.swift",
+      "line": 677,
+      "symbol": "PythonInterface.import(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tonikocjan/swift/Numeric/.build/checkouts/PythonKit/PythonKit/Python.swift",
+      "line": 681,
+      "symbol": "PythonInterface.subscript(dynamicMember:)",
+      "symbol_kind": "source.lang.swift.decl.function.subscript",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tonikocjan/swift/Numeric/.build/checkouts/PythonKit/PythonKit/Python.swift",
+      "line": 687,
+      "symbol": "PythonInterface.version",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/tonikocjan/swift/Numeric/Sources/SwifyPy/LinearAlgebra/BandMatrix.swift",
-      "line": 13,
-      "symbol": "BandMatrixProtocol.isDiagonallyDominant",
+      "file": "/Users/tonikocjan/swift/Numeric/.build/checkouts/PythonKit/PythonKit/Python.swift",
+      "line": 693,
+      "symbol": "PythonInterface.versionInfo",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/tonikocjan/swift/Numeric/Sources/SwifyPy/LinearAlgebra/BandMatrix.swift",
-      "line": 14,
-      "symbol": "BandMatrixProtocol.band(at:)",
+      "file": "/Users/tonikocjan/swift/Numeric/.build/checkouts/PythonKit/PythonKit/Python.swift",
+      "line": 717,
+      "symbol": "PythonObject.init(tupleOf:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/tonikocjan/swift/Numeric/Sources/SwifyPy/LinearAlgebra/Protocols/MatrixProtocol.swift",
-      "line": 11,
-      "symbol": "Mathable",
-      "symbol_kind": "source.lang.swift.decl.typealias",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/tonikocjan/swift/Numeric/Sources/SwifyPy/LinearAlgebra/Protocols/MatrixProtocol.swift",
-      "line": 20,
-      "symbol": "MatrixProtocol.Vector",
-      "symbol_kind": "source.lang.swift.decl.typealias",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/tonikocjan/swift/Numeric/Sources/SwifyPy/LinearAlgebra/Protocols/MatrixProtocol.swift",
-      "line": 37,
-      "symbol": "MatrixProtocol.init(arrayLiteral:)",
+      "file": "/Users/tonikocjan/swift/Numeric/.build/checkouts/PythonKit/PythonKit/Python.swift",
+      "line": 721,
+      "symbol": "PythonObject.init(tupleContentsOf:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/tonikocjan/swift/Numeric/Sources/SwifyPy/LinearAlgebra/Protocols/MatrixProtocol.swift",
-      "line": 83,
-      "symbol": "MatrixProtocol.index(after:)",
+      "file": "/Users/tonikocjan/swift/Numeric/.build/checkouts/PythonKit/PythonKit/Python.swift",
+      "line": 726,
+      "symbol": "PythonObject.init(tupleContentsOf:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/tonikocjan/swift/Numeric/Sources/SwifyPy/LinearAlgebra/Protocols/MatrixProtocol.swift",
-      "line": 256,
-      "symbol": "*(_:_:)",
-      "symbol_kind": "source.lang.swift.decl.function.free",
+      "file": "/Users/tonikocjan/swift/Numeric/.build/checkouts/PythonKit/PythonKit/Python.swift",
+      "line": 1169,
+      "symbol": "PythonObject./(_:_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/tonikocjan/swift/Numeric/Sources/SwifyPy/LinearAlgebra/Protocols/MatrixProtocol.swift",
-      "line": 295,
-      "symbol": "Zip2Sequence.Matrix",
-      "symbol_kind": "source.lang.swift.decl.typealias",
+      "file": "/Users/tonikocjan/swift/Numeric/.build/checkouts/PythonKit/PythonKit/Python.swift",
+      "line": 1185,
+      "symbol": "PythonObject./=(_:_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/tonikocjan/swift/Numeric/Sources/SwifyPy/LinearAlgebra/Protocols/MatrixProtocol.swift",
-      "line": 296,
-      "symbol": "Zip2Sequence.Vec",
-      "symbol_kind": "source.lang.swift.decl.typealias",
+      "file": "/Users/tonikocjan/swift/Numeric/.build/checkouts/PythonKit/PythonKit/Python.swift",
+      "line": 1240,
+      "symbol": "PythonObject.!=(_:_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/tonikocjan/swift/Numeric/Sources/SwifyPy/LinearAlgebra/Protocols/MatrixProtocol.swift",
-      "line": 298,
-      "symbol": "Zip2Sequence.map(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "file": "/Users/tonikocjan/swift/Numeric/.build/checkouts/PythonKit/PythonKit/PythonLibrary.swift",
+      "line": 30,
+      "symbol": "PythonLibrary",
+      "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/tonikocjan/swift/Numeric/Sources/SwifyPy/LinearAlgebra/Protocols/MatrixProtocol.swift",
-      "line": 304,
-      "symbol": "Collection.map(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "file": "/Users/tonikocjan/swift/Numeric/.build/checkouts/PythonKit/PythonKit/PythonLibrary.swift",
+      "line": 88,
+      "symbol": "PythonLibrary",
+      "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/tonikocjan/swift/Numeric/Sources/SwifyPy/LinearAlgebra/Protocols/Transposable.swift",
-      "line": 41,
-      "symbol": "MatrixProtocol.columnMap(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/tonikocjan/swift/Numeric/Sources/SwifyPy/LinearAlgebra/Protocols/Transposable.swift",
-      "line": 45,
-      "symbol": "MatrixProtocol.columnMap(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/tonikocjan/swift/Numeric/Sources/SwifyPy/LinearAlgebra/Protocols/Transposable.swift",
-      "line": 49,
-      "symbol": "MatrixProtocol.columnFilter(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/tonikocjan/swift/Numeric/Sources/SwifyPy/LinearAlgebra/Protocols/Transposable.swift",
-      "line": 53,
-      "symbol": "MatrixProtocol.columnFilter(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/tonikocjan/swift/Numeric/Sources/SwifyPy/LinearAlgebra/Protocols/Transposable.swift",
-      "line": 57,
-      "symbol": "MatrixProtocol.columnReduce(_:nextPartialResult:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/tonikocjan/swift/Numeric/Sources/SwifyPy/LinearAlgebra/Vector.swift",
-      "line": 341,
-      "symbol": "Zip2Sequence.map(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/tonikocjan/swift/Numeric/Sources/SwifyPy/LinearAlgebra/Vector.swift",
-      "line": 347,
-      "symbol": "Collection.map(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "file": "/Users/tonikocjan/swift/Numeric/.build/checkouts/PythonKit/PythonKit/PythonLibrary.swift",
+      "line": 89,
+      "symbol": "PythonLibrary.useVersion(_:_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
       "warning": "undocumented"
     }
   ],

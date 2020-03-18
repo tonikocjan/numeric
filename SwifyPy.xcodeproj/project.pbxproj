@@ -1,1314 +1,984 @@
 // !$*UTF8*$!
 {
-   archiveVersion = "1";
-   objectVersion = "46";
-   objects = {
-      "OBJ_1" = {
-         isa = "PBXProject";
-         attributes = {
-            LastSwiftMigration = "9999";
-            LastUpgradeCheck = "9999";
-         };
-         buildConfigurationList = "OBJ_2";
-         compatibilityVersion = "Xcode 3.2";
-         developmentRegion = "en";
-         hasScannedForEncodings = "0";
-         knownRegions = (
-            "en"
-         );
-         mainGroup = "OBJ_5";
-         productRefGroup = "OBJ_50";
-         projectDirPath = ".";
-         targets = (
-            "PythonKit::PythonKit",
-            "PythonKit::SwiftPMPackageDescription",
-            "SwifyPy::SwifyPy",
-            "SwifyPy::SwiftPMPackageDescription",
-            "SwifyPy::SwifyPyPackageTests::ProductTarget",
-            "SwifyPy::SwifyPyRun",
-            "SwifyPy::SwifyPyTests"
-         );
-      };
-      "OBJ_10" = {
-         isa = "PBXFileReference";
-         path = "cow.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_100" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            LD = "/usr/bin/true";
-            OTHER_SWIFT_FLAGS = (
-               "-swift-version",
-               "5",
-               "-I",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
-               "-target",
-               "x86_64-apple-macosx10.10",
-               "-sdk",
-               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk",
-               "-package-description-version",
-               "5.1"
-            );
-            SWIFT_VERSION = "5.0";
-         };
-         name = "Release";
-      };
-      "OBJ_101" = {
-         isa = "PBXSourcesBuildPhase";
-         files = (
-            "OBJ_102"
-         );
-      };
-      "OBJ_102" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_6";
-      };
-      "OBJ_104" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_105",
-            "OBJ_106"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_105" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-         };
-         name = "Debug";
-      };
-      "OBJ_106" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-         };
-         name = "Release";
-      };
-      "OBJ_107" = {
-         isa = "PBXTargetDependency";
-         target = "SwifyPy::SwifyPyTests";
-      };
-      "OBJ_11" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_12",
-            "OBJ_16",
-            "OBJ_17",
-            "OBJ_18",
-            "OBJ_19",
-            "OBJ_23",
-            "OBJ_24"
-         );
-         name = "LinearAlgebra";
-         path = "LinearAlgebra";
-         sourceTree = "<group>";
-      };
-      "OBJ_110" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_111",
-            "OBJ_112"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_111" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)"
-            );
-            INFOPLIST_FILE = "SwifyPy.xcodeproj/SwifyPyRun_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx",
-               "@executable_path"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.10";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_FORCE_DYNAMIC_LINK_STDLIB = "YES";
-            SWIFT_FORCE_STATIC_LINK_STDLIB = "NO";
-            SWIFT_VERSION = "5.0";
-            TARGET_NAME = "SwifyPyRun";
-            TVOS_DEPLOYMENT_TARGET = "9.0";
-            WATCHOS_DEPLOYMENT_TARGET = "2.0";
-         };
-         name = "Debug";
-      };
-      "OBJ_112" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)"
-            );
-            INFOPLIST_FILE = "SwifyPy.xcodeproj/SwifyPyRun_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx",
-               "@executable_path"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.10";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_FORCE_DYNAMIC_LINK_STDLIB = "YES";
-            SWIFT_FORCE_STATIC_LINK_STDLIB = "NO";
-            SWIFT_VERSION = "5.0";
-            TARGET_NAME = "SwifyPyRun";
-            TVOS_DEPLOYMENT_TARGET = "9.0";
-            WATCHOS_DEPLOYMENT_TARGET = "2.0";
-         };
-         name = "Release";
-      };
-      "OBJ_113" = {
-         isa = "PBXSourcesBuildPhase";
-         files = (
-            "OBJ_114"
-         );
-      };
-      "OBJ_114" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_30";
-      };
-      "OBJ_115" = {
-         isa = "PBXFrameworksBuildPhase";
-         files = (
-            "OBJ_116",
-            "OBJ_117"
-         );
-      };
-      "OBJ_116" = {
-         isa = "PBXBuildFile";
-         fileRef = "SwifyPy::SwifyPy::Product";
-      };
-      "OBJ_117" = {
-         isa = "PBXBuildFile";
-         fileRef = "PythonKit::PythonKit::Product";
-      };
-      "OBJ_118" = {
-         isa = "PBXTargetDependency";
-         target = "SwifyPy::SwifyPy";
-      };
-      "OBJ_119" = {
-         isa = "PBXTargetDependency";
-         target = "PythonKit::PythonKit";
-      };
-      "OBJ_12" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_13",
-            "OBJ_14",
-            "OBJ_15"
-         );
-         name = "Algorithms";
-         path = "Algorithms";
-         sourceTree = "<group>";
-      };
-      "OBJ_120" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_121",
-            "OBJ_122"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_121" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            CLANG_ENABLE_MODULES = "YES";
-            EMBEDDED_CONTENT_CONTAINS_SWIFT = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)"
-            );
-            INFOPLIST_FILE = "SwifyPy.xcodeproj/SwifyPyTests_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "@loader_path/../Frameworks",
-               "@loader_path/Frameworks"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.10";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "5.0";
-            TARGET_NAME = "SwifyPyTests";
-            TVOS_DEPLOYMENT_TARGET = "9.0";
-            WATCHOS_DEPLOYMENT_TARGET = "2.0";
-         };
-         name = "Debug";
-      };
-      "OBJ_122" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            CLANG_ENABLE_MODULES = "YES";
-            EMBEDDED_CONTENT_CONTAINS_SWIFT = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)"
-            );
-            INFOPLIST_FILE = "SwifyPy.xcodeproj/SwifyPyTests_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "@loader_path/../Frameworks",
-               "@loader_path/Frameworks"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.10";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "5.0";
-            TARGET_NAME = "SwifyPyTests";
-            TVOS_DEPLOYMENT_TARGET = "9.0";
-            WATCHOS_DEPLOYMENT_TARGET = "2.0";
-         };
-         name = "Release";
-      };
-      "OBJ_123" = {
-         isa = "PBXSourcesBuildPhase";
-         files = (
-            "OBJ_124",
-            "OBJ_125",
-            "OBJ_126",
-            "OBJ_127",
-            "OBJ_128",
-            "OBJ_129",
-            "OBJ_130",
-            "OBJ_131"
-         );
-      };
-      "OBJ_124" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_33";
-      };
-      "OBJ_125" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_34";
-      };
-      "OBJ_126" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_35";
-      };
-      "OBJ_127" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_36";
-      };
-      "OBJ_128" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_37";
-      };
-      "OBJ_129" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_38";
-      };
-      "OBJ_13" = {
-         isa = "PBXFileReference";
-         path = "LUDecomposition.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_130" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_39";
-      };
-      "OBJ_131" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_40";
-      };
-      "OBJ_132" = {
-         isa = "PBXFrameworksBuildPhase";
-         files = (
-            "OBJ_133",
-            "OBJ_134"
-         );
-      };
-      "OBJ_133" = {
-         isa = "PBXBuildFile";
-         fileRef = "SwifyPy::SwifyPy::Product";
-      };
-      "OBJ_134" = {
-         isa = "PBXBuildFile";
-         fileRef = "PythonKit::PythonKit::Product";
-      };
-      "OBJ_135" = {
-         isa = "PBXTargetDependency";
-         target = "SwifyPy::SwifyPy";
-      };
-      "OBJ_136" = {
-         isa = "PBXTargetDependency";
-         target = "PythonKit::PythonKit";
-      };
-      "OBJ_14" = {
-         isa = "PBXFileReference";
-         path = "Laplace2D.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_15" = {
-         isa = "PBXFileReference";
-         path = "argmax.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_16" = {
-         isa = "PBXFileReference";
-         path = "BandMatrix.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_17" = {
-         isa = "PBXFileReference";
-         path = "LowerBandMatrix.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_18" = {
-         isa = "PBXFileReference";
-         path = "Matrix.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_19" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_20",
-            "OBJ_21",
-            "OBJ_22"
-         );
-         name = "Protocols";
-         path = "Protocols";
-         sourceTree = "<group>";
-      };
-      "OBJ_2" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_3",
-            "OBJ_4"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_20" = {
-         isa = "PBXFileReference";
-         path = "DefaultValueInitializable.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_21" = {
-         isa = "PBXFileReference";
-         path = "MatrixProtocol.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_22" = {
-         isa = "PBXFileReference";
-         path = "Transposable.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_23" = {
-         isa = "PBXFileReference";
-         path = "UpperBandMatrix.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_24" = {
-         isa = "PBXFileReference";
-         path = "Vector.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_25" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_26"
-         );
-         name = "Python";
-         path = "Python";
-         sourceTree = "<group>";
-      };
-      "OBJ_26" = {
-         isa = "PBXFileReference";
-         path = "Python.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_27" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_28"
-         );
-         name = "Time";
-         path = "Time";
-         sourceTree = "<group>";
-      };
-      "OBJ_28" = {
-         isa = "PBXFileReference";
-         path = "time.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_29" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_30"
-         );
-         name = "SwifyPyRun";
-         path = "Sources/SwifyPyRun";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_3" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            CLANG_ENABLE_OBJC_ARC = "YES";
-            COMBINE_HIDPI_IMAGES = "YES";
-            COPY_PHASE_STRIP = "NO";
-            DEBUG_INFORMATION_FORMAT = "dwarf";
-            DYLIB_INSTALL_NAME_BASE = "@rpath";
-            ENABLE_NS_ASSERTIONS = "YES";
-            GCC_OPTIMIZATION_LEVEL = "0";
-            GCC_PREPROCESSOR_DEFINITIONS = (
-               "$(inherited)",
-               "SWIFT_PACKAGE=1",
-               "DEBUG=1"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.10";
-            ONLY_ACTIVE_ARCH = "YES";
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)",
-               "-DXcode"
-            );
-            PRODUCT_NAME = "$(TARGET_NAME)";
-            SDKROOT = "macosx";
-            SUPPORTED_PLATFORMS = (
-               "macosx",
-               "iphoneos",
-               "iphonesimulator",
-               "appletvos",
-               "appletvsimulator",
-               "watchos",
-               "watchsimulator"
-            );
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)",
-               "SWIFT_PACKAGE",
-               "DEBUG"
-            );
-            SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-            USE_HEADERMAP = "NO";
-         };
-         name = "Debug";
-      };
-      "OBJ_30" = {
-         isa = "PBXFileReference";
-         path = "main.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_31" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_32"
-         );
-         name = "Tests";
-         path = "";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_32" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_33",
-            "OBJ_34",
-            "OBJ_35",
-            "OBJ_36",
-            "OBJ_37",
-            "OBJ_38",
-            "OBJ_39",
-            "OBJ_40"
-         );
-         name = "SwifyPyTests";
-         path = "Tests/SwifyPyTests";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_33" = {
-         isa = "PBXFileReference";
-         path = "BandMatrixTests.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_34" = {
-         isa = "PBXFileReference";
-         path = "LUSolverTests.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_35" = {
-         isa = "PBXFileReference";
-         path = "Laplace2DTests.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_36" = {
-         isa = "PBXFileReference";
-         path = "LowerBandMatrixTests.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_37" = {
-         isa = "PBXFileReference";
-         path = "MatrixTests.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_38" = {
-         isa = "PBXFileReference";
-         path = "UpperBandMatrixTests.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_39" = {
-         isa = "PBXFileReference";
-         path = "VectorTests.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_4" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            CLANG_ENABLE_OBJC_ARC = "YES";
-            COMBINE_HIDPI_IMAGES = "YES";
-            COPY_PHASE_STRIP = "YES";
-            DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-            DYLIB_INSTALL_NAME_BASE = "@rpath";
-            GCC_OPTIMIZATION_LEVEL = "s";
-            GCC_PREPROCESSOR_DEFINITIONS = (
-               "$(inherited)",
-               "SWIFT_PACKAGE=1"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.10";
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)",
-               "-DXcode"
-            );
-            PRODUCT_NAME = "$(TARGET_NAME)";
-            SDKROOT = "macosx";
-            SUPPORTED_PLATFORMS = (
-               "macosx",
-               "iphoneos",
-               "iphonesimulator",
-               "appletvos",
-               "appletvsimulator",
-               "watchos",
-               "watchsimulator"
-            );
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)",
-               "SWIFT_PACKAGE"
-            );
-            SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-            USE_HEADERMAP = "NO";
-         };
-         name = "Release";
-      };
-      "OBJ_40" = {
-         isa = "PBXFileReference";
-         path = "XCTestManifests.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_41" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_42"
-         );
-         name = "Dependencies";
-         path = "";
-         sourceTree = "<group>";
-      };
-      "OBJ_42" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_43",
-            "OBJ_48",
-            "OBJ_49"
-         );
-         name = "PythonKit";
-         path = "";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_43" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_44",
-            "OBJ_45",
-            "OBJ_46",
-            "OBJ_47"
-         );
-         name = "PythonKit";
-         path = ".build/checkouts/PythonKit/PythonKit";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_44" = {
-         isa = "PBXFileReference";
-         path = "NumpyConversion.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_45" = {
-         isa = "PBXFileReference";
-         path = "Python.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_46" = {
-         isa = "PBXFileReference";
-         path = "PythonLibrary+Symbols.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_47" = {
-         isa = "PBXFileReference";
-         path = "PythonLibrary.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_48" = {
-         isa = "PBXGroup";
-         children = (
-         );
-         name = "PythonTool";
-         path = ".build/checkouts/PythonKit/PythonTool";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_49" = {
-         isa = "PBXFileReference";
-         explicitFileType = "sourcecode.swift";
-         name = "Package.swift";
-         path = "/Users/tonikocjan/swift/Numeric/.build/checkouts/PythonKit/Package.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_5" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_6",
-            "OBJ_7",
-            "OBJ_31",
-            "OBJ_41",
-            "OBJ_50",
-            "OBJ_55",
-            "OBJ_56",
-            "OBJ_57",
-            "OBJ_58"
-         );
-         path = "";
-         sourceTree = "<group>";
-      };
-      "OBJ_50" = {
-         isa = "PBXGroup";
-         children = (
-            "PythonKit::PythonKit::Product",
-            "SwifyPy::SwifyPyTests::Product",
-            "SwifyPy::SwifyPyRun::Product",
-            "SwifyPy::SwifyPy::Product"
-         );
-         name = "Products";
-         path = "";
-         sourceTree = "BUILT_PRODUCTS_DIR";
-      };
-      "OBJ_55" = {
-         isa = "PBXFileReference";
-         path = "docs";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_56" = {
-         isa = "PBXFileReference";
-         path = "milnica.png";
-         sourceTree = "<group>";
-      };
-      "OBJ_57" = {
-         isa = "PBXFileReference";
-         path = "README.md";
-         sourceTree = "<group>";
-      };
-      "OBJ_58" = {
-         isa = "PBXFileReference";
-         path = "desne.jl";
-         sourceTree = "<group>";
-      };
-      "OBJ_6" = {
-         isa = "PBXFileReference";
-         explicitFileType = "sourcecode.swift";
-         path = "Package.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_60" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_61",
-            "OBJ_62"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_61" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)"
-            );
-            INFOPLIST_FILE = "SwifyPy.xcodeproj/PythonKit_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.10";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            PRODUCT_BUNDLE_IDENTIFIER = "PythonKit";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "5.0";
-            TARGET_NAME = "PythonKit";
-            TVOS_DEPLOYMENT_TARGET = "9.0";
-            WATCHOS_DEPLOYMENT_TARGET = "2.0";
-         };
-         name = "Debug";
-      };
-      "OBJ_62" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)"
-            );
-            INFOPLIST_FILE = "SwifyPy.xcodeproj/PythonKit_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.10";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            PRODUCT_BUNDLE_IDENTIFIER = "PythonKit";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "5.0";
-            TARGET_NAME = "PythonKit";
-            TVOS_DEPLOYMENT_TARGET = "9.0";
-            WATCHOS_DEPLOYMENT_TARGET = "2.0";
-         };
-         name = "Release";
-      };
-      "OBJ_63" = {
-         isa = "PBXSourcesBuildPhase";
-         files = (
-            "OBJ_64",
-            "OBJ_65",
-            "OBJ_66",
-            "OBJ_67"
-         );
-      };
-      "OBJ_64" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_44";
-      };
-      "OBJ_65" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_45";
-      };
-      "OBJ_66" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_46";
-      };
-      "OBJ_67" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_47";
-      };
-      "OBJ_68" = {
-         isa = "PBXFrameworksBuildPhase";
-         files = (
-         );
-      };
-      "OBJ_7" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_8",
-            "OBJ_29"
-         );
-         name = "Sources";
-         path = "";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_70" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_71",
-            "OBJ_72"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_71" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            LD = "/usr/bin/true";
-            OTHER_SWIFT_FLAGS = (
-               "-swift-version",
-               "5",
-               "-I",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
-               "-target",
-               "x86_64-apple-macosx10.10",
-               "-sdk",
-               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk",
-               "-package-description-version",
-               "5.1"
-            );
-            SWIFT_VERSION = "5.0";
-         };
-         name = "Debug";
-      };
-      "OBJ_72" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            LD = "/usr/bin/true";
-            OTHER_SWIFT_FLAGS = (
-               "-swift-version",
-               "5",
-               "-I",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
-               "-target",
-               "x86_64-apple-macosx10.10",
-               "-sdk",
-               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk",
-               "-package-description-version",
-               "5.1"
-            );
-            SWIFT_VERSION = "5.0";
-         };
-         name = "Release";
-      };
-      "OBJ_73" = {
-         isa = "PBXSourcesBuildPhase";
-         files = (
-            "OBJ_74"
-         );
-      };
-      "OBJ_74" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_49";
-      };
-      "OBJ_76" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_77",
-            "OBJ_78"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_77" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)"
-            );
-            INFOPLIST_FILE = "SwifyPy.xcodeproj/SwifyPy_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.10";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            PRODUCT_BUNDLE_IDENTIFIER = "SwifyPy";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "5.0";
-            TARGET_NAME = "SwifyPy";
-            TVOS_DEPLOYMENT_TARGET = "9.0";
-            WATCHOS_DEPLOYMENT_TARGET = "2.0";
-         };
-         name = "Debug";
-      };
-      "OBJ_78" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)"
-            );
-            INFOPLIST_FILE = "SwifyPy.xcodeproj/SwifyPy_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.10";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            PRODUCT_BUNDLE_IDENTIFIER = "SwifyPy";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "5.0";
-            TARGET_NAME = "SwifyPy";
-            TVOS_DEPLOYMENT_TARGET = "9.0";
-            WATCHOS_DEPLOYMENT_TARGET = "2.0";
-         };
-         name = "Release";
-      };
-      "OBJ_79" = {
-         isa = "PBXSourcesBuildPhase";
-         files = (
-            "OBJ_80",
-            "OBJ_81",
-            "OBJ_82",
-            "OBJ_83",
-            "OBJ_84",
-            "OBJ_85",
-            "OBJ_86",
-            "OBJ_87",
-            "OBJ_88",
-            "OBJ_89",
-            "OBJ_90",
-            "OBJ_91",
-            "OBJ_92",
-            "OBJ_93"
-         );
-      };
-      "OBJ_8" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_9",
-            "OBJ_11",
-            "OBJ_25",
-            "OBJ_27"
-         );
-         name = "SwifyPy";
-         path = "Sources/SwifyPy";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_80" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_10";
-      };
-      "OBJ_81" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_13";
-      };
-      "OBJ_82" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_14";
-      };
-      "OBJ_83" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_15";
-      };
-      "OBJ_84" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_16";
-      };
-      "OBJ_85" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_17";
-      };
-      "OBJ_86" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_18";
-      };
-      "OBJ_87" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_20";
-      };
-      "OBJ_88" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_21";
-      };
-      "OBJ_89" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_22";
-      };
-      "OBJ_9" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_10"
-         );
-         name = "CopyOnWrite";
-         path = "CopyOnWrite";
-         sourceTree = "<group>";
-      };
-      "OBJ_90" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_23";
-      };
-      "OBJ_91" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_24";
-      };
-      "OBJ_92" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_26";
-      };
-      "OBJ_93" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_28";
-      };
-      "OBJ_94" = {
-         isa = "PBXFrameworksBuildPhase";
-         files = (
-            "OBJ_95"
-         );
-      };
-      "OBJ_95" = {
-         isa = "PBXBuildFile";
-         fileRef = "PythonKit::PythonKit::Product";
-      };
-      "OBJ_96" = {
-         isa = "PBXTargetDependency";
-         target = "PythonKit::PythonKit";
-      };
-      "OBJ_98" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_99",
-            "OBJ_100"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_99" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            LD = "/usr/bin/true";
-            OTHER_SWIFT_FLAGS = (
-               "-swift-version",
-               "5",
-               "-I",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
-               "-target",
-               "x86_64-apple-macosx10.10",
-               "-sdk",
-               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk",
-               "-package-description-version",
-               "5.1"
-            );
-            SWIFT_VERSION = "5.0";
-         };
-         name = "Debug";
-      };
-      "PythonKit::PythonKit" = {
-         isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_60";
-         buildPhases = (
-            "OBJ_63",
-            "OBJ_68"
-         );
-         dependencies = (
-         );
-         name = "PythonKit";
-         productName = "PythonKit";
-         productReference = "PythonKit::PythonKit::Product";
-         productType = "com.apple.product-type.framework";
-      };
-      "PythonKit::PythonKit::Product" = {
-         isa = "PBXFileReference";
-         path = "PythonKit.framework";
-         sourceTree = "BUILT_PRODUCTS_DIR";
-      };
-      "PythonKit::SwiftPMPackageDescription" = {
-         isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_70";
-         buildPhases = (
-            "OBJ_73"
-         );
-         dependencies = (
-         );
-         name = "PythonKitPackageDescription";
-         productName = "PythonKitPackageDescription";
-         productType = "com.apple.product-type.framework";
-      };
-      "SwifyPy::SwiftPMPackageDescription" = {
-         isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_98";
-         buildPhases = (
-            "OBJ_101"
-         );
-         dependencies = (
-         );
-         name = "SwifyPyPackageDescription";
-         productName = "SwifyPyPackageDescription";
-         productType = "com.apple.product-type.framework";
-      };
-      "SwifyPy::SwifyPy" = {
-         isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_76";
-         buildPhases = (
-            "OBJ_79",
-            "OBJ_94"
-         );
-         dependencies = (
-            "OBJ_96"
-         );
-         name = "SwifyPy";
-         productName = "SwifyPy";
-         productReference = "SwifyPy::SwifyPy::Product";
-         productType = "com.apple.product-type.framework";
-      };
-      "SwifyPy::SwifyPy::Product" = {
-         isa = "PBXFileReference";
-         path = "SwifyPy.framework";
-         sourceTree = "BUILT_PRODUCTS_DIR";
-      };
-      "SwifyPy::SwifyPyPackageTests::ProductTarget" = {
-         isa = "PBXAggregateTarget";
-         buildConfigurationList = "OBJ_104";
-         buildPhases = (
-         );
-         dependencies = (
-            "OBJ_107"
-         );
-         name = "SwifyPyPackageTests";
-         productName = "SwifyPyPackageTests";
-      };
-      "SwifyPy::SwifyPyRun" = {
-         isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_110";
-         buildPhases = (
-            "OBJ_113",
-            "OBJ_115"
-         );
-         dependencies = (
-            "OBJ_118",
-            "OBJ_119"
-         );
-         name = "SwifyPyRun";
-         productName = "SwifyPyRun";
-         productReference = "SwifyPy::SwifyPyRun::Product";
-         productType = "com.apple.product-type.tool";
-      };
-      "SwifyPy::SwifyPyRun::Product" = {
-         isa = "PBXFileReference";
-         path = "SwifyPyRun";
-         sourceTree = "BUILT_PRODUCTS_DIR";
-      };
-      "SwifyPy::SwifyPyTests" = {
-         isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_120";
-         buildPhases = (
-            "OBJ_123",
-            "OBJ_132"
-         );
-         dependencies = (
-            "OBJ_135",
-            "OBJ_136"
-         );
-         name = "SwifyPyTests";
-         productName = "SwifyPyTests";
-         productReference = "SwifyPy::SwifyPyTests::Product";
-         productType = "com.apple.product-type.bundle.unit-test";
-      };
-      "SwifyPy::SwifyPyTests::Product" = {
-         isa = "PBXFileReference";
-         path = "SwifyPyTests.xctest";
-         sourceTree = "BUILT_PRODUCTS_DIR";
-      };
-   };
-   rootObject = "OBJ_1";
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		"SwifyPy::SwifyPyPackageTests::ProductTarget" /* SwifyPyPackageTests */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = OBJ_104 /* Build configuration list for PBXAggregateTarget "SwifyPyPackageTests" */;
+			buildPhases = (
+			);
+			dependencies = (
+				OBJ_107 /* PBXTargetDependency */,
+			);
+			name = SwifyPyPackageTests;
+			productName = SwifyPyPackageTests;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		OBJ_102 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
+		OBJ_114 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_30 /* main.swift */; };
+		OBJ_116 /* SwifyPy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwifyPy::SwifyPy::Product" /* SwifyPy.framework */; };
+		OBJ_117 /* PythonKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "PythonKit::PythonKit::Product" /* PythonKit.framework */; };
+		OBJ_124 /* BandMatrixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_33 /* BandMatrixTests.swift */; };
+		OBJ_125 /* LUSolverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_34 /* LUSolverTests.swift */; };
+		OBJ_126 /* Laplace2DTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_35 /* Laplace2DTests.swift */; };
+		OBJ_127 /* LowerBandMatrixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_36 /* LowerBandMatrixTests.swift */; };
+		OBJ_128 /* MatrixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_37 /* MatrixTests.swift */; };
+		OBJ_129 /* UpperBandMatrixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_38 /* UpperBandMatrixTests.swift */; };
+		OBJ_130 /* VectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_39 /* VectorTests.swift */; };
+		OBJ_131 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_40 /* XCTestManifests.swift */; };
+		OBJ_133 /* SwifyPy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwifyPy::SwifyPy::Product" /* SwifyPy.framework */; };
+		OBJ_134 /* PythonKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "PythonKit::PythonKit::Product" /* PythonKit.framework */; };
+		OBJ_64 /* NumpyConversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_44 /* NumpyConversion.swift */; };
+		OBJ_65 /* Python.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_45 /* Python.swift */; };
+		OBJ_66 /* PythonLibrary+Symbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_46 /* PythonLibrary+Symbols.swift */; };
+		OBJ_67 /* PythonLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_47 /* PythonLibrary.swift */; };
+		OBJ_74 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_49 /* Package.swift */; };
+		OBJ_80 /* cow.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* cow.swift */; };
+		OBJ_81 /* LUDecomposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* LUDecomposition.swift */; };
+		OBJ_82 /* Laplace2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* Laplace2D.swift */; };
+		OBJ_83 /* argmax.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* argmax.swift */; };
+		OBJ_84 /* BandMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* BandMatrix.swift */; };
+		OBJ_85 /* LowerBandMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* LowerBandMatrix.swift */; };
+		OBJ_86 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* Matrix.swift */; };
+		OBJ_87 /* DefaultValueInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* DefaultValueInitializable.swift */; };
+		OBJ_88 /* MatrixProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* MatrixProtocol.swift */; };
+		OBJ_89 /* Transposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* Transposable.swift */; };
+		OBJ_90 /* UpperBandMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* UpperBandMatrix.swift */; };
+		OBJ_91 /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_24 /* Vector.swift */; };
+		OBJ_92 /* Python.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_26 /* Python.swift */; };
+		OBJ_93 /* time.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_28 /* time.swift */; };
+		OBJ_95 /* PythonKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "PythonKit::PythonKit::Product" /* PythonKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		37BC86062422316200686F90 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "SwifyPy::SwifyPy";
+			remoteInfo = SwifyPy;
+		};
+		37BC86072422316200686F90 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "PythonKit::PythonKit";
+			remoteInfo = PythonKit;
+		};
+		37BC86082422316200686F90 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "PythonKit::PythonKit";
+			remoteInfo = PythonKit;
+		};
+		37BC86092422316200686F90 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "SwifyPy::SwifyPy";
+			remoteInfo = SwifyPy;
+		};
+		37BC860A2422316200686F90 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "PythonKit::PythonKit";
+			remoteInfo = PythonKit;
+		};
+		37BC860B2422316300686F90 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "SwifyPy::SwifyPyTests";
+			remoteInfo = SwifyPyTests;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		OBJ_10 /* cow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cow.swift; sourceTree = "<group>"; };
+		OBJ_13 /* LUDecomposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LUDecomposition.swift; sourceTree = "<group>"; };
+		OBJ_14 /* Laplace2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Laplace2D.swift; sourceTree = "<group>"; };
+		OBJ_15 /* argmax.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = argmax.swift; sourceTree = "<group>"; };
+		OBJ_16 /* BandMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandMatrix.swift; sourceTree = "<group>"; };
+		OBJ_17 /* LowerBandMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LowerBandMatrix.swift; sourceTree = "<group>"; };
+		OBJ_18 /* Matrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
+		OBJ_20 /* DefaultValueInitializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultValueInitializable.swift; sourceTree = "<group>"; };
+		OBJ_21 /* MatrixProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixProtocol.swift; sourceTree = "<group>"; };
+		OBJ_22 /* Transposable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transposable.swift; sourceTree = "<group>"; };
+		OBJ_23 /* UpperBandMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpperBandMatrix.swift; sourceTree = "<group>"; };
+		OBJ_24 /* Vector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vector.swift; sourceTree = "<group>"; };
+		OBJ_26 /* Python.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Python.swift; sourceTree = "<group>"; };
+		OBJ_28 /* time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = time.swift; sourceTree = "<group>"; };
+		OBJ_30 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		OBJ_33 /* BandMatrixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandMatrixTests.swift; sourceTree = "<group>"; };
+		OBJ_34 /* LUSolverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LUSolverTests.swift; sourceTree = "<group>"; };
+		OBJ_35 /* Laplace2DTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Laplace2DTests.swift; sourceTree = "<group>"; };
+		OBJ_36 /* LowerBandMatrixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LowerBandMatrixTests.swift; sourceTree = "<group>"; };
+		OBJ_37 /* MatrixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixTests.swift; sourceTree = "<group>"; };
+		OBJ_38 /* UpperBandMatrixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpperBandMatrixTests.swift; sourceTree = "<group>"; };
+		OBJ_39 /* VectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VectorTests.swift; sourceTree = "<group>"; };
+		OBJ_40 /* XCTestManifests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
+		OBJ_44 /* NumpyConversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumpyConversion.swift; sourceTree = "<group>"; };
+		OBJ_45 /* Python.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Python.swift; sourceTree = "<group>"; };
+		OBJ_46 /* PythonLibrary+Symbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PythonLibrary+Symbols.swift"; sourceTree = "<group>"; };
+		OBJ_47 /* PythonLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PythonLibrary.swift; sourceTree = "<group>"; };
+		OBJ_49 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = /Users/tonikocjan/swift/Numeric/.build/checkouts/PythonKit/Package.swift; sourceTree = "<group>"; };
+		OBJ_55 /* docs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = docs; sourceTree = SOURCE_ROOT; };
+		OBJ_57 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		"PythonKit::PythonKit::Product" /* PythonKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PythonKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"SwifyPy::SwifyPy::Product" /* SwifyPy.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwifyPy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"SwifyPy::SwifyPyRun::Product" /* SwifyPyRun */ = {isa = PBXFileReference; lastKnownFileType = text; path = SwifyPyRun; sourceTree = BUILT_PRODUCTS_DIR; };
+		"SwifyPy::SwifyPyTests::Product" /* SwifyPyTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = SwifyPyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		OBJ_115 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_116 /* SwifyPy.framework in Frameworks */,
+				OBJ_117 /* PythonKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_132 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_133 /* SwifyPy.framework in Frameworks */,
+				OBJ_134 /* PythonKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_68 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_94 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_95 /* PythonKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		OBJ_11 /* LinearAlgebra */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_19 /* Protocols */,
+				OBJ_12 /* Algorithms */,
+				OBJ_16 /* BandMatrix.swift */,
+				OBJ_17 /* LowerBandMatrix.swift */,
+				OBJ_18 /* Matrix.swift */,
+				OBJ_23 /* UpperBandMatrix.swift */,
+				OBJ_24 /* Vector.swift */,
+			);
+			path = LinearAlgebra;
+			sourceTree = "<group>";
+		};
+		OBJ_12 /* Algorithms */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_13 /* LUDecomposition.swift */,
+				OBJ_14 /* Laplace2D.swift */,
+				OBJ_15 /* argmax.swift */,
+			);
+			path = Algorithms;
+			sourceTree = "<group>";
+		};
+		OBJ_19 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_20 /* DefaultValueInitializable.swift */,
+				OBJ_21 /* MatrixProtocol.swift */,
+				OBJ_22 /* Transposable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		OBJ_25 /* Python */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_26 /* Python.swift */,
+			);
+			path = Python;
+			sourceTree = "<group>";
+		};
+		OBJ_27 /* Time */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_28 /* time.swift */,
+			);
+			path = Time;
+			sourceTree = "<group>";
+		};
+		OBJ_29 /* SwifyPyRun */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_30 /* main.swift */,
+			);
+			name = SwifyPyRun;
+			path = Sources/SwifyPyRun;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_31 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_32 /* SwifyPyTests */,
+			);
+			name = Tests;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_32 /* SwifyPyTests */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_33 /* BandMatrixTests.swift */,
+				OBJ_34 /* LUSolverTests.swift */,
+				OBJ_35 /* Laplace2DTests.swift */,
+				OBJ_36 /* LowerBandMatrixTests.swift */,
+				OBJ_37 /* MatrixTests.swift */,
+				OBJ_38 /* UpperBandMatrixTests.swift */,
+				OBJ_39 /* VectorTests.swift */,
+				OBJ_40 /* XCTestManifests.swift */,
+			);
+			name = SwifyPyTests;
+			path = Tests/SwifyPyTests;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_41 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_42 /* PythonKit */,
+			);
+			name = Dependencies;
+			sourceTree = "<group>";
+		};
+		OBJ_42 /* PythonKit */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_43 /* PythonKit */,
+				OBJ_48 /* PythonTool */,
+				OBJ_49 /* Package.swift */,
+			);
+			name = PythonKit;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_43 /* PythonKit */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_44 /* NumpyConversion.swift */,
+				OBJ_45 /* Python.swift */,
+				OBJ_46 /* PythonLibrary+Symbols.swift */,
+				OBJ_47 /* PythonLibrary.swift */,
+			);
+			name = PythonKit;
+			path = .build/checkouts/PythonKit/PythonKit;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_48 /* PythonTool */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = PythonTool;
+			path = .build/checkouts/PythonKit/PythonTool;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_5 /*  */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_6 /* Package.swift */,
+				OBJ_7 /* Sources */,
+				OBJ_31 /* Tests */,
+				OBJ_41 /* Dependencies */,
+				OBJ_50 /* Products */,
+				OBJ_55 /* docs */,
+				OBJ_57 /* README.md */,
+			);
+			name = "";
+			sourceTree = "<group>";
+		};
+		OBJ_50 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				"PythonKit::PythonKit::Product" /* PythonKit.framework */,
+				"SwifyPy::SwifyPyTests::Product" /* SwifyPyTests.xctest */,
+				"SwifyPy::SwifyPyRun::Product" /* SwifyPyRun */,
+				"SwifyPy::SwifyPy::Product" /* SwifyPy.framework */,
+			);
+			name = Products;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		OBJ_7 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_8 /* SwifyPy */,
+				OBJ_29 /* SwifyPyRun */,
+			);
+			name = Sources;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_8 /* SwifyPy */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_9 /* CopyOnWrite */,
+				OBJ_11 /* LinearAlgebra */,
+				OBJ_25 /* Python */,
+				OBJ_27 /* Time */,
+			);
+			name = SwifyPy;
+			path = Sources/SwifyPy;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_9 /* CopyOnWrite */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_10 /* cow.swift */,
+			);
+			path = CopyOnWrite;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		"PythonKit::PythonKit" /* PythonKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_60 /* Build configuration list for PBXNativeTarget "PythonKit" */;
+			buildPhases = (
+				OBJ_63 /* Sources */,
+				OBJ_68 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PythonKit;
+			productName = PythonKit;
+			productReference = "PythonKit::PythonKit::Product" /* PythonKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		"PythonKit::SwiftPMPackageDescription" /* PythonKitPackageDescription */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_70 /* Build configuration list for PBXNativeTarget "PythonKitPackageDescription" */;
+			buildPhases = (
+				OBJ_73 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PythonKitPackageDescription;
+			productName = PythonKitPackageDescription;
+			productType = "com.apple.product-type.framework";
+		};
+		"SwifyPy::SwiftPMPackageDescription" /* SwifyPyPackageDescription */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_98 /* Build configuration list for PBXNativeTarget "SwifyPyPackageDescription" */;
+			buildPhases = (
+				OBJ_101 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwifyPyPackageDescription;
+			productName = SwifyPyPackageDescription;
+			productType = "com.apple.product-type.framework";
+		};
+		"SwifyPy::SwifyPy" /* SwifyPy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_76 /* Build configuration list for PBXNativeTarget "SwifyPy" */;
+			buildPhases = (
+				OBJ_79 /* Sources */,
+				OBJ_94 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				OBJ_96 /* PBXTargetDependency */,
+			);
+			name = SwifyPy;
+			productName = SwifyPy;
+			productReference = "SwifyPy::SwifyPy::Product" /* SwifyPy.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		"SwifyPy::SwifyPyRun" /* SwifyPyRun */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_110 /* Build configuration list for PBXNativeTarget "SwifyPyRun" */;
+			buildPhases = (
+				OBJ_113 /* Sources */,
+				OBJ_115 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				OBJ_118 /* PBXTargetDependency */,
+				OBJ_119 /* PBXTargetDependency */,
+			);
+			name = SwifyPyRun;
+			productName = SwifyPyRun;
+			productReference = "SwifyPy::SwifyPyRun::Product" /* SwifyPyRun */;
+			productType = "com.apple.product-type.tool";
+		};
+		"SwifyPy::SwifyPyTests" /* SwifyPyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_120 /* Build configuration list for PBXNativeTarget "SwifyPyTests" */;
+			buildPhases = (
+				OBJ_123 /* Sources */,
+				OBJ_132 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				OBJ_135 /* PBXTargetDependency */,
+				OBJ_136 /* PBXTargetDependency */,
+			);
+			name = SwifyPyTests;
+			productName = SwifyPyTests;
+			productReference = "SwifyPy::SwifyPyTests::Product" /* SwifyPyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		OBJ_1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftMigration = 9999;
+				LastUpgradeCheck = 9999;
+			};
+			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "SwifyPy" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = OBJ_5 /*  */;
+			productRefGroup = OBJ_50 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				"PythonKit::PythonKit" /* PythonKit */,
+				"PythonKit::SwiftPMPackageDescription" /* PythonKitPackageDescription */,
+				"SwifyPy::SwifyPy" /* SwifyPy */,
+				"SwifyPy::SwiftPMPackageDescription" /* SwifyPyPackageDescription */,
+				"SwifyPy::SwifyPyPackageTests::ProductTarget" /* SwifyPyPackageTests */,
+				"SwifyPy::SwifyPyRun" /* SwifyPyRun */,
+				"SwifyPy::SwifyPyTests" /* SwifyPyTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		OBJ_101 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_102 /* Package.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_113 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_114 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_123 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_124 /* BandMatrixTests.swift in Sources */,
+				OBJ_125 /* LUSolverTests.swift in Sources */,
+				OBJ_126 /* Laplace2DTests.swift in Sources */,
+				OBJ_127 /* LowerBandMatrixTests.swift in Sources */,
+				OBJ_128 /* MatrixTests.swift in Sources */,
+				OBJ_129 /* UpperBandMatrixTests.swift in Sources */,
+				OBJ_130 /* VectorTests.swift in Sources */,
+				OBJ_131 /* XCTestManifests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_63 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_64 /* NumpyConversion.swift in Sources */,
+				OBJ_65 /* Python.swift in Sources */,
+				OBJ_66 /* PythonLibrary+Symbols.swift in Sources */,
+				OBJ_67 /* PythonLibrary.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_73 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_74 /* Package.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_79 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_80 /* cow.swift in Sources */,
+				OBJ_81 /* LUDecomposition.swift in Sources */,
+				OBJ_82 /* Laplace2D.swift in Sources */,
+				OBJ_83 /* argmax.swift in Sources */,
+				OBJ_84 /* BandMatrix.swift in Sources */,
+				OBJ_85 /* LowerBandMatrix.swift in Sources */,
+				OBJ_86 /* Matrix.swift in Sources */,
+				OBJ_87 /* DefaultValueInitializable.swift in Sources */,
+				OBJ_88 /* MatrixProtocol.swift in Sources */,
+				OBJ_89 /* Transposable.swift in Sources */,
+				OBJ_90 /* UpperBandMatrix.swift in Sources */,
+				OBJ_91 /* Vector.swift in Sources */,
+				OBJ_92 /* Python.swift in Sources */,
+				OBJ_93 /* time.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		OBJ_107 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "SwifyPy::SwifyPyTests" /* SwifyPyTests */;
+			targetProxy = 37BC860B2422316300686F90 /* PBXContainerItemProxy */;
+		};
+		OBJ_118 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "SwifyPy::SwifyPy" /* SwifyPy */;
+			targetProxy = 37BC86062422316200686F90 /* PBXContainerItemProxy */;
+		};
+		OBJ_119 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "PythonKit::PythonKit" /* PythonKit */;
+			targetProxy = 37BC86082422316200686F90 /* PBXContainerItemProxy */;
+		};
+		OBJ_135 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "SwifyPy::SwifyPy" /* SwifyPy */;
+			targetProxy = 37BC86092422316200686F90 /* PBXContainerItemProxy */;
+		};
+		OBJ_136 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "PythonKit::PythonKit" /* PythonKit */;
+			targetProxy = 37BC860A2422316200686F90 /* PBXContainerItemProxy */;
+		};
+		OBJ_96 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "PythonKit::PythonKit" /* PythonKit */;
+			targetProxy = 37BC86072422316200686F90 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		OBJ_100 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -package-description-version 5.1";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		OBJ_105 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		OBJ_106 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		OBJ_111 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = SwifyPy.xcodeproj/SwifyPyRun_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx @executable_path";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_FORCE_DYNAMIC_LINK_STDLIB = YES;
+				SWIFT_FORCE_STATIC_LINK_STDLIB = NO;
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = SwifyPyRun;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		OBJ_112 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = SwifyPy.xcodeproj/SwifyPyRun_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx @executable_path";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_FORCE_DYNAMIC_LINK_STDLIB = YES;
+				SWIFT_FORCE_STATIC_LINK_STDLIB = NO;
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = SwifyPyRun;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		OBJ_121 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = SwifyPy.xcodeproj/SwifyPyTests_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = SwifyPyTests;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		OBJ_122 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = SwifyPy.xcodeproj/SwifyPyTests_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = SwifyPyTests;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		OBJ_3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"SWIFT_PACKAGE=1",
+					"DEBUG=1",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "$(inherited) -DXcode";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) SWIFT_PACKAGE DEBUG";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				USE_HEADERMAP = NO;
+			};
+			name = Debug;
+		};
+		OBJ_4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"SWIFT_PACKAGE=1",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_SWIFT_FLAGS = "$(inherited) -DXcode";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) SWIFT_PACKAGE";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				USE_HEADERMAP = NO;
+			};
+			name = Release;
+		};
+		OBJ_61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = SwifyPy.xcodeproj/PythonKit_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = PythonKit;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = PythonKit;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		OBJ_62 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = SwifyPy.xcodeproj/PythonKit_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = PythonKit;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = PythonKit;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		OBJ_71 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -package-description-version 5.1";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		OBJ_72 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -package-description-version 5.1";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		OBJ_77 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = SwifyPy.xcodeproj/SwifyPy_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = SwifyPy;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = SwifyPy;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		OBJ_78 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = SwifyPy.xcodeproj/SwifyPy_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = SwifyPy;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = SwifyPy;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		OBJ_99 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -package-description-version 5.1";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		OBJ_104 /* Build configuration list for PBXAggregateTarget "SwifyPyPackageTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_105 /* Debug */,
+				OBJ_106 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_110 /* Build configuration list for PBXNativeTarget "SwifyPyRun" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_111 /* Debug */,
+				OBJ_112 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_120 /* Build configuration list for PBXNativeTarget "SwifyPyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_121 /* Debug */,
+				OBJ_122 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_2 /* Build configuration list for PBXProject "SwifyPy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_3 /* Debug */,
+				OBJ_4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_60 /* Build configuration list for PBXNativeTarget "PythonKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_61 /* Debug */,
+				OBJ_62 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_70 /* Build configuration list for PBXNativeTarget "PythonKitPackageDescription" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_71 /* Debug */,
+				OBJ_72 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_76 /* Build configuration list for PBXNativeTarget "SwifyPy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_77 /* Debug */,
+				OBJ_78 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_98 /* Build configuration list for PBXNativeTarget "SwifyPyPackageDescription" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_99 /* Debug */,
+				OBJ_100 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = OBJ_1 /* Project object */;
 }

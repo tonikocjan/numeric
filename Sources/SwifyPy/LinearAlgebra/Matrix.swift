@@ -76,7 +76,7 @@ extension Matrix: DefaultValueInitializable {
 
 // MARK: - API
 public extension Matrix {
-    /// Width of the matrix (same as `height`).
+  /// Width of the matrix (same as `height`).
   var width: Int { storage.size!.width }
   
   /// Height of the matrix.
@@ -122,7 +122,6 @@ public extension Matrix {
     }
     return transposed
   }
-  
   
   /**
    Compute `identity` matrix with the given size.
