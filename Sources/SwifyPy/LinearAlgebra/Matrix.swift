@@ -53,6 +53,7 @@ public struct Matrix<T: Mathable>: MatrixProtocol, Transposable {
     self.storage = .init(elements: elements,
                          size: (width: elements.first?.count ?? 0, height: elements.count))
   }
+  
   public init(arrayLiteral elements: Vector<T>...) {
     self.init(arrayLiteral: elements)
   }
@@ -138,6 +139,18 @@ public extension Matrix {
       vec[$0] = 1
       return vec
     }
+  }
+}
+
+public extension Matrix where Value == Double {
+  static func random(width: Int, height: Int) -> Self {
+    var matrix = Matrix(width: width, height: height)
+    for i in 0..<height {
+      for j in 0..<height {
+        matrix[i, j] = .random(in: 0...1)
+      }
+    }
+    return matrix
   }
 }
 

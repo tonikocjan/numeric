@@ -8,21 +8,24 @@
 import Foundation
 import PythonKit
 
-public typealias PythonObject = PythonKit.PythonObject
-
-public func pyImport(_ name: String) -> PythonObject {
+func pyImport(_ name: String) -> PythonObject {
   try! Python.attemptImport(name)
 }
 
 public let sys = pyImport("sys")
-public let matplotlib = pyImport("matplotlib")
+let matplotlib = pyImport("matplotlib")
 
 /// Draw 3D surface.
 public func surface<M: MatrixProtocol>(x: M.Vector, y: M.Vector, Z: M) where M.Value: PythonConvertible {
   let mplot3d = pyImport("mpl_toolkits.mplot3d")
   _ = mplot3d.Axes3D
   
+  #if os(macOS)
+  // NOTE: - having issues with other backends on macOS,
+  // tested on Ubuntu and it works with default backend!
   matplotlib.use("WebAgg")
+  #endif
+  
   let plt = try! Python.attemptImport("matplotlib.pyplot")
   let cm = pyImport("matplotlib.cm")
   let np = pyImport("numpy")

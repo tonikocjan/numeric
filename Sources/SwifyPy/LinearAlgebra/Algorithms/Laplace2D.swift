@@ -31,7 +31,7 @@ func LinRange(from: Double, to: Double, steps: Int) -> [Double] {
   let step = (to - from) / Double(steps - 1)
   var range: [Double] = []
   for i in 0..<steps {
-    range.append(step * Double(i))
+    range.append(from + step * Double(i))
   }
   return range
 }

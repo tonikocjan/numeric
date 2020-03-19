@@ -133,3 +133,25 @@ class LowerBandMatrixTests: XCTestCase {
     XCTAssertEqual(1, matrix[0, 0])
   }
 }
+
+// MARK: - LUDecomposition tests
+extension LowerBandMatrixTests {
+  func testDiagonal4x4Decomposition() {
+    let matrix: LowerBandMatrix = [
+      [1, 3, 5, 7]
+    ]
+    let (L, U) = LUDecomposition(matrix)
+    XCTAssertEqual([[1, 1, 1, 1]], L, accuracy: 10e-4)
+    XCTAssertEqual([[1, 3, 5, 7]], U, accuracy: 10e-4)
+  }
+  
+  func testBidiagonal4x4Decomposition() {
+    let matrix: LowerBandMatrix = [
+      [1, 3, 5, 7],
+      [2, 4, 6]
+    ]
+    let (L, U) = LUDecomposition(matrix)
+    XCTAssertEqual([[1, 1, 1, 1], [2, 1.3333, 1.2]], L, accuracy: 10e-4)
+    XCTAssertEqual([[1, 3, 5, 7]], U, accuracy: 10e-4)
+  }
+}
