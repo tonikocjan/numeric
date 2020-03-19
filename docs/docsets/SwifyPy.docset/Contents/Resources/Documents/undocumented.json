@@ -1,0 +1,166 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/tonikocjan/swift/nummat-1920/src/Dn1-toni/Numeric/Sources/SwifyPy/LinearAlgebra/BandMatrix.swift",
+      "line": 11,
+      "symbol": "BandMatrixProtocol",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tonikocjan/swift/nummat-1920/src/Dn1-toni/Numeric/Sources/SwifyPy/LinearAlgebra/BandMatrix.swift",
+      "line": 12,
+      "symbol": "BandMatrixProtocol.bandwidth",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tonikocjan/swift/nummat-1920/src/Dn1-toni/Numeric/Sources/SwifyPy/LinearAlgebra/BandMatrix.swift",
+      "line": 13,
+      "symbol": "BandMatrixProtocol.isDiagonallyDominant",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tonikocjan/swift/nummat-1920/src/Dn1-toni/Numeric/Sources/SwifyPy/LinearAlgebra/BandMatrix.swift",
+      "line": 14,
+      "symbol": "BandMatrixProtocol.band(at:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tonikocjan/swift/nummat-1920/src/Dn1-toni/Numeric/Sources/SwifyPy/LinearAlgebra/Protocols/MatrixProtocol.swift",
+      "line": 11,
+      "symbol": "Mathable",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tonikocjan/swift/nummat-1920/src/Dn1-toni/Numeric/Sources/SwifyPy/LinearAlgebra/Protocols/MatrixProtocol.swift",
+      "line": 20,
+      "symbol": "MatrixProtocol.Vector",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tonikocjan/swift/nummat-1920/src/Dn1-toni/Numeric/Sources/SwifyPy/LinearAlgebra/Protocols/MatrixProtocol.swift",
+      "line": 37,
+      "symbol": "MatrixProtocol.init(arrayLiteral:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tonikocjan/swift/nummat-1920/src/Dn1-toni/Numeric/Sources/SwifyPy/LinearAlgebra/Protocols/MatrixProtocol.swift",
+      "line": 83,
+      "symbol": "MatrixProtocol.index(after:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tonikocjan/swift/nummat-1920/src/Dn1-toni/Numeric/Sources/SwifyPy/LinearAlgebra/Protocols/MatrixProtocol.swift",
+      "line": 256,
+      "symbol": "*(_:_:)",
+      "symbol_kind": "source.lang.swift.decl.function.free",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tonikocjan/swift/nummat-1920/src/Dn1-toni/Numeric/Sources/SwifyPy/LinearAlgebra/Protocols/MatrixProtocol.swift",
+      "line": 295,
+      "symbol": "Zip2Sequence.Matrix",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tonikocjan/swift/nummat-1920/src/Dn1-toni/Numeric/Sources/SwifyPy/LinearAlgebra/Protocols/MatrixProtocol.swift",
+      "line": 296,
+      "symbol": "Zip2Sequence.Vec",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tonikocjan/swift/nummat-1920/src/Dn1-toni/Numeric/Sources/SwifyPy/LinearAlgebra/Protocols/MatrixProtocol.swift",
+      "line": 298,
+      "symbol": "Zip2Sequence.map(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tonikocjan/swift/nummat-1920/src/Dn1-toni/Numeric/Sources/SwifyPy/LinearAlgebra/Protocols/MatrixProtocol.swift",
+      "line": 304,
+      "symbol": "Collection.map(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tonikocjan/swift/nummat-1920/src/Dn1-toni/Numeric/Sources/SwifyPy/LinearAlgebra/Protocols/Transposable.swift",
+      "line": 41,
+      "symbol": "MatrixProtocol.columnMap(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tonikocjan/swift/nummat-1920/src/Dn1-toni/Numeric/Sources/SwifyPy/LinearAlgebra/Protocols/Transposable.swift",
+      "line": 45,
+      "symbol": "MatrixProtocol.columnMap(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tonikocjan/swift/nummat-1920/src/Dn1-toni/Numeric/Sources/SwifyPy/LinearAlgebra/Protocols/Transposable.swift",
+      "line": 49,
+      "symbol": "MatrixProtocol.columnFilter(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tonikocjan/swift/nummat-1920/src/Dn1-toni/Numeric/Sources/SwifyPy/LinearAlgebra/Protocols/Transposable.swift",
+      "line": 53,
+      "symbol": "MatrixProtocol.columnFilter(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tonikocjan/swift/nummat-1920/src/Dn1-toni/Numeric/Sources/SwifyPy/LinearAlgebra/Protocols/Transposable.swift",
+      "line": 57,
+      "symbol": "MatrixProtocol.columnReduce(_:nextPartialResult:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tonikocjan/swift/nummat-1920/src/Dn1-toni/Numeric/Sources/SwifyPy/LinearAlgebra/Vector.swift",
+      "line": 346,
+      "symbol": "Zip2Sequence.map(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tonikocjan/swift/nummat-1920/src/Dn1-toni/Numeric/Sources/SwifyPy/LinearAlgebra/Vector.swift",
+      "line": 352,
+      "symbol": "Collection.map(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tonikocjan/swift/nummat-1920/src/Dn1-toni/Numeric/Sources/SwifyPy/Python/Python.swift",
+      "line": 15,
+      "symbol": "sys",
+      "symbol_kind": "source.lang.swift.decl.var.global",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tonikocjan/swift/nummat-1920/src/Dn1-toni/Numeric/Sources/SwifyPy/Time/time.swift",
+      "line": 16,
+      "symbol": "timePerformance(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.free",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tonikocjan/swift/nummat-1920/src/Dn1-toni/Numeric/Sources/SwifyPy/Time/time.swift",
+      "line": 22,
+      "symbol": "timePerformance(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.free",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/tonikocjan/swift/nummat-1920/src/Dn1-toni/Numeric"
+}

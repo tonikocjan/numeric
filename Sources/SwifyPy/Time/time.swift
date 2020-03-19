@@ -7,15 +7,21 @@
 
 import Foundation
 
+#if os(macOS)
+let currentTime: () -> Double = CFAbsoluteTimeGetCurrent
+#else
+let currentTime: () -> Double = { Date().timeIntervalSince1970 }
+#endif
+
 public func timePerformance(_ execute: () -> Void) -> Double {
-  let startTime = CFAbsoluteTimeGetCurrent()
+  let startTime = currentTime()
   execute()
-  return CFAbsoluteTimeGetCurrent() - startTime
+  return currentTime() - startTime
 }
 
 public func timePerformance<T>(_ execute: () -> T) -> (time: Double, result: T) {
-  let startTime = CFAbsoluteTimeGetCurrent()
+  let startTime = currentTime()
   let result = execute()
-  let time = CFAbsoluteTimeGetCurrent() - startTime
+  let time = currentTime() - startTime
   return (time, result)
 }

@@ -7,6 +7,8 @@ func neg(_ f: @escaping (Double) -> Double) -> (Double) -> Double {
   { -f($0) }
 }
 
+print("Starting ...")
+
 let (time, (Z, x, y)) = timePerformance {
   Laplace2D.solveBoundaryProblem(fs: sin,
                                  fd: neg(sin),

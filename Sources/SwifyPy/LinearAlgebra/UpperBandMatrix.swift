@@ -36,7 +36,7 @@ public struct UpperBandMatrix<T: Mathable>: BandMatrixProtocol {
   /**
    Initialize a new **Upper Band** matrix from the given `elements`.
    
-   It is expected that provided vectors represent each non-empty diagonal.
+   It is expected that provided vectors represent each non-zero diagonal.
   
    It is required that each vector in `elements` must be one element shorter than it's predecesor.
    
@@ -251,6 +251,49 @@ public func *<T: Mathable>(_ A: UpperBandMatrix<T>, _ x: Vector<T>) -> Vector<T>
     }
   }
   return result
+}
+
+/**
+ # Linear system of equations.
+
+ Solve equation of form Ax = b where A is a matrix of coefficients of the system and b are the constant terms.
+
+ - Parameters:
+     - b: Vector containing constant terms.
+     - A: Matrix containing coefficients of the system.
+
+ - Returns: A vector `x` containing a solution (if it exists), such that Ax = b.
+*/
+public func !/<T: Mathable>(_ b: Vector<T>, _ A: UpperBandMatrix<T>) -> Vector<T> {
+  assert(b.count == A.width)
+  return leftDivision(LUDecomposition(A), rhs: b)
+}
+
+/**
+ # LU decomposition
+ 
+ In numerical analysis and linear algebra, lower–upper (LU) decomposition or factorization factors a matrix
+ as the product of a lower triangular matrix and an upper triangular matrix.
+ LU decomposition can be viewed as the matrix form of Gaussian elimination. Square systems of linear equations are
+ usually solved using LU decomposition by computers.
+ 
+ - Parameter matrix: A matrix.
+ 
+ - Returns: A tuple containing lower-triangular and upper-triangular matrix, such that A = LU.
+ */
+public func LUDecomposition<T: Mathable>(_ matrix: UpperBandMatrix<T>) -> (L: LowerBandMatrix<T>, U: UpperBandMatrix<T>) {
+  matrix.LUDecomposition()
+}
+
+/// Hidden implementation details.
+
+/// This are optimized versions of the algorithms, taking advantage of the fact
+/// that Band Matrix is a sparse matrix.
+extension UpperBandMatrix {
+  func LUDecomposition() -> (L: LowerBandMatrix<T>, U: UpperBandMatrix<T>) {
+    LU_ITERATIONS_COUNT = 0
+    return (L: .identity(width), U: self)
+  }
 }
 
 /// --------

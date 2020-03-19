@@ -244,14 +244,14 @@ public func *<M: MatrixProtocol>(_ A: M, _ x: M.Vector) -> M.Vector {
  
  - Returns: Matrix product of two matrices.
  */
-public func *<M: MatrixProtocol & Transposable>(_ m1: M, _ m2: M) -> Matrix<M.Value> {
-  // multiplication implemented functionaly
-  assert(m1.width == m2.height)
-  assert(m1.height == m2.width)
-  return m1.map { v1 in
-    Vector(arrayLiteral: m2.columnMap { v1.dot($0) })
-  }
-}
+//public func *<M: MatrixProtocol & Transposable>(_ m1: M, _ m2: M) -> Matrix<M.Value> {
+//  // multiplication implemented functionaly
+//  assert(m1.width == m2.height)
+//  assert(m1.height == m2.width)
+//  return m1.map { v1 in
+//    Vector(arrayLiteral: m2.columnMap { v1.dot($0) })
+//  }
+//}
 
 public func *<M: MatrixProtocol>(_ m1: M, _ m2: M) -> Matrix<M.Value> {
   // multiplication implemented proceduraly

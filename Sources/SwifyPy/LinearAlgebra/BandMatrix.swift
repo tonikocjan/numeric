@@ -314,11 +314,12 @@ public func *<T: Mathable>(_ lhs: BandMatrix<T>, _ rhs: Vector<T>) -> Vector<T> 
  - Returns: A vector `x` containing a solution (if it exists), such that Ax = b.
 */
 public func !/<T: Mathable>(_ b: Vector<T>, _ A: BandMatrix<T>) -> Vector<T> {
-  A.leftDivision(with: b)
+  assert(b.count == A.width)
+  return leftDivision(LUDecomposition(A), rhs: b)
 }
 
 /**
- #LU decomposition
+ # LU decomposition
  
  In numerical analysis and linear algebra, lower–upper (LU) decomposition or factorization factors a matrix
  as the product of a lower triangular matrix and an upper triangular matrix.
@@ -394,39 +395,37 @@ extension BandMatrix {
     
     return (L: lower, U: upper)
   }
-  
-  func leftDivision(with rhs: Vector<Value>) -> Vector<Value> {
-    assert(rhs.count == self.width)
-    
-    let (L, U) = self.LUDecomposition()
-    
-    func valueAt(_ i: Int, _ j: Int) -> T {
-      if i > j {
-        return L[i, j]
-      }
-      return U[i, j]
-    }
-    
-    let n = self.width
+}
 
-    var y = Vector.ones(n)
-    for i in 1..<n {
-      var row = T.zero
-      for j in Swift.max(0, i - lower.bandwidth)..<i {
-        row += -valueAt(i, j) * y[j]
-      }
-      y[i] = row + rhs[i]
+func leftDivision<T: Mathable>(_ decomposed: (LowerBandMatrix<T>, UpperBandMatrix<T>), rhs: Vector<T>) -> Vector<T> {
+  let (L, U) = decomposed
+  
+  func valueAt(_ i: Int, _ j: Int) -> T {
+    if i > j {
+      return L[i, j]
     }
-    
-    var x = Vector.zeros(n)
-    for i in stride(from: n - 1, to: -1, by: -1) {
-      let from = Swift.min(n - 1, i + upper.bandwidth - 1)
-      for j in stride(from: from, to: i, by: -1) {
-        x[i] += -valueAt(i, j) * x[j]
-      }
-      x[i] = (y[i] + x[i]) / valueAt(i, i)
-    }
-    
-    return x
+    return U[i, j]
   }
+  
+  let n = rhs.count
+
+  var y = Vector<T>.ones(n)
+  for i in 1..<n {
+    var row = T.zero
+    for j in Swift.max(0, i - L.bandwidth)..<i {
+      row += -valueAt(i, j) * y[j]
+    }
+    y[i] = row + rhs[i]
+  }
+  
+  var x = Vector<T>.zeros(n)
+  for i in stride(from: n - 1, to: -1, by: -1) {
+    let from = Swift.min(n - 1, i + U.bandwidth - 1)
+    for j in stride(from: from, to: i, by: -1) {
+      x[i] += -valueAt(i, j) * x[j]
+    }
+    x[i] = (y[i] + x[i]) / valueAt(i, i)
+  }
+  
+  return x
 }
