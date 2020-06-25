@@ -1,32 +1,51 @@
-import SwifyPy
 import Foundation
+import SwifyPy
+import AppKit
 
-/// Higher-order function transforming input argument into a function
-/// which negates all it's outputs.
-func neg(_ f: @escaping (Double) -> Double) -> (Double) -> Double {
-  { -f($0) }
+class Window: NSWindow {
+  override var acceptsFirstResponder: Bool { true }
 }
 
-print("Starting ...")
-
-let (time, (Z, x, y)) = timePerformance {
-  Laplace2D.solveBoundaryProblem(fs: sin,
-                                 fd: neg(sin),
-                                 fz: sin,
-                                 fl: neg(sin),
-                                 h: 0.075,
-                                 bounds: ((0, .pi), (0, .pi)))
+class View: NSView {
+  var backgroundColor: NSColor? {
+    get { layer.flatMap { $0.backgroundColor }.flatMap { NSColor(cgColor: $0) } }
+    set { layer?.backgroundColor = newValue?.cgColor }
+  }
+  
+  override init(frame frameRect: NSRect) {
+    super.init(frame: frameRect)
+    wantsLayer = true
+    backgroundColor = .white
+  }
+  
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
 }
 
-print("!!! Took \(time) seconds !!!")
+let application = NSApplication.shared
+let screen = NSScreen.screens.first!
+let window = Window(
+  contentRect: screen.frame,
+  styleMask: [.closable, .titled, .resizable],
+  backing: .buffered,
+  defer: false
+)
 
-print(x)
-print()
-print(y)
-print()
-print(Z)
+let contentView = View()
+window.contentView = contentView
+contentView.backgroundColor = .black
 
-print("Python \(sys.version_info.major).\(sys.version_info.minor)")
-print("Python Version: \(sys.version)")
+let simulation = PendulumSimulationView(
+  xAxis: stride(from: -4 * .pi, through: 4 * .pi, by: .pi / 2).map { $0 },
+  yAxis: stride(from: -8, through: 8, by: 1).map { $0 }
+)
+contentView.addSubview(simulation)
+simulation.frame = contentView.frame
 
-surface(x: x, y: y, Z: Z)
+window.title = "Pendulum"
+window.makeKeyAndOrderFront(nil)
+window.makeMain()
+window.acceptsMouseMovedEvents = true
+window.orderFrontRegardless()
+NSApp.run()

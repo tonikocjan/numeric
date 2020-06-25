@@ -45,7 +45,7 @@ func solveLinearSystem<M: MatrixProtocol>(_ A: M, _ v: M.Vector) -> M.Vector {
 
   var y = M.Vector.ones(n)
   for i in 1..<n {
-    var row = M.Value.zero
+    var row = M.Scalar.zero
     for j in 0..<i {
       row += -A[i, j] * y[j]
     }
@@ -63,7 +63,7 @@ func solveLinearSystem<M: MatrixProtocol>(_ A: M, _ v: M.Vector) -> M.Vector {
   return x
 }
 
-var LU_ITERATIONS_COUNT = 0
+public var LU_ITERATIONS_COUNT = 0
 
 func LUDecomposition<M: MatrixProtocol>(_ a: M) -> M {
   assert(a.width == a.height)
@@ -115,7 +115,7 @@ func solveLinearSystem<M: MatrixProtocol>(_ b: M.Vector, _ A: M) -> M.Vector {
 
   var y = M.Vector.ones(n)
   for i in 1..<n {
-    var row = M.Value.zero
+    var row = M.Scalar.zero
     for j in 0..<i {
       row += -A[i, j] * y[j]
     }

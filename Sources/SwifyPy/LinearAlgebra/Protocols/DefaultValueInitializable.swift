@@ -7,11 +7,11 @@
 
 import Foundation
 
-protocol DefaultValueInitializable where Self: MatrixProtocol {
-  init(_ value: Value, width: Int, height: Int)
+public protocol DefaultValueInitializable where Self: MatrixProtocol {
+  init(_ value: Scalar, width: Int, height: Int)
 }
 
-extension DefaultValueInitializable {
+public extension DefaultValueInitializable {
   static func zeros(width: Int, height: Int) -> Self {
     .init(0, width: width, height: height)
   }

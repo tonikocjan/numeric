@@ -190,4 +190,44 @@ class MatrixTests: XCTestCase {
     XCTAssertEqual(0, copy[0, 0])
     XCTAssertEqual(1, matrix[0, 0])
   }
+  
+  func testSubscripts() {
+    let matrix: Matrix = [
+      [1, 2, 3],
+      [4, 5, 6],
+      [7, 8, 9]
+    ]
+    let n = matrix.width
+    
+    XCTAssertEqual([1, 2, 3], matrix[0, 0..<n])
+    XCTAssertEqual([7, 8, 9], matrix[2, 0..<n])
+    XCTAssertEqual([2, 3], matrix[0, 1..<n])
+    XCTAssertEqual([2], matrix[0, 1..<n - 1])
+    XCTAssertEqual([1, 4, 7], matrix[0..<n, 0])
+    XCTAssertEqual([3, 6, 9], matrix[0..<n, 2])
+    XCTAssertEqual([4, 7], matrix[1..<n, 0])
+    XCTAssertEqual([4], matrix[1..<n - 1, 0])
+    
+    XCTAssertEqual([1, 2, 3], matrix[0, 0...n-1])
+    XCTAssertEqual([2, 3], matrix[0, 1...n-1])
+    XCTAssertEqual([1, 4, 7], matrix[0...n-1, 0])
+    XCTAssertEqual([4, 7], matrix[1...n-1, 0])
+    
+    XCTAssertEqual([5, 6], matrix[1, 1...])
+    XCTAssertEqual([5, 8], matrix[1..., 1])
+    
+    XCTAssertEqual([4, 5], matrix[1, ..<(n - 1)])
+    XCTAssertEqual([2, 5], matrix[..<(n - 1), 1])
+    
+    XCTAssertEqual([1, 2], matrix[0, ...2])
+    XCTAssertEqual([1, 4], matrix[...2, 0])
+    
+    ///
+    
+    XCTAssertEqual([[1, 2, 3], [4, 5, 6], [7, 8, 9]], matrix[0..<n, 0..<n])
+    XCTAssertEqual([[1, 2], [4, 5]], matrix[0..<n - 1, 0..<n - 1])
+    XCTAssertEqual([[5, 6], [8, 9]], matrix[1..<n, 1..<n])
+    XCTAssertEqual([[5, 6], [8, 9]], matrix[1...n - 1, 1...n - 1])
+    XCTAssertEqual(matrix, Matrix(matrix[0..<n, 0..<n]))
+  }
 }

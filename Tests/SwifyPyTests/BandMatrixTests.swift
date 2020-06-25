@@ -318,7 +318,8 @@ extension BandMatrixTests {
 }
 
 // MARK: - Helper functions
-func XCTAssertEqual<T: Mathable>(_ lhs: LowerBandMatrix<T>, _ rhs: LowerBandMatrix<T>, accuracy: T) {
+
+func XCTAssertEqual<M: MatrixProtocol>(_ lhs: M, _ rhs: M, accuracy: M.Scalar) {
   for i in 0..<lhs.width {
     for j in 0..<lhs.width {
       if abs(lhs[i, j] - rhs[i, j]) > accuracy {
@@ -329,7 +330,7 @@ func XCTAssertEqual<T: Mathable>(_ lhs: LowerBandMatrix<T>, _ rhs: LowerBandMatr
   }
 }
 
-func XCTAssertEqual<T: Mathable>(_ lhs: UpperBandMatrix<T>, _ rhs: UpperBandMatrix<T>, accuracy: T) {
+func XCTAssertEqual<M1: MatrixProtocol, M2: MatrixProtocol>(_ lhs: M1, _ rhs: M2, accuracy: M1.Scalar) where M1.Scalar == M2.Scalar {
   for i in 0..<lhs.width {
     for j in 0..<lhs.width {
       if abs(lhs[i, j] - rhs[i, j]) > accuracy {
@@ -340,11 +341,12 @@ func XCTAssertEqual<T: Mathable>(_ lhs: UpperBandMatrix<T>, _ rhs: UpperBandMatr
   }
 }
 
-func XCTAssertEqual<T: Mathable>(_ lhs: Vector<T>, _ rhs: Vector<T>, accuracy: T) {
+func XCTAssertEqual<T: MatrixScalar>(_ lhs: Vector<T>, _ rhs: Vector<T>, accuracy: T) -> Bool {
   for i in 0..<lhs.count {
     if abs(lhs[i] - rhs[i]) > accuracy {
       XCTFail("\(lhs[i]) is not equal to \(rhs[i]) at index \(i)")
-      return
+      return false
     }
   }
+  return true
 }

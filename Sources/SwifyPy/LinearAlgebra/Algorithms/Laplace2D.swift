@@ -11,7 +11,7 @@ func repeating<T>(_ value: T, _ count: Int) -> [T] {
   .init(repeating: value, count: count)
 }
 
-func ones<T: Mathable>(_ count: Int) -> [T] {
+func ones<T: MatrixScalar>(_ count: Int) -> [T] {
   .init(repeating: 1, count: count)
 }
 
@@ -44,24 +44,24 @@ public enum Laplace2D {
    Compute the approximate solution to the boundary problem for the Laplace equation
    in 2D inside the rectangle bounded by `(a, b) x (c, d)`, where the values on the edges
    are computed with
-       
-       u(x, c) = fs(x)
-       u(b, y) = fd(y)
-       u(x, d) = fz(x)
-       u(a, y) = fl(y)
+   
+   u(x, c) = fs(x)
+   u(b, y) = fd(y)
+   u(x, d) = fz(x)
+   u(a, y) = fl(y)
    
    - Parameters:
-       - fs: Function providing values for bottom edge.
-       - fd: Function providing values for right edge.
-       - fz: Function providing values for top edge.
-       - fl: Function providing values for left edge.
-       - h: The discretization step.
-       - bounds: The rectangular bounds `(a, b) x (c, d)`.
+   - fs: Function providing values for bottom edge.
+   - fd: Function providing values for right edge.
+   - fz: Function providing values for top edge.
+   - fl: Function providing values for left edge.
+   - h: The discretization step.
+   - bounds: The rectangular bounds `(a, b) x (c, d)`.
    
    - Returns:
-       - Z: Matrix containing the solution.
-       - x: Vector representing the x-axis.
-       - x: Vector representing the y-axis.
+   - Z: Matrix containing the solution.
+   - x: Vector representing the x-axis.
+   - x: Vector representing the y-axis.
    */
   public static func solveBoundaryProblem(
     fs: (Double) -> Double,
@@ -120,8 +120,8 @@ extension Laplace2D {
    Compute the coefficients matrix for Laplace operator in 2D inside a rectangular bounds.
    
    - Parameters:
-       - n: Width of the matrix
-       - m: Height of the matrix.
+   - n: Width of the matrix
+   - m: Height of the matrix.
    
    - Returns: A banded matrix that represents the coefficients of the system of equations
    for the discretized Laplace equation.
@@ -144,14 +144,14 @@ extension Laplace2D {
    Compute right-hand-sides for solving the boundary problem for Laplace equation in 2D.
    
    - Parameters:
-       - s: A vector whose values represent bottom edge.
-       - d: A vector whose values represent right edge.
-       - z: A vector whose values represent top edge.
-       - l: A vector whose values represent left edge.
+   - s: A vector whose values represent bottom edge.
+   - d: A vector whose values represent right edge.
+   - z: A vector whose values represent top edge.
+   - l: A vector whose values represent left edge.
    
    - Returns: A vector containing constant terms of the linear system of equations.
    */
-  static func rightHandSides<T: Mathable>(
+  static func rightHandSides<T: MatrixScalar>(
     s: Vector<T>,
     d: Vector<T>,
     z: Vector<T>,

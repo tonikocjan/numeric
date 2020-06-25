@@ -73,6 +73,14 @@ class VectorTests: XCTestCase {
     XCTAssertEqual([1, 2, 3, 4, 5], sqrt(Vector(arrayLiteral: [1, 4, 9, 16, 25])))
   }
   
+  func testRangeSubscript() {
+    let vector: Vector = [1, 2, 3, 4]
+    XCTAssertEqual([1, 2, 3], vector[0..<3])
+    XCTAssertEqual([2, 3, 4], vector[1..<4])
+    XCTAssertEqual([2], vector[1..<2])
+    XCTAssertEqual([2, 3, 4], vector[1...3])
+  }
+  
   func testCopyOnWrite() {
     let v: Vector = [1, 2, 3]
     var copy = v

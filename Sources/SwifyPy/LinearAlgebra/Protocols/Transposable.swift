@@ -58,3 +58,9 @@ public extension MatrixProtocol where Self: Transposable {
     try transposed.reduce(initialResult, nextPartialResult)
   }
 }
+
+public extension MatrixProtocol where Self: Transposable {
+  var isSymmetric: Bool {
+    self == self.transposed
+  }
+}
